@@ -7,6 +7,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
 } from "@remix-run/react";
 
 
@@ -43,7 +44,35 @@ export default function App() {
     </html >
   );
 }
+export function CatchBoundary() {
+  const caught = useCatch();
 
+  return (
+    <html>
+      <head>
+        <title>Error</title>
+        <Meta />
+        <Links />
+      </head>
+      <body className="h-screen w-full bg-[#000614] grid place-content-center">
+        {
+          (caught.status == 404) ?
+            <div className="grid place-items-center">
+              <h2 className="text-white text-[100px] text-center font-bold">404</h2>
+              <p className="text-white text-3xl text-center font-semibold">oops!! page not found.</p>
+              <Link to={"/"} className={"text-white font-medium text-center bg-slate-800 py-2 px-4 mt-4"}>Go to HomePage</Link>
+            </div>
+            :
+            <h1>
+              {caught.status} {caught.statusText}
+            </h1>
+        }
+
+        <Scripts />
+      </body>
+    </html>
+  );
+}
 
 export function ErrorBoundary({ error }: any) {
   return (
