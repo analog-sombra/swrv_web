@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/home/findcampaign.tsx"],
+  "sourcesContent": ["import { CusButton } from \"~/components/utils/buttont\";\r\n\r\nconst FindCampaign = () => {\r\n    return (\r\n        <>\r\n            <div>\r\n                <div className=\"flex\">\r\n                    <div>\r\n                        <h1 className=\"text-2xl font-bold text-black text-left mt-4\">Find campaign</h1>\r\n                        <p className=\"text-md font-normal text-black text-left\">Here you can manage all the campaigns that you are participating in.</p>\r\n                    </div>\r\n\r\n                    <CusButton text=\"Campaign\" fontwidth=\"font-bold\" background=\"bg-cyan-300\" textColor=\"text-black\"></CusButton>\r\n                </div>\r\n            </div>\r\n        </>\r\n    );\r\n}\r\n\r\nexport default FindCampaign;"],
+  "mappings": ";;;;;;;;;AAIQ;AAFR,IAAM,eAAe,MAAM;AACvB,SACI,sFACI,6DAAC,SACG,6DAAC,SAAI,WAAU,QACX;AAAA,uDAAC,SACG;AAAA,yDAAC,QAAG,WAAU,gDAA+C,6BAA7D;AAAA;AAAA;AAAA;AAAA,aAA0E;AAAA,MAC1E,mDAAC,OAAE,WAAU,4CAA2C,oFAAxD;AAAA;AAAA;AAAA;AAAA,aAA4H;AAAA,SAFhI;AAAA;AAAA;AAAA;AAAA,WAGA;AAAA,IAEA,mDAAC,aAAU,MAAK,YAAW,WAAU,aAAY,YAAW,eAAc,WAAU,gBAApF;AAAA;AAAA;AAAA;AAAA,WAAiG;AAAA,OANrG;AAAA;AAAA;AAAA;AAAA,SAOA,KARJ;AAAA;AAAA;AAAA;AAAA,SASA,KAVJ;AAAA;AAAA;AAAA;AAAA,SAWA;AAER;AAEA,IAAO,uBAAQ;",
+  "names": []
+}
