@@ -1,1 +1,0 @@
-import{b as i,d}from"/build/_shared/chunk-HMGBF63H.js";var a=i(d()),e=()=>(0,a.jsx)(a.Fragment,{children:(0,a.jsx)("div",{children:(0,a.jsx)("div",{className:"flex",children:(0,a.jsxs)("div",{children:[(0,a.jsx)("h1",{children:"Find campaign"}),(0,a.jsx)("p",{children:"Here you can manage all the campaigns that you are participating in."})]})})})}),n=e;export{n as default};

@@ -1,6 +1,7 @@
 import { faDraft2digital } from "@fortawesome/free-brands-svg-icons";
 import { IconDefinition, faChevronLeft, faChevronRight, faCircleQuestion, faEnvelope, faFolder, faHandHoldingDollar, faHeart, faPeopleLine, faPhone, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "@remix-run/react";
 import { useContext } from "react";
 import { NavContext } from "~/contexts/navcontext";
 
@@ -17,7 +18,9 @@ export const SideBar = () => {
                         <div className={`w-10 h-10 rounded-xl grid place-items-center text-white text-lg font-bold my-1 bg-[#053497] `}> <FontAwesomeIcon icon={nav?.isNavOpen ? faChevronLeft : faChevronRight}></FontAwesomeIcon> </div>
                     </div>
                     <NavTab title="My campaigns" isOpen={nav?.isNavOpen} isActive={true} icon={faFolder}></NavTab>
-                    <NavTab title="Find campaigns" isOpen={nav?.isNavOpen} isActive={false} icon={faSearch}></NavTab>
+                    <Link to={"./findcampaign"}>
+                        <NavTab title="Find campaigns" isOpen={nav?.isNavOpen} isActive={false} icon={faSearch}></NavTab>
+                    </Link>
                     <NavTab title="Inbox" isOpen={nav?.isNavOpen} isActive={false} icon={faEnvelope}></NavTab>
                     <NavTab title="My earnings" isOpen={nav?.isNavOpen} isActive={false} icon={faHandHoldingDollar}></NavTab>
                     <NavTab title="Drafts" isOpen={nav?.isNavOpen} isActive={false} icon={faDraft2digital}></NavTab>

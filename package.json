@@ -2,8 +2,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "build": "pnpm build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
     "dev": "remix build && run-p \"dev:*\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "dev:node": "cross-env NODE_ENV=development nodemon --require dotenv/config ./server.js --watch ./server.js",
     "dev:remix": "remix watch",
     "start": "cross-env NODE_ENV=production node ./server.js",

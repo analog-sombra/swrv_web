@@ -5,26 +5,15 @@ import { BlogsCard } from "../utils/blogscard";
 import { DownloadApp } from "../utils/downloadapp";
 export const HomeIntro = () => (
     <>
-
-
         <div className="w-full px-6 sm:px-16">
-
-
             <HomeFirst></HomeFirst>
-
             <RelatatinoAndTrust></RelatatinoAndTrust>
             <Market></Market>
-
             <Marketing></Marketing>
             <PowerfullInf></PowerfullInf>
             <ExploreCategory></ExploreCategory>
-
-
             <JoinSwrv></JoinSwrv>
-
             <Blogs></Blogs>
-
-
         </div>
 
     </>
