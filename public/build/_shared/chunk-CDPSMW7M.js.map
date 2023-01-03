@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/contexts/navcontext.ts"],
+  "sourcesContent": ["import { createContext } from \"react\";\r\n\r\ntype TodoContextType = {\r\n    isNavOpen: boolean\r\n    setNavOpen: (val: boolean) => void;\r\n}\r\n\r\nconst NavContext = createContext<TodoContextType>({\r\n    isNavOpen: false,\r\n    setNavOpen: (val) => { }\r\n});\r\n\r\nconst NavContextProvier = NavContext.Provider;\r\nconst NavContextConsumer = NavContext.Consumer;\r\n\r\nexport { NavContext, NavContextConsumer, NavContextProvier };"],
+  "mappings": ";;;;;;AAAA,mBAA8B;AAO9B,IAAM,iBAAa,4BAA+B;AAAA,EAC9C,WAAW;AAAA,EACX,YAAY,CAAC,QAAQ;AAAA,EAAE;AAC3B,CAAC;AAED,IAAM,oBAAoB,WAAW;AACrC,IAAM,qBAAqB,WAAW;",
+  "names": []
+}

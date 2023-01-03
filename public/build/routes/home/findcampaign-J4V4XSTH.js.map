@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/home/findcampaign.tsx"],
+  "sourcesContent": ["const FindCampaign = () => {\r\n    return (\r\n        <>\r\n            <div>\r\n                <div className=\"flex\">\r\n                    <div>\r\n                        <h1>Find campaign</h1>\r\n                        <p>Here you can manage all the campaigns that you are participating in.</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </>\r\n    );\r\n}\r\n\r\nexport default FindCampaign;"],
+  "mappings": ";;;;;;AAEQ;AAFR,IAAM,eAAe,MAAM;AACvB,SACI,sFACI,6DAAC,SACG,6DAAC,SAAI,WAAU,QACX,6DAAC,SACG;AAAA,uDAAC,QAAG,6BAAJ;AAAA;AAAA;AAAA;AAAA,WAAiB;AAAA,IACjB,mDAAC,OAAE,oFAAH;AAAA;AAAA;AAAA;AAAA,WAAuE;AAAA,OAF3E;AAAA;AAAA;AAAA;AAAA,SAGA,KAJJ;AAAA;AAAA;AAAA;AAAA,SAKA,KANJ;AAAA;AAAA;AAAA;AAAA,SAOA,KARJ;AAAA;AAAA;AAAA;AAAA,SASA;AAER;AAEA,IAAO,uBAAQ;",
+  "names": []
+}
