@@ -8,19 +8,23 @@ const UserInputBoxOne = () => {
         <>
             <div className="p-8 w-full">
                 <h1 className="text-2xl text-black font-bold">Tell us about yourself</h1>
-                <div className="flex w-full">
+                <div className="flex w-full md:flex-row flex-col">
                     <div>
-                        <div className="w-56 bg-gray-200 rounded-lg my-6 mr-6 p-4 text-gray-400">
-                            <img src="/images/icons/gallery.png" alt="error" />
-                            <p className="mt-4">
-                                Drop profile photo here.
-                            </p>
-                            <p className="mt-4">
-                                The image should either be jpg
-                                jped or png format and be a maximum size of 5 MB
-                            </p>
-                            <div className="mt-4">
-                                <CusButton text="Upload" textColor={"text-white"} width={'w-full'} background={"bg-gray-400"}></CusButton>
+                        <div className="bg-gray-200 rounded-lg my-6 mr-6 p-4 text-gray-400 flex md:flex-col flex-row w-full md:w-56">
+                            <div>
+                                <img src="/images/icons/gallery.png" alt="error" />
+                            </div>
+                            <div>
+                                <p className="mt-4">
+                                    Drop profile photo here.
+                                </p>
+                                <p className="mt-4">
+                                    The image should either be jpg
+                                    jped or png format and be a maximum size of 5 MB
+                                </p>
+                                <div className="mt-4">
+                                    <CusButton text="Upload" textColor={"text-white"} width={'w-full'} background={"bg-gray-400"}></CusButton>
+                                </div>
                             </div>
                         </div>
                     </div>

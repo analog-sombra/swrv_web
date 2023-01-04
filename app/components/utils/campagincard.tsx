@@ -29,12 +29,12 @@ export const CampaginCard = (props: CampaginCardProps) => {
                     <div className="grow flex items-center">
                         <div className="mx-1">
                             <div className="p-1 border-2 border-blue-500 rounded-full">
-                                <img src="./images/media/youtube.png" alt="error" className="rounded-full w-8 h-8" />
+                                <img src="/images/media/youtube.png" alt="error" className="rounded-full w-8 h-8" />
                             </div>
                         </div>
                         <div className="mx-1">
                             <div className="p-1 border-2 border-blue-500 rounded-full">
-                                <img src="./images/media/instagram.png" alt="error" className="rounded-full w-8 h-8" />
+                                <img src="/images/media/instagram.png" alt="error" className="rounded-full w-8 h-8" />
                             </div>
                         </div>
                     </div>

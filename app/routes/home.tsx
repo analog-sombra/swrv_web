@@ -3,20 +3,19 @@ import { useContext } from "react";
 import { HomeFooter } from "~/components/home/footer/homefooter";
 import { MainNavBar } from "~/components/home/navbar/mainnavbar";
 import { SideBar } from "~/components/home/sidebar/sidebar";
-import { NavContext } from "~/contexts/navcontext";
+import SideBarStore from "~/state/home/sidebarstate";
 
 const HomePage = () => {
-    const nav = useContext(NavContext);
+    const isOpen = SideBarStore((state) => state.isOpen);
     return (
         <>
-            <div className="flex md:relative">
+            <div className="flex md:relative bg-background">
                 <SideBar></SideBar>
-                <div className={`w-full md:grow  md:relative ${nav?.isNavOpen? "md:ml-60": "md:ml-20"}  p-2`}>
+                <div className={`w-full md:grow  md:relative ${isOpen ? "md:ml-60" : "md:ml-20"}  p-2`}>
                     <MainNavBar></MainNavBar>
                     <Outlet />
                     <HomeFooter></HomeFooter>
                 </div>
-
             </div>
         </>
     );

@@ -2,32 +2,44 @@ import { faDraft2digital } from "@fortawesome/free-brands-svg-icons";
 import { IconDefinition, faChevronLeft, faChevronRight, faCircleQuestion, faEnvelope, faFolder, faHandHoldingDollar, faHeart, faPeopleLine, faPhone, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@remix-run/react";
-import { useContext } from "react";
-import { NavContext } from "~/contexts/navcontext";
+import SideBarStore from "~/state/home/sidebarstate";
 
 export const SideBar = () => {
-    const nav = useContext(NavContext);
-
-
+    const isOpen = SideBarStore((state) => state.isOpen);
+    const changeSidebar = SideBarStore((state) => state.change);
     return (
         <>
-            <div className={` ${nav?.isNavOpen ? "w-60" : "w-20"} h-screen p-2 fixed top-0 left-0 md:block hidden`}>
-                <div className="w-full h-full bg-primary rounded-2xl flex flex-col items-center py-8 px-3">
-                    <div onClick={() => { nav?.setNavOpen(!nav.isNavOpen) }} className="w-full flex">
+            <div className={` ${isOpen ? "w-60" : "w-20"} h-screen p-2 fixed top-0 left-0 md:block hidden`}>
+                <div className="w-full h-full bg-primary rounded-2xl flex flex-col py-8 px-3">
+                    <div onClick={() => { changeSidebar(!isOpen) }} className="w-full flex">
                         <div className="grow"></div>
-                        <div className={`w-10 h-10 rounded-xl grid place-items-center text-white text-lg font-bold my-1 bg-[#053497] `}> <FontAwesomeIcon icon={nav?.isNavOpen ? faChevronLeft : faChevronRight}></FontAwesomeIcon> </div>
+                        <div className={`w-10 h-10 rounded-xl grid place-items-center text-white text-lg font-bold my-1 bg-[#053497] `}> <FontAwesomeIcon icon={isOpen ? faChevronLeft : faChevronRight}></FontAwesomeIcon> </div>
                     </div>
-                    <NavTab title="My campaigns" isOpen={nav?.isNavOpen} isActive={true} icon={faFolder}></NavTab>
-                    <Link to={"./findcampaign"}>
-                        <NavTab title="Find campaigns" isOpen={nav?.isNavOpen} isActive={false} icon={faSearch}></NavTab>
+                    <Link to={"/"}>
+                        <NavTab title="My campaigns" isOpen={isOpen} isActive={true} icon={faFolder}></NavTab>
                     </Link>
-                    <NavTab title="Inbox" isOpen={nav?.isNavOpen} isActive={false} icon={faEnvelope}></NavTab>
-                    <NavTab title="My earnings" isOpen={nav?.isNavOpen} isActive={false} icon={faHandHoldingDollar}></NavTab>
-                    <NavTab title="Drafts" isOpen={nav?.isNavOpen} isActive={false} icon={faDraft2digital}></NavTab>
-                    <NavTab title="Favourite" isOpen={nav?.isNavOpen} isActive={false} icon={faHeart}></NavTab>
-                    <NavTab title="Invite" isOpen={nav?.isNavOpen} isActive={false} icon={faPeopleLine}></NavTab>
+                    <Link to={"./findcampaign"}>
+                        <NavTab title="Find campaigns" isOpen={isOpen} isActive={false} icon={faSearch}></NavTab>
+                    </Link>
+                    <Link to={"/"}>
+                        <NavTab title="Inbox" isOpen={isOpen} isActive={false} icon={faEnvelope}></NavTab>
+                    </Link>
+                    <Link to={"/"}>
+                        <NavTab title="My earnings" isOpen={isOpen} isActive={false} icon={faHandHoldingDollar}></NavTab>
+                    </Link>
+                    <Link to={"/"}>
+                        <NavTab title="Drafts" isOpen={isOpen} isActive={false} icon={faDraft2digital}></NavTab>
+                    </Link>
+                    <Link to={"/"}>
+                        <NavTab title="Favourite" isOpen={isOpen} isActive={false} icon={faHeart}></NavTab>
+                    </Link>
+                    <Link to={"/"}>
+                        <NavTab title="Invite" isOpen={isOpen} isActive={false} icon={faPeopleLine}></NavTab>
+                    </Link>
                     <div className="grow"></div>
-                    <NavTab title="Help" isOpen={nav?.isNavOpen} isActive={false} icon={faCircleQuestion}></NavTab>
+                    <Link to={"/"}>
+                        <NavTab title="Help" isOpen={isOpen} isActive={false} icon={faCircleQuestion}></NavTab>
+                    </Link>
                 </div>
             </div>
         </>
@@ -43,7 +55,7 @@ type NavTabProps = {
     fun?: (e: Event) => void
 }
 
-const NavTab = (props: NavTabProps) => {
+export const NavTab = (props: NavTabProps) => {
     return (
         <>
             <div className={`${props.isOpen ? "w-full" : "w-10"} h-10 rounded-xl ${props.isOpen ? "flex items-center " : "grid place-items-center"}  text-white text-lg font-bold my-1 ${props.isActive ? "bg-[#053497]" : ""} ${props.isOpen ? "px-4" : ""}`}> <FontAwesomeIcon icon={props.icon}></FontAwesomeIcon> {props.isOpen ? <p className="ml-4 font-normal text-md">{props.title}</p> : null}  </div>

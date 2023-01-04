@@ -10,8 +10,6 @@ export const HomeFooter = () => {
                     <Link to={"/"} className="text-sm text-gray-600 text-center px-4 font-normal">Terms of use</Link>
                     <Link to={"/"} className="text-sm text-gray-600 text-center px-4 font-normal">Privacy policy</Link>
                 </div>
-
-
             </div>
         </>
     );

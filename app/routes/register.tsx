@@ -1,9 +1,9 @@
-import { NavBar } from "~/components/home/navbar/navbar";
-import { RegisterBox } from "~/components/user/register";
+import { IntroNavBar } from "~/components/home/navbar/intronavbar";
+  import { RegisterBox } from "~/components/user/register";
 const register = () => {
     return (
         <>
-            <NavBar></NavBar>
+            <IntroNavBar></IntroNavBar>
             <RegisterBox></RegisterBox>
         </>
     );
