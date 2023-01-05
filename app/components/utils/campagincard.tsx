@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import { CusButton } from "./buttont";
 
 
@@ -42,7 +43,9 @@ export const CampaginCard = (props: CampaginCardProps) => {
                         <p className="text-black font-bold  text-md text-right my-4">3500 <br />USD / post</p>
                     </div>
                 </div>
-                <CusButton text="Learn more & apply" textColor={"text-black"} background={"bg-[#fbca8e]"} width={"w-full"} margin={"my-0"} fontwidth={"font-bold"}></CusButton>
+                <Link to={"/home/campaigns"}>
+                    <CusButton text="Learn more & apply" textColor={"text-black"} background={"bg-[#fbca8e]"} width={"w-full"} margin={"my-0"} fontwidth={"font-bold"}></CusButton>
+                </Link>
             </div>
         </>
     );

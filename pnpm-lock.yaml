@@ -26,6 +26,7 @@ specifiers:
   postcss: ^8.4.20
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-responsive-modal: ^6.4.1
   react-switch: ^7.0.0
   tailwind-scrollbar: ^2.1.0
   tailwind-scrollbar-hide: ^1.1.7
@@ -50,6 +51,7 @@ dependencies:
   morgan: 1.10.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-responsive-modal: 6.4.1_biqbaboplfbrettd7655fr4n2y
   react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
   tailwind-scrollbar: 2.1.0_tailwindcss@3.2.4
   tailwind-scrollbar-hide: 1.1.7
@@ -1399,6 +1401,23 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
+  /@bedrock-layout/use-forwarded-ref/1.6.1_react@18.2.0:
+    resolution: {integrity: sha512-GD9A9AFLzFNjr7k6fgerSqxfwDWl+wsPS11PErOKe1zkVz0y7RGC9gzlOiX/JrgpyB3NFHWIuGtoOQqifJQQpw==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+    dependencies:
+      '@bedrock-layout/use-stateful-ref': 1.4.1_react@18.2.0
+      react: 18.2.0
+    dev: false
+
+  /@bedrock-layout/use-stateful-ref/1.4.1_react@18.2.0:
+    resolution: {integrity: sha512-4eKO2KdQEXcR5LI4QcxqlJykJUDQJWDeWYAukIn6sRQYoabcfI5kDl61PUi6FR6o8VFgQ8IEP7HleKqWlSe8SQ==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@esbuild-plugins/node-modules-polyfill/0.1.4_esbuild@0.16.3:
     resolution: {integrity: sha512-uZbcXi0zbmKC/050p3gJnne5Qdzw8vkXIv+c2BW0Lsc1ji1SkrxbKPUy5Efr0blbTu1SL8w4eyfpnSdPg3G0Qg==}
     peerDependencies:
@@ -2726,6 +2745,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /body-scroll-lock/3.1.5:
+    resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
+    dev: false
+
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
     dependencies:
@@ -2940,6 +2963,10 @@ packages:
       isobject: 3.0.1
       static-extend: 0.1.2
     dev: true
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -6882,6 +6909,19 @@ packages:
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
     dev: true
+
+  /react-responsive-modal/6.4.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-WVSo4S5Gq7jCzhTbggOxfejnwRLzBGmCdb6DuGoCLUinlaly6l867tJCbxuW96rpcirxSHJ9oPE8TE4TFk3y4Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
+    dependencies:
+      '@bedrock-layout/use-forwarded-ref': 1.6.1_react@18.2.0
+      body-scroll-lock: 3.1.5
+      classnames: 2.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-router-dom/6.5.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-/XzRc5fq80gW1ctiIGilyKFZC/j4kfe75uivMsTChFbkvrK4ZrF3P3cGIc1f/SSkQ4JiJozPrf+AwUHHWVehVg==}

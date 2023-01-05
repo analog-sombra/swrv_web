@@ -26,6 +26,7 @@
     "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-responsive-modal": "^6.4.1",
     "react-switch": "^7.0.0",
     "tailwind-scrollbar": "^2.1.0",
     "tailwind-scrollbar-hide": "^1.1.7",
