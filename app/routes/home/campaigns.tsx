@@ -6,7 +6,7 @@ import { CusButton } from "~/components/utils/buttont";
 const Campaigns = () => {
     return (
         <>
-            <div className="grid gap-4 grid-cols-1 lg:grid-cols-7 mt-4 justify-start align-top content-start place-items-start place-content-start">
+            <div className="grid gap-y-4 lg:gap-4 grid-cols-1 lg:grid-cols-7 mt-4 justify-start align-top content-start place-items-start place-content-start">
                 <BrandInfo></BrandInfo>
                 <CampaignsInfo></CampaignsInfo>
                 <div className="lg:col-start-6 lg:col-end-8 grid gap-y-4 w-full">

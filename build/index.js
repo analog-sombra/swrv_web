@@ -111,7 +111,7 @@ __export(root_exports, {
 var import_react2 = require("@remix-run/react");
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-4ECKSIZS.css";
+var app_default = "/build/_assets/app-B7WS4KDD.css";
 
 // app/root.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
@@ -852,10 +852,17 @@ var import_zustand2 = __toESM(require("zustand")), SideBarStore = (0, import_zus
   change: (value) => set((state) => ({ isOpen: value }))
 })), sidebarstate_default = SideBarStore;
 
+// app/state/navigation/sidebar.ts
+var import_zustand3 = __toESM(require("zustand"));
+var SideBarNavStore = (0, import_zustand3.default)()((set) => ({
+  currentIndex: 0 /* None */,
+  changeTab: (value) => set((state) => ({ currentIndex: value }))
+})), sidebar_default = SideBarNavStore;
+
 // app/components/home/sidebar/sidebar.tsx
 var import_jsx_runtime28 = require("react/jsx-runtime"), SideBar = () => {
-  let isOpen = sidebarstate_default((state) => state.isOpen), changeSidebar = sidebarstate_default((state) => state.change);
-  return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_jsx_runtime28.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: ` ${isOpen ? "w-60" : "w-20"} h-screen p-2 fixed top-0 left-0 md:block hidden`, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "w-full h-full bg-primary rounded-2xl flex flex-col py-8 px-3", children: [
+  let currentPage = sidebar_default((state) => state.currentIndex), sidebar = sidebar_default((state) => state.changeTab), isOpen = sidebarstate_default((state) => state.isOpen), changeSidebar = sidebarstate_default((state) => state.change);
+  return console.log("working"), /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_jsx_runtime28.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: ` ${isOpen ? "w-60" : "w-20"} h-screen p-2 fixed top-0 left-0 md:block hidden`, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "w-full h-full bg-primary rounded-2xl flex flex-col py-8 px-3", children: [
     /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { onClick: () => {
       changeSidebar(!isOpen);
     }, className: "w-full flex", children: [
@@ -866,15 +873,31 @@ var import_jsx_runtime28 = require("react/jsx-runtime"), SideBar = () => {
         " "
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "My campaigns", isOpen, isActive: !0, icon: import_free_solid_svg_icons5.faFolder }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "./findcampaign", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Find campaigns", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faSearch }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Inbox", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faEnvelope }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "My earnings", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faHandHoldingDollar }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Drafts", isOpen, isActive: !1, icon: import_free_brands_svg_icons2.faDraft2digital }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Favourite", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faHeart }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Invite", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faPeopleLine }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/home/mycampaings", onClick: () => {
+      sidebar(1 /* MyCampaigns */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "My campaigns", isOpen, isActive: currentPage === 1 /* MyCampaigns */, icon: import_free_solid_svg_icons5.faFolder }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/home/findcampaign", onClick: () => {
+      sidebar(2 /* FindCampaigns */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Find campaigns", isOpen, isActive: currentPage === 2 /* FindCampaigns */, icon: import_free_solid_svg_icons5.faSearch }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", onClick: () => {
+      sidebar(3 /* Inbox */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Inbox", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faEnvelope }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", onClick: () => {
+      sidebar(4 /* MyEarnings */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "My earnings", isOpen, isActive: currentPage === 4 /* MyEarnings */, icon: import_free_solid_svg_icons5.faHandHoldingDollar }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", onClick: () => {
+      sidebar(5 /* Drafts */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Drafts", isOpen, isActive: currentPage === 5 /* Drafts */, icon: import_free_brands_svg_icons2.faDraft2digital }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/home/favourite", onClick: () => {
+      sidebar(6 /* Favourite */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Favourite", isOpen, isActive: currentPage === 6 /* Favourite */, icon: import_free_solid_svg_icons5.faHeart }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/home/invite", onClick: () => {
+      sidebar(7 /* Invite */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Invite", isOpen, isActive: currentPage === 7 /* Invite */, icon: import_free_solid_svg_icons5.faPeopleLine }) }),
     /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Help", isOpen, isActive: !1, icon: import_free_solid_svg_icons5.faCircleQuestion }) })
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_react10.Link, { to: "/home/help", onClick: () => {
+      sidebar(8 /* Help */), changeSidebar(!1);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(NavTab, { title: "Help", isOpen, isActive: currentPage === 8 /* Help */, icon: import_free_solid_svg_icons5.faCircleQuestion }) })
   ] }) }) });
 }, NavTab = (props) => /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_jsx_runtime28.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: `${props.isOpen ? "w-full" : "w-10"} h-10 rounded-xl ${props.isOpen ? "flex items-center " : "grid place-items-center"}  text-white text-lg font-bold my-1 ${props.isActive ? "bg-[#053497]" : ""} ${props.isOpen ? "px-4" : ""}`, children: [
   " ",
@@ -885,55 +908,76 @@ var import_jsx_runtime28 = require("react/jsx-runtime"), SideBar = () => {
 ] }) });
 
 // app/state/home/mobilenavstate.ts
-var import_zustand3 = __toESM(require("zustand")), MobileNavStore = (0, import_zustand3.default)()((set) => ({
+var import_zustand4 = __toESM(require("zustand")), MobileNavStore = (0, import_zustand4.default)()((set) => ({
   isOpen: !1,
   change: (value) => set((state) => ({ isOpen: value }))
 })), mobilenavstate_default = MobileNavStore;
 
+// app/state/home/notification.ts
+var import_zustand5 = __toESM(require("zustand")), NotificationStore = (0, import_zustand5.default)()((set) => ({
+  isOpen: !1,
+  change: (value) => set((state) => ({ isOpen: value }))
+})), notification_default = NotificationStore;
+
+// app/components/home/notification.tsx
+var import_jsx_runtime29 = require("react/jsx-runtime"), Notification = () => {
+  let open = notification_default((state) => state.isOpen);
+  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_jsx_runtime29.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: `${open ? "block" : "hidden"} absolute w-72 h-80 top-0 right-0 translate-y-16 p-4 bg-white rounded-xl shadow-xl`, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NotificationTab, {}) }) });
+}, notification_default2 = Notification, NotificationTab = () => /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_jsx_runtime29.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "w-full border-b-2 border-gray-400 flex py-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "mr-4", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "w-14 h-14 rounded-lg" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-gray-500 font-semibold text-sm leading-normal w-40", children: "Adidas have created a campaign for you would you like to accept?" })
+] }) });
+
 // app/components/home/navbar/mainnavbar.tsx
-var import_jsx_runtime29 = require("react/jsx-runtime"), MainNavBar = () => {
+var import_jsx_runtime30 = require("react/jsx-runtime"), MainNavBar = () => {
   let isOpen = mobilenavstate_default((state) => state.isOpen), changMenu = mobilenavstate_default((state) => state.change), closeMenu = () => {
     changMenu(!1);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_jsx_runtime29.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "w-full grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "bg-white w-full shadow-xl rounded-2xl ", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "w-full  flex px-4 items-center py-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "mr-4 md:hidden cursor-pointer", onClick: () => {
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_jsx_runtime30.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "w-full grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "bg-white w-full shadow-xl rounded-2xl ", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "w-full  flex px-4 items-center py-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mr-4 md:hidden cursor-pointer", onClick: () => {
         changMenu(!isOpen);
-      }, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react_fontawesome7.FontAwesomeIcon, { className: "text-lg text-primary text-center font-bold", icon: isOpen ? import_free_solid_svg_icons6.faRemove : import_free_solid_svg_icons6.faBars }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex place-items-center rounded-xl items-end mr-6 w-60 ", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.NavLink, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("img", { src: "/images/swrvlogo.png", className: "w-28 inline-block rounded-lg" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { children: "Barnd" })
+      }, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react_fontawesome7.FontAwesomeIcon, { className: "text-lg text-primary text-center font-bold", icon: isOpen ? import_free_solid_svg_icons6.faRemove : import_free_solid_svg_icons6.faBars }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex place-items-center rounded-xl items-end mr-6 w-60 ", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.NavLink, { to: "/", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("img", { src: "/images/swrvlogo.png", className: "w-28 inline-block rounded-lg" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { children: "Barnd" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "grow" }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(MainNavRight, {})
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(MainNavRight, {})
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: `w-full p-2 md:hidden ${isOpen ? "" : "hidden"} `, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "w-full h-full bg-primary rounded-2xl flex flex-col items-center  py-8 px-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "My campaigns", isOpen: !0, isActive: !0, icon: import_free_solid_svg_icons6.faFolder }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "./findcampaign", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "Find campaigns", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faSearch }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "Inbox", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faEnvelope }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "My earnings", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faHandHoldingDollar }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "Drafts", isOpen: !0, isActive: !1, icon: import_free_brands_svg_icons3.faDraft2digital }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "Favourite", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faHeart }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "Invite", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faPeopleLine }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(NavTab, { title: "Help", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faCircleQuestion }) })
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: `w-full p-2 md:hidden ${isOpen ? "" : "hidden"} `, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "w-full h-full bg-primary rounded-2xl flex flex-col items-center  py-8 px-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "My campaigns", isOpen: !0, isActive: !0, icon: import_free_solid_svg_icons6.faFolder }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "./findcampaign", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "Find campaigns", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faSearch }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "Inbox", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faEnvelope }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "My earnings", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faHandHoldingDollar }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "Drafts", isOpen: !0, isActive: !1, icon: import_free_brands_svg_icons3.faDraft2digital }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "Favourite", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faHeart }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "Invite", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faPeopleLine }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react11.Link, { to: "/", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NavTab, { title: "Help", isOpen: !0, isActive: !1, icon: import_free_solid_svg_icons6.faCircleQuestion }) })
     ] }) })
   ] }) }) });
-}, MainNavRight = () => /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_jsx_runtime29.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "md:flex hidden", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_react_fontawesome7.FontAwesomeIcon, { icon: import_free_solid_svg_icons6.faBell }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "h-8 mx-4 bg-primary w-[2px]", children: " " }),
-  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-center text-xs text-black font-normal", children: "ivankbfc@gmail.com" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("img", { src: "/images/inf/inf6.png", alt: "error", className: "w-10 h-10 rounded object-cover" }) })
-] }) });
+}, MainNavRight = () => {
+  let open = notification_default((state) => state.isOpen), changeNotification = notification_default((state) => state.change);
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_jsx_runtime30.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "md:flex hidden", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid place-items-center relative", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { onClick: () => changeNotification(!open), children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react_fontawesome7.FontAwesomeIcon, { icon: import_free_solid_svg_icons6.faBell }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(notification_default2, {})
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "h-8 mx-4 bg-primary w-[2px]", children: " " }),
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "text-center text-xs text-black font-normal", children: "ivankbfc@gmail.com" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("img", { src: "/images/inf/inf6.png", alt: "error", className: "w-10 h-10 rounded object-cover" }) })
+  ] }) });
+};
 
 // app/routes/home.tsx
-var import_jsx_runtime30 = require("react/jsx-runtime"), HomePage = () => {
+var import_jsx_runtime31 = require("react/jsx-runtime"), HomePage = () => {
   let isOpen = sidebarstate_default((state) => state.isOpen);
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_jsx_runtime30.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex md:relative bg-background", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(SideBar, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: `w-full md:grow  md:relative ${isOpen ? "md:ml-60" : "md:ml-20"}  p-2`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(MainNavBar, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_react12.Outlet, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(HomeFooter, {})
+  return /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_jsx_runtime31.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex md:relative bg-background", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(SideBar, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: `w-full md:grow  md:relative ${isOpen ? "md:ml-60" : "md:ml-20"}  p-2`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(MainNavBar, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_react12.Outlet, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(HomeFooter, {})
     ] })
   ] }) });
 }, home_default = HomePage;
@@ -943,28 +987,28 @@ var profilecomplete_exports = {};
 __export(profilecomplete_exports, {
   default: () => profilecomplete_default
 });
-var import_react13 = require("@remix-run/react"), import_jsx_runtime31 = require("react/jsx-runtime"), UserEditBox = () => /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_jsx_runtime31.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "w-full bg-white rounded-xl p-4 shadow-xl mt-6", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "w-full  rounded-lg flex shadow-lg my-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-lg text-center font-medium p-2 bg-secondary text-white w-4/6 rounded-xl", children: "Please complete your profile" }),
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "text-lg text-center font-medium p-2 bg-white text-primary w-4/6 rounded-r-xl", children: "60% completed" })
+var import_react13 = require("@remix-run/react"), import_jsx_runtime32 = require("react/jsx-runtime"), UserEditBox = () => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_jsx_runtime32.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "w-full bg-white rounded-xl p-4 shadow-xl mt-6", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "w-full  rounded-lg flex shadow-lg my-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "text-lg text-center font-medium p-2 bg-secondary text-white w-4/6 rounded-xl", children: "Please complete your profile" }),
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "text-lg text-center font-medium p-2 bg-white text-primary w-4/6 rounded-r-xl", children: "60% completed" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex lg:flex-row flex-col", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "p-6  w-full hidden md:block", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "hidden place-items-center lg:grid ", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("img", { src: "/images/avatar/profile1.png", alt: "error", className: "h-[400px]" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h1", { className: "pt-4 text-3xl text-primary text-left font-semibold", children: "Welcome" }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "pt-2 text-black text-xl font-normal", children: "Thank you for the confirmation, Login with your account and start searching for the brands." })
+  /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "flex lg:flex-row flex-col", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "p-6  w-full hidden md:block", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "hidden place-items-center lg:grid ", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("img", { src: "/images/avatar/profile1.png", alt: "error", className: "h-[400px]" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h1", { className: "pt-4 text-3xl text-primary text-left font-semibold", children: "Welcome" }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "pt-2 text-black text-xl font-normal", children: "Thank you for the confirmation, Login with your account and start searching for the brands." })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "bg-white rounded-xl shadow-xl px-2 py-4 flex flex-row items-center lg:flex-col justify-between", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ProfileCompleteBox, { isActive: !0, positionumber: "01", title: "Info" }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ProfileCompleteBox, { isActive: !1, positionumber: "02", title: "Audience" }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ProfileCompleteBox, { isActive: !1, positionumber: "03", title: "Connect" }),
-      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(ProfileCompleteBox, { isActive: !1, positionumber: "04", title: "Contact" })
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "bg-white rounded-xl shadow-xl px-2 py-4 flex flex-row items-center lg:flex-col justify-between", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ProfileCompleteBox, { isActive: !0, positionumber: "01", title: "Info" }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ProfileCompleteBox, { isActive: !1, positionumber: "02", title: "Audience" }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ProfileCompleteBox, { isActive: !1, positionumber: "03", title: "Connect" }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ProfileCompleteBox, { isActive: !1, positionumber: "04", title: "Contact" })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_react13.Outlet, {})
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_react13.Outlet, {})
   ] })
-] }) }), profilecomplete_default = UserEditBox, ProfileCompleteBox = (props) => /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(import_jsx_runtime31.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "px-3 py-2", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: `grid place-items-center h-14 w-14 shadow-md rounded-md ${props.isActive ? "bg-secondary" : "bg-gray-200"}`, children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: `font-medium text-xl ${props.isActive ? "text-white" : "text-black"}`, children: props.positionumber }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h4", { className: `text-sm text-center ${props.isActive ? "text-black" : "text-gray-500"} mt-2`, children: props.title })
+] }) }), profilecomplete_default = UserEditBox, ProfileCompleteBox = (props) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_jsx_runtime32.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "px-3 py-2", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: `grid place-items-center h-14 w-14 shadow-md rounded-md ${props.isActive ? "bg-secondary" : "bg-gray-200"}`, children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: `font-medium text-xl ${props.isActive ? "text-white" : "text-black"}`, children: props.positionumber }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h4", { className: `text-sm text-center ${props.isActive ? "text-black" : "text-gray-500"} mt-2`, children: props.title })
 ] }) });
 
 // app/routes/home/profilecomplete/secondpage.tsx
@@ -973,18 +1017,18 @@ __export(secondpage_exports, {
   default: () => secondpage_default
 });
 var import_react14 = require("@remix-run/react");
-var import_jsx_runtime32 = require("react/jsx-runtime"), SecondPage = () => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_jsx_runtime32.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "p-8 w-full", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "flex w-full", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "w-full", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-black text-left font-normal text-lg mt-4", children: "Main market" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Other markets" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Category" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Account currency" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Languages" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(import_react14.Link, { to: "/home/profilecomplete/thirdpage", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
+var import_jsx_runtime33 = require("react/jsx-runtime"), SecondPage = () => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_jsx_runtime33.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "p-8 w-full", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "flex w-full", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "w-full", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg mt-4", children: "Main market" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Other markets" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Category" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Account currency" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Languages" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react14.Link, { to: "/home/profilecomplete/thirdpage", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
 ] }) }) }) }), secondpage_default = SecondPage;
 
 // app/routes/home/profilecomplete/forthpage.tsx
@@ -993,27 +1037,27 @@ __export(forthpage_exports, {
   default: () => forthpage_default
 });
 var import_react15 = require("@remix-run/react");
-var import_jsx_runtime33 = require("react/jsx-runtime"), ForthPage = () => {
+var import_jsx_runtime34 = require("react/jsx-runtime"), ForthPage = () => {
   let navigate = (0, import_react15.useNavigate)();
-  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_jsx_runtime33.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "p-8 w-full", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "flex w-full", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "w-full", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg mt-4", children: "Country" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Addrss" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "State/Region" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "City" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Phone number" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex gap-2 mt-4 items-start", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("input", { type: "checkbox", name: "check2" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-left text-[10px] text-black font-normal", children: "The above details are true and correct" })
+  return /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(import_jsx_runtime34.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "p-8 w-full", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "flex w-full", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "w-full", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "text-black text-left font-normal text-lg mt-4", children: "Country" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Addrss" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "State/Region" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "City" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Phone number" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "flex gap-2 mt-4 items-start", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "checkbox", name: "check2" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("p", { className: "text-left text-[10px] text-black font-normal", children: "The above details are true and correct" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { onClick: () => navigate(-1), className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CusButton, { text: "back", textColor: "text-black", width: "w-full", background: "bg-gray-200", fontwidth: "font-bold" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "w-10" }),
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react15.Link, { to: "/home", className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "flex", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { onClick: () => navigate(-1), className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(CusButton, { text: "back", textColor: "text-black", width: "w-full", background: "bg-gray-200", fontwidth: "font-bold" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "w-10" }),
+      /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(import_react15.Link, { to: "/home", className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
     ] })
   ] }) }) }) });
 }, forthpage_default = ForthPage;
@@ -1024,21 +1068,23 @@ __export(thirdpage_exports, {
   default: () => thirdpage_default
 });
 var import_react16 = require("@remix-run/react");
-var import_jsx_runtime34 = require("react/jsx-runtime"), ThirdPage = () => /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(import_jsx_runtime34.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "p-8 w-full", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("h1", { className: "text-2xl text-black font-bold", children: "Channels" }),
-  /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "flex content-center items-center gap-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "w-8 h-8" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("img", { src: "/images/media/facebook.png", alt: "error", className: "w-8 h-8" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "w-8 h-8" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("img", { src: "/images/media/snapchat.png", alt: "error", className: "w-8 h-8" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("img", { src: "/images/media/twitter.png", alt: "error", className: "w-8 h-8" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(CusButton, { text: "Add new Channel", textColor: "text-white", width: "w-36", background: "bg-primary", fontwidth: "font-normal", textSize: "text-md" })
+var import_jsx_runtime35 = require("react/jsx-runtime"), ThirdPage = () => /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_jsx_runtime35.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-8 w-full", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h1", { className: "text-2xl text-black font-bold", children: "Channels" }),
+  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "flex content-center items-center gap-2 flex-col md:flex-row mt-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "flex w-full justify-around md:w-auto", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "w-8 h-8" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("img", { src: "/images/media/facebook.png", alt: "error", className: "w-8 h-8" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "w-8 h-8" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("img", { src: "/images/media/snapchat.png", alt: "error", className: "w-8 h-8" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("img", { src: "/images/media/twitter.png", alt: "error", className: "w-8 h-8" }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "grow hidden md:block" }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CusButton, { text: "Add new Channel", textColor: "text-white", width: "w-36", background: "bg-primary", fontwidth: "font-normal", textSize: "text-md" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "flex w-full", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "w-full", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2 mt-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2 mt-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(import_react16.Link, { to: "/home/profilecomplete/forthpage", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
+  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "flex w-full", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "w-full", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2 mt-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2 mt-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react16.Link, { to: "/home/profilecomplete/forthpage", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
   ] }) })
 ] }) }), thirdpage_default = ThirdPage;
 
@@ -1048,31 +1094,31 @@ __export(profilecomplete_exports2, {
   default: () => profilecomplete_default2
 });
 var import_react17 = require("@remix-run/react");
-var import_jsx_runtime35 = require("react/jsx-runtime"), UserInputBoxOne = () => /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_jsx_runtime35.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "p-8 w-full", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("h1", { className: "text-2xl text-black font-bold", children: "Tell us about yourself" }),
-  /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "flex w-full md:flex-row flex-col", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "bg-gray-200 rounded-lg my-6 mr-6 p-4 text-gray-400 flex md:flex-col flex-row w-full md:w-56", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("img", { src: "/images/icons/gallery.png", alt: "error" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "mt-4", children: "Drop profile photo here." }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "mt-4", children: "The image should either be jpg jped or png format and be a maximum size of 5 MB" }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("div", { className: "mt-4", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CusButton, { text: "Upload", textColor: "text-white", width: "w-full", background: "bg-gray-400" }) })
+var import_jsx_runtime36 = require("react/jsx-runtime"), UserInputBoxOne = () => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_jsx_runtime36.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "p-8 w-full", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("h1", { className: "text-2xl text-black font-bold", children: "Tell us about yourself" }),
+  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "flex w-full md:flex-row flex-col", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "bg-gray-200 rounded-lg my-6 mr-6 p-4 text-gray-400 flex md:flex-col flex-row w-full md:w-56", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("img", { src: "/images/icons/gallery.png", alt: "error" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "mt-4", children: "Drop profile photo here." }),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "mt-4", children: "The image should either be jpg jped or png format and be a maximum size of 5 MB" }),
+        /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "mt-4", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CusButton, { text: "Upload", textColor: "text-white", width: "w-full", background: "bg-gray-400" }) })
       ] })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)("div", { className: "w-full", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-black text-left font-normal text-lg mt-4", children: "Email" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Last Name" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Nickname" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Date of birth" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Gender" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Bio" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)("textarea", { className: "p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/home/profilecomplete/secondpage", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "w-full", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black text-left font-normal text-lg mt-4", children: "Email" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Last Name" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Nickname" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Date of birth" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Gender" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black text-left font-normal text-lg  mt-4", children: "Bio" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("textarea", { className: "p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" }),
+      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react17.Link, { to: "/home/profilecomplete/secondpage", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CusButton, { text: "Next", textColor: "text-white", width: "w-full", background: "bg-primary", fontwidth: "font-bold" }) })
     ] })
   ] })
 ] }) }), profilecomplete_default2 = UserInputBoxOne;
@@ -1087,159 +1133,117 @@ var import_react_switch = __toESM(require("react-switch")), import_react19 = req
 
 // app/components/utils/campagincard.tsx
 var import_react18 = require("@remix-run/react");
-var import_jsx_runtime36 = require("react/jsx-runtime"), CampaginCard = (props) => /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_jsx_runtime36.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-72 my-2", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "flex items-end gap-x-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("img", { src: props.image, alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: props.name })
+var import_jsx_runtime37 = require("react/jsx-runtime"), CampaginCard = (props) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_jsx_runtime37.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-72 my-2", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex items-end gap-x-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: props.image, alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: props.name })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "w-full h-[1px] bg-black my-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" })
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "w-full h-[1px] bg-black my-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" }),
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "grow flex items-center", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "rounded-full w-8 h-8" }) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "rounded-full w-8 h-8" }) }) })
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "grow flex items-center", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "rounded-full w-8 h-8" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "rounded-full w-8 h-8" }) }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("p", { className: "text-black font-bold  text-md text-right my-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("p", { className: "text-black font-bold  text-md text-right my-4", children: [
       "3500 ",
-      /* @__PURE__ */ (0, import_jsx_runtime36.jsx)("br", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("br", {}),
       "USD / post"
     ] }) })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_react18.Link, { to: "/home/campaigns", children: /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(CusButton, { text: "Learn more & apply", textColor: "text-black", background: "bg-[#fbca8e]", width: "w-full", margin: "my-0", fontwidth: "font-bold" }) })
+  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_react18.Link, { to: "/home/campaigns", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CusButton, { text: "Learn more & apply", textColor: "text-black", background: "bg-[#fbca8e]", width: "w-full", margin: "my-0", fontwidth: "font-bold" }) })
 ] }) });
 
 // app/routes/home/findcampaign.tsx
-var import_jsx_runtime37 = require("react/jsx-runtime"), FindCampaign = () => {
+var import_jsx_runtime38 = require("react/jsx-runtime"), FindCampaign = () => {
   let [active, setActive] = (0, import_react19.useState)(!1);
-  return /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_jsx_runtime37.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex my-6 md:flex-row flex-col", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-2xl font-bold text-black text-left mt-4", children: "Find campaign" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-md font-normal text-black text-left", children: "Here you can manage all the campaigns that you are participating in." })
+  return /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_jsx_runtime38.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex my-6 md:flex-row flex-col", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h1", { className: "text-2xl font-bold text-black text-left mt-4", children: "Find campaign" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-md font-normal text-black text-left", children: "Here you can manage all the campaigns that you are participating in." })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "hidden md:block md:grow" }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex justify-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CusButton, { height: "h-12", text: "Campaign", fontwidth: "font-bold", background: "bg-cyan-300", textColor: "text-black" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "w-8" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CusButton, { height: "h-12", text: "Brand", fontwidth: "font-bold", background: "bg-gray-300", textColor: "text-gray-600" })
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "hidden md:block md:grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex justify-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CusButton, { height: "h-12", text: "Campaign", fontwidth: "font-bold", background: "bg-cyan-300", textColor: "text-black" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "w-8" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CusButton, { height: "h-12", text: "Brand", fontwidth: "font-bold", background: "bg-gray-300", textColor: "text-gray-600" })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "rounded-xl shadow-xl p-6 bg-white", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex px-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h2", { className: "text-black text-xl text-left font-bold", children: "Filter" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "grow" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("button", { className: "bg-gray-200  rounded-md px-4 py-1 font-medium text-md text-center", children: "Save Filter" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "w-6" }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("button", { className: "bg-gray-200  rounded-md px-4 py-1 font-medium text-md text-center", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "rounded-xl shadow-xl p-6 bg-white", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex px-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h2", { className: "text-black text-xl text-left font-bold", children: "Filter" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("button", { className: "bg-gray-200  rounded-md px-4 py-1 font-medium text-md text-center", children: "Save Filter" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "w-6" }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("button", { className: "bg-gray-200  rounded-md px-4 py-1 font-medium text-md text-center", children: [
           "Saved filter ",
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_react_fontawesome8.FontAwesomeIcon, { icon: import_free_solid_svg_icons7.faSortDown }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react_fontawesome8.FontAwesomeIcon, { icon: import_free_solid_svg_icons7.faSortDown }),
           " "
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-y-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "px-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-primary text-lg font-bold mb", children: "Select" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2", placeholder: "Unboxing or Review Posts" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex mt-8", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_react_switch.default, { onChange: () => setActive(!active), checked: active, checkedIcon: !1, uncheckedIcon: !1, onColor: "#03125E" }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("p", { className: "text-primary font-bold text-ld ml-2", children: "Show only active campaigns" })
+      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-y-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "px-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h1", { className: "text-primary text-lg font-bold mb", children: "Select" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2", placeholder: "Unboxing or Review Posts" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex mt-8", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react_switch.default, { onChange: () => setActive(!active), checked: active, checkedIcon: !1, uncheckedIcon: !1, onColor: "#03125E" }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-primary font-bold text-ld ml-2", children: "Show only active campaigns" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "px-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-primary text-lg font-bold mb", children: "Channels" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "w-8 h-8 rounded-full" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/facebook.png", alt: "error", className: "w-8 h-8  rounded-full" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "w-8 h-8  rounded-full" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/snapchat.png", alt: "error", className: "w-8 h-8  rounded-full" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: "/images/media/twitter.png", alt: "error", className: "w-8 h-8  rounded-full" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "px-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h1", { className: "text-primary text-lg font-bold mb", children: "Channels" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "w-8 h-8 rounded-full" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/facebook.png", alt: "error", className: "w-8 h-8  rounded-full" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "w-8 h-8  rounded-full" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/snapchat.png", alt: "error", className: "w-8 h-8  rounded-full" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-2", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/twitter.png", alt: "error", className: "w-8 h-8  rounded-full" }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "px-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("h1", { className: "text-primary text-lg font-bold mb", children: "Country" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "flex mt-4 items-center", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "text-primary text-md font-semibold", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_react_fontawesome8.FontAwesomeIcon, { icon: import_free_solid_svg_icons7.faSortDown }),
+        /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "px-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("h1", { className: "text-primary text-lg font-bold mb", children: "Country" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex mt-4 items-center", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "text-primary text-md font-semibold", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react_fontawesome8.FontAwesomeIcon, { icon: import_free_solid_svg_icons7.faSortDown }),
               " Advanced filter "
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "grow" }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_react_fontawesome8.FontAwesomeIcon, { className: "text-primary text-2xl", icon: import_free_solid_svg_icons7.faTrash }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "w-4" }),
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CusButton, { text: "Search", textColor: "text-white", background: "bg-primary", fontwidth: "font-bold" })
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "grow" }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_react_fontawesome8.FontAwesomeIcon, { className: "text-primary text-2xl", icon: import_free_solid_svg_icons7.faTrash }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "w-4" }),
+            /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CusButton, { text: "Search", textColor: "text-white", background: "bg-primary", fontwidth: "font-bold" })
           ] })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(SearchedCampaign, {})
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(SearchedCampaign, {})
   ] }) });
-}, findcampaign_default = FindCampaign, SearchedCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(import_jsx_runtime37.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "bg-white rounded-2xl my-6 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "w-60 text-md font-bold text-primary p-2 my-2", children: "Found: 06 Campaigns " }),
-  /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CampaginCard, { image: "/images/brand/hilton.jpg", name: "Hilton" }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CampaginCard, { image: "/images/brand/lucent.jpg", name: "Lucent" }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" })
+}, findcampaign_default = FindCampaign, SearchedCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_jsx_runtime38.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "bg-white rounded-2xl my-6 shadow-xl p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "w-60 text-md font-bold text-primary p-2 my-2", children: "Found: 06 Campaigns " }),
+  /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CampaginCard, { image: "/images/brand/hilton.jpg", name: "Hilton" }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CampaginCard, { image: "/images/brand/lucent.jpg", name: "Lucent" }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
+    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" })
   ] })
 ] }) });
 
-// app/routes/home/campaigns.tsx
-var campaigns_exports = {};
-__export(campaigns_exports, {
-  default: () => campaigns_default
-});
-var import_free_solid_svg_icons9 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome10 = require("@fortawesome/react-fontawesome");
-
-// app/routes/home/brand.tsx
-var brand_exports = {};
-__export(brand_exports, {
-  Completed: () => Completed,
-  Connection: () => Connection,
-  Rating: () => Rating,
-  default: () => brand_default
+// app/routes/home/mycampaings.tsx
+var mycampaings_exports = {};
+__export(mycampaings_exports, {
+  default: () => mycampaings_default
 });
 var import_free_solid_svg_icons8 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome9 = require("@fortawesome/react-fontawesome"), import_react20 = require("react");
-
-// app/components/utils/extrabrandcard.tsx
-var import_jsx_runtime38 = require("react/jsx-runtime"), ExtraBrandCard = () => /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(import_jsx_runtime38.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "bg-white rounded-xl shadow-xl w-72 mt-2", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/products/shoe1.jpg", alt: "error", className: "rounded-t-xl" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "p-4 -translate-y-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex items-end gap-x-3 ", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: "Adidas Cases" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "w-full h-[1px] bg-black my-2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" }),
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "grow" }),
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "flex", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("div", { className: "grow flex items-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "rounded-full w-8 h-8" }) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "rounded-full w-8 h-8" }) }) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime38.jsxs)("p", { className: "text-black font-bold  text-md text-right my-4", children: [
-        "3500 ",
-        /* @__PURE__ */ (0, import_jsx_runtime38.jsx)("br", {}),
-        "USD / post"
-      ] }) })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime38.jsx)(CusButton, { text: "Learn more & apply", textColor: "text-black", background: "bg-[#fbca8e]", width: "w-full", margin: "my-0", fontwidth: "font-bold" })
-  ] })
-] }) }), extrabrandcard_default = ExtraBrandCard;
 
 // app/components/utils/pastbrandcard.tsx
 var import_jsx_runtime39 = require("react/jsx-runtime"), PastBrandCard = () => /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(import_jsx_runtime39.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime39.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-80 my-2", children: [
@@ -1267,188 +1271,372 @@ var import_jsx_runtime39 = require("react/jsx-runtime"), PastBrandCard = () => /
   /* @__PURE__ */ (0, import_jsx_runtime39.jsx)(CusButton, { text: "View", textColor: "text-black", background: "bg-[#01FFF4]", width: "w-full", margin: "my-2", fontwidth: "font-bold" })
 ] }) }), pastbrandcard_default = PastBrandCard;
 
-// app/routes/home/brand.tsx
-var import_jsx_runtime40 = require("react/jsx-runtime"), BrandPage = () => {
-  let [isPast, setPast] = (0, import_react20.useState)(!1);
-  return /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)(import_jsx_runtime40.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("img", { src: "/images/products/shoe1.jpg", alt: "error", className: "w-full h-60 object-cover rounded-t-xl" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex items-center flex-col lg:flex-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "p-8 flex flex-row gap-x-3 lg:flex-col", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "w-32 h-32 rounded-md" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h1", { className: "text-primary text-lg font-medium my-2", children: "Adidas Cases" }),
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-primary text-md font-normal", children: "Category: Consumer Electronics" }),
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-primary text-md font-normal", children: "www.adidas.co.in" }),
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CusButton, { text: "Connect", background: "bg-secondary", fontwidth: "font-bold" })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "h-72 w-[2px] bg-gray-300 hidden lg:block" }),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "p-8", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex gap-x-4 flex-col md:flex-row gap-y-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Rating, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Completed, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(Connection, {})
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h1", { className: "text-primary text-lg font-medium mt-4 mb-2", children: "Brand info" }),
-          /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-black text-sm font-normal", children: "Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.." })
-        ] })
+// app/routes/home/mycampaings.tsx
+var import_jsx_runtime40 = require("react/jsx-runtime"), MyCampaigns = () => {
+  let [completed, setCompleted] = (0, import_react20.useState)(!1);
+  return /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex my-6 md:flex-row flex-col", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h1", { className: "text-2xl font-bold text-black text-left mt-4", children: "My campaigns" }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-md font-normal text-black text-left", children: "Here you can manage all the campaigns that you are participating in." })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "hidden md:block md:grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex justify-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { onClick: () => {
+          setCompleted(!1);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CusButton, { height: "h-12", text: "Active campaigns", fontwidth: "font-bold", background: `${completed ? "bg-gray-300" : "bg-[#7CFF01]"}`, textColor: "text-black}" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "w-8" }),
+        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { onClick: () => {
+          setCompleted(!0);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CusButton, { height: "h-12", text: "Finished campaigns", fontwidth: "font-bold", background: `${completed ? "bg-[#7CFF01]" : "bg-gray-300"}`, textColor: "text-black" }) })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "flex mx-4 gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { onClick: () => {
-          setPast(!1);
-        }, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CusButton, { text: "Available Campaigns", background: `${isPast ? "bg-gray-100" : "bg-[#01FFF4]"}`, fontwidth: "font-bold", textColor: `${isPast ? "text-gray-600" : "text-black"}` }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { onClick: () => {
-          setPast(!0);
-        }, children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CusButton, { text: "Past associations", background: `${isPast ? "bg-[#01FFF4]" : "bg-gray-100"}`, fontwidth: "font-bold", textColor: `${isPast ? "text-black" : "text-gray-600"}` }) })
-      ] }),
-      isPast ? /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(PastBrandAssociation, {}) : /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(AvailableCampaigns, {})
-    ] })
-  ] });
-}, brand_default = BrandPage, Rating = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "bg-gray-100 flex rounded-lg gap-x-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "bg-gray-200 p-2 rounded-md grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_react_fontawesome9.FontAwesomeIcon, { className: "text-black text-3xl", icon: import_free_solid_svg_icons8.faStar }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "p-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h1", { className: "text-black text-lg font-bold", children: "4.2" }),
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-black text-sm font-normal", children: "Rating" })
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { children: completed ? /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CompletedCampaigns, {}) : /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(ActiveCampaign, {}) })
+  ] }) });
+}, mycampaings_default = MyCampaigns, ActiveCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+    " ",
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_react_fontawesome9.FontAwesomeIcon, { icon: import_free_solid_svg_icons8.faIdBadge, className: "text-md text-secondary" }),
+    " New Campaign "
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CampaginCard, { image: "/images/brand/powerfitgym.jpg", name: "Power Fit Gym" }),
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CampaginCard, { image: "/images/brand/szechuan_restaurant.jpg", name: "Szechuan Restaurant" }),
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CampaginCard, { image: "/images/brand/theburgershop.jpg", name: "Theburgershop" }),
+    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(CampaginCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
   ] })
-] }) }), Connection = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "bg-gray-100 flex rounded-lg gap-x-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "bg-gray-200 p-2 rounded-md grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_react_fontawesome9.FontAwesomeIcon, { className: "text-black text-3xl", icon: import_free_solid_svg_icons8.faHandshake }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "p-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h1", { className: "text-black text-lg font-bold", children: "21" }),
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-black text-sm font-normal", children: "Connections" })
-  ] })
-] }) }), Completed = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "bg-gray-100 flex rounded-lg gap-x-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("div", { className: "bg-gray-200 p-2 rounded-md grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_react_fontawesome9.FontAwesomeIcon, { className: "text-black text-3xl", icon: import_free_solid_svg_icons8.faNetworkWired }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "p-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("h1", { className: "text-black text-lg font-bold", children: "48" }),
-    /* @__PURE__ */ (0, import_jsx_runtime40.jsx)("p", { className: "text-black text-sm font-normal", children: "Completed Campaigns" })
-  ] })
-] }) }), AvailableCampaigns = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(extrabrandcard_default, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(extrabrandcard_default, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(extrabrandcard_default, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(extrabrandcard_default, {})
-] }) }), PastBrandAssociation = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
+] }) }), CompletedCampaigns = () => /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(import_jsx_runtime40.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime40.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
   /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(pastbrandcard_default, {}),
   /* @__PURE__ */ (0, import_jsx_runtime40.jsx)(pastbrandcard_default, {})
 ] }) });
 
 // app/routes/home/campaigns.tsx
-var import_react21 = require("react");
-var import_jsx_runtime41 = require("react/jsx-runtime"), Campaigns = () => /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_jsx_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grid gap-4 grid-cols-1 lg:grid-cols-7 mt-4 justify-start align-top content-start place-items-start place-content-start", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(BrandInfo, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CampaignsInfo, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "lg:col-start-6 lg:col-end-8 grid gap-y-4 w-full", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Target, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Budget, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Apply, {})
+var campaigns_exports = {};
+__export(campaigns_exports, {
+  default: () => campaigns_default
+});
+var import_free_solid_svg_icons10 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome11 = require("@fortawesome/react-fontawesome");
+
+// app/routes/home/brand.tsx
+var brand_exports = {};
+__export(brand_exports, {
+  Completed: () => Completed,
+  Connection: () => Connection,
+  Rating: () => Rating,
+  default: () => brand_default
+});
+var import_free_solid_svg_icons9 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome10 = require("@fortawesome/react-fontawesome"), import_react21 = require("react");
+
+// app/components/utils/extrabrandcard.tsx
+var import_jsx_runtime41 = require("react/jsx-runtime"), ExtraBrandCard = () => /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_jsx_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "bg-white rounded-xl shadow-xl w-72 mt-2", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("img", { src: "/images/products/shoe1.jpg", alt: "error", className: "rounded-t-xl" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-4 -translate-y-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex items-end gap-x-3 ", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: "Adidas Cases" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "w-full h-[1px] bg-black my-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" }),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Platform" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "grow flex items-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "rounded-full w-8 h-8" }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "mx-1", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "p-1 border-2 border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "rounded-full w-8 h-8" }) }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("p", { className: "text-black font-bold  text-md text-right my-4", children: [
+        "3500 ",
+        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("br", {}),
+        "USD / post"
+      ] }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CusButton, { text: "Learn more & apply", textColor: "text-black", background: "bg-[#fbca8e]", width: "w-full", margin: "my-0", fontwidth: "font-bold" })
   ] })
-] }) }), campaigns_default = Campaigns, BrandInfo = () => /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_jsx_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "col-span-2 rounded-xl shadow-xl bg-white p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex items-end gap-x-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: "Puma" })
+] }) }), extrabrandcard_default = ExtraBrandCard;
+
+// app/routes/home/brand.tsx
+var import_jsx_runtime42 = require("react/jsx-runtime"), BrandPage = () => {
+  let [isPast, setPast] = (0, import_react21.useState)(!1);
+  return /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)(import_jsx_runtime42.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("img", { src: "/images/products/shoe1.jpg", alt: "error", className: "w-full h-60 object-cover rounded-t-xl" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "flex items-center flex-col lg:flex-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-8 flex flex-row gap-x-3 lg:flex-col", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "w-32 h-32 rounded-md" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-primary text-lg font-medium my-2", children: "Adidas Cases" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-primary text-md font-normal", children: "Category: Consumer Electronics" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-primary text-md font-normal", children: "www.adidas.co.in" }),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CusButton, { text: "Connect", background: "bg-secondary", fontwidth: "font-bold" })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "h-72 w-[2px] bg-gray-300 hidden lg:block" }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "flex gap-x-4 flex-col md:flex-row gap-y-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Rating, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Completed, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(Connection, {})
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-primary text-lg font-medium mt-4 mb-2", children: "Brand info" }),
+          /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-black text-sm font-normal", children: "Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.." })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "flex mx-4 gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { onClick: () => {
+          setPast(!1);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CusButton, { text: "Available Campaigns", background: `${isPast ? "bg-gray-100" : "bg-[#01FFF4]"}`, fontwidth: "font-bold", textColor: `${isPast ? "text-gray-600" : "text-black"}` }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { onClick: () => {
+          setPast(!0);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CusButton, { text: "Past associations", background: `${isPast ? "bg-[#01FFF4]" : "bg-gray-100"}`, fontwidth: "font-bold", textColor: `${isPast ? "text-black" : "text-gray-600"}` }) })
+      ] }),
+      isPast ? /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(PastBrandAssociation, {}) : /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(AvailableCampaigns, {})
+    ] })
+  ] });
+}, brand_default = BrandPage, Rating = () => /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "bg-gray-100 flex rounded-lg gap-x-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "bg-gray-200 p-2 rounded-md grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_react_fontawesome10.FontAwesomeIcon, { className: "text-black text-3xl", icon: import_free_solid_svg_icons9.faStar }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-black text-lg font-bold", children: "4.2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-black text-sm font-normal", children: "Rating" })
+  ] })
+] }) }), Connection = () => /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "bg-gray-100 flex rounded-lg gap-x-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "bg-gray-200 p-2 rounded-md grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_react_fontawesome10.FontAwesomeIcon, { className: "text-black text-3xl", icon: import_free_solid_svg_icons9.faHandshake }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-black text-lg font-bold", children: "21" }),
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-black text-sm font-normal", children: "Connections" })
+  ] })
+] }) }), Completed = () => /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "bg-gray-100 flex rounded-lg gap-x-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "bg-gray-200 p-2 rounded-md grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_react_fontawesome10.FontAwesomeIcon, { className: "text-black text-3xl", icon: import_free_solid_svg_icons9.faNetworkWired }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "text-black text-lg font-bold", children: "48" }),
+    /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "text-black text-sm font-normal", children: "Completed Campaigns" })
+  ] })
+] }) }), AvailableCampaigns = () => /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(extrabrandcard_default, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(extrabrandcard_default, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(extrabrandcard_default, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(extrabrandcard_default, {})
+] }) }), PastBrandAssociation = () => /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(pastbrandcard_default, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(pastbrandcard_default, {})
+] }) });
+
+// app/routes/home/campaigns.tsx
+var import_react22 = require("react");
+var import_jsx_runtime43 = require("react/jsx-runtime"), Campaigns = () => /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_jsx_runtime43.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "grid gap-y-4 lg:gap-4 grid-cols-1 lg:grid-cols-7 mt-4 justify-start align-top content-start place-items-start place-content-start", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(BrandInfo, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CampaignsInfo, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "lg:col-start-6 lg:col-end-8 grid gap-y-4 w-full", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Target, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Budget, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Apply, {})
+  ] })
+] }) }), campaigns_default = Campaigns, BrandInfo = () => /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_jsx_runtime43.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "col-span-2 rounded-xl shadow-xl bg-white p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex items-end gap-x-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: "Puma" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "text-black font-bold text-md text-left", children: "Brand info" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.." }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "h-4" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Rating, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "h-4" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Connection, {}),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "h-4" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(Completed, {})
-] }) }), CampaignsInfo = () => /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_jsx_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "col-span-3 rounded-xl shadow-xl bg-white p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex items-end gap-x-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: "Puma" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h3", { className: "text-black font-bold text-md text-left", children: "Brand info" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.Don't miss out on Early Access sale of EOSS for members only. Become a Adi club member and get Early access to EOSS from 21st to 23rd June. adidas\xAE Official Shop. Free Shipping. Types: Running Shoes, Running Shorts & Tights, Running Jackets, Tracksuits & Track Pants.." }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "h-4" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Rating, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "h-4" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Connection, {}),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "h-4" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Completed, {})
+] }) }), CampaignsInfo = () => /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_jsx_runtime43.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "col-span-3 rounded-xl shadow-xl bg-white p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex items-end gap-x-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("img", { src: "/images/brand/adidas.jpg", alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: "Puma" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h3", { className: "text-black font-bold text-md text-left", children: "Info" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("p", { className: "text-black font-semibold text-xs text-left", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h3", { className: "text-black font-bold text-md text-left", children: "Info" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("p", { className: "text-black font-semibold text-xs text-left", children: [
     `Hirschi's social media presence allows automotive brands like Bugatti and Ferrari to advertise their products through her. Instead of being an automotive journalist, she states that she provides "insight into the supercar culture and what it\u2019s like to drive these incredible cars in a light, fun way."[4] Being one of the few women in supercar culture, she also opens up the demographic for these vehicles.`,
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("br", {}),
     " In March 2018, Arabian Business listed her as one of the 50 Most Influential Women In The Arab World,[8] and it nominated her in 2019 as one of Top 30 most influential women in the Arab world.[9] Also in March 2018, Esquire Magazine Middle East named her Influencer of the Year.[10] She appeared on Germany's free to air TV RTL II on the car show GRIP Das Automagazin on 10 June 2018, co-presenting the one-off Bugatti L'Or Blanc and the La Ferrari Aperta.[11] In January 2019, Broadcasting & Cable announced Hirschi will be hosting their new car TV show Car Crews.[12] The show is released on Insight TV and focuses on uncovering different car cultures across the United States.[13] She drove the official Batmobile from the feature film Batman (1989).[4] In 2020 Hirschi won a Shorty Award for Breakout YouTuber.[14]"
   ] })
-] }) }), Target = () => /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_jsx_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "rounded-xl shadow-xl bg-white p-4 w-full", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_react_fontawesome10.FontAwesomeIcon, { icon: import_free_solid_svg_icons9.faCoins, className: "text-xl text-primary" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h2", { className: "text-xl text-primary font-medium px-4", children: "Target" })
+] }) }), Target = () => /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_jsx_runtime43.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "rounded-xl shadow-xl bg-white p-4 w-full", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_react_fontawesome11.FontAwesomeIcon, { icon: import_free_solid_svg_icons10.faCoins, className: "text-xl text-primary" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h2", { className: "text-xl text-primary font-medium px-4", children: "Target" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "h-[1px] bg-gray-500 w-full my-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md text-primary", children: "Audience loaction" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md font-bold text-primary", children: "London" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "h-[1px] bg-gray-500 w-full my-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md text-primary", children: "Audience loaction" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md font-bold text-primary", children: "London" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md text-primary", children: "Min Reach" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md font-bold text-black", children: "10000 K" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md text-primary", children: "Min Reach" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md font-bold text-black", children: "10000 K" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md text-primary", children: "End date" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md font-bold text-black", children: "10-12-2022" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md text-primary", children: "End date" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md font-bold text-black", children: "10-12-2022" })
   ] })
 ] }) }), Apply = () => {
-  let [open, setOpen] = (0, import_react21.useState)(!1);
-  return /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)(import_jsx_runtime41.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-4 rounded-xl shadow-xl bg-primary", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h1", { className: "text-white text-xl text-left font-normal", children: "Would you like to participate in this campaign?" }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "w-full grid place-items-center", onClick: () => setOpen(!0), children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CusButton, { text: "Apply", textColor: "text-white", background: "bg-secondary" }) })
+  let [open, setOpen] = (0, import_react22.useState)(!1);
+  return /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)(import_jsx_runtime43.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-4 rounded-xl shadow-xl bg-primary", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-white text-xl text-left font-normal", children: "Would you like to participate in this campaign?" }),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "w-full grid place-items-center", onClick: () => setOpen(!0), children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CusButton, { text: "Apply", textColor: "text-white", background: "bg-secondary" }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: `w-full h-screen bg-gray-500 fixed top-0 left-0 bg-opacity-30 grid place-items-center ${open ? "fixed" : "hidden"} `, children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "p-6 bg-white rounded-xl shadow-xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { onClick: () => setOpen(!1), children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_react_fontawesome10.FontAwesomeIcon, { icon: import_free_solid_svg_icons9.faRemove, className: "font-bold text-2xl text-center text-primary" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: `w-full h-screen bg-gray-500 fixed top-0 left-0 bg-opacity-30 grid place-items-center ${open ? "fixed" : "hidden"} `, children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "p-6 bg-white rounded-xl shadow-xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { onClick: () => setOpen(!1), children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_react_fontawesome11.FontAwesomeIcon, { icon: import_free_solid_svg_icons10.faRemove, className: "font-bold text-2xl text-center text-primary" }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h1", { className: "text-primary text-lg font-bold text-left", children: "Connect" }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2 mt-4", placeholder: "subject" }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("textarea", { className: "p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none mt-4", placeholder: "message" }),
-      /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-        /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(CusButton, { text: "send", background: "bg-primary", textColor: "text-white" }) })
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h1", { className: "text-primary text-lg font-bold text-left", children: "Connect" }),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2 mt-4", placeholder: "subject" }),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("textarea", { className: "p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none mt-4", placeholder: "message" }),
+      /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CusButton, { text: "send", background: "bg-primary", textColor: "text-white" }) })
       ] })
     ] }) })
   ] });
-}, Budget = () => /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_jsx_runtime41.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "rounded-xl shadow-xl bg-white p-4 w-full", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)(import_react_fontawesome10.FontAwesomeIcon, { icon: import_free_solid_svg_icons9.faCoins, className: "text-xl text-primary" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("h2", { className: "text-xl text-primary font-medium px-4", children: "Budget" })
+}, Budget = () => /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_jsx_runtime43.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "rounded-xl shadow-xl bg-white p-4 w-full", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_react_fontawesome11.FontAwesomeIcon, { icon: import_free_solid_svg_icons10.faCoins, className: "text-xl text-primary" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("h2", { className: "text-xl text-primary font-medium px-4", children: "Budget" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "h-[1px] bg-gray-500 w-full my-2 " }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md text-primary", children: "Audience loaction" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md font-bold text-primary", children: "London" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "h-[1px] bg-gray-500 w-full my-2 " }),
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md text-primary", children: "Audience loaction" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md font-bold text-primary", children: "London" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md text-primary", children: "Min Reach" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md font-bold text-black", children: "10000 K" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md text-primary", children: "Min Reach" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md font-bold text-black", children: "10000 K" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime41.jsxs)("div", { className: "flex my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md text-primary", children: "End date" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("div", { className: "grow" }),
-    /* @__PURE__ */ (0, import_jsx_runtime41.jsx)("p", { className: "text-md font-bold text-black", children: "10-12-2022" })
+  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md text-primary", children: "End date" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { className: "grow" }),
+    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-md font-bold text-black", children: "10-12-2022" })
   ] })
 ] }) });
+
+// app/routes/home/favourite.tsx
+var favourite_exports = {};
+__export(favourite_exports, {
+  default: () => favourite_default
+});
+
+// app/components/utils/brandcard.tsx
+var import_react23 = require("@remix-run/react");
+var import_jsx_runtime44 = require("react/jsx-runtime"), BrandCard = (props) => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_jsx_runtime44.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-72 my-2", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex items-end gap-x-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: props.image, alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: props.name })
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
+  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
+  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
+  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react23.Link, { to: "/home/brand", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CusButton, { text: "View", textColor: "text-black", background: "bg-[#01FFF4]", width: "w-full", margin: "my-2", fontwidth: "font-bold" }) })
+] }) });
+
+// app/routes/home/favourite.tsx
+var import_jsx_runtime45 = require("react/jsx-runtime"), Favourite = () => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_jsx_runtime45.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "flex my-6 md:flex-row flex-col", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("h1", { className: "text-2xl font-bold text-black text-left mt-4", children: "Favourite brands" }),
+    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("p", { className: "text-md font-normal text-black text-left", children: "Here you can manage all the campaigns that you are participating in." })
+  ] }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-10 grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(BrandCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
+    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(BrandCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
+    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(BrandCard, { image: "/images/brand/lucent.jpg", name: "Lucent" }),
+    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(BrandCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
+  ] })
+] }) }), favourite_default = Favourite;
+
+// app/routes/home/invite.tsx
+var invite_exports = {};
+__export(invite_exports, {
+  default: () => invite_default
+});
+var import_jsx_runtime46 = require("react/jsx-runtime"), Invite = () => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_jsx_runtime46.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: "grid place-items-center w-full bg-yellow-500 rounded-xl shadow-xl my-6", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "h-72" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "flex gap-4 grow flex-col lg:flex-row", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-4 lg:w-96", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("h1", { className: "text-black text-xl font-bold text-left", children: "Refer an influencer or brand" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-black text-left font-normal text-md", children: "Name" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-black text-left font-normal text-md mt-4", children: "Email" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("p", { className: "text-black text-left font-normal text-md mt-4", children: "Contact Number" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("input", { type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("div", { className: " my-2", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(CusButton, { text: "Invite", background: "bg-[#01FFF4]", fontwidth: "font-bold", textColor: "text-primary", width: "w-full" }) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-4 grow w-full overflow-x-auto", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("h1", { className: "text-black text-xl font-bold text-left", children: "Referral status" }),
+      /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("table", { className: "md:w-full md:table-auto border-separate border-spacing-y-3 w-[700px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("thead", { className: "w-full bg-gray-100 rounded-xl p-2", children: /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left w-20" }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left w-40", children: "Name" }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Email" }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Contact" }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Status" })
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("tbody", { className: "gap-y-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("tr", { className: "my-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("img", { src: "/images/inf/inf6.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjay Thomas" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "+91 89988778" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("tr", { className: "my-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("img", { src: "/images/inf/inf8.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjay Thomas" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "+91 89988778" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("tr", { className: "my-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("img", { src: "/images/inf/inf9.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjay Thomas" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "+91 89988778" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("tr", { className: "my-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("img", { src: "/images/inf/inf14.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjay Thomas" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { children: "+91 89988778" }),
+            /* @__PURE__ */ (0, import_jsx_runtime46.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
+          ] })
+        ] })
+      ] })
+    ] })
+  ] })
+] }) }), invite_default = Invite;
 
 // app/routes/home/empty.tsx
 var empty_exports = {};
 __export(empty_exports, {
   default: () => empty_default
 });
-var import_free_solid_svg_icons10 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome11 = require("@fortawesome/react-fontawesome"), import_jsx_runtime42 = require("react/jsx-runtime"), Empty = () => /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "p-10 rounded-xl shadow-xl w-72 pt-28", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_react_fontawesome11.FontAwesomeIcon, { className: "text-black font-bold text-4xl", icon: import_free_solid_svg_icons10.faSearch }),
-  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("h1", { className: "font-semibold text-lg text-black", children: "To earn more money?" }),
-  /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("p", { className: "font-normal text-sm text-black", children: "Search, apply for public campaigns and create more great content" })
+var import_free_solid_svg_icons11 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome12 = require("@fortawesome/react-fontawesome"), import_jsx_runtime47 = require("react/jsx-runtime"), Empty = () => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_jsx_runtime47.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "p-10 rounded-xl shadow-xl w-72 pt-28", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_react_fontawesome12.FontAwesomeIcon, { className: "text-black font-bold text-4xl", icon: import_free_solid_svg_icons11.faSearch }),
+  /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("h1", { className: "font-semibold text-lg text-black", children: "To earn more money?" }),
+  /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("p", { className: "font-normal text-sm text-black", children: "Search, apply for public campaigns and create more great content" })
 ] }) }), empty_default = Empty;
 
 // app/routes/home/index.tsx
@@ -1456,114 +1644,101 @@ var home_exports2 = {};
 __export(home_exports2, {
   default: () => home_default2
 });
-var import_free_solid_svg_icons11 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome12 = require("@fortawesome/react-fontawesome"), import_react23 = require("@remix-run/react");
-
-// app/components/utils/brandcard.tsx
-var import_react22 = require("@remix-run/react");
-var import_jsx_runtime43 = require("react/jsx-runtime"), BrandCard = (props) => /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_jsx_runtime43.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-72 my-2", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime43.jsxs)("div", { className: "flex items-end gap-x-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("img", { src: props.image, alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: props.name })
-  ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
-  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
-  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
-  /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(import_react22.Link, { to: "/home/brand", children: /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(CusButton, { text: "View", textColor: "text-black", background: "bg-[#01FFF4]", width: "w-full", margin: "my-2", fontwidth: "font-bold" }) })
-] }) });
+var import_free_solid_svg_icons12 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome13 = require("@fortawesome/react-fontawesome"), import_react24 = require("@remix-run/react");
 
 // app/state/home/profilecompletestat.ts
-var import_zustand4 = __toESM(require("zustand")), ProfileComleteStore = (0, import_zustand4.default)()((set) => ({
+var import_zustand6 = __toESM(require("zustand")), ProfileComleteStore = (0, import_zustand6.default)()((set) => ({
   isOpen: !0,
   change: (value) => set((state) => ({ isOpen: value }))
 })), profilecompletestat_default = ProfileComleteStore;
 
 // app/routes/home/index.tsx
-var import_jsx_runtime44 = require("react/jsx-runtime"), HomePage2 = () => {
+var import_jsx_runtime48 = require("react/jsx-runtime"), HomePage2 = () => {
   let isOpen = profilecompletestat_default((state) => state.isOpen);
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(import_jsx_runtime44.Fragment, { children: [
-    isOpen ? /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(ProfileComplete, {}) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(Intro, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(EarnSection, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(SponsoredPosts, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(NewCampaign, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(TopBrands, {})
+  return /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(import_jsx_runtime48.Fragment, { children: [
+    isOpen ? /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(ProfileComplete, {}) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(Intro, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(EarnSection, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(SponsoredPosts, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(NewCampaign, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(TopBrands, {})
   ] });
 }, home_default2 = HomePage2, ProfileComplete = () => {
   let changeState = profilecompletestat_default((state) => state.change);
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_jsx_runtime44.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "w-full bg-secondary rounded-xl p-2 my-4 flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex grow flex-col md:flex-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "py-10 md:w-[400px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-2xl text-white font-bold", children: "Please Complete Your Profile" }),
-        /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-md text-white font-normal", children: "Your linked social media accounts are under verification. You'll be notified within 24 hours." })
+  return /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_jsx_runtime48.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "w-full bg-secondary rounded-xl p-2 my-4 flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "flex grow flex-col md:flex-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "py-10 md:w-[400px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("h1", { className: "text-2xl text-white font-bold", children: "Please Complete Your Profile" }),
+        /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("h1", { className: "text-md text-white font-normal", children: "Your linked social media accounts are under verification. You'll be notified within 24 hours." })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "xl:w-96 grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react23.Link, { to: "/home/profilecomplete", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CusButton, { text: "Click here to complete", textColor: "text-white", background: "bg-primary" }) }) })
+      /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "xl:w-96 grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react24.Link, { to: "/home/profilecomplete", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CusButton, { text: "Click here to complete", textColor: "text-white", background: "bg-primary" }) }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { onClick: () => {
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { onClick: () => {
       changeState(!1);
     }, children: [
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react_fontawesome12.FontAwesomeIcon, { className: "text-white text-2xl font-bold", icon: import_free_solid_svg_icons11.faXmark }),
+      /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react_fontawesome13.FontAwesomeIcon, { className: "text-white text-2xl font-bold", icon: import_free_solid_svg_icons12.faXmark }),
       " "
     ] })
   ] }) });
-}, Intro = () => /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(import_jsx_runtime44.Fragment, { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "grid place-items-center w-full mt-10", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-4xl text-primary font-bold text-center", children: "Welcome to SWRV" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-xl text-primary font-normal text-center", children: "Reach the next billion" })
+}, Intro = () => /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(import_jsx_runtime48.Fragment, { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "grid place-items-center w-full mt-10", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("h1", { className: "text-4xl text-primary font-bold text-center", children: "Welcome to SWRV" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("h1", { className: "text-xl text-primary font-normal text-center", children: "Reach the next billion" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex gap-4 items-center", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden lg:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf1.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf3.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf4.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden xl:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf5.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf6.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden xl:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf7.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf8.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf9.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "hidden md:block", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf13.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/inf/inf14.png", alt: "error" }) })
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "flex gap-4 items-center", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden lg:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf1.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf3.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf4.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden xl:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf5.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf6.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden xl:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf7.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf8.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf9.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "hidden md:block", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf13.png", alt: "error" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/inf/inf14.png", alt: "error" }) })
   ] })
-] }), EarnSection = () => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_jsx_runtime44.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "w-full rounded-xl flex flex-col md:flex-row bg-yellow-500 mt-12", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "md:h-80" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "p-4 md:p-12 bg-[#F7941D] rounded-r-xl grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-2xl text-black font-bold text-left", children: "To earn more money?" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("h1", { className: "text-md text-black font-normal text-left md:w-80", children: "Search, apply for brands campaigns and create more great content." })
+] }), EarnSection = () => /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_jsx_runtime48.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "w-full rounded-xl flex flex-col md:flex-row bg-yellow-500 mt-12", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "md:h-80" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("div", { className: "p-4 md:p-12 bg-[#F7941D] rounded-r-xl grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("h1", { className: "text-2xl text-black font-bold text-left", children: "To earn more money?" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)("h1", { className: "text-md text-black font-normal text-left md:w-80", children: "Search, apply for brands campaigns and create more great content." })
   ] }) })
-] }) }), SponsoredPosts = () => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_jsx_runtime44.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+] }) }), SponsoredPosts = () => /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_jsx_runtime48.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4", children: [
     " ",
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react_fontawesome12.FontAwesomeIcon, { icon: import_free_solid_svg_icons11.faHeart, className: "text-md text-secondary" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react_fontawesome13.FontAwesomeIcon, { icon: import_free_solid_svg_icons12.faHeart, className: "text-md text-secondary" }),
     " Sponsored Posts "
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/hilton.jpg", name: "Hilton" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/lucent.jpg", name: "Lucent" })
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/hilton.jpg", name: "Hilton" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/lucent.jpg", name: "Lucent" })
   ] })
-] }) }), NewCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_jsx_runtime44.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+] }) }), NewCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_jsx_runtime48.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
     " ",
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react_fontawesome12.FontAwesomeIcon, { icon: import_free_solid_svg_icons11.faIdBadge, className: "text-md text-secondary" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react_fontawesome13.FontAwesomeIcon, { icon: import_free_solid_svg_icons12.faIdBadge, className: "text-md text-secondary" }),
     " New Campaign "
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/powerfitgym.jpg", name: "Power Fit Gym" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/szechuan_restaurant.jpg", name: "Szechuan Restaurant" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/theburgershop.jpg", name: "Theburgershop" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(CampaginCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/powerfitgym.jpg", name: "Power Fit Gym" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/szechuan_restaurant.jpg", name: "Szechuan Restaurant" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/theburgershop.jpg", name: "Theburgershop" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(CampaginCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
   ] })
-] }) }), TopBrands = () => /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_jsx_runtime44.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+] }) }), TopBrands = () => /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_jsx_runtime48.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
     " ",
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(import_react_fontawesome12.FontAwesomeIcon, { icon: import_free_solid_svg_icons11.faStar, className: "text-md text-secondary" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(import_react_fontawesome13.FontAwesomeIcon, { icon: import_free_solid_svg_icons12.faStar, className: "text-md text-secondary" }),
     " Top brands "
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(BrandCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(BrandCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(BrandCard, { image: "/images/brand/lucent.jpg", name: "Lucent" }),
-    /* @__PURE__ */ (0, import_jsx_runtime44.jsx)(BrandCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
+  /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)("div", { className: "grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(BrandCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(BrandCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(BrandCard, { image: "/images/brand/lucent.jpg", name: "Lucent" }),
+    /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(BrandCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
   ] })
 ] }) });
 
@@ -1572,19 +1747,61 @@ var sorry_exports = {};
 __export(sorry_exports, {
   default: () => sorry_default
 });
-var import_jsx_runtime45 = require("react/jsx-runtime"), Sorry = () => /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_jsx_runtime45.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("div", { className: "bg-white rounded-lg shadow-lg p-10 mt-6 relative", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: " text-center text-[100px] font-black text-stroke text-white  absolute translate-y-40 grid place-items-center top-0 left-0 translate-x-72", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { children: "Sorry !!" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "w-full grid place-content-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("img", { src: "/images/avatar/sorry.png", alt: "error", className: "h-[300px]" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("div", { className: "w-full grid place-items-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsxs)("p", { className: "text-sm font-normal text-gray-500 text-left w-96", children: [
+var import_jsx_runtime49 = require("react/jsx-runtime"), Sorry = () => /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(import_jsx_runtime49.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime49.jsxs)("div", { className: "bg-white rounded-lg shadow-lg p-10 mt-6 relative", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: " text-center text-[100px] font-black text-stroke text-white  absolute translate-y-40 grid place-items-center top-0 left-0 translate-x-72", children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { children: "Sorry !!" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: "w-full grid place-content-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("img", { src: "/images/avatar/sorry.png", alt: "error", className: "h-[300px]" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("div", { className: "w-full grid place-items-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime49.jsxs)("p", { className: "text-sm font-normal text-gray-500 text-left w-96", children: [
     "Thank you for expressing interest in SWRV. While we were impressed with your profile, unfortunately, your profile dosent meet the minimum criteria which we need in this platform ",
-    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("br", {}),
     "We sincerely appreciate your interest and hope that you\u2019ll stay in touch. Please don\u2019t hesitate to reach out if you disagree with our decision."
   ] }) })
 ] }) }), sorry_default = Sorry;
 
+// app/routes/home/help.tsx
+var help_exports = {};
+__export(help_exports, {
+  default: () => help_default
+});
+var import_jsx_runtime50 = require("react/jsx-runtime"), Help = () => /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(import_jsx_runtime50.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-[#10BCE2] flex my-4 p-10 md:flex-row flex-col", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "text-5xl text-primary font-bold", children: [
+      "Hi ",
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("span", { className: "text-white", children: " @ivankbfc," }),
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("br", {}),
+      " How can we help?"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("div", { className: "grow grid place-items-center md:p-10 my-4", children: /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("input", { type: "text", className: "placeholder:text-black bg-white opacity-30  outline-none border-none focus:border-gray-300 rounded-md w-full p-2", placeholder: "search" }) })
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white flex my-4 p-10 md:flex-row flex-col md:gap-x-10 gap-y-6 md:gap-y-0", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { className: "text-xl text-black font-bold", children: "Using SWRV" }),
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Manage your account" }),
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Campaigns" }),
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Safety and security" }),
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Rules and policies" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("p", { className: "text-xl text-black font-medium", children: "Everything you need to know so you can use SWRV like a pro" }),
+      /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { className: "flex md:gap-x-16 gap-x-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Registration" }),
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Verification" }),
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Social Media accounts" }),
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Analytics" }),
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Brands" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Campaign" }),
+          /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Payments" })
+        ] })
+      ] })
+    ] })
+  ] })
+] }) }), help_default = Help;
+
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "7fe8c82f", entry: { module: "/build/entry.client-3ICCFSS5.js", imports: ["/build/_shared/chunk-PCHOEHW3.js", "/build/_shared/chunk-HMGBF63H.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YVBPKIVT.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-DVAN3FO7.js", imports: ["/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/bloginfo": { id: "routes/blogs/bloginfo", parentId: "root", path: "blogs/bloginfo", index: void 0, caseSensitive: void 0, module: "/build/routes/blogs/bloginfo-7SJZUZX2.js", imports: ["/build/_shared/chunk-Y7ARZGGD.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/index": { id: "routes/blogs/index", parentId: "root", path: "blogs", index: !0, caseSensitive: void 0, module: "/build/routes/blogs/index-WBC5QY24.js", imports: ["/build/_shared/chunk-Y7ARZGGD.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/contact": { id: "routes/contact", parentId: "root", path: "contact", index: void 0, caseSensitive: void 0, module: "/build/routes/contact-5PB4LI2P.js", imports: ["/build/_shared/chunk-5MTSED7E.js", "/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home": { id: "routes/home", parentId: "root", path: "home", index: void 0, caseSensitive: void 0, module: "/build/routes/home-GZC2ZH73.js", imports: ["/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/brand": { id: "routes/home/brand", parentId: "routes/home", path: "brand", index: void 0, caseSensitive: void 0, module: "/build/routes/home/brand-JYPY3RLA.js", imports: ["/build/_shared/chunk-7ANSD3YP.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/campaigns": { id: "routes/home/campaigns", parentId: "routes/home", path: "campaigns", index: void 0, caseSensitive: void 0, module: "/build/routes/home/campaigns-WPYPPWU7.js", imports: ["/build/_shared/chunk-7ANSD3YP.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/empty": { id: "routes/home/empty", parentId: "routes/home", path: "empty", index: void 0, caseSensitive: void 0, module: "/build/routes/home/empty-NENIC7IM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/findcampaign": { id: "routes/home/findcampaign", parentId: "routes/home", path: "findcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/findcampaign-YFTV6U7U.js", imports: ["/build/_shared/chunk-3TKTV47R.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/index": { id: "routes/home/index", parentId: "routes/home", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/index-JSEDWH3Q.js", imports: ["/build/_shared/chunk-3TKTV47R.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete": { id: "routes/home/profilecomplete", parentId: "routes/home", path: "profilecomplete", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete-NS4WWHJS.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/forthpage": { id: "routes/home/profilecomplete/forthpage", parentId: "routes/home/profilecomplete", path: "forthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/forthpage-3AOV3DKM.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/index": { id: "routes/home/profilecomplete/index", parentId: "routes/home/profilecomplete", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/index-5CGWAKV3.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/secondpage": { id: "routes/home/profilecomplete/secondpage", parentId: "routes/home/profilecomplete", path: "secondpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/secondpage-7HWRZHAH.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/thirdpage": { id: "routes/home/profilecomplete/thirdpage", parentId: "routes/home/profilecomplete", path: "thirdpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/thirdpage-E66SMUKR.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/sorry": { id: "routes/home/sorry", parentId: "routes/home", path: "sorry", index: void 0, caseSensitive: void 0, module: "/build/routes/home/sorry-AVWMYNSF.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-2BCPCUSL.js", imports: ["/build/_shared/chunk-Y7ARZGGD.js", "/build/_shared/chunk-5MTSED7E.js", "/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-CLMA7AHW.js", imports: ["/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/register": { id: "routes/register", parentId: "root", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/register-LFHKZQJ3.js", imports: ["/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-7FE8C82F.js" };
+var assets_manifest_default = { version: "9b99f94c", entry: { module: "/build/entry.client-3ICCFSS5.js", imports: ["/build/_shared/chunk-PCHOEHW3.js", "/build/_shared/chunk-HMGBF63H.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DSOYADGB.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-DVAN3FO7.js", imports: ["/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/bloginfo": { id: "routes/blogs/bloginfo", parentId: "root", path: "blogs/bloginfo", index: void 0, caseSensitive: void 0, module: "/build/routes/blogs/bloginfo-7SJZUZX2.js", imports: ["/build/_shared/chunk-Y7ARZGGD.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/index": { id: "routes/blogs/index", parentId: "root", path: "blogs", index: !0, caseSensitive: void 0, module: "/build/routes/blogs/index-WBC5QY24.js", imports: ["/build/_shared/chunk-Y7ARZGGD.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/contact": { id: "routes/contact", parentId: "root", path: "contact", index: void 0, caseSensitive: void 0, module: "/build/routes/contact-5PB4LI2P.js", imports: ["/build/_shared/chunk-5MTSED7E.js", "/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home": { id: "routes/home", parentId: "root", path: "home", index: void 0, caseSensitive: void 0, module: "/build/routes/home-W6PLGQDW.js", imports: ["/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/brand": { id: "routes/home/brand", parentId: "routes/home", path: "brand", index: void 0, caseSensitive: void 0, module: "/build/routes/home/brand-JCYSIMDJ.js", imports: ["/build/_shared/chunk-HRC3TZMB.js", "/build/_shared/chunk-H5A75JA6.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/campaigns": { id: "routes/home/campaigns", parentId: "routes/home", path: "campaigns", index: void 0, caseSensitive: void 0, module: "/build/routes/home/campaigns-JZTJEFN5.js", imports: ["/build/_shared/chunk-HRC3TZMB.js", "/build/_shared/chunk-H5A75JA6.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/empty": { id: "routes/home/empty", parentId: "routes/home", path: "empty", index: void 0, caseSensitive: void 0, module: "/build/routes/home/empty-NENIC7IM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/favourite": { id: "routes/home/favourite", parentId: "routes/home", path: "favourite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/favourite-OW2OKRPO.js", imports: ["/build/_shared/chunk-33GRVDVP.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/findcampaign": { id: "routes/home/findcampaign", parentId: "routes/home", path: "findcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/findcampaign-YFTV6U7U.js", imports: ["/build/_shared/chunk-3TKTV47R.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help": { id: "routes/home/help", parentId: "routes/home", path: "help", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help-NO5SVPLX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/index": { id: "routes/home/index", parentId: "routes/home", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/index-62GTACMT.js", imports: ["/build/_shared/chunk-33GRVDVP.js", "/build/_shared/chunk-3TKTV47R.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/invite": { id: "routes/home/invite", parentId: "routes/home", path: "invite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/invite-SCKHLJAO.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/mycampaings": { id: "routes/home/mycampaings", parentId: "routes/home", path: "mycampaings", index: void 0, caseSensitive: void 0, module: "/build/routes/home/mycampaings-WBPO2SOG.js", imports: ["/build/_shared/chunk-H5A75JA6.js", "/build/_shared/chunk-3TKTV47R.js", "/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete": { id: "routes/home/profilecomplete", parentId: "routes/home", path: "profilecomplete", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete-NS4WWHJS.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/forthpage": { id: "routes/home/profilecomplete/forthpage", parentId: "routes/home/profilecomplete", path: "forthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/forthpage-3AOV3DKM.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/index": { id: "routes/home/profilecomplete/index", parentId: "routes/home/profilecomplete", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/index-5CGWAKV3.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/secondpage": { id: "routes/home/profilecomplete/secondpage", parentId: "routes/home/profilecomplete", path: "secondpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/secondpage-7HWRZHAH.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/thirdpage": { id: "routes/home/profilecomplete/thirdpage", parentId: "routes/home/profilecomplete", path: "thirdpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/thirdpage-FL7F3KDK.js", imports: ["/build/_shared/chunk-QOS7F2VW.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/sorry": { id: "routes/home/sorry", parentId: "routes/home", path: "sorry", index: void 0, caseSensitive: void 0, module: "/build/routes/home/sorry-AVWMYNSF.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-2BCPCUSL.js", imports: ["/build/_shared/chunk-Y7ARZGGD.js", "/build/_shared/chunk-5MTSED7E.js", "/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-ETIQOFH5.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-CLMA7AHW.js", imports: ["/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/register": { id: "routes/register", parentId: "root", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/register-LFHKZQJ3.js", imports: ["/build/_shared/chunk-QOS7F2VW.js", "/build/_shared/chunk-SWPC6IXO.js", "/build/_shared/chunk-W2UYO277.js", "/build/_shared/chunk-3YP6JK4M.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-9B99F94C.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -1708,6 +1925,14 @@ var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath
     caseSensitive: void 0,
     module: findcampaign_exports
   },
+  "routes/home/mycampaings": {
+    id: "routes/home/mycampaings",
+    parentId: "routes/home",
+    path: "mycampaings",
+    index: void 0,
+    caseSensitive: void 0,
+    module: mycampaings_exports
+  },
   "routes/home/campaigns": {
     id: "routes/home/campaigns",
     parentId: "routes/home",
@@ -1715,6 +1940,22 @@ var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath
     index: void 0,
     caseSensitive: void 0,
     module: campaigns_exports
+  },
+  "routes/home/favourite": {
+    id: "routes/home/favourite",
+    parentId: "routes/home",
+    path: "favourite",
+    index: void 0,
+    caseSensitive: void 0,
+    module: favourite_exports
+  },
+  "routes/home/invite": {
+    id: "routes/home/invite",
+    parentId: "routes/home",
+    path: "invite",
+    index: void 0,
+    caseSensitive: void 0,
+    module: invite_exports
   },
   "routes/home/brand": {
     id: "routes/home/brand",
@@ -1747,6 +1988,14 @@ var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath
     index: void 0,
     caseSensitive: void 0,
     module: sorry_exports
+  },
+  "routes/home/help": {
+    id: "routes/home/help",
+    parentId: "routes/home",
+    path: "help",
+    index: void 0,
+    caseSensitive: void 0,
+    module: help_exports
   }
 };
 // Annotate the CommonJS export names for ESM import in node:

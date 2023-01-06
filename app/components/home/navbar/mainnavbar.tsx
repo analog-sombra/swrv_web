@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDraft2digital } from "@fortawesome/free-brands-svg-icons";
 import { NavTab } from "../sidebar/sidebar";
 import MobileNavStore from "~/state/home/mobilenavstate";
+import Notification from "../notification";
+import NotificationStore from "~/state/home/notification";
 export const MainNavBar = () => {
     const isOpen = MobileNavStore((state) => state.isOpen);
     const changMenu = MobileNavStore((state) => state.change);
@@ -66,11 +68,16 @@ export const MainNavBar = () => {
 }
 
 const MainNavRight = () => {
+    const open = NotificationStore(state => state.isOpen);
+    const changeNotification = NotificationStore(state => state.change);
     return (
         <>
             <div className="md:flex hidden">
-                <div className="grid place-items-center">
-                    <FontAwesomeIcon icon={faBell}></FontAwesomeIcon>
+                <div className="grid place-items-center relative">
+                    <div onClick={() => changeNotification(!open)}>
+                        <FontAwesomeIcon icon={faBell}></FontAwesomeIcon>
+                    </div>
+                    <Notification></Notification>
                 </div>
                 <div className="h-8 mx-4 bg-primary w-[2px]"> </div>
 
@@ -80,8 +87,6 @@ const MainNavRight = () => {
                 <div className="mx-2">
                     <img src="/images/inf/inf6.png" alt="error" className="w-10 h-10 rounded object-cover" />
                 </div>
-
-
             </div>
         </>
     );

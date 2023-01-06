@@ -8,23 +8,25 @@ const ThirdPage = () => {
         <>
             <div className="p-8 w-full">
                 <h1 className="text-2xl text-black font-bold">Channels</h1>
-                <div className="flex content-center items-center gap-2">
-                    <div>
-                        <img src="/images/media/instagram.png" alt="error" className="w-8 h-8" />
+                <div className="flex content-center items-center gap-2 flex-col md:flex-row mt-2">
+                    <div className="flex w-full justify-around md:w-auto">
+                        <div>
+                            <img src="/images/media/instagram.png" alt="error" className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <img src="/images/media/facebook.png" alt="error" className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <img src="/images/media/youtube.png" alt="error" className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <img src="/images/media/snapchat.png" alt="error" className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <img src="/images/media/twitter.png" alt="error" className="w-8 h-8" />
+                        </div>
                     </div>
-                    <div>
-                        <img src="/images/media/facebook.png" alt="error" className="w-8 h-8" />
-                    </div>
-                    <div>
-                        <img src="/images/media/youtube.png" alt="error" className="w-8 h-8" />
-                    </div>
-                    <div>
-                        <img src="/images/media/snapchat.png" alt="error" className="w-8 h-8" />
-                    </div>
-                    <div>
-                        <img src="/images/media/twitter.png" alt="error" className="w-8 h-8" />
-                    </div>
-                    <div className="grow"></div>
+                    <div className="grow hidden md:block"></div>
                     <CusButton text="Add new Channel" textColor={"text-white"} width={'w-36'} background={"bg-primary"} fontwidth={"font-normal"} textSize={"text-md"} ></CusButton>
                 </div>
                 <div className="flex w-full">
