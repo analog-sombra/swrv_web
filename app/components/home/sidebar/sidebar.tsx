@@ -10,7 +10,6 @@ export const SideBar = () => {
     const sidebar = SideBarNavStore((state) => state.changeTab);
     const isOpen = SideBarStore((state) => state.isOpen);
     const changeSidebar = SideBarStore((state) => state.change);
-    console.log("working");
     return (
         <>
             <div className={` ${isOpen ? "w-60" : "w-20"} h-screen p-2 fixed top-0 left-0 md:block hidden`}>
@@ -26,7 +25,7 @@ export const SideBar = () => {
                         <NavTab title="Find campaigns" isOpen={isOpen} isActive={currentPage === SideBarTabs.FindCampaigns} icon={faSearch}></NavTab>
                     </Link>
                     <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Inbox); changeSidebar(false) }}>
-                        <NavTab title="Inbox" isOpen={isOpen} isActive={false} icon={faEnvelope}></NavTab>
+                        <NavTab title="Inbox" isOpen={isOpen} isActive={currentPage === SideBarTabs.Inbox} icon={faEnvelope}></NavTab>
                     </Link>
                     <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changeSidebar(false) }}>
                         <NavTab title="My earnings" isOpen={isOpen} isActive={currentPage === SideBarTabs.MyEarnings} icon={faHandHoldingDollar}></NavTab>

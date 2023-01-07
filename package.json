@@ -8,7 +8,7 @@
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "dev:node": "cross-env NODE_ENV=development nodemon --require dotenv/config ./server.js --watch ./server.js",
     "dev:remix": "remix watch",
-    "start": "pnpm build && cross-env NODE_ENV=development node ./server.js",
+    "start": "cross-env NODE_ENV=development node ./server.js",
     "typecheck": "tsc -b"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "react-switch": "^7.0.0",
     "tailwind-scrollbar": "^2.1.0",
     "tailwind-scrollbar-hide": "^1.1.7",
+    "zod": "^3.20.2",
     "zustand": "^4.2.0"
   },
   "devDependencies": {

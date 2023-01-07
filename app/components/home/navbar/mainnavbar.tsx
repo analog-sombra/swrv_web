@@ -6,12 +6,13 @@ import { NavTab } from "../sidebar/sidebar";
 import MobileNavStore from "~/state/home/mobilenavstate";
 import Notification from "../notification";
 import NotificationStore from "~/state/home/notification";
+import SideBarNavStore, { SideBarTabs } from "~/state/navigation/sidebar";
 export const MainNavBar = () => {
+    const currentPage = SideBarNavStore((state) => state.currentIndex);
+    const sidebar = SideBarNavStore((state) => state.changeTab);
     const isOpen = MobileNavStore((state) => state.isOpen);
     const changMenu = MobileNavStore((state) => state.change);
-    const closeMenu = () => {
-        changMenu(false);
-    }
+
 
     return (
         <>
@@ -33,29 +34,29 @@ export const MainNavBar = () => {
                     {/* //mobie nav */}
                     <div className={`w-full p-2 md:hidden ${isOpen ? "" : "hidden"} `}>
                         <div className="w-full h-full bg-primary rounded-2xl flex flex-col items-center  py-8 px-3">
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="My campaigns" isOpen={true} isActive={true} icon={faFolder}></NavTab>
+                            <Link to={"/home/mycampaings"} onClick={() => { sidebar(SideBarTabs.MyCampaigns); changMenu(false) }}>
+                                <NavTab title="My campaigns" isOpen={true} isActive={currentPage == SideBarTabs.MyCampaigns} icon={faFolder}></NavTab>
                             </Link>
-                            <Link to={"./findcampaign"} onClick={closeMenu}>
-                                <NavTab title="Find campaigns" isOpen={true} isActive={false} icon={faSearch}></NavTab>
+                            <Link to={"/home/findcampaign"} onClick={() => { sidebar(SideBarTabs.FindCampaigns); changMenu(false) }}>
+                                <NavTab title="Find campaigns" isOpen={true} isActive={currentPage == SideBarTabs.FindCampaigns} icon={faSearch}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="Inbox" isOpen={true} isActive={false} icon={faEnvelope}></NavTab>
+                            <Link to={"/home/inbox"} onClick={() => { sidebar(SideBarTabs.Inbox); changMenu(false) }}>
+                                <NavTab title="Inbox" isOpen={true} isActive={currentPage == SideBarTabs.Inbox} icon={faEnvelope}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="My earnings" isOpen={true} isActive={false} icon={faHandHoldingDollar}></NavTab>
+                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changMenu(false) }}>
+                                <NavTab title="My earnings" isOpen={true} isActive={currentPage == SideBarTabs.MyEarnings} icon={faHandHoldingDollar}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="Drafts" isOpen={true} isActive={false} icon={faDraft2digital}></NavTab>
+                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Drafts); changMenu(false) }}>
+                                <NavTab title="Drafts" isOpen={true} isActive={currentPage == SideBarTabs.Drafts} icon={faDraft2digital}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="Favourite" isOpen={true} isActive={false} icon={faHeart}></NavTab>
+                            <Link to={"/home/favourite"} onClick={() => { sidebar(SideBarTabs.Favourite); changMenu(false) }}>
+                                <NavTab title="Favourite" isOpen={true} isActive={currentPage == SideBarTabs.Favourite} icon={faHeart}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="Invite" isOpen={true} isActive={false} icon={faPeopleLine}></NavTab>
+                            <Link to={"/home/invite"} onClick={() => { sidebar(SideBarTabs.Invite); changMenu(false) }}>
+                                <NavTab title="Invite" isOpen={true} isActive={currentPage == SideBarTabs.Invite} icon={faPeopleLine}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={closeMenu}>
-                                <NavTab title="Help" isOpen={true} isActive={false} icon={faCircleQuestion}></NavTab>
+                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Help); changMenu(false) }}>
+                                <NavTab title="Help" isOpen={true} isActive={currentPage == SideBarTabs.Help} icon={faCircleQuestion}></NavTab>
                             </Link>
 
                         </div>
