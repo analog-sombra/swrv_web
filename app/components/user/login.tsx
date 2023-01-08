@@ -1,9 +1,11 @@
 import { Form, Link } from "@remix-run/react";
 import { CusButton } from "../utils/buttont";
 
+type LoginBoxState = {
+    message: string | null | undefined
+}
 
-
-export const LoginBox = () => {
+export const LoginBox = (props: LoginBoxState) => {
     return (
         <>
             <div className="relative">
@@ -13,11 +15,12 @@ export const LoginBox = () => {
                     </div>
                     <div className="bg-white rounded-xl shadow-xl py-6 px-10 relative mt-12">
                         <Form method="post">
+                            {props.message && <p className="w-full border-2 border-red-500 bg-red-500 bg-opacity-5  text-center my-2 rounded-md p-2 text-sm font-semibold text-red-500">{props.message}</p>}
                             <p className="text-black text-left font-bold text-lg mt-4">Login</p>
                             <p className="text-black text-left font-normal text-lg">Email</p>
-                            <input name="email" required type={"email"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" placeholder="example@mail.com" />
+                            <input name="email" type={"email"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" placeholder="example@mail.com" />
                             <p className="text-black text-left font-normal text-lg mt-4">Password</p>
-                            <input name="password" required type={"password"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" placeholder="8 character" />
+                            <input name="password" type={"password"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" placeholder="8 character" />
 
                             <div className="grid place-items-center py-2">
                                 <div className="flex content-center gap-4">

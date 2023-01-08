@@ -2,16 +2,12 @@ import { useActionData } from "@remix-run/react";
 import { MainFooter } from "~/components/home/footer/mainfooter";
 import { IntroNavBar } from "~/components/home/navbar/intronavbar";
 import { LoginBox } from "~/components/user/login";
-import { z } from "zod";
-import { ValidateEmail, validationAction } from "~/utils";
-import { json, redirect } from "@remix-run/node";
+import { ValidateEmail } from "~/utils";
+import { ActionFunction, json, redirect } from "@remix-run/node";
+import axios from "axios";
+import { BaseUrl } from "~/const";
+import { userPrefs } from "~/cookies";
 
-const schema = z.object({
-    email: z.string({
-        required_error: "Email is required!"
-    }).email("Invalid email"),
-    password: z.string().min(8, "Password must be 8 charlactor long")
-});
 
 const login = () => {
     const data = useActionData();
@@ -19,7 +15,7 @@ const login = () => {
         <>
             <div className="flex flex-col h-screen">
                 <IntroNavBar></IntroNavBar>
-                <LoginBox></LoginBox>
+                <LoginBox message={data?.message}></LoginBox>
                 <div className="grow"></div>
                 <MainFooter></MainFooter>
             </div>
@@ -28,7 +24,24 @@ const login = () => {
 }
 
 
+export async function loader({ request }: any) {
+    const cookieHeader = request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+    // console.log(cookie.showBanner);
+    // return json({ showBanner: cookie.showBanner });
+    return null;
+}
+
+
+
 export const action = async ({ request }: any) => {
+
+    const cookieHeader = request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+    cookie.showBanner = false;
+
+
+
     const formData = await request.formData();
     const value = Object.fromEntries(formData);
     if (value.email == null || value.email == "" || !ValidateEmail(value.email)) {
@@ -37,12 +50,20 @@ export const action = async ({ request }: any) => {
     if (value.password == "" || value.password == null) {
         return { message: "Enter the password" };
     }
-    if (value.password.length <= 8) {
-        return { message: "Password length shuld be gretter then 8" };
+    try {
+        const data = await axios.post(`${BaseUrl}/api/login`, { "email": value.email, "password": value.password });
+        if (data.data.status == false) {
+            return { message: data.data.message };
+        } else {
+            return redirect("/home", {
+                headers: {
+                    "Set-Cookie": await userPrefs.serialize(cookie),
+                },
+            });
+        }
+    } catch (e) {
+        return { message: e };
     }
-
-    
-    return redirect("/home");
 }
 
 export default login;
