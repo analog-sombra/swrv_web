@@ -8,6 +8,7 @@ import { CusButton } from "~/components/utils/buttont";
 import { BaseUrl } from "~/const";
 
 export const loader = async () => {
+    
     const data = await axios.post(`${BaseUrl}/api/get-campaign-type`);
     return json({ data: data.data.data });
 }
