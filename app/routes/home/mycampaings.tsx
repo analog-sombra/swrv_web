@@ -1,12 +1,28 @@
 import { faIdBadge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LoaderArgs, json, redirect } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import { CampaginCard } from "~/components/utils/campagincard";
 import PastBrandCard from "~/components/utils/pastbrandcard";
+import { userPrefs } from "~/cookies";
+import UserStore from "~/state/user";
+
+
+export const loader = async ({ request }: LoaderArgs) => {
+    const cookieHeader = request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+
+    return json({ user: cookie.user });
+}
 
 const MyCampaigns = () => {
     const [completed, setCompleted] = useState(false);
+    const userdata = useLoaderData();
+    const isBrand = userdata.user.role["code"] == "50" ? true : false;
+
+
     return (
         <>
             <div>
@@ -24,6 +40,15 @@ const MyCampaigns = () => {
                         <div onClick={() => { setCompleted(true) }}>
                             <CusButton height="h-12" text="Finished campaigns" fontwidth="font-bold" background={`${completed ? "bg-[#7CFF01]" : "bg-gray-300"}`} textColor="text-black"></CusButton>
                         </div>
+                    </div>
+                </div>
+                <div className="bg-white shadow-xl rounded-xl p-6">
+                    <h1 className="text-black text-center font-bold text-2xl">Would you like to collaborate ?</h1>
+                    <div className="w-full text-center bg-red">
+
+                        <Link to={"/home/createcampaign"} >
+                            <CusButton text="Create Campaign" textColor={"text-white"} background="bg-secondary"></CusButton>
+                        </Link>
                     </div>
                 </div>
                 <div>

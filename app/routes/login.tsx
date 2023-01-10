@@ -3,10 +3,11 @@ import { MainFooter } from "~/components/home/footer/mainfooter";
 import { IntroNavBar } from "~/components/home/navbar/intronavbar";
 import { LoginBox } from "~/components/user/login";
 import { ValidateEmail } from "~/utils";
-import { ActionFunction, json, redirect } from "@remix-run/node";
+import { LoaderArgs, redirect } from "@remix-run/node";
 import axios from "axios";
 import { BaseUrl } from "~/const";
 import { userPrefs } from "~/cookies";
+import UserStore from "~/state/user";
 
 
 const login = () => {
@@ -24,23 +25,19 @@ const login = () => {
 }
 
 
-export async function loader({ request }: any) {
+export async function loader({ request }: LoaderArgs) {
     const cookieHeader = request.headers.get("Cookie");
     const cookie = await userPrefs.parse(cookieHeader);
-    // console.log(cookie.showBanner);
-    // return json({ showBanner: cookie.showBanner });
+    if (cookie) {
+        console.log(cookie);
+        return redirect("/home");
+    }
     return null;
 }
 
 
 
 export const action = async ({ request }: any) => {
-
-    const cookieHeader = request.headers.get("Cookie");
-    const cookie = await userPrefs.parse(cookieHeader);
-    cookie.showBanner = false;
-
-
 
     const formData = await request.formData();
     const value = Object.fromEntries(formData);
@@ -55,11 +52,16 @@ export const action = async ({ request }: any) => {
         if (data.data.status == false) {
             return { message: data.data.message };
         } else {
-            return redirect("/home", {
-                headers: {
-                    "Set-Cookie": await userPrefs.serialize(cookie),
-                },
-            });
+            if (value.check == "on") {
+                console.log(data.data.data);
+                return redirect("/home", {
+                    headers: {
+                        "Set-Cookie": await userPrefs.serialize({ user: data.data.data }),
+                    },
+                });
+            } else {
+                return redirect("/home");
+            }
         }
     } catch (e) {
         return { message: e };

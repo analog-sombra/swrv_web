@@ -34,7 +34,7 @@ export const LoginBox = (props: LoginBoxState) => {
                             <button className="w-full inline black rounded-xl bg-secondary shadow-lg text-center font-bold text-white text-xl py-2 ">Submit</button>
                             <div className="flex gap-2 mt-4 items-start">
                                 <div>
-                                    <input type={"checkbox"} name="check1" />
+                                    <input type={"checkbox"} name="check" />
                                 </div>
                                 <div className="grid place-items-center">
                                     <p className="text-left text-xs text-black font-normal">Keep me logged in</p>
