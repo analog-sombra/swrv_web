@@ -29,6 +29,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-responsive-modal: ^6.4.1
+  react-simple-star-rating: ^5.1.7
   react-switch: ^7.0.0
   tailwind-scrollbar: ^2.1.0
   tailwind-scrollbar-hide: ^1.1.7
@@ -55,6 +56,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-responsive-modal: 6.4.1_biqbaboplfbrettd7655fr4n2y
+  react-simple-star-rating: 5.1.7_biqbaboplfbrettd7655fr4n2y
   react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
   tailwind-scrollbar: 2.1.0_tailwindcss@3.2.4
   tailwind-scrollbar-hide: 1.1.7
@@ -6995,6 +6997,17 @@ packages:
     dependencies:
       '@remix-run/router': 1.1.0
       react: 18.2.0
+    dev: false
+
+  /react-simple-star-rating/5.1.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-NTFkW8W3uwvI82Fv7JW5i7gmDjEZKxJmj+Z9vn+BjYIXT6ILdnU9qnSUP2cWrWN/WAUlue81f9SgM4CQcenltQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-switch/7.0.0_biqbaboplfbrettd7655fr4n2y:

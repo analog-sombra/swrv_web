@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { json } from "@remix-run/node";
 import { useLoaderData, useNavigate } from "@remix-run/react";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import { BaseUrl } from "~/const";
+import CreateCampaignStore from "~/state/campaign/createcampaign";
 
 export const loader = async () => {
-    
     const data = await axios.post(`${BaseUrl}/api/get-campaign-type`);
     return json({ data: data.data.data });
 }
@@ -18,20 +18,24 @@ const Step1 = () => {
     const [error, setError] = useState<boolean>(false);
     const data = useLoaderData();
     const catdata = data.data;
+    const campaginType = CreateCampaignStore((state) => state.campaignTypeId);
+    const setCampaginType = CreateCampaignStore((state) => state.setCampaignTypeId);
 
     const [camptype, setCamptype] = useState<string>("0");
-
-    // const setcamptype = CreateCampaignStore((state) => state.addProperty);
-    // const getcamptype = CreateCampaignStore((state) => state.campaign)
 
 
     const nextpage = () => {
         if (camptype === "0") {
             setError(true);
         } else {
+            setCampaginType(camptype);
             return navigate("/home/createcampaign/step2");
         }
     }
+
+    useEffect(() => {
+        setCamptype(campaginType);
+    }, []);
 
     return (
         <>
