@@ -20,9 +20,10 @@ const Step1 = () => {
     const catdata = data.data;
     const campaginType = CreateCampaignStore((state) => state.campaignTypeId);
     const setCampaginType = CreateCampaignStore((state) => state.setCampaignTypeId);
-
     const [camptype, setCamptype] = useState<string>("0");
 
+    const platform = CreateCampaignStore((state) => state.platform);
+    const setPlatform = CreateCampaignStore((state) => state.setPlatform);
 
     const nextpage = () => {
         if (camptype === "0") {
@@ -41,10 +42,11 @@ const Step1 = () => {
         <>
             <div className="bg-white shadow-xl rounded-xl px-8 py-4 mt-4">
                 {
-                    error ?
+                    error
+                        ?
                         <div className="bg-red-500 bg-opacity-10 p-2 border-red-500 border rounded-xl flex items-center">
                             <div className="pr-4"><FontAwesomeIcon className="text-red-500" icon={faInfoCircle}></FontAwesomeIcon></div>
-                            <h1 className="text-red-500 text-lg font-normal text-center">Please select at least one image</h1>
+                            <h1 className="text-red-500 text-lg font-normal text-center">Please select at least one category.</h1>
                         </div>
                         :
                         null

@@ -32,15 +32,15 @@ export const LoginBox = (props: LoginBoxState) => {
                                 </div>
                             </div>
                             <button className="w-full inline black rounded-xl bg-secondary shadow-lg text-center font-bold text-white text-xl py-2 ">Submit</button>
-                            <div className="flex gap-2 mt-4 items-start">
+                            {/* <div className="flex gap-2 mt-4 items-start">
                                 <div>
                                     <input type={"checkbox"} name="check" />
                                 </div>
                                 <div className="grid place-items-center">
                                     <p className="text-left text-xs text-black font-normal">Keep me logged in</p>
                                 </div>
-                            </div>
-                            <p className="text-black text-left font-normal text-sm">CAN'T LOG IN? <span className="font-bold">RESTORE PASSWORD</span></p>
+                            </div> */}
+                            <p className="text-black text-left font-normal text-sm mt-4">CAN'T LOG IN? <span className="font-bold">RESTORE PASSWORD</span></p>
                             <p className="text-black text-left font-bold text-sm mt-6">Don't have an account?</p>
                             <Link to={"/register"}>
                                 <CusButton text="Join" textColor={"text-white"} background={"bg-primary"} fontwidth={"font-bold"} width={"w-full"} ></CusButton>
