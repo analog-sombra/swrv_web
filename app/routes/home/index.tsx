@@ -1,7 +1,7 @@
 import { faHeart, faIdBadge, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LoaderArgs, json, redirect } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import { BrandCard } from "~/components/utils/brandcard";
 import { CusButton } from "~/components/utils/buttont";
 import { CampaginCard } from "~/components/utils/campagincard";
@@ -13,22 +13,17 @@ import ProfileComleteStore from "~/state/home/profilecompletestat";
 
 const HomePage = () => {
     const isOpen = ProfileComleteStore((state) => state.isOpen);
-
+    const navigator = useNavigate();
     return (
         <>
-            {/* <div className="flex mt-4">
+            <div className="flex mt-4">
                 <div className="grow"></div>
                 <div onClick={async () => {
-                    return redirect("/login", {
-                        headers: {
-                            "Set-Cookie": await userPrefs.serialize({ isLogin: false }),
-                        },
-                    });
-
+                    navigator("/logout");
                 }}>
                     <CusButton text="Logout" background="bg-[#f43f5e]" textColor={"text-white"}></CusButton>
                 </div>
-            </div> */}
+            </div>
             {isOpen ? <ProfileComplete></ProfileComplete> : null}
             <Intro></Intro>
             <EarnSection></EarnSection>
