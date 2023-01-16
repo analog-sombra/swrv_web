@@ -1,15 +1,26 @@
 import { faAdd, faCaretDown, faCheck, faPaperclip, faRemove } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { json } from "@remix-run/node";
-import { Link, useNavigate } from "@remix-run/react";
+import { LoaderArgs, json } from "@remix-run/node";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import axios from "axios";
 import { useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import { BaseUrl } from "~/const";
+import { userPrefs } from "~/cookies";
 import CreateCampaignStore from "~/state/campaign/createcampaign";
 import { UploadFile } from "~/utils";
 
+export async function loader({ request }: LoaderArgs) {
+    const cookieHeader = request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+    return json({ userdata: cookie.user });
+}
+
 const Step6 = () => {
+    const userdata = useLoaderData();
+
+    const userId: string = userdata.userdata.id
+    console.log(userId);
     const navigator = useNavigate();
 
     const dosdata = CreateCampaignStore((state) => state.dos);
@@ -51,15 +62,11 @@ const Step6 = () => {
 
     const [error, setError] = useState<string | null>(null);
 
-
-
-
-
     async function createCampagin() {
         const req: { [key: string]: string; } = {
-            "userId": "1",
-            "brandUserId": "1",
-            "brandId": "1",
+            "userId": userId,
+            "brandUserId": userId,
+            "brandId": userId,
             "cityId": "1",
             "campaignTypeId": campaignTypeId,
             "campaignName": campaignName,

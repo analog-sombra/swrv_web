@@ -36,7 +36,6 @@ export async function UploadFile(file: File): Promise<string> {
         }
 
     } catch (e: any) {
-        console.log(e.toString())
         return e.toString();
     }
 }

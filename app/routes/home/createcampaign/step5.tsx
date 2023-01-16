@@ -28,8 +28,6 @@ const Step5 = () => {
     let imgref = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
-        console.log(campaignPurpose);
-
         brandInfo!.current!.value = BrandInfo;
 
         CampaignPurpose!.current!.value = campaignPurpose;
@@ -140,7 +138,6 @@ const Step5 = () => {
                                 else {
                                     setBrandinfo(brandInfo.current?.value);
                                     setCampaginPurpose(CampaignPurpose.current?.value);
-                                    console.log(CampaignPurpose.current?.value);
                                     setErrot(null);
                                     navigator("/home/createcampaign/step6");
                                 }

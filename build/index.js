@@ -111,7 +111,7 @@ __export(root_exports, {
 var import_react2 = require("@remix-run/react");
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-XKTMIQYK.css";
+var app_default = "/build/_assets/app-EBMQQLKB.css";
 
 // app/root.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
@@ -371,9 +371,10 @@ var import_jsx_runtime10 = require("react/jsx-runtime"), blogs2 = () => /* @__PU
 var register_exports = {};
 __export(register_exports, {
   action: () => action,
-  default: () => register_default
+  default: () => register_default,
+  loader: () => loader
 });
-var import_react7 = require("@remix-run/react");
+var import_node3 = require("@remix-run/node"), import_react7 = require("@remix-run/react"), import_axios = __toESM(require("axios"));
 
 // app/components/user/register.tsx
 var import_react5 = require("@remix-run/react");
@@ -385,8 +386,10 @@ var import_jsx_runtime11 = require("react/jsx-runtime"), CusButton = (props) => 
 
 // app/components/user/register.tsx
 var import_react6 = require("react"), import_jsx_runtime12 = require("react/jsx-runtime"), RegisterBox = (props) => {
-  let [isBrand, setBrand] = (0, import_react6.useState)(!1);
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_jsx_runtime12.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "w-full px-6 sm:px-16 grid  lg:grid-cols-3  md:w-4/6 lg:w-full mx-auto mb-20", children: [
+  let [isBrand, setBrand] = (0, import_react6.useState)(!1), cat = (0, import_react6.useRef)(null);
+  return (0, import_react6.useEffect)(() => {
+    cat.current.value = "inf";
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_jsx_runtime12.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "w-full px-6 sm:px-16 grid  lg:grid-cols-3  md:w-4/6 lg:w-full mx-auto mb-20", children: [
     /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "hidden flex-col lg:flex", children: [
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "grow" }),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex", children: [
@@ -395,13 +398,14 @@ var import_react6 = require("react"), import_jsx_runtime12 = require("react/jsx-
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "bg-white rounded-xl shadow-xl py-6 px-10", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_react5.Form, { method: "post", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("input", { name: "cat", ref: cat, type: "hidden" }),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex", children: [
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "w-full", onClick: () => {
-          setBrand(!1);
+          cat.current.value = "inf", setBrand(!1);
         }, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CusButton, { width: "w-full", text: "Influencer", background: `${isBrand ? "" : "bg-secondary"}`, textColor: `${isBrand ? "text-primary" : "text-white"}`, borderColor: `${isBrand ? "border-primary" : ""}`, fontwidth: "font-bold" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "w-10" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "w-full", onClick: () => {
-          setBrand(!0);
+          cat.current.value = "brand", setBrand(!0);
         }, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CusButton, { width: "w-full", text: "Brand", textColor: `${isBrand ? "text-white" : "text-primary"}`, background: `${isBrand ? "bg-secondary" : ""}`, borderColor: `${isBrand ? "" : "border-primary"}`, fontwidth: "font-bold" }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "text-black text-left font-bold text-lg mt-4", children: "Join" }),
@@ -438,8 +442,19 @@ var import_react6 = require("react"), import_jsx_runtime12 = require("react/jsx-
   ] }) });
 };
 
+// app/const.ts
+var BaseUrl = "https://bluelemontech.in/websites/swrv";
+
+// app/cookies.ts
+var import_node2 = require("@remix-run/node"), userPrefs = (0, import_node2.createCookie)("user-prefs");
+
 // app/routes/register.tsx
-var import_jsx_runtime13 = require("react/jsx-runtime"), register = () => {
+var import_jsx_runtime13 = require("react/jsx-runtime");
+async function loader({ request }) {
+  let cookieHeader = request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
+  return cookie && cookie.isLogin ? (0, import_node3.redirect)("/home") : null;
+}
+var register = () => {
   let data = (0, import_react7.useActionData)();
   return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(IntroNavBar, {}),
@@ -447,7 +462,71 @@ var import_jsx_runtime13 = require("react/jsx-runtime"), register = () => {
   ] });
 }, register_default = register, action = async ({ request }) => {
   let formData = await request.formData(), value = Object.fromEntries(formData);
-  return value.email == "" || value.email == null || value.email == null ? { message: "Enter the email" } : value.password == "" || value.password == null || value.password == null ? { message: "Enter the password" } : value.repassword == "" || value.repassword == null || value.repassword == null ? { message: "Enter the repassword" } : value.check1 != "on" || value.check2 != "on" ? { message: "Check the all checkbox" } : value.password != value.repassword ? { message: "Password and Re-password should be same" } : null;
+  if (value.email == "" || value.email == null || value.email == null)
+    return { message: "Enter the email" };
+  if (value.password == "" || value.password == null || value.password == null)
+    return { message: "Enter the password" };
+  if (value.repassword == "" || value.repassword == null || value.repassword == null)
+    return { message: "Enter the repassword" };
+  if (value.check1 != "on" || value.check2 != "on")
+    return { message: "Check the all checkbox" };
+  if (value.password != value.repassword)
+    return { message: "Password and Re-password should be same" };
+  let req = {};
+  value.cat == "inf" && (req = {
+    email: value.email.toString(),
+    password: value.password.toString(),
+    "confirm-password": value.repassword.toString(),
+    isBrand: "0",
+    isInfluencer: "1"
+  }), value.cat == "brand" && (req = {
+    email: value.email.toString(),
+    password: value.password.toString(),
+    "confirm-password": value.repassword.toString(),
+    isBrand: "1",
+    isInfluencer: "0"
+  });
+  try {
+    let apidata = await (0, import_axios.default)({
+      method: "post",
+      url: `${BaseUrl}/api/register`,
+      data: req,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Options": "*",
+        "Access-Control-Allow-Methods": "*",
+        "X-Content-Type-Options": "*",
+        "Content-Type": "application/json",
+        Accept: "*"
+      }
+    });
+    if (apidata.data.status == !1)
+      return { message: apidata.data.message };
+    {
+      let userdata = await (0, import_axios.default)({
+        method: "post",
+        url: `${BaseUrl}/api/getuser`,
+        data: { id: apidata.data.data.id },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "*",
+          "Access-Control-Allow-Options": "*",
+          "Access-Control-Allow-Methods": "*",
+          "X-Content-Type-Options": "*",
+          "Content-Type": "application/json",
+          Accept: "*"
+        }
+      });
+      return userdata.data.status == !1 ? { message: userdata.data.message } : (0, import_node3.redirect)("/home", {
+        headers: {
+          "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: !0 })
+        }
+      });
+    }
+  } catch (e) {
+    return { message: e };
+  }
 };
 
 // app/routes/contact.tsx
@@ -781,7 +860,7 @@ var login_exports = {};
 __export(login_exports, {
   action: () => action2,
   default: () => login_default,
-  loader: () => loader
+  loader: () => loader2
 });
 var import_react10 = require("@remix-run/react");
 
@@ -825,12 +904,7 @@ var import_jsx_runtime25 = require("react/jsx-runtime"), LoginBox = (props) => /
 ] }) });
 
 // app/utils.ts
-var import_axios = __toESM(require("axios"));
-
-// app/const.ts
-var BaseUrl = "https://bluelemontech.in/websites/swrv";
-
-// app/utils.ts
+var import_axios2 = __toESM(require("axios"));
 function ValidateEmail(mail) {
   return !!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail);
 }
@@ -838,7 +912,7 @@ async function UploadFile(file) {
   try {
     let formData = new FormData();
     formData.append("file", file);
-    let data = await (0, import_axios.default)({
+    let data = await (0, import_axios2.default)({
       method: "post",
       url: `${BaseUrl}/api/upload-file`,
       data: formData,
@@ -854,17 +928,12 @@ async function UploadFile(file) {
     });
     return data.data.status == !1 ? data.data.message : data.data.data.filePath;
   } catch (e) {
-    return console.log(e.toString()), e.toString();
+    return e.toString();
   }
 }
 
 // app/routes/login.tsx
-var import_node3 = require("@remix-run/node"), import_axios2 = __toESM(require("axios"));
-
-// app/cookies.ts
-var import_node2 = require("@remix-run/node"), userPrefs = (0, import_node2.createCookie)("user-prefs");
-
-// app/routes/login.tsx
+var import_node4 = require("@remix-run/node"), import_axios3 = __toESM(require("axios"));
 var import_jsx_runtime26 = require("react/jsx-runtime"), login = () => {
   let data = (0, import_react10.useActionData)();
   return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_jsx_runtime26.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-col h-screen", children: [
@@ -874,9 +943,9 @@ var import_jsx_runtime26 = require("react/jsx-runtime"), login = () => {
     /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(MainFooter, {})
   ] }) });
 };
-async function loader({ request }) {
-  let cookieHeader = request.headers.get("Cookie");
-  return await userPrefs.parse(cookieHeader) ? (0, import_node3.redirect)("/home") : null;
+async function loader2({ request }) {
+  let cookieHeader = request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
+  return cookie && cookie.isLogin ? (0, import_node4.redirect)("/home") : null;
 }
 var action2 = async ({ request }) => {
   let formData = await request.formData(), value = Object.fromEntries(formData);
@@ -885,10 +954,10 @@ var action2 = async ({ request }) => {
   if (value.password == "" || value.password == null || value.password == null)
     return { message: "Enter the password" };
   try {
-    let data = await import_axios2.default.post(`${BaseUrl}/api/login`, { email: value.email, password: value.password });
-    return data.data.status == !1 ? { message: data.data.message } : (0, import_node3.redirect)("/home", {
+    let data = await import_axios3.default.post(`${BaseUrl}/api/login`, { email: value.email, password: value.password });
+    return data.data.status == !1 ? { message: data.data.message } : (0, import_node4.redirect)("/home", {
       headers: {
-        "Set-Cookie": await userPrefs.serialize({ user: data.data.data })
+        "Set-Cookie": await userPrefs.serialize({ user: data.data.data, isLogin: !0 })
       }
     });
   } catch (e) {
@@ -1221,9 +1290,9 @@ var import_react20 = require("@remix-run/react"), import_jsx_runtime37 = require
 var createcampaign_exports2 = {};
 __export(createcampaign_exports2, {
   default: () => createcampaign_default3,
-  loader: () => loader2
+  loader: () => loader3
 });
-var import_free_solid_svg_icons7 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome8 = require("@fortawesome/react-fontawesome"), import_node4 = require("@remix-run/node"), import_react21 = require("@remix-run/react"), import_axios3 = __toESM(require("axios")), import_react22 = require("react");
+var import_free_solid_svg_icons7 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome8 = require("@fortawesome/react-fontawesome"), import_node5 = require("@remix-run/node"), import_react21 = require("@remix-run/react"), import_axios4 = __toESM(require("axios")), import_react22 = require("react");
 
 // app/state/campaign/createcampaign.ts
 var import_zustand6 = __toESM(require("zustand")), CreateCampaignStore = (0, import_zustand6.default)()((set) => ({
@@ -1309,9 +1378,9 @@ var import_zustand6 = __toESM(require("zustand")), CreateCampaignStore = (0, imp
 })), createcampaign_default2 = CreateCampaignStore;
 
 // app/routes/home/createcampaign/index.tsx
-var import_jsx_runtime38 = require("react/jsx-runtime"), loader2 = async () => {
-  let data = await import_axios3.default.post(`${BaseUrl}/api/get-campaign-type`);
-  return (0, import_node4.json)({ data: data.data.data });
+var import_jsx_runtime38 = require("react/jsx-runtime"), loader3 = async () => {
+  let data = await import_axios4.default.post(`${BaseUrl}/api/get-campaign-type`);
+  return (0, import_node5.json)({ data: data.data.data });
 }, Step1 = () => {
   let navigate = (0, import_react21.useNavigate)(), [error, setError] = (0, import_react22.useState)(!1), catdata = (0, import_react21.useLoaderData)().data, campaginType = createcampaign_default2((state) => state.campaignTypeId), setCampaginType = createcampaign_default2((state) => state.setCampaignTypeId), [camptype, setCamptype] = (0, import_react22.useState)("0"), platform = createcampaign_default2((state) => state.platform), setPlatform = createcampaign_default2((state) => state.setPlatform), nextpage = () => {
     if (camptype === "0")
@@ -1348,12 +1417,12 @@ var import_jsx_runtime38 = require("react/jsx-runtime"), loader2 = async () => {
 var step2_exports = {};
 __export(step2_exports, {
   default: () => step2_default,
-  loader: () => loader3
+  loader: () => loader4
 });
-var import_free_solid_svg_icons8 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome9 = require("@fortawesome/react-fontawesome"), import_node5 = require("@remix-run/node"), import_react23 = require("@remix-run/react"), import_axios4 = __toESM(require("axios"));
-var import_react24 = require("react"), import_react_simple_star_rating = require("react-simple-star-rating"), import_jsx_runtime39 = require("react/jsx-runtime"), loader3 = async () => {
-  let platform = await import_axios4.default.post(`${BaseUrl}/api/getplatform`);
-  return (0, import_node5.json)({ platform: platform.data.data });
+var import_free_solid_svg_icons8 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome9 = require("@fortawesome/react-fontawesome"), import_node6 = require("@remix-run/node"), import_react23 = require("@remix-run/react"), import_axios5 = __toESM(require("axios"));
+var import_react24 = require("react"), import_react_simple_star_rating = require("react-simple-star-rating"), import_jsx_runtime39 = require("react/jsx-runtime"), loader4 = async () => {
+  let platform = await import_axios5.default.post(`${BaseUrl}/api/getplatform`);
+  return (0, import_node6.json)({ platform: platform.data.data });
 }, Step2 = () => {
   let mediatype = ["Post", "Story", "Reel", "Video", "Audio"], data = (0, import_react23.useLoaderData)(), navigator = (0, import_react23.useNavigate)(), campaginType = createcampaign_default2((state) => state.campaignTypeId), [error, setError] = (0, import_react24.useState)(null), mendtionText = (0, import_react24.useRef)(null), [menerror, setMenError] = (0, import_react24.useState)(null), [addmendtion, setAddMendtion] = (0, import_react24.useState)(!1), mendtion = createcampaign_default2((state) => state.mendtion), removeMendtion = createcampaign_default2((state) => state.removeMeddtion), clearMendtion = createcampaign_default2((state) => state.clearMendtion), addMendtion = createcampaign_default2((state) => state.addMendtion), hashtagText = (0, import_react24.useRef)(null), [hasherror, setHashError] = (0, import_react24.useState)(null), [addhashtag, setAddHashtag] = (0, import_react24.useState)(!1), hashtag = createcampaign_default2((state) => state.hashtag), removeHashtag = createcampaign_default2((state) => state.removeHashtag), clearHashtag = createcampaign_default2((state) => state.clearHashtag), addHashtag = createcampaign_default2((state) => state.addHashtag), dosText = (0, import_react24.useRef)(null), [doserror, setDosError] = (0, import_react24.useState)(null), [adddos, setAddDos] = (0, import_react24.useState)(!1), dos = createcampaign_default2((state) => state.dos), removeDos = createcampaign_default2((state) => state.removeDos), addDos = createcampaign_default2((state) => state.addDos), dontsText = (0, import_react24.useRef)(null), [dontserror, setDontsError] = (0, import_react24.useState)(null), [adddonts, setAddDonts] = (0, import_react24.useState)(!1), donts = createcampaign_default2((state) => state.donts), removeDonts = createcampaign_default2((state) => state.removeDonts), addDonts = createcampaign_default2((state) => state.addDonts), inputFile = (0, import_react24.useRef)(null), [pdferror, setPdferror] = (0, import_react24.useState)(null), pdfFile = createcampaign_default2((state) => state.pdffile), addPdfFile = createcampaign_default2((state) => state.addPdfFile), platform = createcampaign_default2((state) => state.platform), setPlatform = createcampaign_default2((state) => state.setPlatform), media = createcampaign_default2((state) => state.media), setMedia = createcampaign_default2((state) => state.setMedia), campinfo = (0, import_react24.useRef)(null), campaignInfo = createcampaign_default2((state) => state.campaignInfo), setCampaignInfo = createcampaign_default2((state) => state.setCampaignInfo), affLink = (0, import_react24.useRef)(null), affiliatedLinks = createcampaign_default2((state) => state.affiliatedLinks), setAffiliatedLinks = createcampaign_default2((state) => state.setAffiliatedLinks), discCopon = (0, import_react24.useRef)(null), discoutCoupon = createcampaign_default2((state) => state.discoutCoupon), setDiscoutCoupon = createcampaign_default2((state) => state.setDiscoutCoupon), tar = (0, import_react24.useRef)(null), target = createcampaign_default2((state) => state.target), setTarget = createcampaign_default2((state) => state.setTarget), mintar = (0, import_react24.useRef)(null), mintarget = createcampaign_default2((state) => state.minTarget), setMintarget = createcampaign_default2((state) => state.setMinTarget), [rating, setRating] = (0, import_react24.useState)(0), getrating = createcampaign_default2((state) => state.rating), setrating = createcampaign_default2((state) => state.setRating), handleRating = (rate) => {
     setRating(rate);
@@ -1527,12 +1596,12 @@ var import_react24 = require("react"), import_react_simple_star_rating = require
 var step3_exports = {};
 __export(step3_exports, {
   default: () => step3_default,
-  loader: () => loader4
+  loader: () => loader5
 });
-var import_free_solid_svg_icons9 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome10 = require("@fortawesome/react-fontawesome"), import_node6 = require("@remix-run/node"), import_react25 = require("@remix-run/react"), import_axios5 = __toESM(require("axios")), import_react26 = require("react");
-var import_jsx_runtime40 = require("react/jsx-runtime"), loader4 = async () => {
-  let data = await import_axios5.default.post(`${BaseUrl}/api/getcategory`);
-  return (0, import_node6.json)({ data: data.data.data });
+var import_free_solid_svg_icons9 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome10 = require("@fortawesome/react-fontawesome"), import_node7 = require("@remix-run/node"), import_react25 = require("@remix-run/react"), import_axios6 = __toESM(require("axios")), import_react26 = require("react");
+var import_jsx_runtime40 = require("react/jsx-runtime"), loader5 = async () => {
+  let data = await import_axios6.default.post(`${BaseUrl}/api/getcategory`);
+  return (0, import_node7.json)({ data: data.data.data });
 }, Step3 = () => {
   let navigator = (0, import_react25.useNavigate)(), data = (0, import_react25.useLoaderData)(), [error, setError] = (0, import_react26.useState)(null), audienceText = (0, import_react26.useRef)(null), [auderror, setAudError] = (0, import_react26.useState)(null), [addaudience, setAddAudience] = (0, import_react26.useState)(!1), audience = createcampaign_default2((state) => state.audience), removeAudience = createcampaign_default2((state) => state.removeAudience), clearAudience = createcampaign_default2((state) => state.clearAudience), addAudience = createcampaign_default2((state) => state.addAudience), infLocation = createcampaign_default2((state) => state.infLocation), setInfLocation = createcampaign_default2((state) => state.setInfLocation), datepicker = (0, import_react26.useRef)(null), tilldate = createcampaign_default2((state) => state.tilldate), setTillDate = createcampaign_default2((state) => state.setTillDate), maxInf = (0, import_react26.useRef)(null), maxinf = createcampaign_default2((state) => state.maxInf), setMaxInf = createcampaign_default2((state) => state.setMaxInf), remuneration = (0, import_react26.useRef)(null), Remuneration = createcampaign_default2((state) => state.remuneration), setRemuneration = createcampaign_default2((state) => state.setRemuneration), remunerationType = createcampaign_default2((state) => state.remunerationType), setRemunerationType = createcampaign_default2((state) => state.setRemunerationType);
   return (0, import_react26.useEffect)(() => {
@@ -1723,7 +1792,7 @@ var import_free_solid_svg_icons10 = require("@fortawesome/free-solid-svg-icons")
 var import_jsx_runtime42 = require("react/jsx-runtime"), Step5 = () => {
   let [error, setErrot] = (0, import_react30.useState)(null), [imgerror, setImgerror] = (0, import_react30.useState)(null), image = createcampaign_default2((state) => state.image), addImage = createcampaign_default2((state) => state.addImage), removeImage = createcampaign_default2((state) => state.removeImage), brandInfo = (0, import_react30.useRef)(null), BrandInfo2 = createcampaign_default2((state) => state.brandinfo), setBrandinfo = createcampaign_default2((state) => state.setBrandinfo), CampaignPurpose = (0, import_react30.useRef)(null), campaignPurpose = createcampaign_default2((state) => state.campaginPurpose), setCampaginPurpose = createcampaign_default2((state) => state.setCampaginPurpose), imgref = (0, import_react30.useRef)(null);
   (0, import_react30.useEffect)(() => {
-    console.log(campaignPurpose), brandInfo.current.value = BrandInfo2, CampaignPurpose.current.value = campaignPurpose;
+    brandInfo.current.value = BrandInfo2, CampaignPurpose.current.value = campaignPurpose;
   }, []);
   let navigator = (0, import_react29.useNavigate)();
   return /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(import_jsx_runtime42.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime42.jsxs)("div", { className: "flex gap-x-4 flex-col lg:flex-row", children: [
@@ -1794,8 +1863,8 @@ var import_jsx_runtime42 = require("react/jsx-runtime"), Step5 = () => {
         }, className: "w-full", children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CusButton, { text: "Back", textColor: "text-black", background: "bg-gray-100", width: "w-full", fontwidth: "font-bold" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "w-10" }),
         /* @__PURE__ */ (0, import_jsx_runtime42.jsx)("div", { className: "w-full", onClick: () => {
-          var _a, _b, _c, _d, _e, _f, _g, _h, _i;
-          ((_a = brandInfo.current) == null ? void 0 : _a.value) == null || ((_b = brandInfo.current) == null ? void 0 : _b.value) == null || ((_c = brandInfo.current) == null ? void 0 : _c.value) == "" ? setErrot("Fill the Brand Info") : ((_d = CampaignPurpose.current) == null ? void 0 : _d.value) == null || ((_e = CampaignPurpose.current) == null ? void 0 : _e.value) == null || ((_f = CampaignPurpose.current) == null ? void 0 : _f.value) == "" ? setErrot("Fill the Campaign Purpose.") : image.length == 0 ? setErrot("Select at least one image.") : (setBrandinfo((_g = brandInfo.current) == null ? void 0 : _g.value), setCampaginPurpose((_h = CampaignPurpose.current) == null ? void 0 : _h.value), console.log((_i = CampaignPurpose.current) == null ? void 0 : _i.value), setErrot(null), navigator("/home/createcampaign/step6"));
+          var _a, _b, _c, _d, _e, _f, _g, _h;
+          ((_a = brandInfo.current) == null ? void 0 : _a.value) == null || ((_b = brandInfo.current) == null ? void 0 : _b.value) == null || ((_c = brandInfo.current) == null ? void 0 : _c.value) == "" ? setErrot("Fill the Brand Info") : ((_d = CampaignPurpose.current) == null ? void 0 : _d.value) == null || ((_e = CampaignPurpose.current) == null ? void 0 : _e.value) == null || ((_f = CampaignPurpose.current) == null ? void 0 : _f.value) == "" ? setErrot("Fill the Campaign Purpose.") : image.length == 0 ? setErrot("Select at least one image.") : (setBrandinfo((_g = brandInfo.current) == null ? void 0 : _g.value), setCampaginPurpose((_h = CampaignPurpose.current) == null ? void 0 : _h.value), setErrot(null), navigator("/home/createcampaign/step6"));
         }, children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(CusButton, { text: "Next", textColor: "text-white", background: "bg-secondary", width: "w-full", fontwidth: "font-bold" }) })
       ] })
     ] }) })
@@ -1805,16 +1874,24 @@ var import_jsx_runtime42 = require("react/jsx-runtime"), Step5 = () => {
 // app/routes/home/createcampaign/step6.tsx
 var step6_exports = {};
 __export(step6_exports, {
-  default: () => step6_default
+  default: () => step6_default,
+  loader: () => loader6
 });
-var import_free_solid_svg_icons11 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome12 = require("@fortawesome/react-fontawesome"), import_react31 = require("@remix-run/react"), import_axios6 = __toESM(require("axios")), import_react32 = require("react");
-var import_jsx_runtime43 = require("react/jsx-runtime"), Step6 = () => {
+var import_free_solid_svg_icons11 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome12 = require("@fortawesome/react-fontawesome"), import_node8 = require("@remix-run/node"), import_react31 = require("@remix-run/react"), import_axios7 = __toESM(require("axios")), import_react32 = require("react");
+var import_jsx_runtime43 = require("react/jsx-runtime");
+async function loader6({ request }) {
+  let cookieHeader = request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
+  return (0, import_node8.json)({ userdata: cookie.user });
+}
+var Step6 = () => {
+  let userId = (0, import_react31.useLoaderData)().userdata.id;
+  console.log(userId);
   let navigator = (0, import_react31.useNavigate)(), dosdata = createcampaign_default2((state) => state.dos), dontsdata = createcampaign_default2((state) => state.donts), pdfFile = createcampaign_default2((state) => state.pdffile), image = createcampaign_default2((state) => state.image), platform = createcampaign_default2((state) => state.platform).join(), campaignTypeId = createcampaign_default2((state) => state.campaignTypeId), media = createcampaign_default2((state) => state.media), campaignInfo = createcampaign_default2((state) => state.campaignInfo), approval = createcampaign_default2((state) => state.approval) ? "1" : "0", discoutCoupon = createcampaign_default2((state) => state.discoutCoupon), affiliatedLinks = createcampaign_default2((state) => state.affiliatedLinks), target = createcampaign_default2((state) => state.target).toString(), minTarget = createcampaign_default2((state) => state.minTarget).toString(), rating = createcampaign_default2((state) => state.rating).toString(), mendtion = createcampaign_default2((state) => state.mendtion).join(), hashtag = createcampaign_default2((state) => state.hashtag).join(), dos = createcampaign_default2((state) => state.dos).join(), donts = createcampaign_default2((state) => state.donts).join(), audience = createcampaign_default2((state) => state.audience).join(), infLocation = createcampaign_default2((state) => state.infLocation).id, tilldate = createcampaign_default2((state) => state.tilldate), maxInf = createcampaign_default2((state) => state.maxInf).toString(), remuneration = createcampaign_default2((state) => state.remuneration), remunerationType = createcampaign_default2((state) => state.remunerationType), campaignName = createcampaign_default2((state) => state.campaignName), planedBudget = createcampaign_default2((state) => state.planedBudget).toString(), costPerPost = createcampaign_default2((state) => state.costPerPost).toString(), startDate = createcampaign_default2((state) => state.startDate), endDate = createcampaign_default2((state) => state.endDate), minReach = createcampaign_default2((state) => state.minReach).toString(), maxReact = createcampaign_default2((state) => state.maxReact).toString(), publicGlobally = createcampaign_default2((state) => state.publicGlobally) ? "1" : "2", brandinfo = createcampaign_default2((state) => state.brandinfo), campaginPurpose = createcampaign_default2((state) => state.campaginPurpose), [error, setError] = (0, import_react32.useState)(null);
   async function createCampagin() {
     let req = {
-      userId: "1",
-      brandUserId: "1",
-      brandId: "1",
+      userId,
+      brandUserId: userId,
+      brandId: userId,
       cityId: "1",
       campaignTypeId,
       campaignName,
@@ -1846,7 +1923,7 @@ var import_jsx_runtime43 = require("react/jsx-runtime"), Step6 = () => {
       isPublic: publicGlobally
     };
     remunerationType == "1" && (req.remunerationCash = remuneration), remunerationType == "2" && (req.remunerationProductDetail = remuneration), remunerationType == "3" && (req.remunerationRevenuePer = remuneration), remunerationType == "4" && (req.dicountCoupon = remuneration), campaignTypeId == "4" && (req.minTarget = minTarget, req.maxTarget = target);
-    let data = await (0, import_axios6.default)({
+    let data = await (0, import_axios7.default)({
       method: "post",
       url: `${BaseUrl}/api/add-campaign`,
       data: req,
@@ -1867,7 +1944,7 @@ var import_jsx_runtime43 = require("react/jsx-runtime"), Step6 = () => {
       title: `attachemtn${id}`,
       url: pdfurl
     };
-    await (0, import_axios6.default)({
+    await (0, import_axios7.default)({
       method: "post",
       url: `${BaseUrl}/api/add-campaign-attachment`,
       data: pdfref,
@@ -1887,7 +1964,7 @@ var import_jsx_runtime43 = require("react/jsx-runtime"), Step6 = () => {
         title: `moodboard${id}${i}`,
         url: imgurl
       };
-      await (0, import_axios6.default)({
+      await (0, import_axios7.default)({
         method: "post",
         url: `${BaseUrl}/api/add-campaign-attachment`,
         data: imgref,
@@ -1985,7 +2062,10 @@ var import_jsx_runtime44 = require("react/jsx-runtime"), CampaginCard = (props) 
     /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: props.name })
   ] }),
   /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-md text-left my-4", children: "Lulu 50% off - SPORTS WEEK" }),
-  /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "Category : Consumer Electronics" }),
+  /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("p", { className: "text-black font-semibold text-xs text-left", children: [
+    "Category : ",
+    props.category
+  ] }),
   /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("p", { className: "text-black font-semibold text-xs text-left", children: "www.adidas.co.in" }),
   /* @__PURE__ */ (0, import_jsx_runtime44.jsx)("div", { className: "w-full h-[1px] bg-black my-2" }),
   /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)("div", { className: "flex", children: [
@@ -2088,9 +2168,9 @@ var import_jsx_runtime45 = require("react/jsx-runtime"), FindCampaign = () => {
 var mycampaings_exports = {};
 __export(mycampaings_exports, {
   default: () => mycampaings_default,
-  loader: () => loader5
+  loader: () => loader7
 });
-var import_free_solid_svg_icons13 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome14 = require("@fortawesome/react-fontawesome"), import_node7 = require("@remix-run/node"), import_react35 = require("@remix-run/react"), import_react36 = require("react");
+var import_free_solid_svg_icons13 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome14 = require("@fortawesome/react-fontawesome"), import_node9 = require("@remix-run/node"), import_react35 = require("@remix-run/react"), import_axios8 = __toESM(require("axios")), import_react36 = require("react");
 
 // app/components/utils/pastbrandcard.tsx
 var import_jsx_runtime46 = require("react/jsx-runtime"), PastBrandCard = () => /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(import_jsx_runtime46.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-80 my-2", children: [
@@ -2119,11 +2199,24 @@ var import_jsx_runtime46 = require("react/jsx-runtime"), PastBrandCard = () => /
 ] }) }), pastbrandcard_default = PastBrandCard;
 
 // app/routes/home/mycampaings.tsx
-var import_jsx_runtime47 = require("react/jsx-runtime"), loader5 = async ({ request }) => {
-  let cookieHeader = request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
-  return (0, import_node7.json)({ user: cookie.user });
+var import_jsx_runtime47 = require("react/jsx-runtime"), loader7 = async ({ request }) => {
+  let cookieHeader = request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader), userid = cookie.user.id, campdata = await (0, import_axios8.default)({
+    method: "post",
+    url: `${BaseUrl}/api/get-my-campaigns`,
+    data: { id: userid },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Options": "*",
+      "Access-Control-Allow-Methods": "*",
+      "X-Content-Type-Options": "*",
+      "Content-Type": "application/json",
+      Accept: "*"
+    }
+  });
+  return (0, import_node9.json)({ userdata: cookie.user, camp: campdata.data.data });
 }, MyCampaigns = () => {
-  let [completed, setCompleted] = (0, import_react36.useState)(!1), isBrand = (0, import_react35.useLoaderData)().user.role.code == "50";
+  let [completed, setCompleted] = (0, import_react36.useState)(!1), userdata = (0, import_react35.useLoaderData)(), isBrand = userdata.userdata.role.code == "50", campdata = userdata.camp.campaigns;
   return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_jsx_runtime47.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { children: [
     /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "flex my-6 md:flex-row flex-col", children: [
       /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { children: [
@@ -2141,25 +2234,24 @@ var import_jsx_runtime47 = require("react/jsx-runtime"), loader5 = async ({ requ
         }, children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CusButton, { height: "h-12", text: "Finished campaigns", fontwidth: "font-bold", background: `${completed ? "bg-[#7CFF01]" : "bg-gray-300"}`, textColor: "text-black" }) })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "bg-white shadow-xl rounded-xl p-6", children: [
+    isBrand ? /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "bg-white shadow-xl rounded-xl p-6", children: [
       /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("h1", { className: "text-black text-center font-bold text-2xl", children: "Would you like to collaborate ?" }),
       /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", { className: "w-full text-center bg-red", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_react35.Link, { to: "/home/createcampaign", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CusButton, { text: "Create Campaign", textColor: "text-white", background: "bg-secondary" }) }) })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", { children: completed ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CompletedCampaigns, {}) : /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(ActiveCampaign, {}) })
+    ] }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", { children: completed ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CompletedCampaigns, {}) : /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(ActiveCampaign, { camp: campdata }) })
   ] }) });
-}, mycampaings_default = MyCampaigns, ActiveCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_jsx_runtime47.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
-    " ",
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_react_fontawesome14.FontAwesomeIcon, { icon: import_free_solid_svg_icons13.faIdBadge, className: "text-md text-secondary" }),
-    " New Campaign "
-  ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CampaginCard, { image: "/images/brand/powerfitgym.jpg", name: "Power Fit Gym" }),
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CampaginCard, { image: "/images/brand/szechuan_restaurant.jpg", name: "Szechuan Restaurant" }),
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CampaginCard, { image: "/images/brand/theburgershop.jpg", name: "Theburgershop" }),
-    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CampaginCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
-  ] })
-] }) }), CompletedCampaigns = () => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_jsx_runtime47.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
+}, mycampaings_default = MyCampaigns, ActiveCampaign = (props) => {
+  let campdata = props.camp;
+  return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_jsx_runtime47.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+      " ",
+      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_react_fontawesome14.FontAwesomeIcon, { icon: import_free_solid_svg_icons13.faIdBadge, className: "text-md text-secondary" }),
+      " New Campaign "
+    ] }),
+    campdata.length == 0 ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("h1", { className: "text-black font-medium text-xl text-center", children: "Here is no campaign created.." }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: campdata.map((val, i) => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(CampaginCard, { category: val.type.name, image: "/images/brand/powerfitgym.jpg", name: val.name })) })
+  ] }) });
+}, CompletedCampaigns = () => /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_jsx_runtime47.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
   /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(pastbrandcard_default, {}),
   /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(pastbrandcard_default, {})
 ] }) });
@@ -2565,10 +2657,10 @@ var import_jsx_runtime55 = require("react/jsx-runtime"), HomePage2 = () => {
     " Sponsored Posts "
   ] }),
   /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/adidas.jpg", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/hilton.jpg", name: "Hilton" }),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/lucent.jpg", name: "Lucent" })
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/adidas.jpg", name: "Adidas" }),
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/furinicom.jpg", name: "Furinicom" }),
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/hilton.jpg", name: "Hilton" }),
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/lucent.jpg", name: "Lucent" })
   ] })
 ] }) }), NewCampaign = () => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(import_jsx_runtime55.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
   /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
@@ -2577,10 +2669,10 @@ var import_jsx_runtime55 = require("react/jsx-runtime"), HomePage2 = () => {
     " New Campaign "
   ] }),
   /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/powerfitgym.jpg", name: "Power Fit Gym" }),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/szechuan_restaurant.jpg", name: "Szechuan Restaurant" }),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/theburgershop.jpg", name: "Theburgershop" }),
-    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/powerfitgym.jpg", name: "Power Fit Gym" }),
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/szechuan_restaurant.jpg", name: "Szechuan Restaurant" }),
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/theburgershop.jpg", name: "Theburgershop" }),
+    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CampaginCard, { category: "Consumer Electronics", image: "/images/brand/tronicsfix.jpg", name: "Tronicsfix" })
   ] })
 ] }) }), TopBrands = () => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(import_jsx_runtime55.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
   /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
@@ -2655,7 +2747,7 @@ var import_jsx_runtime57 = require("react/jsx-runtime"), Help = () => /* @__PURE
 ] }) }), help_default = Help;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "9862cd91", entry: { module: "/build/entry.client-Y3B2WWG7.js", imports: ["/build/_shared/chunk-R4UOJVSO.js", "/build/_shared/chunk-7UEYUE33.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-DQXVKPYV.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-5RPYBE6C.js", imports: ["/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/bloginfo": { id: "routes/blogs/bloginfo", parentId: "root", path: "blogs/bloginfo", index: void 0, caseSensitive: void 0, module: "/build/routes/blogs/bloginfo-GM5XJGE3.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/index": { id: "routes/blogs/index", parentId: "root", path: "blogs", index: !0, caseSensitive: void 0, module: "/build/routes/blogs/index-4YPPPXXV.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/contact": { id: "routes/contact", parentId: "root", path: "contact", index: void 0, caseSensitive: void 0, module: "/build/routes/contact-22VRBRH7.js", imports: ["/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home": { id: "routes/home", parentId: "root", path: "home", index: void 0, caseSensitive: void 0, module: "/build/routes/home-S5TTCGSS.js", imports: ["/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/brand": { id: "routes/home/brand", parentId: "routes/home", path: "brand", index: void 0, caseSensitive: void 0, module: "/build/routes/home/brand-FHLX53BS.js", imports: ["/build/_shared/chunk-CM6JPKYI.js", "/build/_shared/chunk-FY5CISOF.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/campaigns": { id: "routes/home/campaigns", parentId: "routes/home", path: "campaigns", index: void 0, caseSensitive: void 0, module: "/build/routes/home/campaigns-VZCKBQKP.js", imports: ["/build/_shared/chunk-CM6JPKYI.js", "/build/_shared/chunk-FY5CISOF.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign": { id: "routes/home/createcampaign", parentId: "routes/home", path: "createcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign-GKULOR52.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/index": { id: "routes/home/createcampaign/index", parentId: "routes/home/createcampaign", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/index-EB53JBVK.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step2": { id: "routes/home/createcampaign/step2", parentId: "routes/home/createcampaign", path: "step2", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step2-C3QV564L.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step3": { id: "routes/home/createcampaign/step3", parentId: "routes/home/createcampaign", path: "step3", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step3-FY47AYNH.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step4": { id: "routes/home/createcampaign/step4", parentId: "routes/home/createcampaign", path: "step4", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step4-BSX7FT4C.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step5": { id: "routes/home/createcampaign/step5", parentId: "routes/home/createcampaign", path: "step5", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step5-3ISKK3PJ.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step6": { id: "routes/home/createcampaign/step6", parentId: "routes/home/createcampaign", path: "step6", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step6-X62JQNKM.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-OALV5ANS.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/empty": { id: "routes/home/empty", parentId: "routes/home", path: "empty", index: void 0, caseSensitive: void 0, module: "/build/routes/home/empty-LMJN2ZQT.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/favourite": { id: "routes/home/favourite", parentId: "routes/home", path: "favourite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/favourite-AHYQTJVI.js", imports: ["/build/_shared/chunk-PZVDXMUA.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/findcampaign": { id: "routes/home/findcampaign", parentId: "routes/home", path: "findcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/findcampaign-7LJDKWY7.js", imports: ["/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-HXL53BND.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help": { id: "routes/home/help", parentId: "routes/home", path: "help", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help-O2DYR4DE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/index": { id: "routes/home/index", parentId: "routes/home", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/index-H6DKGQAD.js", imports: ["/build/_shared/chunk-PZVDXMUA.js", "/build/_shared/chunk-HXL53BND.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/invite": { id: "routes/home/invite", parentId: "routes/home", path: "invite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/invite-4SKPSWEJ.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/mycampaings": { id: "routes/home/mycampaings", parentId: "routes/home", path: "mycampaings", index: void 0, caseSensitive: void 0, module: "/build/routes/home/mycampaings-A35OSA36.js", imports: ["/build/_shared/chunk-FY5CISOF.js", "/build/_shared/chunk-HXL53BND.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete": { id: "routes/home/profilecomplete", parentId: "routes/home", path: "profilecomplete", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete-WCGZPT3B.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/forthpage": { id: "routes/home/profilecomplete/forthpage", parentId: "routes/home/profilecomplete", path: "forthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/forthpage-YQNVMGXN.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/index": { id: "routes/home/profilecomplete/index", parentId: "routes/home/profilecomplete", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/index-QBUMKDO7.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/secondpage": { id: "routes/home/profilecomplete/secondpage", parentId: "routes/home/profilecomplete", path: "secondpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/secondpage-CSHKU45T.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/thirdpage": { id: "routes/home/profilecomplete/thirdpage", parentId: "routes/home/profilecomplete", path: "thirdpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/thirdpage-OUAZ2KTO.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/sorry": { id: "routes/home/sorry", parentId: "routes/home", path: "sorry", index: void 0, caseSensitive: void 0, module: "/build/routes/home/sorry-CQLETUE3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-TDA6R7BD.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-366LEBX6.js", imports: ["/build/_shared/chunk-OALV5ANS.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/register": { id: "routes/register", parentId: "root", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/register-36Q3L55V.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !0, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-9862CD91.js" };
+var assets_manifest_default = { version: "0b779e71", entry: { module: "/build/entry.client-Y3B2WWG7.js", imports: ["/build/_shared/chunk-R4UOJVSO.js", "/build/_shared/chunk-7UEYUE33.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-UDYGWZBX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-5RPYBE6C.js", imports: ["/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/bloginfo": { id: "routes/blogs/bloginfo", parentId: "root", path: "blogs/bloginfo", index: void 0, caseSensitive: void 0, module: "/build/routes/blogs/bloginfo-GM5XJGE3.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/index": { id: "routes/blogs/index", parentId: "root", path: "blogs", index: !0, caseSensitive: void 0, module: "/build/routes/blogs/index-4YPPPXXV.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/contact": { id: "routes/contact", parentId: "root", path: "contact", index: void 0, caseSensitive: void 0, module: "/build/routes/contact-22VRBRH7.js", imports: ["/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home": { id: "routes/home", parentId: "root", path: "home", index: void 0, caseSensitive: void 0, module: "/build/routes/home-S5TTCGSS.js", imports: ["/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/brand": { id: "routes/home/brand", parentId: "routes/home", path: "brand", index: void 0, caseSensitive: void 0, module: "/build/routes/home/brand-FHLX53BS.js", imports: ["/build/_shared/chunk-CM6JPKYI.js", "/build/_shared/chunk-FY5CISOF.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/campaigns": { id: "routes/home/campaigns", parentId: "routes/home", path: "campaigns", index: void 0, caseSensitive: void 0, module: "/build/routes/home/campaigns-VZCKBQKP.js", imports: ["/build/_shared/chunk-CM6JPKYI.js", "/build/_shared/chunk-FY5CISOF.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign": { id: "routes/home/createcampaign", parentId: "routes/home", path: "createcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign-GKULOR52.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/index": { id: "routes/home/createcampaign/index", parentId: "routes/home/createcampaign", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/index-EB53JBVK.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step2": { id: "routes/home/createcampaign/step2", parentId: "routes/home/createcampaign", path: "step2", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step2-C3QV564L.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step3": { id: "routes/home/createcampaign/step3", parentId: "routes/home/createcampaign", path: "step3", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step3-FY47AYNH.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step4": { id: "routes/home/createcampaign/step4", parentId: "routes/home/createcampaign", path: "step4", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step4-BSX7FT4C.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step5": { id: "routes/home/createcampaign/step5", parentId: "routes/home/createcampaign", path: "step5", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step5-SCK7FIOC.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step6": { id: "routes/home/createcampaign/step6", parentId: "routes/home/createcampaign", path: "step6", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step6-YQAMZMEJ.js", imports: ["/build/_shared/chunk-ULKYCL4M.js", "/build/_shared/chunk-DDXOZCEJ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/empty": { id: "routes/home/empty", parentId: "routes/home", path: "empty", index: void 0, caseSensitive: void 0, module: "/build/routes/home/empty-LMJN2ZQT.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/favourite": { id: "routes/home/favourite", parentId: "routes/home", path: "favourite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/favourite-AHYQTJVI.js", imports: ["/build/_shared/chunk-PZVDXMUA.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/findcampaign": { id: "routes/home/findcampaign", parentId: "routes/home", path: "findcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/findcampaign-JRO5TNKR.js", imports: ["/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-FFZPHMZR.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help": { id: "routes/home/help", parentId: "routes/home", path: "help", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help-O2DYR4DE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/index": { id: "routes/home/index", parentId: "routes/home", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/index-DYRKJ47C.js", imports: ["/build/_shared/chunk-PZVDXMUA.js", "/build/_shared/chunk-FFZPHMZR.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/invite": { id: "routes/home/invite", parentId: "routes/home", path: "invite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/invite-4SKPSWEJ.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/mycampaings": { id: "routes/home/mycampaings", parentId: "routes/home", path: "mycampaings", index: void 0, caseSensitive: void 0, module: "/build/routes/home/mycampaings-OJPMRRZ5.js", imports: ["/build/_shared/chunk-FY5CISOF.js", "/build/_shared/chunk-FFZPHMZR.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete": { id: "routes/home/profilecomplete", parentId: "routes/home", path: "profilecomplete", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete-WCGZPT3B.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/forthpage": { id: "routes/home/profilecomplete/forthpage", parentId: "routes/home/profilecomplete", path: "forthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/forthpage-YQNVMGXN.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/index": { id: "routes/home/profilecomplete/index", parentId: "routes/home/profilecomplete", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/index-QBUMKDO7.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/secondpage": { id: "routes/home/profilecomplete/secondpage", parentId: "routes/home/profilecomplete", path: "secondpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/secondpage-CSHKU45T.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/thirdpage": { id: "routes/home/profilecomplete/thirdpage", parentId: "routes/home/profilecomplete", path: "thirdpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/thirdpage-OUAZ2KTO.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/sorry": { id: "routes/home/sorry", parentId: "routes/home", path: "sorry", index: void 0, caseSensitive: void 0, module: "/build/routes/home/sorry-CQLETUE3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-TDA6R7BD.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-6EHYWLS2.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-ZCNQU4BI.js", imports: ["/build/_shared/chunk-DDXOZCEJ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/register": { id: "routes/register", parentId: "root", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/register-AJKNIIRJ.js", imports: ["/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-ECKA76TM.js", "/build/_shared/chunk-ONQBKG3Y.js", "/build/_shared/chunk-6UZFRPE3.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-0B779E71.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

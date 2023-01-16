@@ -5,6 +5,7 @@ import { CusButton } from "./buttont";
 type CampaginCardProps = {
     image: string
     name: string
+    category: string
 }
 
 export const CampaginCard = (props: CampaginCardProps) => {
@@ -18,7 +19,7 @@ export const CampaginCard = (props: CampaginCardProps) => {
                     <p className="text-black font-semibold text-xl content-end text-left">{props.name}</p>
                 </div>
                 <p className="text-black font-semibold text-md text-left my-4">Lulu 50% off - SPORTS WEEK</p>
-                <p className="text-black font-semibold text-xs text-left">Category : Consumer Electronics</p>
+                <p className="text-black font-semibold text-xs text-left">Category : {props.category}</p>
                 <p className="text-black font-semibold text-xs text-left">www.adidas.co.in</p>
                 <div className="w-full h-[1px] bg-black my-2"></div>
                 <div className="flex">

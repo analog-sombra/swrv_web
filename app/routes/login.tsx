@@ -28,7 +28,9 @@ export async function loader({ request }: LoaderArgs) {
     const cookieHeader = request.headers.get("Cookie");
     const cookie = await userPrefs.parse(cookieHeader);
     if (cookie) {
-        return redirect("/home");
+        if (cookie.isLogin) {
+            return redirect("/home");
+        }
     }
     return null;
 }
@@ -49,7 +51,7 @@ export const action = async ({ request }: ActionArgs) => {
         } else {
             return redirect("/home", {
                 headers: {
-                    "Set-Cookie": await userPrefs.serialize({ user: data.data.data }),
+                    "Set-Cookie": await userPrefs.serialize({ user: data.data.data, isLogin: true }),
                 },
             });
         }

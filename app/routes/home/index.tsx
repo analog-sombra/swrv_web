@@ -1,16 +1,34 @@
 import { faHeart, faIdBadge, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "@remix-run/react";
+import { LoaderArgs, json, redirect } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 import { BrandCard } from "~/components/utils/brandcard";
 import { CusButton } from "~/components/utils/buttont";
 import { CampaginCard } from "~/components/utils/campagincard";
+import { userPrefs } from "~/cookies";
 import ProfileComleteStore from "~/state/home/profilecompletestat";
+
+
 
 
 const HomePage = () => {
     const isOpen = ProfileComleteStore((state) => state.isOpen);
+
     return (
         <>
+            {/* <div className="flex mt-4">
+                <div className="grow"></div>
+                <div onClick={async () => {
+                    return redirect("/login", {
+                        headers: {
+                            "Set-Cookie": await userPrefs.serialize({ isLogin: false }),
+                        },
+                    });
+
+                }}>
+                    <CusButton text="Logout" background="bg-[#f43f5e]" textColor={"text-white"}></CusButton>
+                </div>
+            </div> */}
             {isOpen ? <ProfileComplete></ProfileComplete> : null}
             <Intro></Intro>
             <EarnSection></EarnSection>
@@ -117,10 +135,10 @@ const SponsoredPosts = () => {
             <div className="bg-white rounded-2xl my-3 shadow-xl p-4">
                 <div className="w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4"> <FontAwesomeIcon icon={faHeart} className="text-md text-secondary"></FontAwesomeIcon> Sponsored Posts </div>
                 <div className="grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <CampaginCard image="/images/brand/adidas.jpg" name="Adidas"></CampaginCard>
-                    <CampaginCard image="/images/brand/furinicom.jpg" name="Furinicom"></CampaginCard>
-                    <CampaginCard image="/images/brand/hilton.jpg" name="Hilton"></CampaginCard>
-                    <CampaginCard image="/images/brand/lucent.jpg" name="Lucent"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/adidas.jpg" name="Adidas"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/furinicom.jpg" name="Furinicom"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/hilton.jpg" name="Hilton"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/lucent.jpg" name="Lucent"></CampaginCard>
                 </div>
             </div>
         </>
@@ -133,10 +151,10 @@ const NewCampaign = () => {
             <div className="bg-white rounded-2xl my-3 shadow-xl p-4">
                 <div className="w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4"> <FontAwesomeIcon icon={faIdBadge} className="text-md text-secondary"></FontAwesomeIcon> New Campaign </div>
                 <div className="grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <CampaginCard image="/images/brand/powerfitgym.jpg" name="Power Fit Gym"></CampaginCard>
-                    <CampaginCard image="/images/brand/szechuan_restaurant.jpg" name="Szechuan Restaurant"></CampaginCard>
-                    <CampaginCard image="/images/brand/theburgershop.jpg" name="Theburgershop"></CampaginCard>
-                    <CampaginCard image="/images/brand/tronicsfix.jpg" name="Tronicsfix"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/powerfitgym.jpg" name="Power Fit Gym"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/szechuan_restaurant.jpg" name="Szechuan Restaurant"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/theburgershop.jpg" name="Theburgershop"></CampaginCard>
+                    <CampaginCard category="Consumer Electronics" image="/images/brand/tronicsfix.jpg" name="Tronicsfix"></CampaginCard>
                 </div>
             </div>
         </>
