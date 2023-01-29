@@ -2,7 +2,7 @@ import { useActionData } from "@remix-run/react";
 import { MainFooter } from "~/components/home/footer/mainfooter";
 import { IntroNavBar } from "~/components/home/navbar/intronavbar";
 import { LoginBox } from "~/components/user/login";
-import { ValidateEmail } from "~/utils";
+import * as EmailValidator from 'email-validator';
 import { ActionArgs, LoaderArgs, redirect } from "@remix-run/node";
 import axios from "axios";
 import { BaseUrl } from "~/const";
@@ -38,7 +38,7 @@ export async function loader({ request }: LoaderArgs) {
 export const action = async ({ request }: ActionArgs) => {
     const formData = await request.formData();
     const value = Object.fromEntries(formData);
-    if (value.email == null || value.email == "" || !ValidateEmail(value.email.toString()) || value.password == undefined) {
+    if (value.email == null || value.email == "" || !EmailValidator.validate(value.email.toString()) || value.email == undefined) {
         return { message: "Enter a valid email." };
     }
     if (value.password == "" || value.password == null || value.password == undefined) {

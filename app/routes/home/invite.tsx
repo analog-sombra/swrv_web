@@ -1,8 +1,31 @@
+import { useRef, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
+import * as EmailValidator from 'email-validator';
+import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
+import { userPrefs } from "~/cookies";
+import { useLoaderData } from "@remix-run/react";
+import axios from "axios";
+import { BaseUrl } from "~/const";
+export const loader: LoaderFunction = async (props: LoaderArgs) => {
+    const cookieHeader = props.request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+    return json({ user: cookie.user });
+}
 
 const Invite = () => {
+    const userdata = useLoaderData();
+    const userId: string = userdata.user.id;
+    const nameRef = useRef<HTMLInputElement | null>(null);
+    const emailRef = useRef<HTMLInputElement | null>(null);
+    const [contactnumber, setContactnumber] = useState<number>()
+    const [error, setError] = useState<String>("");
+    const [sus, setSus] = useState<String>("");
+    const handelcontent = (e: any) => {
+        setContactnumber(e.target.value.replace(/\D/g, ''));
+    }
     return (
         <>
+            <div></div>
             <div>
                 <div className="grid place-items-center w-full bg-yellow-500 rounded-xl shadow-xl my-6">
                     <img src="/images/cashgirl.png" alt="error" className="h-72" />
@@ -11,12 +34,64 @@ const Invite = () => {
                     <div className="bg-white rounded-lg shadow-xl p-4 lg:w-96">
                         <h1 className="text-black text-xl font-bold text-left">Refer an influencer or brand</h1>
                         <p className="text-black text-left font-normal text-md">Name</p>
-                        <input type={"text"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" />
+                        <input ref={nameRef} type={"text"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" />
                         <p className="text-black text-left font-normal text-md mt-4">Email</p>
-                        <input type={"text"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" />
+                        <input ref={emailRef} type={"text"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" />
                         <p className="text-black text-left font-normal text-md mt-4">Contact Number</p>
-                        <input type={"text"} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" />
-                        <div className=" my-2">
+                        <input onChange={handelcontent} value={contactnumber} type={"text"} maxLength={10} className="bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" />
+                        {(error == "" || error == null || error == undefined) ? null :
+                            <div className="bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4">{error}</div>
+                        }
+                        {(sus == "" || sus == null || sus == undefined) ? null :
+                            <div className="bg-green-500 bg-opacity-10 border-2 text-center border-green-500 rounded-md text-green-500 text-md font-normal text-md my-4">{sus}</div>
+                        }
+                        <div className=" my-2" onClick={async () => {
+                            if (nameRef.current?.value == null || nameRef.current?.value == undefined || nameRef.current?.value == "") {
+                                setError("Fill user name");
+                            }
+                            else if (emailRef.current?.value == null || emailRef.current?.value == undefined || emailRef.current?.value == "") {
+                                setError("Fill the Brand info");
+                            }
+                            else if (!EmailValidator.validate(emailRef.current?.value)) {
+                                setError("Enter valid email");
+                            }
+                            else if (contactnumber == null || contactnumber == undefined || contactnumber == 0) {
+                                setError("Fill the contact number");
+                            }
+                            else if (contactnumber.toString().length != 10) {
+                                setError("Enter a 10 degit valid contact number");
+                            } else {
+                                let req = {
+                                    "userId": userId,
+                                    "name": nameRef.current?.value,
+                                    "email": emailRef.current?.value,
+                                    "contact": contactnumber
+                                };
+                                const data = await axios({
+                                    method: 'post',
+                                    url: `${BaseUrl}/api/send-referral`,
+                                    data: req,
+                                    headers: {
+                                        'Access-Control-Allow-Origin': '*',
+                                        'Access-Control-Allow-Headers': '*',
+                                        'Access-Control-Allow-Options': '*',
+                                        'Access-Control-Allow-Methods': '*',
+                                        'X-Content-Type-Options': '*',
+                                        'Content-Type': 'application/json',
+                                        'Accept': '*'
+                                    }
+                                });
+                                if (data.data.status == false) {
+                                    return setError(data.data.message);
+                                } else {
+                                    setError("");
+                                    nameRef.current.value = "";
+                                    emailRef.current.value = "";
+                                    setContactnumber(undefined);
+                                    setSus("Invitation has been send.");
+                                }
+                            }
+                        }}>
                             <CusButton text="Invite" background="bg-[#01FFF4]" fontwidth="font-bold" textColor={"text-primary"} width="w-full"></CusButton>
                         </div>
                     </div>

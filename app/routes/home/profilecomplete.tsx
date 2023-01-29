@@ -1,15 +1,29 @@
 import { Outlet } from "@remix-run/react";
+import UserInputStore from "~/state/user/firstinput";
+import { Completed } from "./brand";
 
 const UserEditBox = () => {
+
+    const index = UserInputStore((state) => state.index);
+    const setIndex = UserInputStore((state) => state.setIndex);
+
     return (
         <>
             <div className="w-full bg-white rounded-xl p-4 shadow-xl mt-6">
                 <div className="w-full  rounded-lg flex shadow-lg my-4">
-                    <div className="text-lg text-center font-medium p-2 bg-secondary text-white w-4/6 rounded-xl">
-                        Please complete your profile
-                    </div>
-                    <div className="text-lg text-center font-medium p-2 bg-white text-primary w-4/6 rounded-r-xl">
-                        60% completed
+                    <div className={`text-lg text-center font-medium p-2 bg-secondary text-white  ${index == 1 ? "w-2/5" : ""} ${index == 2 ? "w-3/5" : ""} ${index == 3 ? "w-4/5" : ""} ${index == 4 ? "w-full" : ""} rounded-xl`}>
+                        {
+                            index == 1 ? "0% Completed" : ""
+                        }
+                        {
+                            index == 2 ? "25% Completed" : ""
+                        }
+                        {
+                            index == 3 ? "50% Completed" : ""
+                        }
+                        {
+                            index == 4 ? "75% Completed" : ""
+                        }
                     </div>
                 </div>
                 <div className="flex lg:flex-row flex-col">
@@ -22,15 +36,13 @@ const UserEditBox = () => {
                     </div>
                     <div>
                         <div className="bg-white rounded-xl shadow-xl px-2 py-4 flex flex-row items-center lg:flex-col justify-between">
-                            <ProfileCompleteBox isActive={true} positionumber={"01"} title={"Info"}></ProfileCompleteBox>
-                            <ProfileCompleteBox isActive={false} positionumber={"02"} title={"Audience"}></ProfileCompleteBox>
-                            <ProfileCompleteBox isActive={false} positionumber={"03"} title={"Connect"}></ProfileCompleteBox>
-                            <ProfileCompleteBox isActive={false} positionumber={"04"} title={"Contact"}></ProfileCompleteBox>
+                            <ProfileCompleteBox isActive={index == 1 ? true : false} positionumber={"01"} title={"Info"}></ProfileCompleteBox>
+                            <ProfileCompleteBox isActive={index == 2 ? true : false} positionumber={"02"} title={"Audience"}></ProfileCompleteBox>
+                            <ProfileCompleteBox isActive={index == 3 ? true : false} positionumber={"03"} title={"Connect"}></ProfileCompleteBox>
+                            <ProfileCompleteBox isActive={index == 4 ? true : false} positionumber={"04"} title={"Contact"}></ProfileCompleteBox>
                         </div>
                     </div>
                     <Outlet></Outlet>
-
-
                 </div>
             </div>
         </>
@@ -48,7 +60,6 @@ type ProfileCompleteBoxProps = {
 }
 const ProfileCompleteBox = (props: ProfileCompleteBoxProps) => {
     return (
-
         <>
             <div className="px-3 py-2">
                 <div className={`grid place-items-center h-14 w-14 shadow-md rounded-md ${props.isActive ? "bg-secondary" : "bg-gray-200"}`}>

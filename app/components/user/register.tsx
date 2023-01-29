@@ -2,13 +2,21 @@ import { Form, Link } from "@remix-run/react";
 import { CusButton } from "../utils/buttont";
 import { useEffect, useRef, useState } from "react";
 type RegisterBoxState = {
-    message: string | null | undefined
+    message: string | null | undefined,
+    isBrand: boolean,
 }
 export const RegisterBox = (props: RegisterBoxState) => {
     const [isBrand, setBrand] = useState(false);
     const cat = useRef<HTMLInputElement | null>(null);
+
     useEffect(() => {
-        cat.current!.value = "inf";
+        if (props.isBrand) {
+            cat.current!.value = "brand";
+            setBrand(true);
+        } else {
+            cat.current!.value = "inf";
+            setBrand(false);
+        }
     }, []);
 
     return (

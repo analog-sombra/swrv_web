@@ -3,6 +3,7 @@ import { MarkatingCard } from "../utils/markatingcard";
 import { CategoryCard } from "../utils/categorycard";
 import { BlogsCard } from "../utils/blogscard";
 import { DownloadApp } from "../utils/downloadapp";
+import { Link } from "@remix-run/react";
 export const HomeIntro = () => (
     <>
         <div className="w-full px-6 sm:px-16">
@@ -65,10 +66,14 @@ const HomeFirst = () => {
                     <div className="pt-10 md:pt-24">
                         <h3 className="text-white text-5xl font-bold">Reach the next billion</h3>
                         <h3 className="text-white text-md font-normal mt-4">We connect brands with targeted audience through nano influencer marketing. Save time and improve performance. Take the guesswork out of Influencer analysis with data-driven audience insights, managed in one easy to use platform.</h3>
-                        <div className="flex">
-                            <CusButton text="I'am a brand" borderColor={"border-white"}></CusButton>
+                        <div className="flex flex-col sm:flex-row items-center ">
+                            <Link to="/register?isBrand=1">
+                                <CusButton text="I'am a brand" borderColor={"border-white"}></CusButton>
+                            </Link>
                             <div className="w-10"></div>
-                            <CusButton text="I'am a Influencer" background="bg-secondary"></CusButton>
+                            <Link to="/register?isInf=1">
+                                <CusButton text="I'am a Influencer" background="bg-secondary"></CusButton>
+                            </Link>
                         </div>
                     </div>
                 </div>

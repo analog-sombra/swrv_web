@@ -1,12 +1,18 @@
-import { ActionArgs, LoaderArgs, redirect } from "@remix-run/node";
-import { useActionData } from "@remix-run/react";
+import { ActionArgs, LoaderArgs, LoaderFunction, json, redirect } from "@remix-run/node";
+import { useActionData, useLoaderData } from "@remix-run/react";
 import axios from "axios";
 import { IntroNavBar } from "~/components/home/navbar/intronavbar";
 import { RegisterBox } from "~/components/user/register";
 import { BaseUrl } from "~/const";
 import { userPrefs } from "~/cookies";
 
-export async function loader({ request }: LoaderArgs) {
+export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
+
+
+    const isBrand = new URL(request.url).searchParams.get("isBrand");
+    const isInf = new URL(request.url).searchParams.get("isInf");
+    let brand = isBrand == "1" ? true : false;
+    let inf = isInf == "1" ? true : false;
     const cookieHeader = request.headers.get("Cookie");
     const cookie = await userPrefs.parse(cookieHeader);
     if (cookie) {
@@ -14,15 +20,18 @@ export async function loader({ request }: LoaderArgs) {
             return redirect("/home");
         }
     }
-    return null;
+    return json({ brand: brand, inf: inf });
 }
 
 const register = () => {
+    const loaderData = useLoaderData();
+
     const data = useActionData();
+
     return (
         <>
             <IntroNavBar></IntroNavBar>
-            <RegisterBox message={data?.message}></RegisterBox>
+            <RegisterBox isBrand={loaderData.brand ? true : false} message={data?.message}></RegisterBox>
         </>
     );
 }

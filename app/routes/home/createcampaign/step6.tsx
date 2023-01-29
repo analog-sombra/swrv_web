@@ -19,8 +19,9 @@ export async function loader({ request }: LoaderArgs) {
 const Step6 = () => {
     const userdata = useLoaderData();
 
-    const userId: string = userdata.userdata.id
-    console.log(userId);
+    const userId: string = userdata.userdata.id;
+    const barndId: string = userdata.userdata.brandId;
+
     const navigator = useNavigate();
 
     const dosdata = CreateCampaignStore((state) => state.dos);
@@ -66,7 +67,7 @@ const Step6 = () => {
         const req: { [key: string]: string; } = {
             "userId": userId,
             "brandUserId": userId,
-            "brandId": userId,
+            "brandId": barndId,
             "cityId": "1",
             "campaignTypeId": campaignTypeId,
             "campaignName": campaignName,
@@ -168,6 +169,7 @@ const Step6 = () => {
         for (let i: number = 0; i < image.length; i++) {
 
             const imgurl = await UploadFile(image[i]);
+
             const imgref: { [key: string]: string; } = {
                 "campaignId": id,
                 "title": `moodboard${id}${i}`,
