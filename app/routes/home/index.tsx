@@ -1,7 +1,8 @@
 import { faHeart, faIdBadge, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { LoaderArgs, json, redirect } from "@remix-run/node";
+import { LoaderArgs, LoaderFunction, json, redirect } from "@remix-run/node";
 import { Link, useLoaderData, useNavigate } from "@remix-run/react";
+import { useEffect } from "react";
 import { BrandCard } from "~/components/utils/brandcard";
 import { CusButton } from "~/components/utils/buttont";
 import { CampaginCard } from "~/components/utils/campagincard";
@@ -9,11 +10,26 @@ import { userPrefs } from "~/cookies";
 import ProfileComleteStore from "~/state/home/profilecompletestat";
 
 
+export const loader: LoaderFunction = async (props: LoaderArgs) => {
+    const cookieHeader = props.request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+
+    return json({ user: cookie.user });
+}
 
 
 const HomePage = () => {
+    const user = useLoaderData();
+    const userdata = user.user;
+    const profilecomplted: String = userdata["profileCompleteness"];
+
     const isOpen = ProfileComleteStore((state) => state.isOpen);
+    const isOpenChange = ProfileComleteStore((state) => state.change);
     const navigator = useNavigate();
+
+    useEffect(() => {
+        isOpenChange(profilecomplted == "1" ? false : true);
+    }, []);
     return (
         <>
             <div className="flex mt-4">

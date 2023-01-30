@@ -3,7 +3,7 @@ import { CusButton } from "~/components/utils/buttont";
 import * as EmailValidator from 'email-validator';
 import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
 import { userPrefs } from "~/cookies";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useTransition } from "@remix-run/react";
 import axios from "axios";
 import { BaseUrl } from "~/const";
 export const loader: LoaderFunction = async (props: LoaderArgs) => {
@@ -13,6 +13,9 @@ export const loader: LoaderFunction = async (props: LoaderArgs) => {
 }
 
 const Invite = () => {
+    const navigation = useTransition();
+    const isSubmitting = navigation.state === "submitting";
+
     const userdata = useLoaderData();
     const userId: string = userdata.user.id;
     const nameRef = useRef<HTMLInputElement | null>(null);
@@ -92,7 +95,7 @@ const Invite = () => {
                                 }
                             }
                         }}>
-                            <CusButton text="Invite" background="bg-[#01FFF4]" fontwidth="font-bold" textColor={"text-primary"} width="w-full"></CusButton>
+                            <button className="w-full text-center text-xl rounded-md my-2 py-1 text-primary font-bold bg-[#01FFF4]">Invite </button>
                         </div>
                     </div>
                     <div className="bg-white rounded-lg shadow-xl p-4 grow w-full overflow-x-auto">
