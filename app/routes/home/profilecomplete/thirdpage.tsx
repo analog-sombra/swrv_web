@@ -90,9 +90,11 @@ const ThirdPage = () => {
                                             {
                                                 val["status"] ? null : <div className="text-white bg-green-500 font-medium text-md text-center rounded-md grid place-items-center px-4 cursor-pointer" onClick={async () => {
                                                     if (val["text"] == null || val["text"] == undefined || val["text"] == "") {
+                                                        setSus(null);
                                                         setError("Fill the handle name");
                                                     }
                                                     else if (val["text"].indexOf(" ") >= 0) {
+                                                        setSus(null);
                                                         setError("Hashtag cannot containt space");
                                                     }
                                                     else {
@@ -117,6 +119,7 @@ const ThirdPage = () => {
                                                             }
                                                         });
                                                         if (data.data.status == false) {
+                                                            setSus(null);
                                                             return setError(data.data.message);
                                                         }
                                                         else {
@@ -141,23 +144,25 @@ const ThirdPage = () => {
                             <div className="bg-green-500 bg-opacity-10 border-2 text-center border-green-500 rounded-md text-green-500 text-md font-normal text-md my-4">{sus}</div>
                         }
                         {/* <Form method="post"> */}
-                            {/* <input type="hidden" value={userId} name="userid" /> */}
-                            {/* <input type="hidden" value={url.toString()} name="url" /> */}
-                            <div onClick={() => {
-                                if (addedPlatfrom.length == 0) {
+                        {/* <input type="hidden" value={userId} name="userid" /> */}
+                        {/* <input type="hidden" value={url.toString()} name="url" /> */}
+                        <div onClick={() => {
+                            if (addedPlatfrom.length == 0) {
+                                setSus(null);
+                                setError("Add at least one handel");
+                            }
+                            else {
+                                if (addedPlatfrom[0]["status"]) {
+                                    setIndex(4);
+                                    navigator("/home/profilecomplete/forthpage");
+                                } else {
+                                    setSus(null);
                                     setError("Add at least one handel");
                                 }
-                                else {
-                                    if (addedPlatfrom[0]["status"]) {
-                                        setIndex(4);
-                                        navigator("/home/profilecomplete/forthpage");
-                                    } else {
-                                        setError("Add at least one handel");
-                                    }
-                                }
-                            }}>
-                                <CusButton text="Next" textColor={"text-white"} width={'w-full'} background={"bg-primary"} fontwidth={"font-bold"}></CusButton>
-                            </div>
+                            }
+                        }}>
+                            <CusButton text="Next" textColor={"text-white"} width={'w-full'} background={"bg-primary"} fontwidth={"font-bold"}></CusButton>
+                        </div>
                         {/* </Form> */}
 
                     </div>

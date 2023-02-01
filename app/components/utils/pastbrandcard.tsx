@@ -1,12 +1,10 @@
 import { CusButton } from "./buttont";
 
 
-
-
 export const PastBrandCard = () => {
     return (
         <>
-            <div className="bg-white rounded-xl shadow-xl p-4 w-80 my-2">
+            <div className="bg-white rounded-xl shadow-xl p-4 w-64 my-2">
                 <div className="flex items-end gap-x-3">
                     <div>
                         <img src="/images/brand/adidas.jpg" alt="error" className="object-cover w-16 h-16 rounded" />

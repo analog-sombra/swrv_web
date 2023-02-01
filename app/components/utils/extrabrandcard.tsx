@@ -3,7 +3,7 @@ import { CusButton } from "./buttont";
 const ExtraBrandCard = () => {
     return (
         <>
-            <div className="bg-white rounded-xl shadow-xl w-72 mt-2">
+            <div className="bg-white rounded-xl shadow-xl w-64 mt-2">
                 <div>
                     <img src="/images/products/shoe1.jpg" alt="error" className="rounded-t-xl" />
                 </div>

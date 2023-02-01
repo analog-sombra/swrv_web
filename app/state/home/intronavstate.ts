@@ -1,8 +1,5 @@
 import { create } from "zustand";
 
-
-
-
 interface IntroNavState {
     isOpen: boolean
     change: (value: boolean) => void

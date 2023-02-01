@@ -118,7 +118,7 @@ export const action = async ({ request }: ActionArgs) => {
             if (userdata.data.status == false) {
                 return { message: userdata.data.message };
             } else {
-                return redirect("/home", {
+                return redirect("/createbrand", {
                     headers: {
                         "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
                     },

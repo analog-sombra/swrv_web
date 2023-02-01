@@ -59,7 +59,7 @@ const Step1 = () => {
                 <div className="grid place-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start gap-4">
                     {catdata.map((val: unknown, i: number) => {
                         return (
-                            <div key={i} className={`shadow-xl rounded-xl w-72 bg-white my-4 ${camptype == catdata[i]["id"] ? "border-2 border-gray-400" : ""}`} onClick={() => setCamptype(catdata[i]["id"])}>
+                            <div key={i} className={`shadow-xl rounded-xl w-72 bg-white my-4 ${camptype == catdata[i]["id"] ? "border-2 border-gray-400" : ""} h-[350px]`} onClick={() => setCamptype(catdata[i]["id"])}>
                                 <img src={catdata[i]["categoryPicUrl"]} alt="error" className="rounded-t-xl w-full h-40" />
                                 <div className="p-6">
                                     <h1 className="text-black text-left font-medium text-lg">{catdata[i]["categoryName"]}</h1>

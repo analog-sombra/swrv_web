@@ -186,17 +186,17 @@ const Step2 = () => {
                     addmendtion ?
                         <div className="mt-4 flex">
                             <div className="grid place-items-center">
-                                <input ref={mendtionText} type="text" className="bg-gray-200 w-full outline-none rounded-lg px-4 py-2" placeholder="Mendtion" />
+                                <input ref={mendtionText} type="text" className="bg-gray-200 w-full outline-none rounded-lg px-4 py-2" placeholder="Mention" />
                             </div>
                             <div className="w-6"></div>
                             <div onClick={() => {
                                 if (mendtionText!.current!.value == "" || mendtionText!.current!.value == null || mendtionText!.current!.value == undefined) {
-                                    setMenError("Mendtion can't be empty!")
+                                    setMenError("Mention can't be empty!")
                                 } else if (mendtion.includes(mendtionText!.current!.value)) {
-                                    setMenError("Mendtion already exist add a diffrent one");
+                                    setMenError("Mention already exist add a diffrent one");
                                 } else if (mendtionText!.current!.value.indexOf(" ") >= 0) {
 
-                                    setMenError("Mendtion cannot containt space");
+                                    setMenError("Mention cannot containt space");
                                 }
                                 else {
                                     addMendtion(mendtionText!.current!.value);

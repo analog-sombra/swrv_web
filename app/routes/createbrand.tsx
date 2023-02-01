@@ -122,13 +122,13 @@ const createBarnd = () => {
                             </div>
                         </div>
                     </div>
-                    <h2 className="text-primary tect-xl font-medium text-left my-1">Barnd Name</h2>
+                    <h2 className="text-primary tect-xl font-medium text-left my-1">Brand Name</h2>
                     <input ref={nameRef} className="p-2 w-full outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" />
-                    <h2 className="text-primary tect-xl font-medium text-left my-1">Barnd code</h2>
+                    <h2 className="text-primary tect-xl font-medium text-left my-1">Brand code</h2>
                     <input ref={codeRef} className="p-2 w-full outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" />
-                    <h2 className="text-primary tect-xl font-medium text-left my-1">Barnd website</h2>
+                    <h2 className="text-primary tect-xl font-medium text-left my-1">Brand website</h2>
                     <input ref={websiteRef} className="p-2 w-full outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" />
-                    <h2 className="text-primary tect-xl font-medium text-left my-1">Barnd address</h2>
+                    <h2 className="text-primary tect-xl font-medium text-left my-1">Brand address</h2>
                     <input ref={addressRef} className="p-2 w-full outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" />
                     <h2 className="text-primary tect-xl font-medium text-left my-1">Brand city</h2>
                     <div className="w-full bg-[#EEEEEE] rounded-md flex p-2">
@@ -162,7 +162,7 @@ const createBarnd = () => {
                     <input ref={emailRef} className="p-2 w-full outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none" />
                     <h2 className="text-primary tect-xl font-medium text-left my-1">Brand info</h2>
                     <textarea ref={binfoRef} className="p-2 w-full h-32 outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none"  ></textarea>
-                    <h2 className="text-primary tect-xl font-medium text-left my-1">Campany info</h2>
+                    <h2 className="text-primary tect-xl font-medium text-left my-1">Company info</h2>
                     <textarea ref={cinfoRef} className="p-2 w-full h-32 outline-none bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none"></textarea>
                     {(error == "" || error == null || error == undefined) ? null :
                         <div className="bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4">{error}</div>
