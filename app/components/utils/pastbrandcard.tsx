@@ -13,9 +13,7 @@ export const PastBrandCard = () => {
                 </div>
                 <p className="text-black font-semibold text-md text-left my-4">Lulu 50% off - SPORTS WEEK</p>
                 <div className="flex justify-center items-center gap-x-2">
-                    <div>
-                        <img src="/images/media/facebook.png" alt="error" className="w-6 h-6" />
-                    </div>
+                    <img src="/images/media/facebook.png" alt="error" className="w-6 h-6 grow" />
                     <div>
                         <h1 className="text-sm font-bold text-black">POST</h1>
                         <p className="text-xs font-normal text-black">Category: Consumer Electronics</p>
@@ -23,9 +21,7 @@ export const PastBrandCard = () => {
                     <p className="text-black font-semibold text-sm text-left my-4">61K Reach</p>
                 </div>
                 <div className="flex justify-center items-center gap-x-2">
-                    <div>
-                        <img src="/images/media/instagram.png" alt="error" className="w-6 h-6" />
-                    </div>
+                    <img src="/images/media/instagram.png" alt="error" className="w-6 h-6 grow" />
                     <div>
                         <h1 className="text-sm font-bold text-black">POST</h1>
                         <p className="text-xs font-normal text-black">Category: Consumer Electronics</p>

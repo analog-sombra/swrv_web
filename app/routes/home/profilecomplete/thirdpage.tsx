@@ -3,7 +3,7 @@ import { Form, Link, useLoaderData, useNavigate } from "@remix-run/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
-import { BaseUrl } from "~/const";
+import { BaseUrl, instaUrl } from "~/const";
 import { userPrefs } from "~/cookies";
 import UserInputStore from "~/state/user/firstinput";
 
@@ -43,6 +43,18 @@ const ThirdPage = () => {
     const setIndex = UserInputStore((state) => state.setIndex);
     const navigator = useNavigate();
 
+    // const [insta, setInsta] = useState<boolean>(false);
+    // const [userInsta, setUserInsta] = useState<any>();
+    // const [newval, setval] = useState<any>();
+
+
+
+    // const getuserData = async (username: String) => {
+    //     const data = await axios.get(`${instaUrl}/data/${username}`);
+    //     setUserInsta(data.data);
+    // }
+
+
 
     // const [url, setUrl] = useState<String>("");
     // useEffect(() => {
@@ -53,6 +65,60 @@ const ThirdPage = () => {
 
     return (
         <>
+            {/* <div className={`h-screen w-full bg-gray-200 bg-opacity-50  grid place-items-center fixed top-0 left-0 ${insta ? "grid" : "hidden"}`}>
+                <div className="bg-white shadow-xl rounded-lg p-4">
+                    <h3 className="text-slate-800 font-medium text-xl text-center mt-4">{userInsta == undefined || userInsta == null ? "" : userInsta.username}</h3>
+                    <div className="my-2 h-[1px] bg-slate-500 w-full"></div>
+                    <div className="flex mx-10">
+                        <div>
+                            <h1 className="text-center text-xl font-medium text-slate-800">Follower</h1>
+                            <h1 className="text-center text-md font-normal text-slate-600">{userInsta == undefined || userInsta == null ? "" : userInsta.follower}</h1>
+                        </div>
+                        <div className="w-10"></div>
+                        <div>
+                            <h1 className="text-center text-xl font-medium text-slate-800">Following</h1>
+                            <h1 className="text-center text-md font-normal text-slate-600">{userInsta == undefined || userInsta == null ? "" : userInsta.following}</h1>
+                        </div>
+                    </div>
+                    <div className="my-2 h-[1px] bg-slate-500 w-full"></div>
+                    <div className="w-full grid place-content-center">
+                        <button onClick={async () => {
+
+                            let req = {
+                                "userId": userId,
+                                "platformId": newval["val"]["id"],
+                                "handleName": newval["text"]
+                            };
+
+                            const data = await axios({
+                                method: 'post',
+                                url: `${BaseUrl}/api/add-handle`,
+                                data: req,
+                                headers: {
+                                    'Access-Control-Allow-Origin': '*',
+                                    'Access-Control-Allow-Headers': '*',
+                                    'Access-Control-Allow-Options': '*',
+                                    'Access-Control-Allow-Methods': '*',
+                                    'X-Content-Type-Options': '*',
+                                    'Content-Type': 'application/json',
+                                    'Accept': '*'
+                                }
+                            });
+                            if (data.data.status == false) {
+                                setSus(null);
+                                return setError(data.data.message);
+                            }
+                            else {
+                                setError(null);
+                                setSus("Successfully added the user handel");
+                                let adddata = addedPlatfrom.filter((data) => data != newval);
+                                setAddPlatform([...adddata, { val: newval["val"], status: true, text: newval["text"] }]);
+                            }
+                            setInsta(false);
+                        }} className="bg-secondary px-6 py-2 font-bold hover:-translate-y-1 hover:shadow-lg transition-all rounded-lg text-white">Add</button>
+                    </div>
+                </div>
+            </div> */}
             <div className="p-8 w-full">
                 <h1 className="text-2xl text-black font-bold">Channels</h1>
                 <div className="flex content-center items-center gap-2 flex-col md:flex-row mt-2">
@@ -72,7 +138,7 @@ const ThirdPage = () => {
                         setAddPlatform([...addedPlatfrom, { val: selPlatform[0], status: false, text: "" }]);
                         setSelPlatfome([]);
                     }}>
-                        <CusButton text="Add new Channel" textColor={"text-white"} width={'w-36'} background={"bg-primary"} fontwidth={"font-normal"} textSize={"text-md"} ></CusButton>
+                        <CusButton text="Add new Channel" textColor={"text-white"} width={'w-36'} background={"bg-primary"} fontwidth={"font-normal"} textSize={"text-md"}></CusButton>
                     </div>
                 </div>
                 <div className="flex w-full">
@@ -98,6 +164,12 @@ const ThirdPage = () => {
                                                         setError("Hashtag cannot containt space");
                                                     }
                                                     else {
+
+                                                        // await getuserData(val["text"]);
+                                                        // setInsta(true);
+                                                        // setval(val);
+
+
                                                         let req = {
                                                             "userId": userId,
                                                             "platformId": val["val"]["id"],
