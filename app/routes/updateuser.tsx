@@ -12,7 +12,6 @@ export async function loader({ request }: LoaderArgs) {
 
 
 const UpdateUser = () => {
-    console.log("great");
     return (
         <>
         </>

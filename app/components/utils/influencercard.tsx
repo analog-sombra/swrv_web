@@ -7,8 +7,43 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 type InfluencerCardProps = {
     image: string
     name: string
+    star: number
 }
 const InfluencerCard = (props: InfluencerCardProps) => {
+    const Star = () => {
+        const fullStars = Math.floor(props.star);
+        const fractionalStar = props.star - fullStars;
+        const stars = [];
+
+        for (let i = 0; i < fullStars; i++) {
+            stars.push(
+                <FontAwesomeIcon key={i} className="text-xs text-pink-500" icon={faStar} />
+            );
+        }
+
+        if (fractionalStar > 0) {
+            stars.push(
+                <FontAwesomeIcon
+                    key={fullStars}
+                    className="text-xs text-pink-500"
+                    icon={faStar}
+                    style={{ width: `${fractionalStar * 100}%` }}
+                />
+            );
+        }
+
+        for (let i = 0; i < 5 - fullStars; i++) {
+            stars.push(
+                <FontAwesomeIcon
+                    key={5 + i}
+                    className="text-xs text-gray-300"
+                    icon={faStar}
+                />
+            );
+        }
+
+        return <>{stars}</>;
+    };
     return (
         <>
             <div className="bg-white rounded-xl shadow-xl w-64 my-2">
@@ -24,13 +59,9 @@ const InfluencerCard = (props: InfluencerCardProps) => {
                 <div className="px-4 pb-2">
                     <div className="flex items-start my-2 justify-between">
                         <div className="grow">
-                            <p className="text-black font-semibold text-sm text-left">Salt bae</p>
+                            <p className="text-black font-semibold text-sm text-left">{props.name.split("@")[0]}</p>
                             <div className="flex">
-                                <FontAwesomeIcon className="text-xs text-pink-500" icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon className="text-xs text-pink-500" icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon className="text-xs text-pink-500" icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon className="text-xs text-pink-500" icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon className="text-xs text-pink-500" icon={faStar}></FontAwesomeIcon>
+                                <Star></Star>
                             </div>
 
                         </div>

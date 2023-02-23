@@ -49,9 +49,23 @@ export const action = async ({ request }: ActionArgs) => {
         if (data.data.status == false) {
             return { message: data.data.message };
         } else {
+            const userdata = await axios({
+                method: 'post',
+                url: `${BaseUrl}/api/getuser`,
+                data: { "id": data.data.data.id },
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Options': '*',
+                    'Access-Control-Allow-Methods': '*',
+                    'X-Content-Type-Options': '*',
+                    'Content-Type': 'application/json',
+                    'Accept': '*'
+                }
+            });
             return redirect("/home", {
                 headers: {
-                    "Set-Cookie": await userPrefs.serialize({ user: data.data.data, isLogin: true }),
+                    "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
                 },
             });
         }
@@ -59,5 +73,4 @@ export const action = async ({ request }: ActionArgs) => {
         return { message: e };
     }
 }
-
 export default login;

@@ -2,12 +2,14 @@ import { Link } from "@remix-run/react";
 import { CusButton } from "./buttont";
 
 
-type CampaginCardProps = {
+type BrandCardProps = {
     image: string
     name: string
+    email: string
+    id: string
 }
 
-export const BrandCard = (props: CampaginCardProps) => {
+export const BrandCard = (props: BrandCardProps) => {
     return (
         <>
             <div className="bg-white rounded-xl shadow-xl p-4 w-64 my-2">
@@ -17,10 +19,8 @@ export const BrandCard = (props: CampaginCardProps) => {
                     </div>
                     <p className="text-black font-semibold text-xl content-end text-left">{props.name}</p>
                 </div>
-                <p className="text-black font-semibold text-md text-left my-4">Lulu 50% off - SPORTS WEEK</p>
-                <p className="text-black font-semibold text-xs text-left">Category : Consumer Electronics</p>
-                <p className="text-black font-semibold text-xs text-left">www.adidas.co.in</p>
-                <Link to={"/home/brand"}>
+                <p className="text-black font-semibold text-xs text-left mt-2">email : {props.email}</p>
+                <Link to={`/home/brand/${props.id}`}>
                     <CusButton text="View" textColor={"text-black"} background={"bg-[#01FFF4]"} width={"w-full"} margin={"my-2"} fontwidth={"font-bold"}></CusButton>
                 </Link>
             </div>

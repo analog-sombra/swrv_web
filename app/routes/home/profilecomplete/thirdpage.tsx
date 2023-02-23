@@ -1,7 +1,7 @@
 import { ActionArgs, ActionFunction, LoaderArgs, LoaderFunction, json, redirect } from "@remix-run/node";
 import { Form, Link, useLoaderData, useNavigate } from "@remix-run/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import { BaseUrl, instaUrl } from "~/const";
 import { userPrefs } from "~/cookies";
@@ -41,84 +41,15 @@ const ThirdPage = () => {
     const [sus, setSus] = useState<String | null>(null);
 
     const setIndex = UserInputStore((state) => state.setIndex);
-    const navigator = useNavigate();
+    // const navigator = useNavigate();
 
-    // const [insta, setInsta] = useState<boolean>(false);
-    // const [userInsta, setUserInsta] = useState<any>();
-    // const [newval, setval] = useState<any>();
+    const nextButton = useRef<HTMLButtonElement>(null);
 
 
 
-    // const getuserData = async (username: String) => {
-    //     const data = await axios.get(`${instaUrl}/data/${username}`);
-    //     setUserInsta(data.data);
-    // }
-
-
-
-    // const [url, setUrl] = useState<String>("");
-    // useEffect(() => {
-    //     let myurl = window.location.href.split("/");
-    //     let out = "/" + myurl.slice(3, myurl.length).join("/");
-    //     setUrl(out)
-    // }, [])
 
     return (
         <>
-            {/* <div className={`h-screen w-full bg-gray-200 bg-opacity-50  grid place-items-center fixed top-0 left-0 ${insta ? "grid" : "hidden"}`}>
-                <div className="bg-white shadow-xl rounded-lg p-4">
-                    <h3 className="text-slate-800 font-medium text-xl text-center mt-4">{userInsta == undefined || userInsta == null ? "" : userInsta.username}</h3>
-                    <div className="my-2 h-[1px] bg-slate-500 w-full"></div>
-                    <div className="flex mx-10">
-                        <div>
-                            <h1 className="text-center text-xl font-medium text-slate-800">Follower</h1>
-                            <h1 className="text-center text-md font-normal text-slate-600">{userInsta == undefined || userInsta == null ? "" : userInsta.follower}</h1>
-                        </div>
-                        <div className="w-10"></div>
-                        <div>
-                            <h1 className="text-center text-xl font-medium text-slate-800">Following</h1>
-                            <h1 className="text-center text-md font-normal text-slate-600">{userInsta == undefined || userInsta == null ? "" : userInsta.following}</h1>
-                        </div>
-                    </div>
-                    <div className="my-2 h-[1px] bg-slate-500 w-full"></div>
-                    <div className="w-full grid place-content-center">
-                        <button onClick={async () => {
-
-                            let req = {
-                                "userId": userId,
-                                "platformId": newval["val"]["id"],
-                                "handleName": newval["text"]
-                            };
-
-                            const data = await axios({
-                                method: 'post',
-                                url: `${BaseUrl}/api/add-handle`,
-                                data: req,
-                                headers: {
-                                    'Access-Control-Allow-Origin': '*',
-                                    'Access-Control-Allow-Headers': '*',
-                                    'Access-Control-Allow-Options': '*',
-                                    'Access-Control-Allow-Methods': '*',
-                                    'X-Content-Type-Options': '*',
-                                    'Content-Type': 'application/json',
-                                    'Accept': '*'
-                                }
-                            });
-                            if (data.data.status == false) {
-                                setSus(null);
-                                return setError(data.data.message);
-                            }
-                            else {
-                                setError(null);
-                                setSus("Successfully added the user handel");
-                                let adddata = addedPlatfrom.filter((data) => data != newval);
-                                setAddPlatform([...adddata, { val: newval["val"], status: true, text: newval["text"] }]);
-                            }
-                            setInsta(false);
-                        }} className="bg-secondary px-6 py-2 font-bold hover:-translate-y-1 hover:shadow-lg transition-all rounded-lg text-white">Add</button>
-                    </div>
-                </div>
-            </div> */}
             <div className="p-8 w-full">
                 <h1 className="text-2xl text-black font-bold">Channels</h1>
                 <div className="flex content-center items-center gap-2 flex-col md:flex-row mt-2">
@@ -215,9 +146,6 @@ const ThirdPage = () => {
                         {(sus == "" || sus == null || sus == undefined) ? null :
                             <div className="bg-green-500 bg-opacity-10 border-2 text-center border-green-500 rounded-md text-green-500 text-md font-normal text-md my-4">{sus}</div>
                         }
-                        {/* <Form method="post"> */}
-                        {/* <input type="hidden" value={userId} name="userid" /> */}
-                        {/* <input type="hidden" value={url.toString()} name="url" /> */}
                         <div onClick={() => {
                             if (addedPlatfrom.length == 0) {
                                 setSus(null);
@@ -226,7 +154,7 @@ const ThirdPage = () => {
                             else {
                                 if (addedPlatfrom[0]["status"]) {
                                     setIndex(4);
-                                    navigator("/home/profilecomplete/forthpage");
+                                    nextButton.current!.click();
                                 } else {
                                     setSus(null);
                                     setError("Add at least one handel");
@@ -235,7 +163,10 @@ const ThirdPage = () => {
                         }}>
                             <CusButton text="Next" textColor={"text-white"} width={'w-full'} background={"bg-primary"} fontwidth={"font-bold"}></CusButton>
                         </div>
-                        {/* </Form> */}
+                        <Form method="post" className="hidden">
+                            <input type="hidden" name="id" value={userId.toString()} />
+                            <button ref={nextButton} name="submit">Submit</button>
+                        </Form>
 
                     </div>
                 </div>
@@ -246,38 +177,33 @@ const ThirdPage = () => {
 export default ThirdPage;
 
 
-// export const action: ActionFunction = async (props: ActionArgs) => {
-//     const formData = await props.request.formData();
-//     const value = Object.fromEntries(formData);
 
-//     console.log(value.userid);
-//     console.log(value.url);
-//     let req = { "id": value.userid };
-//     const data = await axios({
-//         method: 'post',
-//         url: `${BaseUrl}/api/getuser`,
-//         data: req,
-//         headers: {
-//             'Access-Control-Allow-Origin': '*',
-//             'Access-Control-Allow-Headers': '*',
-//             'Access-Control-Allow-Options': '*',
-//             'Access-Control-Allow-Methods': '*',
-//             'X-Content-Type-Options': '*',
-//             'Content-Type': 'application/json',
-//             'Accept': '*'
-//         }
-//     });
 
-//     if (data.data.status == false) {
-//         return json({ message: "unbale to update user" });
-//     }
-//     else {
-//         console.log(data.data.data);
-//         return redirect(value.url.toString(), {
-//             headers: {
-//                 "Set-Cookie": await userPrefs.serialize({ user: data.data.data, isLogin: true }),
-//             },
-//         });
-//     }
+export const action: ActionFunction = async ({ request }: ActionArgs) => {
+    const formData = await request.formData();
+    const value = Object.fromEntries(formData);
 
-// };
+    const userdata = await axios({
+        method: 'post',
+        url: `${BaseUrl}/api/getuser`,
+        data: { "id": value.id },
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Options': '*',
+            'Access-Control-Allow-Methods': '*',
+            'X-Content-Type-Options': '*',
+            'Content-Type': 'application/json',
+            'Accept': '*'
+        }
+    });
+    if (userdata.data.status == false) {
+        return { message: userdata.data.message };
+    } else {
+        return redirect("/home/profilecomplete/forthpage", {
+            headers: {
+                "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
+            },
+        });
+    }
+}

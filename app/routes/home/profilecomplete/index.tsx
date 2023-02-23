@@ -1,5 +1,5 @@
-import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { ActionArgs, ActionFunction, LoaderArgs, LoaderFunction, json, redirect } from "@remix-run/node";
+import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import { BaseUrl } from "~/const";
@@ -15,6 +15,7 @@ export const loader: LoaderFunction = async (props: LoaderArgs) => {
 }
 
 const UserInputBoxOne = () => {
+
     const user = useLoaderData();
     const useremail: string = user.user.email;
     const userID: String = user.user.id;
@@ -37,6 +38,8 @@ const UserInputBoxOne = () => {
         emailRef!.current!.value = useremail;
         usernameRef!.current!.value = useremail;
     }, []);
+
+    const nextButton = useRef<HTMLButtonElement>(null);
 
     return (
         <>
@@ -138,11 +141,16 @@ const UserInputBoxOne = () => {
                                     return setError(data.data.message);
                                 }
                                 setIndex(2);
-                                navigator("/home/profilecomplete/secondpage");
+                                nextButton.current!.click();
                             }
+
                         }}>
                             <CusButton text="Next" textColor={"text-white"} width={'w-full'} background={"bg-primary"} fontwidth={"font-bold"}></CusButton>
                         </div>
+                        <Form method="post" className="hidden">
+                            <input type="hidden" name="id" value={userID.toString()} />
+                            <button ref={nextButton} name="submit">Submit</button>
+                        </Form>
                     </div>
                 </div>
             </div>
@@ -150,3 +158,33 @@ const UserInputBoxOne = () => {
     );
 }
 export default UserInputBoxOne;
+
+
+export const action: ActionFunction = async ({ request }: ActionArgs) => {
+    const formData = await request.formData();
+    const value = Object.fromEntries(formData);
+
+    const userdata = await axios({
+        method: 'post',
+        url: `${BaseUrl}/api/getuser`,
+        data: { "id": value.id },
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Options': '*',
+            'Access-Control-Allow-Methods': '*',
+            'X-Content-Type-Options': '*',
+            'Content-Type': 'application/json',
+            'Accept': '*'
+        }
+    });
+    if (userdata.data.status == false) {
+        return { message: userdata.data.message };
+    } else {
+        return redirect("/home/profilecomplete/secondpage", {
+            headers: {
+                "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
+            },
+        });
+    }
+}

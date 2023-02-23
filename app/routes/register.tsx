@@ -82,6 +82,7 @@ export const action = async ({ request }: ActionArgs) => {
         };
     }
     try {
+        //registring the user
         const apidata = await axios({
             method: 'post',
             url: `${BaseUrl}/api/register`,
@@ -100,6 +101,10 @@ export const action = async ({ request }: ActionArgs) => {
         if (apidata.data.status == false) {
             return { message: apidata.data.message };
         } else {
+
+
+            //getting data and storing in cookies
+
             const userdata = await axios({
                 method: 'post',
                 url: `${BaseUrl}/api/getuser`,
@@ -115,14 +120,41 @@ export const action = async ({ request }: ActionArgs) => {
                 }
             });
 
+            const sendverificationmail = await axios({
+                method: 'post',
+                url: `${BaseUrl}/api/send-otp`,
+                data: { "userId": apidata.data.data.id },
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': '*',
+                    'Access-Control-Allow-Options': '*',
+                    'Access-Control-Allow-Methods': '*',
+                    'X-Content-Type-Options': '*',
+                    'Content-Type': 'application/json',
+                    'Accept': '*'
+                }
+            });
+
+
             if (userdata.data.status == false) {
                 return { message: userdata.data.message };
+            } else if (sendverificationmail.data.status == false) {
+                return { message: sendverificationmail.data.message };
             } else {
-                return redirect("/createbrand", {
-                    headers: {
-                        "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
-                    },
-                });
+                if (value.cat == "inf") {
+                    return redirect("/home", {
+                        headers: {
+                            "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
+                        },
+                    });
+                } else {
+                    return redirect("/createbrand", {
+                        headers: {
+                            "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
+                        },
+                    });
+                }
+
             }
 
         }

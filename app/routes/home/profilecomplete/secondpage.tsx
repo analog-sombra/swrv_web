@@ -1,14 +1,16 @@
 import { faAdd, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
-import { useLoaderData, useNavigate } from "@remix-run/react";
+import { ActionArgs, ActionFunction, LoaderArgs, LoaderFunction, json, redirect } from "@remix-run/node";
+import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import axios from "axios";
-import { useState } from "react";
+import he from "he";
+import { useRef, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import { BaseUrl } from "~/const";
-import UserInputStore from "~/state/user/firstinput";
-import he from 'he';
 import { userPrefs } from "~/cookies";
+import UserInputStore from "~/state/user/firstinput";
+
+
 export const loader: LoaderFunction = async (props: LoaderArgs) => {
     const cookieHeader = props.request.headers.get("Cookie");
     const cookie = await userPrefs.parse(cookieHeader);
@@ -102,6 +104,9 @@ const SecondPage = () => {
     const [lan, setlan] = useState<boolean>(false);
     const [mar, setmar] = useState<boolean>(false);
     const [ort, setort] = useState<boolean>(false);
+
+    const nextButton = useRef<HTMLButtonElement>(null);
+
 
     return (
         <>
@@ -380,17 +385,48 @@ const SecondPage = () => {
                                 return setError(data.data.message);
                             }
                             setIndex(3);
-                            navigator("/home/profilecomplete/thirdpage");
-
+                            nextButton.current!.click();
                         }
-
-
                     }}>
                         <CusButton text="Next" textColor={"text-white"} width={'w-full'} background={"bg-primary"} fontwidth={"font-bold"}></CusButton>
                     </div>
+                    <Form method="post" className="hidden">
+                        <input type="hidden" name="id" value={userID.toString()} />
+                        <button ref={nextButton} name="submit">Submit</button>
+                    </Form>
                 </div>
             </div>
         </>
     );
 }
+
 export default SecondPage;
+
+export const action: ActionFunction = async ({ request }: ActionArgs) => {
+    const formData = await request.formData();
+    const value = Object.fromEntries(formData);
+
+    const userdata = await axios({
+        method: 'post',
+        url: `${BaseUrl}/api/getuser`,
+        data: { "id": value.id },
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Options': '*',
+            'Access-Control-Allow-Methods': '*',
+            'X-Content-Type-Options': '*',
+            'Content-Type': 'application/json',
+            'Accept': '*'
+        }
+    });
+    if (userdata.data.status == false) {
+        return { message: userdata.data.message };
+    } else {
+        return redirect("/home/profilecomplete/thirdpage", {
+            headers: {
+                "Set-Cookie": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),
+            },
+        });
+    }
+}

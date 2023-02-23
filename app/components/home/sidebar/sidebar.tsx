@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@remix-run/react";
 import SideBarStore from "~/state/home/sidebarstate";
 import SideBarNavStore, { SideBarTabs } from "~/state/navigation/sidebar";
+type SideBarProps = {
+    isBrand: boolean
+}
 
-export const SideBar = () => {
+export const SideBar = (props: SideBarProps) => {
     const currentPage = SideBarNavStore((state) => state.currentIndex);
     const sidebar = SideBarNavStore((state) => state.changeTab);
     const isOpen = SideBarStore((state) => state.isOpen);
@@ -14,7 +17,7 @@ export const SideBar = () => {
         <>
             <div className={` ${isOpen ? "w-60" : "w-20"} h-screen p-2 fixed top-0 left-0 md:block hidden`}>
                 <div className="w-full h-full bg-primary rounded-2xl flex flex-col py-8 px-3">
-                    <div onClick={() => { changeSidebar(!isOpen) }} className="w-full flex">
+                    <div onClick={() => { changeSidebar(!isOpen) }} className="w-full flex cursor-pointer">
                         <div className="grow"></div>
                         <div className={`w-10 h-10 rounded-xl grid place-items-center text-white text-lg font-bold my-1 bg-[#053497] `}> <FontAwesomeIcon icon={isOpen ? faChevronLeft : faChevronRight}></FontAwesomeIcon> </div>
                     </div>
@@ -24,18 +27,26 @@ export const SideBar = () => {
                     <Link to={"/home/findcampaign"} onClick={() => { sidebar(SideBarTabs.FindCampaigns); changeSidebar(false) }}>
                         <NavTab title="Find campaigns" isOpen={isOpen} isActive={currentPage === SideBarTabs.FindCampaigns} icon={faSearch}></NavTab>
                     </Link>
-                    <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Inbox); changeSidebar(false) }}>
+                    <Link to={"/home/inbox"} onClick={() => { sidebar(SideBarTabs.Inbox); changeSidebar(false) }}>
                         <NavTab title="Inbox" isOpen={isOpen} isActive={currentPage === SideBarTabs.Inbox} icon={faEnvelope}></NavTab>
                     </Link>
-                    <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changeSidebar(false) }}>
-                        <NavTab title="My earnings" isOpen={isOpen} isActive={currentPage === SideBarTabs.MyEarnings} icon={faHandHoldingDollar}></NavTab>
-                    </Link>
-                    <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Drafts); changeSidebar(false) }}>
-                        <NavTab title="Drafts" isOpen={isOpen} isActive={currentPage === SideBarTabs.Drafts} icon={faDraft2digital}></NavTab>
-                    </Link>
-                    <Link to={"/home/favourite"} onClick={() => { sidebar(SideBarTabs.Favourite); changeSidebar(false) }}>
-                        <NavTab title="Favourite" isOpen={isOpen} isActive={currentPage === SideBarTabs.Favourite} icon={faHeart}></NavTab>
-                    </Link>
+
+                    {/* only for influencer options */}
+                    {props.isBrand ?
+                        null :
+                        <>
+                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changeSidebar(false) }}>
+                                <NavTab title="My earnings" isOpen={isOpen} isActive={currentPage === SideBarTabs.MyEarnings} icon={faHandHoldingDollar}></NavTab>
+                            </Link>
+                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Drafts); changeSidebar(false) }}>
+                                <NavTab title="Drafts" isOpen={isOpen} isActive={currentPage === SideBarTabs.Drafts} icon={faDraft2digital}></NavTab>
+                            </Link>
+                            <Link to={"/home/favourite"} onClick={() => { sidebar(SideBarTabs.Favourite); changeSidebar(false) }}>
+                                <NavTab title="Favourite" isOpen={isOpen} isActive={currentPage === SideBarTabs.Favourite} icon={faHeart}></NavTab>
+                            </Link>
+                        </>
+                    }
+
                     <Link to={"/home/invite"} onClick={() => { sidebar(SideBarTabs.Invite); changeSidebar(false) }}>
                         <NavTab title="Invite" isOpen={isOpen} isActive={currentPage === SideBarTabs.Invite} icon={faPeopleLine}></NavTab>
                     </Link>

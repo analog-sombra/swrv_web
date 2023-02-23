@@ -60,7 +60,6 @@ export const BrandActionCard = (props: CusButtonProps) => {
                 }
                 {
                     props.cardtype == CardType.Accept ?
-
                         <div className="my-4">
                             <div className="bg-gray-200  rounded-md py-2 flex justify-around">
                                 <div>
@@ -76,7 +75,6 @@ export const BrandActionCard = (props: CusButtonProps) => {
                             <div className="bg-gray-200 text-center text-sm font-semibold rounded-md py-2 mt-2">
                                 <p>USD 400 <span className="font-normal">per post</span></p>
                             </div>
-
                         </div>
                         : null
                 }

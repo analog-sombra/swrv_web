@@ -66,7 +66,6 @@ const createBarnd = () => {
                             <div className="h-72 overflow-y-scroll no-scrollbar">
                                 {
                                     searchcity.map((value: any, index: number) => {
-                                        
                                         return (
                                             <>
                                                 <div onClick={() => {

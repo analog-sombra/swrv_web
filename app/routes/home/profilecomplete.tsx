@@ -1,8 +1,18 @@
-import { Outlet } from "@remix-run/react";
+import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
+import { Outlet, useLoaderData } from "@remix-run/react";
+import isbot from "isbot";
+import { userPrefs } from "~/cookies";
 import UserInputStore from "~/state/user/firstinput";
-import { Completed } from "./brand";
+export const loader: LoaderFunction = async (props: LoaderArgs) => {
+    const cookieHeader = props.request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+    return json({ user: cookie.user });
+}
+
 
 const UserEditBox = () => {
+    const userdata = useLoaderData();
+    const isBrand = userdata.user.role["code"] == "50" ? true : false;
 
     const index = UserInputStore((state) => state.index);
     const setIndex = UserInputStore((state) => state.setIndex);
@@ -35,11 +45,14 @@ const UserEditBox = () => {
                         <p className="pt-2 text-black text-xl font-normal">Thank you for the confirmation, Login with your account and start searching for the brands.</p>
                     </div>
                     <div>
-                        <div className="bg-white rounded-xl shadow-xl px-2 py-4 flex flex-row items-center lg:flex-col justify-between">
+                        <div className="bg-white rounded-xl shadow-xl px-2 py-4 flex flex-row items-center lg:flex-col justify-between overflow-x-hidden no-scrollbar">
                             <ProfileCompleteBox isActive={index == 1 ? true : false} positionumber={"01"} title={"Info"}></ProfileCompleteBox>
                             <ProfileCompleteBox isActive={index == 2 ? true : false} positionumber={"02"} title={"Audience"}></ProfileCompleteBox>
                             <ProfileCompleteBox isActive={index == 3 ? true : false} positionumber={"03"} title={"Connect"}></ProfileCompleteBox>
                             <ProfileCompleteBox isActive={index == 4 ? true : false} positionumber={"04"} title={"Contact"}></ProfileCompleteBox>
+                            {isBrand ?
+                                <ProfileCompleteBox isActive={index == 5 ? true : false} positionumber={"05"} title={"Users"}></ProfileCompleteBox> : null
+                            }
                         </div>
                     </div>
                     <Outlet></Outlet>
