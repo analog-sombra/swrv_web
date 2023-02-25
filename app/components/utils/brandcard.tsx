@@ -7,6 +7,7 @@ type BrandCardProps = {
     name: string
     email: string
     id: string
+    website: string
 }
 
 export const BrandCard = (props: BrandCardProps) => {
@@ -20,6 +21,7 @@ export const BrandCard = (props: BrandCardProps) => {
                     <p className="text-black font-semibold text-xl content-end text-left">{props.name}</p>
                 </div>
                 <p className="text-black font-semibold text-xs text-left mt-2">email : {props.email}</p>
+                <p className="text-black font-semibold text-xs text-left mt-2">Website : {props.website}</p>
                 <Link to={`/home/brand/${props.id}`}>
                     <CusButton text="View" textColor={"text-black"} background={"bg-[#01FFF4]"} width={"w-full"} margin={"my-2"} fontwidth={"font-bold"}></CusButton>
                 </Link>

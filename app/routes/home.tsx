@@ -18,7 +18,7 @@ const HomePage = () => {
     const userdata = useLoaderData();
     const isbrand = userdata.user.role.code != 10;
     const isOpen = SideBarStore((state) => state.isOpen);
-    const avatar = userdata.user.pic == null || userdata.user.pic == undefined || userdata.user.pic == "" || userdata.user.pic == "0" ? "/images/avatar/user.png" : userdata.user.pic;
+
     return (
         <>
             <div className="flex md:relative bg-background">
@@ -32,7 +32,6 @@ const HomePage = () => {
         </>
     );
 }
-
 export default HomePage;
 
 

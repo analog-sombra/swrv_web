@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@remix-run/react";
 
 const Payments = () => {
-
     const payment_data = [
         {
             name: "San Joe",
@@ -98,7 +97,7 @@ const Payments = () => {
                             payment_data.map((val: any, index: number) => {
                                 return (
                                     <>
-                                        <tr key={index} style={{ border: "2px solid black !important" }}>
+                                        <tr style={{ border: "2px solid black !important" }}>
                                             <td className="text-primary text-md font-semibold text-center">{val.name}</td>
                                             <td className="text-center gird place-items-center">
                                                 <div className="grid place-content-center">
@@ -117,14 +116,13 @@ const Payments = () => {
                                         </tr>
                                         <tr>
                                             <td colSpan={6}>
-                                                <div className="bg-gray-300 w-full h-[1px] "></div>
+                                                <div className="bg-gray-300 w-full h-[1px]"></div>
                                             </td>
                                         </tr>
                                     </>
                                 );
                             })
                         }
-
                     </tbody>
                 </table>
             </div>

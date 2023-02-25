@@ -814,7 +814,7 @@ const SearchedBrand = (props: SearchedBrandProps) => {
                         const email = val["email"];
                         return (
                             <div key={index}>
-                                <BrandCard id={val.id} image={avatar} name={name} email={email}></BrandCard>
+                                <BrandCard id={val.id} image={avatar} name={name} email={email} website={val.webUrl}></BrandCard>
                             </div>
                         );
                     })}

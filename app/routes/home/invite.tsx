@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CusButton } from "~/components/utils/buttont";
 import * as EmailValidator from 'email-validator';
 import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
@@ -22,10 +22,31 @@ const Invite = () => {
     const emailRef = useRef<HTMLInputElement | null>(null);
     const [contactnumber, setContactnumber] = useState<number>()
     const [error, setError] = useState<String>("");
+
+    const [refstatus, setRefStatus] = useState<any[]>([]);
     const [sus, setSus] = useState<String>("");
     const handelcontent = (e: any) => {
         setContactnumber(e.target.value.replace(/\D/g, ''));
     }
+    const init = async () => {
+        const data = await axios({
+            method: 'get',
+            url: `${BaseUrl}/api/user-referrals/${userId}`,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': '*',
+                'Access-Control-Allow-Options': '*',
+                'Access-Control-Allow-Methods': '*',
+                'X-Content-Type-Options': '*',
+                'Content-Type': 'application/json',
+                'Accept': '*'
+            }
+        });
+        setRefStatus(data.data.data[0].refferrals);
+    };
+
+
+    useEffect(() => { init(); }, [])
     return (
         <>
             <div></div>
@@ -100,50 +121,37 @@ const Invite = () => {
                     </div>
                     <div className="bg-white rounded-lg shadow-xl p-4 grow w-full overflow-x-auto">
                         <h1 className="text-black text-xl font-bold text-left">Referral status</h1>
-                        <table className="md:w-full md:table-auto border-separate border-spacing-y-3 w-[700px]">
-                            <thead className="w-full bg-gray-100 rounded-xl p-2">
-                                <tr>
-                                    <th scope="col" className="mt-2 font-normal p-2 text-left w-20"></th>
-                                    <th scope="col" className="mt-2 font-normal p-2 text-left w-40">Name</th>
-                                    <th scope="col" className="mt-2 font-normal p-2 text-left">Email</th>
-                                    <th scope="col" className="mt-2 font-normal p-2 text-left">Contact</th>
-                                    <th scope="col" className="mt-2 font-normal p-2 text-left">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody className="gap-y-4">
-                                <tr className="my-2">
-                                    <td><img src="/images/inf/inf6.png" alt="error" className="w-12 h-12 rounded-md object-cover" /></td>
-                                    <td>Sanjay Thomas</td>
-                                    <td>Sanjaythomas@gmail.com</td>
-                                    <td>+91 89988778</td>
-                                    <td className="text-red-500 font-medium">Panding</td>
+                        {refstatus.length == 0 ?
+                            <>
+                                <h1 className="text-black text-md font-semibold text-center">Your referral list is empty </h1>
+                            </>
+                            :
+                            <table className="md:w-full md:table-auto border-separate border-spacing-y-3 w-[700px]">
+                                <thead className="w-full bg-gray-100 rounded-xl p-2">
+                                    <tr>
+                                        <th scope="col" className="mt-2 font-normal p-2 text-left w-20"></th>
+                                        <th scope="col" className="mt-2 font-normal p-2 text-left w-40">Name</th>
+                                        <th scope="col" className="mt-2 font-normal p-2 text-left">Email</th>
+                                        <th scope="col" className="mt-2 font-normal p-2 text-left">Contact</th>
+                                        <th scope="col" className="mt-2 font-normal p-2 text-left">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="gap-y-4">
+                                    {refstatus.map((val: any, index: number) => {
+                                        const avatar = val["pic"] == "0" || val["pic"] == null || val["pic"] == undefined || val["pic"] == "" ? "/images/avatar/user.png" : val["pic"];
+                                        return (
+                                            <tr key={index}>
+                                                <td><img src={avatar} alt="error" className="w-12 h-12 rounded-md object-cover" /></td>
+                                                <td>{val.userName}</td>
+                                                <td>{val.email}</td>
+                                                <td>{val.contact}</td>
+                                                <td className="font-medium">{val.status.isVerified}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>}
 
-                                </tr>
-                                <tr className="my-2">
-                                    <td><img src="/images/inf/inf8.png" alt="error" className="w-12 h-12 rounded-md object-cover" /></td>
-                                    <td>Sanjay Thomas</td>
-                                    <td>Sanjaythomas@gmail.com</td>
-                                    <td>+91 89988778</td>
-                                    <td className="text-red-500 font-medium">Panding</td>
-
-                                </tr>
-                                <tr className="my-2">
-                                    <td><img src="/images/inf/inf9.png" alt="error" className="w-12 h-12 rounded-md object-cover" /></td>
-                                    <td>Sanjay Thomas</td>
-                                    <td>Sanjaythomas@gmail.com</td>
-                                    <td>+91 89988778</td>
-                                    <td className="text-red-500 font-medium">Panding</td>
-
-                                </tr>
-                                <tr className="my-2">
-                                    <td><img src="/images/inf/inf14.png" alt="error" className="w-12 h-12 rounded-md object-cover" /></td>
-                                    <td>Sanjay Thomas</td>
-                                    <td>Sanjaythomas@gmail.com</td>
-                                    <td>+91 89988778</td>
-                                    <td className="text-red-500 font-medium">Panding</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

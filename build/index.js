@@ -111,7 +111,7 @@ __export(root_exports, {
 var import_react2 = require("@remix-run/react");
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-JGZDDPQE.css";
+var app_default = "/build/_assets/app-2TFPMFAS.css";
 
 // app/root.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
@@ -1440,10 +1440,7 @@ var import_jsx_runtime33 = require("react/jsx-runtime"), SideBar = (props) => {
       sidebar(3 /* Inbox */), changeSidebar(!1);
     }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NavTab, { title: "Inbox", isOpen, isActive: currentPage === 3 /* Inbox */, icon: import_free_solid_svg_icons8.faEnvelope }) }),
     props.isBrand ? null : /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react16.Link, { to: "/", onClick: () => {
-        sidebar(4 /* MyEarnings */), changeSidebar(!1);
-      }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NavTab, { title: "My earnings", isOpen, isActive: currentPage === 4 /* MyEarnings */, icon: import_free_solid_svg_icons8.faHandHoldingDollar }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react16.Link, { to: "/", onClick: () => {
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react16.Link, { to: "/home/drafts", onClick: () => {
         sidebar(5 /* Drafts */), changeSidebar(!1);
       }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NavTab, { title: "Drafts", isOpen, isActive: currentPage === 5 /* Drafts */, icon: import_free_brands_svg_icons2.faDraft2digital }) }),
       /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react16.Link, { to: "/home/favourite", onClick: () => {
@@ -1456,7 +1453,8 @@ var import_jsx_runtime33 = require("react/jsx-runtime"), SideBar = (props) => {
     /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "grow" }),
     /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react16.Link, { to: "/home/help", onClick: () => {
       sidebar(8 /* Help */), changeSidebar(!1);
-    }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NavTab, { title: "Help", isOpen, isActive: currentPage === 8 /* Help */, icon: import_free_solid_svg_icons8.faCircleQuestion }) })
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NavTab, { title: "Help", isOpen, isActive: currentPage === 8 /* Help */, icon: import_free_solid_svg_icons8.faCircleQuestion }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_react16.Link, { to: "/logout", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NavTab, { title: "Logout", isOpen, isActive: currentPage == 0 /* None */, icon: import_free_solid_svg_icons8.faRightFromBracket }) })
   ] }) }) });
 }, NavTab = (props) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(import_jsx_runtime33.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: `${props.isOpen ? "w-full" : "w-10"} h-10 rounded-xl ${props.isOpen ? "flex items-center " : "grid place-items-center"}  text-white text-lg font-bold my-1 ${props.isActive ? "bg-[#053497]" : ""} ${props.isOpen ? "px-4" : ""}`, children: [
   " ",
@@ -1513,10 +1511,7 @@ var import_jsx_runtime35 = require("react/jsx-runtime"), MainNavBar = (props) =>
         sidebar(3 /* Inbox */), changMenu(!1);
       }, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "Inbox", isOpen: !0, isActive: currentPage == 3 /* Inbox */, icon: import_free_solid_svg_icons9.faEnvelope }) }),
       props.isBrand ? null : /* @__PURE__ */ (0, import_jsx_runtime35.jsxs)(import_jsx_runtime35.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/", onClick: () => {
-          sidebar(4 /* MyEarnings */), changMenu(!1);
-        }, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "My earnings", isOpen: !0, isActive: currentPage == 4 /* MyEarnings */, icon: import_free_solid_svg_icons9.faHandHoldingDollar }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/", onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/home/drafts", onClick: () => {
           sidebar(5 /* Drafts */), changMenu(!1);
         }, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "Drafts", isOpen: !0, isActive: currentPage == 5 /* Drafts */, icon: import_free_brands_svg_icons3.faDraft2digital }) }),
         /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/home/favourite", onClick: () => {
@@ -1526,9 +1521,10 @@ var import_jsx_runtime35 = require("react/jsx-runtime"), MainNavBar = (props) =>
       /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/home/invite", onClick: () => {
         sidebar(7 /* Invite */), changMenu(!1);
       }, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "Invite", isOpen: !0, isActive: currentPage == 7 /* Invite */, icon: import_free_solid_svg_icons9.faPeopleLine }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/", onClick: () => {
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/home/help", onClick: () => {
         sidebar(8 /* Help */), changMenu(!1);
-      }, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "Help", isOpen: !0, isActive: currentPage == 8 /* Help */, icon: import_free_solid_svg_icons9.faCircleQuestion }) })
+      }, children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "Help", isOpen: !0, isActive: currentPage == 8 /* Help */, icon: import_free_solid_svg_icons9.faCircleQuestion }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(import_react17.Link, { to: "/logout", children: /* @__PURE__ */ (0, import_jsx_runtime35.jsx)(NavTab, { title: "Logout", isOpen: !0, isActive: currentPage == 0 /* None */, icon: import_free_solid_svg_icons9.faRightFromBracket }) })
     ] }) })
   ] }) }) });
 }, MainNavRight = (props) => {
@@ -1552,7 +1548,7 @@ var import_jsx_runtime36 = require("react/jsx-runtime"), loader8 = async (props)
   let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
   return (0, import_node10.json)({ user: cookie.user });
 }, HomePage = () => {
-  let userdata = (0, import_react18.useLoaderData)(), isbrand = userdata.user.role.code != 10, isOpen = sidebarstate_default((state) => state.isOpen), avatar = userdata.user.pic == null || userdata.user.pic == null || userdata.user.pic == "" || userdata.user.pic == "0" ? "/images/avatar/user.png" : userdata.user.pic;
+  let userdata = (0, import_react18.useLoaderData)(), isbrand = userdata.user.role.code != 10, isOpen = sidebarstate_default((state) => state.isOpen);
   return /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(import_jsx_runtime36.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: "flex md:relative bg-background", children: [
     /* @__PURE__ */ (0, import_jsx_runtime36.jsx)(SideBar, { isBrand: isbrand }),
     /* @__PURE__ */ (0, import_jsx_runtime36.jsxs)("div", { className: `w-full md:grow transition-all  md:relative ${isOpen ? "md:ml-60" : "md:ml-20"}  p-2 pr-4`, children: [
@@ -3241,10 +3237,10 @@ var import_jsx_runtime51 = require("react/jsx-runtime"), PastBrandCard = () => /
 
 // app/routes/home/brand.$id.tsx
 var import_jsx_runtime52 = require("react/jsx-runtime"), loader19 = async (props) => {
-  let id = props.params.id, branddata = await import_axios18.default.post(`${BaseUrl}/api/get-brand`, { id });
-  return (0, import_node21.json)({ brand: branddata.data.data });
+  let id = props.params.id, branddata = await import_axios18.default.post(`${BaseUrl}/api/get-brand`, { id }), cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
+  return (0, import_node21.json)({ brand: branddata.data.data, user: cookie.user });
 }, BrandPage = () => {
-  let brand = (0, import_react43.useLoaderData)().brand, [isPast, setPast] = (0, import_react44.useState)(!1), logo = brand.logo == "" || brand.logo == null || brand.logo == null || brand.logo == "0" ? "images/avatar.png" : brand.logo, [fav, setFav] = (0, import_react44.useState)(!1), [myfavBrand, setMyfavBrand] = (0, import_use_local_storage_state.default)("favbrand", {
+  let brand = (0, import_react43.useLoaderData)().brand, user = (0, import_react43.useLoaderData)().user, [isPast, setPast] = (0, import_react44.useState)(!1), logo = brand.logo == "" || brand.logo == null || brand.logo == null || brand.logo == "0" ? "images/avatar.png" : brand.logo, [fav, setFav] = (0, import_react44.useState)(!1), [myfavBrand, setMyfavBrand] = (0, import_use_local_storage_state.default)("favbrand", {
     defaultValue: []
   }), setFavBrand = (brand2) => {
     setMyfavBrand([...myfavBrand, brand2]), setFav(!0);
@@ -3254,12 +3250,53 @@ var import_jsx_runtime52 = require("react/jsx-runtime"), loader19 = async (props
       myfavBrand[i].id != brand2.id && savebrand.push(myfavBrand[i]);
     setMyfavBrand(savebrand), setFav(!1);
   };
-  return (0, import_react44.useEffect)(() => {
+  (0, import_react44.useEffect)(() => {
     let res = !1;
     myfavBrand.map((val, index2) => {
       val.id == brand.id && (res = !0);
     }), setFav(!!res);
-  }, []), /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)(import_jsx_runtime52.Fragment, { children: [
+  }, []);
+  let [error, setError] = (0, import_react44.useState)(null), messageRef = (0, import_react44.useRef)(null), [connectBox, setConnectBox] = (0, import_react44.useState)(!1);
+  return /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)(import_jsx_runtime52.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: `w-full h-screen bg-gray-500 fixed top-0 left-0 bg-opacity-30 grid place-items-center ${connectBox ? "fixed" : "hidden"}`, style: { zIndex: 100 }, children: /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: "p-6 bg-white rounded-xl shadow-xl w-96", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { onClick: () => {
+          setConnectBox(!1);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(import_react_fontawesome18.FontAwesomeIcon, { icon: import_free_solid_svg_icons17.faRemove, className: "font-bold text-2xl text-center text-primary" }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("h1", { className: "text-primary text-lg font-bold text-left", children: "Connect" }),
+      /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("textarea", { ref: messageRef, className: "p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none mt-4", placeholder: "message" }),
+      error == "" || error == null || error == null ? null : /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: "bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4", children: error }),
+      /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { onClick: async () => {
+          var _a, _b, _c, _d;
+          if (((_a = messageRef.current) == null ? void 0 : _a.value) == null || ((_b = messageRef.current) == null ? void 0 : _b.value) == null || ((_c = messageRef.current) == null ? void 0 : _c.value) == "")
+            return setError("Message can't be blank");
+          let req = {
+            campaignDraftId: "0",
+            fromUserId: user.id,
+            toUserId: "89",
+            comment: (_d = messageRef.current) == null ? void 0 : _d.value
+          }, data = await (0, import_axios18.default)({
+            method: "post",
+            url: `${BaseUrl}/api/add-chat`,
+            data: req,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Headers": "*",
+              "Access-Control-Allow-Options": "*",
+              "Access-Control-Allow-Methods": "*",
+              "X-Content-Type-Options": "*",
+              "Content-Type": "application/json",
+              Accept: "*"
+            }
+          });
+          return data.data.status ? setConnectBox(!1) : setError(data.data.message);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(CusButton, { text: "send", background: "bg-primary", textColor: "text-white" }) })
+      ] })
+    ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: [
       /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: "w-full relative", children: [
         /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: "absolute top-5 right-5", children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(import_react_fontawesome18.FontAwesomeIcon, { onClick: () => {
@@ -3274,8 +3311,13 @@ var import_jsx_runtime52 = require("react/jsx-runtime"), loader19 = async (props
           /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("h1", { className: "text-primary text-lg font-medium my-2", children: brand.name }),
             /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("p", { className: "text-primary text-md font-normal", children: "Category: Consumer Electronics" }),
-            /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("p", { className: "text-primary text-md font-normal", children: "www.adidas.co.in" }),
-            /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(CusButton, { text: "Connect", background: "bg-secondary", fontwidth: "font-bold" })
+            /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("p", { className: "text-primary text-md font-normal", children: [
+              "website: ",
+              brand.webUrl
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { onClick: () => {
+              setConnectBox(!0);
+            }, children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(CusButton, { text: "Connect", background: "bg-secondary", fontwidth: "font-bold" }) })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("div", { className: "h-72 w-[2px] bg-gray-300 hidden lg:block mt-8" }),
@@ -3335,7 +3377,17 @@ var import_node22 = require("@remix-run/node"), import_axios19 = __toESM(require
 var import_react46 = require("@remix-run/react");
 var import_jsx_runtime53 = require("react/jsx-runtime");
 var loader20 = async (props) => {
-  let platform = await import_axios19.default.post(`${BaseUrl}/api/getplatform`), id = props.params.id, campaigndata = await import_axios19.default.post(`${BaseUrl}/api/campaign-search`, { id }), cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
+  let platform = await import_axios19.default.post(`${BaseUrl}/api/getplatform`), id = props.params.id, campaigndata = await import_axios19.default.post(`${BaseUrl}/api/campaign-search`, { id }, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Options": "*",
+      "Access-Control-Allow-Methods": "*",
+      "X-Content-Type-Options": "*",
+      "Content-Type": "application/json",
+      Accept: "*"
+    }
+  }), cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
   return (0, import_node22.json)({ campaign: campaigndata.data.data[0], user: cookie.user, platform: platform.data.data });
 }, Campaigns = () => {
   let champaign = (0, import_react46.useLoaderData)().campaign, user = (0, import_react46.useLoaderData)().user, isbrand = user.role.code != 10, data = (0, import_react46.useLoaderData)(), userId = user.id, brandimage = champaign.brand == null || champaign.brand.length == 0 || champaign.brand == null || champaign.brand == "" || champaign.brand.logo == "" || champaign.brand.logo == null || champaign.brand.logo == "0" || champaign.brand.logo == null ? "/images/avatar/user.png" : champaign.brand.logo, brandname = champaign.brand.name, [category, setCategory] = (0, import_react45.useState)(""), [acceptreq, setAcceptreq] = (0, import_react45.useState)(0 /* None */), [requestdata, setRequestdata] = (0, import_react45.useState)([]), init = async () => {
@@ -3349,9 +3401,11 @@ var loader20 = async (props) => {
     }, reqdata = await import_axios19.default.post(`${BaseUrl}/api/search-invite`, req);
     reqdata.data.status == !0 ? (reqdata.data.data[0].status.code == "1" && setAcceptreq(1 /* Panding */), reqdata.data.data[0].status.code == "3" && setAcceptreq(2 /* Accepted */), reqdata.data.data[0].status.code == "5" && setAcceptreq(3 /* Rejected */), setRequestdata(reqdata.data.data)) : setAcceptreq(0 /* None */);
   };
-  return (0, import_react45.useEffect)(() => {
+  (0, import_react45.useEffect)(() => {
     init();
-  }, []), /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(import_jsx_runtime53.Fragment, { children: [
+  }, []);
+  let [paymentBox, setPaymentBox] = (0, import_react45.useState)(!1), [paymentError, setPaymentError] = (0, import_react45.useState)(""), paymentRef = (0, import_react45.useRef)(null);
+  return /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(import_jsx_runtime53.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "grid gap-y-4 lg:gap-4 grid-cols-1 lg:grid-cols-7 mt-4 justify-start align-top content-start place-items-start place-content-start", children: [
       /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(BrandInfo, { logo: brandimage, name: brandname, website: champaign.brand.website, info: champaign.brand.info }),
       /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(CampaignsInfo, { dont: champaign.donts, dos: champaign.dos, hastag: champaign.hashtags, mendtion: champaign.mentions, platform: champaign.platforms, moddboard: champaign.moodBoards, info: champaign.campaignInfo, name: champaign.campaignName, image: brandimage, website: champaign.brand.website, category }),
@@ -3365,64 +3419,92 @@ var loader20 = async (props) => {
         ] })
       ] })
     ] }),
-    acceptreq == 2 /* Accepted */ ? /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex gap-4 flex-col lg:flex-row mt-8", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow flex-1", children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(CreateDraft, { influencerId: userId, champaingId: champaign.id, platforms: data.platform }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "grow flex-1", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary font-semibold py-1", children: "Live campaigns" }),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full h-[1px] bg-slate-300" }),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "bg-white rounded-md p-4 mt-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: "/images/media/facebook.png", alt: "error", className: "h-10 w-10 shrink-0" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-semibold text-left", children: "Ivankbfc_Blasters" }),
-              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-normal text-left", children: "Publish date: Today" })
-            ] })
+    acceptreq == 2 /* Accepted */ ? /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(import_jsx_runtime53.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex gap-4 flex-col lg:flex-row mt-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow flex-1", children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(CreateDraft, { influencerId: userId, champaingId: champaign.id, platforms: data.platform }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "grow flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary font-semibold py-1", children: "Live campaigns" }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full h-[1px] bg-slate-300" }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "bg-white rounded-md p-4 mt-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: "/images/media/facebook.png", alt: "error", className: "h-10 w-10 shrink-0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-semibold text-left", children: "Ivankbfc_Blasters" }),
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-normal text-left", children: "Publish date: Today" })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { className: "mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1", children: "Link campaign" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { className: "mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1", children: "Link campaign" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "bg-white rounded-md p-4 mt-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "h-10 w-10 shrink-0" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-semibold text-left", children: "Ivankbfc_Blasters" }),
-              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-normal text-left", children: "Publish date: 30-01-2022" })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { className: "mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1", children: "View insight" })
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "grow flex-1", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary font-semibold py-1", children: "Payments" }),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full h-[1px] bg-slate-300" }),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "rounded-xl shadow-xl bg-white p-4 w-full mt-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_react_fontawesome19.FontAwesomeIcon, { icon: import_free_solid_svg_icons18.faCoins, className: "text-xl text-primary" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("h2", { className: "text-xl text-primary font-medium px-4", children: "Budget" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-bold text-black", children: "6420 USD" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "h-[1px] bg-gray-500 w-full my-2 " }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex my-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary", children: "Received" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-normal text-black", children: "2700 USD" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex my-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary", children: "Pending" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow" }),
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-normal text-black", children: "3540 USD" })
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "bg-white rounded-md p-4 mt-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "h-10 w-10 shrink-0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-semibold text-left", children: "Ivankbfc_Blasters" }),
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-primary text-sm font-normal text-left", children: "Publish date: 30-01-2022" })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { className: "mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1", children: "View insight" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "p-4 bg-white mt-2 rounded-md", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-sm text-normal font-semibold py-1 text-primary", children: "Payment request" }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { className: "text-black bg-[#01FFF4] rounded-lg w-full text-center py-2 font-semibold text-md mt-2", children: "Request" })
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "grow flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary font-semibold py-1", children: "Payments" }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full h-[1px] bg-slate-300" }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "rounded-xl shadow-xl bg-white p-4 w-full mt-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_react_fontawesome19.FontAwesomeIcon, { icon: import_free_solid_svg_icons18.faCoins, className: "text-xl text-primary" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("h2", { className: "text-xl text-primary font-medium px-4", children: "Budget" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-bold text-black", children: "6420 USD" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "h-[1px] bg-gray-500 w-full my-2 " }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex my-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary", children: "Received" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-normal text-black", children: "2700 USD" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex my-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md text-primary", children: "Pending" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grow" }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-normal text-black", children: "3540 USD" })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "p-4 bg-white mt-2 rounded-md", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-normal font-semibold py-1 text-primary text-lg", children: "Payment request" }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { onClick: () => {
+              setPaymentBox(!0);
+            }, className: `text-black bg-[#01FFF4] rounded-lg w-full text-center py-2 font-semibold text-md mt-2 ${paymentBox ? "hidden" : ""}`, children: "Request" }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: `${paymentBox ? "" : "hidden"}`, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex gap-x-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { children: "Enter Amount : " }),
+                " ",
+                /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("input", { ref: paymentRef, type: "number", className: "text-black outline-none border-none rounded-md py-1 px-2 bg-gray-300 w-full" }) })
+              ] }),
+              paymentError == "" || paymentError == null || paymentError == null ? null : /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4", children: paymentError }),
+              /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("button", { onClick: async () => {
+                var _a, _b, _c, _d;
+                if (((_a = paymentRef.current) == null ? void 0 : _a.value) == null || ((_b = paymentRef.current) == null ? void 0 : _b.value) == null || ((_c = paymentRef.current) == null ? void 0 : _c.value) == "")
+                  setPaymentError("Enter the amount");
+                else {
+                  let req = {
+                    userId,
+                    campaignId: champaign.id,
+                    amtReq: (_d = paymentRef.current) == null ? void 0 : _d.value
+                  }, paymentdata = await import_axios19.default.post(`${BaseUrl}/api/new-pay-request`, req);
+                  return paymentdata.data.status ? setPaymentBox(!1) : setPaymentError(paymentdata.data.message);
+                }
+              }, className: "text-black bg-[#01FFF4] rounded-lg w-full text-center py-2 font-semibold text-md mt-2", children: "Request Payment" })
+            ] })
+          ] })
         ] })
-      ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(UserCreatedDrafts, { userId, campaingid: champaign.id })
     ] }) : null,
     /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "my-6", children: isbrand ? /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(import_jsx_runtime53.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(ChampaingAcceptRequest, { userId, campaingid: champaign.id }),
       /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "h-4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(DraftAcceptRequest, { userId, campaingid: champaign.id })
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(DraftAcceptRequest, { userId, campaingid: champaign.id }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "h-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(ChampaingPaymentRequest, { campaingid: champaign.id, currency: user.currency.code })
     ] }) : null })
   ] });
 }, campaigns_id_default = Campaigns, BrandInfo = (props) => /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_jsx_runtime53.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "col-span-2 rounded-xl shadow-xl bg-white p-4 w-full", children: [
@@ -3745,7 +3827,7 @@ var loader20 = async (props) => {
         /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
           /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: val.influencer.pic, alt: "influencer pic", className: "w-10 h-10 shrink-0 rounded-md" }),
           /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-medium", children: val.influencer.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-medium", children: val.influencer.name.split("@")[0] }),
             /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-sm font-medium", children: val.influencer.email })
           ] })
         ] }),
@@ -3856,6 +3938,70 @@ var loader20 = async (props) => {
       }, className: "text-white bg-primary rounded-lg w-full text-center py-2 font-semibold text-md mt-2", children: "Create" })
     ] }) })
   ] });
+}, ChampaingPaymentRequest = (props) => {
+  let [respayment, setRequestPayment] = (0, import_react45.useState)([]), init = async () => {
+    let req = {
+      search: {
+        campaign: props.campaingid
+      }
+    }, responseData = await import_axios19.default.post(`${BaseUrl}/api/get-req-pay`, req);
+    responseData.data.status == !0 && setRequestPayment(responseData.data.data);
+  };
+  return (0, import_react45.useEffect)(() => {
+    init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_jsx_runtime53.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "p-4 rounded-xl shadow-xl bg-white", children: respayment.length == 0 ? /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { children: "No Invite request is panding" }) : /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-medium", children: "Requested Invites" }),
+    /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full bg-gray-400 h-[1px] my-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grid mt-4 place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: respayment.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "p-4 bg-white rounded-lg shadow-lg", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "mt-2 text-md font-medium", children: "Requested by" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full h-[2px] bg-gray-700" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex mt-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: val.influencer.pic, alt: "influencer pic", className: "w-10 h-10 shrink-0 rounded-md" }),
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-medium", children: val.influencer.name.split("@")[0] }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-sm font-medium", children: val.influencer.email })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "mt-2 text-md font-medium", children: "Ammount" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("p", { className: "text-sm font-medium", children: [
+        val.amount,
+        " ",
+        props.currency
+      ] })
+    ] }, index2)) })
+  ] }) }) });
+}, UserCreatedDrafts = (props) => {
+  let [resDarft, setResDarft] = (0, import_react45.useState)([]), init = async () => {
+    let req = {
+      search: {
+        fromUser: props.userId,
+        campaign: props.campaingid,
+        influencer: props.userId
+      }
+    }, responseData = await import_axios19.default.post(`${BaseUrl}/api/search-draft`, req);
+    responseData.data.status == !0 && setResDarft(responseData.data.data);
+  };
+  return (0, import_react45.useEffect)(() => {
+    init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(import_jsx_runtime53.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "p-4 rounded-xl shadow-xl bg-white my-4", children: resDarft.length == 0 ? /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { children: "You haven't created any drafts yet." }) : /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-medium", children: "User Created draft" }),
+    /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "w-full bg-gray-400 h-[1px] my-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("div", { className: "grid mt-4 place-items-center lg:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: resDarft.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "my-2 p-4 bg-white rounded-lg shadow-lg", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("img", { src: val.influencer.pic, alt: "influencer pic", className: "w-10 h-10 shrink-0 rounded-md" }),
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "ml-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-md font-medium", children: val.influencer.name.split("@")[0] }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-sm font-medium", children: val.influencer.email })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "mt-2 text-md font-medium", children: "Description" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "text-sm font-medium", children: val.description }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "mt-2 text-md font-medium", children: "Attachment" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("a", { target: "_blank", className: "mt-2 text-sm font-normal border-2 border-blue-500 inline-block my-2 py-1 px-4  text-blue-500 hover:text-white hover:bg-blue-500", href: val.attach01, children: "View pdf" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: "mt-2 text-md font-medium", children: "Status" }),
+      /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("p", { className: `mt-2 text-md text-white font-medium text-center rounded-md ${val.status.name == "ACCEPTED" ? "bg-green-500" : val.status.name == "PENDING" ? "bg-yellow-500" : "bg-red-500"}`, children: val.status.name })
+    ] }, index2)) })
+  ] }) }) });
 };
 
 // app/routes/home/findcampaign.tsx
@@ -3914,6 +4060,10 @@ var import_jsx_runtime55 = require("react/jsx-runtime"), BrandCard = (props) => 
   /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("p", { className: "text-black font-semibold text-xs text-left mt-2", children: [
     "email : ",
     props.email
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("p", { className: "text-black font-semibold text-xs text-left mt-2", children: [
+    "Website : ",
+    props.website
   ] }),
   /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(import_react48.Link, { to: `/home/brand/${props.id}`, children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(CusButton, { text: "View", textColor: "text-black", background: "bg-[#01FFF4]", width: "w-full", margin: "my-2", fontwidth: "font-bold" }) })
 ] }) });
@@ -3980,13 +4130,13 @@ var import_use_local_storage_state2 = __toESM(require("use-local-storage-state")
   let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader), platformRes = await import_axios20.default.post(`${BaseUrl}/api/getplatform`), categoryRes = await import_axios20.default.post(`${BaseUrl}/api/getcategory`), countryRes = await import_axios20.default.post(`${BaseUrl}/api/getcountry`);
   return (0, import_node23.json)({ user: cookie.user, platform: platformRes.data.data, category: categoryRes.data.data, country: countryRes.data.data });
 }, FindCampaign = () => {
-  let loader26 = (0, import_react51.useLoaderData)(), isbrand = loader26.user.role.code != 10, [searchBrand, setSearchBrand] = (0, import_react50.useState)(!1);
+  let loader28 = (0, import_react51.useLoaderData)(), isbrand = loader28.user.role.code != 10, [searchBrand, setSearchBrand] = (0, import_react50.useState)(!1);
   return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_jsx_runtime57.Fragment, { children: isbrand ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_jsx_runtime57.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { children: [
     /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex my-6 md:flex-row flex-col", children: /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { children: [
       /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("h1", { className: "text-2xl font-bold text-black text-left mt-4", children: "Find Influencer" }),
       /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("p", { className: "text-md font-normal text-black text-left", children: "Here you can manage all the influecner." })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(InfluencerSearch, { platform: loader26.platform, country: loader26.country, category: loader26.category })
+    /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(InfluencerSearch, { platform: loader28.platform, country: loader28.country, category: loader28.category })
   ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_jsx_runtime57.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { children: [
     /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "flex my-6 md:flex-row flex-col", children: [
       /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { children: [
@@ -4004,7 +4154,7 @@ var import_use_local_storage_state2 = __toESM(require("use-local-storage-state")
         }, children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(CusButton, { height: "h-12", text: "Brand", fontwidth: "font-bold", background: searchBrand ? "bg-cyan-300" : "bg-gray-300", textColor: searchBrand ? "text-black" : "text-gray-600" }) })
       ] })
     ] }),
-    searchBrand ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(BrandSearch, {}) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(CampaignSearch, { platform: loader26.platform, country: loader26.country, category: loader26.category })
+    searchBrand ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(BrandSearch, {}) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(CampaignSearch, { platform: loader28.platform, country: loader28.country, category: loader28.category })
   ] }) }) });
 }, findcampaign_default = FindCampaign, CampaignSearch = (props) => {
   let country = props.country, platform = props.platform, category = props.category, [searchType, setSearchType] = (0, import_react50.useState)(0 /* TextSearch */), [active, setActive] = (0, import_react50.useState)(!1), [camSearchResult, setCamSearchResult] = (0, import_react50.useState)([]), champTextSearch = (0, import_react50.useRef)(null), [selCountry, setSelCountry] = (0, import_react50.useState)([]), [con, setcon] = (0, import_react50.useState)(!1), [selPlatform, setSelectedPlatform] = (0, import_react50.useState)([]), [selcategory, setSelcategory] = (0, import_react50.useState)([]), [cat, setcat] = (0, import_react50.useState)(!1), [error, setError] = (0, import_react50.useState)(null), camptextsearch = async (searchtext) => {
@@ -4442,7 +4592,7 @@ var import_use_local_storage_state2 = __toESM(require("use-local-storage-state")
   ] }),
   /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "grid place-items-center lg:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: props.data.map((val, index2) => {
     let avatar = val.logo, name = val.name, email = val.email;
-    return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(BrandCard, { id: val.id, image: avatar, name, email }) }, index2);
+    return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(BrandCard, { id: val.id, image: avatar, name, email, website: val.webUrl }) }, index2);
   }) })
 ] }) }), SearchedInfluencer = (props) => /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_jsx_runtime57.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "bg-white rounded-2xl my-6 shadow-xl p-4", children: [
   /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "w-60 text-md font-bold text-primary p-2 my-2", children: [
@@ -4506,22 +4656,13 @@ var import_jsx_runtime58 = require("react/jsx-runtime"), loader22 = async ({ req
         /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("h1", { className: "text-2xl font-bold text-black text-left mt-4", children: "My campaigns" }),
         /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("p", { className: "text-md font-normal text-black text-left", children: "Here you can manage all the campaigns that you are participating in." })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "hidden md:block md:grow" }),
-      /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "flex justify-center", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { onClick: () => {
-          setCompleted(!1);
-        }, children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CusButton, { height: "h-12", text: "Active campaigns", fontwidth: "font-bold", background: `${completed ? "bg-gray-300" : "bg-[#7CFF01]"}`, textColor: "text-black}" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "w-8" }),
-        /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { onClick: () => {
-          setCompleted(!0);
-        }, children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CusButton, { height: "h-12", text: "Finished campaigns", fontwidth: "font-bold", background: `${completed ? "bg-[#7CFF01]" : "bg-gray-300"}`, textColor: "text-black" }) })
-      ] })
+      /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "hidden md:block md:grow" })
     ] }),
     isBrand ? /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "bg-white shadow-xl rounded-xl p-6", children: [
       /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("h1", { className: "text-black text-center font-bold text-2xl", children: "Would you like to collaborate ?" }),
       /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "w-full text-center bg-red", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_react52.Link, { to: "/home/createcampaign", children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CusButton, { text: "Create Campaign", textColor: "text-white", background: "bg-secondary" }) }) })
     ] }) : null,
-    isBrand ? /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { children: completed ? /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CompletedCampaigns, {}) : /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(ActiveCampaign, { camp: campdata }) }) : null
+    isBrand ? /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { children: completed ? /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CompletedCampaigns, {}) : /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(ActiveCampaign, { camp: campdata }) }) : /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(UserDrafts, { userid: userdata.userdata.id })
   ] }) });
 }, mycampaings_default = MyCampaigns, ActiveCampaign = (props) => {
   let campdata = props.camp;
@@ -4536,13 +4677,62 @@ var import_jsx_runtime58 = require("react/jsx-runtime"), loader22 = async ({ req
       let platforms = [];
       for (let i2 = 0; i2 < val.platforms.length; i2++)
         platforms.push(val.platforms[i2].platformLogoUrl);
-      return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CampaginCard, { id: val.id, currency: val.currency.code, platforms, maxval: val.costPerPost.split(".")[0], weburl: "agag", category: val.type.name, image: "/images/brand/powerfitgym.jpg", name: val.name }) }, i);
+      let image = val.brand.length == 0 || val.brand == null || val.brand == null || val.brand == "" || val.brand.logo == "0" || val.brand.logo == null || val.brand.logo == null || val.brand.logo == "" ? "/images/avatar/user.png" : val.brand.logo;
+      return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CampaginCard, { id: val.id, currency: val.currency.code, platforms, maxval: val.costPerPost.split(".")[0], weburl: "agag", category: val.type.name, image, name: val.name }) }, i);
     }) })
   ] }) });
 }, CompletedCampaigns = () => /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_jsx_runtime58.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3 place-items-center", children: [
   /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(pastbrandcard_default, {}),
   /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(pastbrandcard_default, {})
-] }) });
+] }) }), UserDrafts = (props) => {
+  let [userDraft, setUserDraft] = (0, import_react53.useState)([]), init = async () => {
+    let req = {
+      search: {
+        status: "3",
+        influencer: props.userid,
+        fromUser: props.userid
+      }
+    }, apidata = await (0, import_axios21.default)({
+      method: "post",
+      url: `${BaseUrl}/api/search-invite`,
+      data: req,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Options": "*",
+        "Access-Control-Allow-Methods": "*",
+        "X-Content-Type-Options": "*",
+        "Content-Type": "application/json",
+        Accept: "*"
+      }
+    });
+    setUserDraft(apidata.data.data);
+  };
+  return (0, import_react53.useEffect)(() => {
+    init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+      " ",
+      /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_react_fontawesome22.FontAwesomeIcon, { icon: import_free_solid_svg_icons21.faIdBadge, className: "text-md text-secondary" }),
+      " New Campaign "
+    ] }),
+    userDraft.length == 0 ? /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("h1", { className: "text-black font-medium text-xl text-center", children: "You haven't collaborated in any champaing." }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "grid grid-cols-1  place-items-center md:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: userDraft.map((val, i) => {
+      let image = val.brand.length == 0 || val.brand == null || val.brand == null || val.brand == "" || val.brand.logo == "0" || val.brand.logo == null || val.brand.logo == null || val.brand.logo == "" ? "/images/avatar/user.png" : val.brand.logo;
+      return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "bg-white rounded-xl shadow-xl p-4 w-64 my-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "flex items-end gap-x-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("img", { src: image, alt: "error", className: "object-cover w-16 h-16 rounded" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("p", { className: "text-black font-semibold text-xl content-end text-left", children: val.brand.name })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("p", { className: "text-black font-semibold text-xs text-left mt-2", children: [
+          "email : ",
+          val.brand.email
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_react52.Link, { to: `/home/campaigns/${val.campaign.id}`, children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(CusButton, { text: "View", textColor: "text-black", background: "bg-[#01FFF4]", width: "w-full", margin: "my-2", fontwidth: "font-bold" }) })
+      ] }) }, i);
+    }) })
+  ] });
+};
 
 // app/routes/home/branduser.tsx
 var branduser_exports = {};
@@ -4729,8 +4919,8 @@ var import_free_solid_svg_icons23 = require("@fortawesome/free-solid-svg-icons")
           /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("td", { className: " text-center text-primary text-md font-semibold", children: val.target }),
           /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("td", { className: " text-center text-primary text-md font-semibold", children: val.amount }),
           /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("td", { className: " text-center text-primary text-md font-semibold", children: val.amountres })
-        ] }, index2),
-        /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("td", { colSpan: 6, children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: "bg-gray-300 w-full h-[1px] " }) }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("td", { colSpan: 6, children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: "bg-gray-300 w-full h-[1px]" }) }) })
       ] })) })
     ] })
   ] })
@@ -4897,37 +5087,334 @@ var import_jsx_runtime65 = require("react/jsx-runtime"), Favourite = () => {
   /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(import_react58.Link, { to: `/home/brand/${props.id}`, children: /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(CusButton, { text: "View", textColor: "text-black", background: "bg-[#01FFF4]", width: "w-full", margin: "my-2", fontwidth: "font-bold" }) })
 ] }) });
 
+// app/routes/home/user.$id.tsx
+var user_id_exports = {};
+__export(user_id_exports, {
+  default: () => user_id_default,
+  loader: () => loader23
+});
+var import_free_solid_svg_icons24 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome25 = require("@fortawesome/react-fontawesome"), import_node25 = require("@remix-run/node"), import_react59 = require("@remix-run/react"), import_axios22 = __toESM(require("axios")), import_react60 = require("react");
+var import_jsx_runtime66 = require("react/jsx-runtime");
+var loader23 = async (props) => {
+  let id = props.params.id, userinsights = await (0, import_axios22.default)({
+    method: "post",
+    url: `${BaseUrl}/api/user-analytics`,
+    data: {
+      id
+    }
+  }), userdata = await import_axios22.default.post(`${BaseUrl}/api/getuser`, { id });
+  return (0, import_node25.json)({ user: userdata.data.data[0], userinsights: userinsights.data.data.profile });
+}, BrandPage2 = () => {
+  let user = (0, import_react59.useLoaderData)().user, userinsights = (0, import_react59.useLoaderData)().userinsights, [userDetails, setUserDetails] = (0, import_react60.useState)(0 /* insights */), avatar = user.pic == "0" || user.pic == null || user.pic == null || user.pic == "" ? "/images/avatar/user.png" : user.pic, [error, setError] = (0, import_react60.useState)(null), messageRef = (0, import_react60.useRef)(null), [connectBox, setConnectBox] = (0, import_react60.useState)(!1);
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(import_jsx_runtime66.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: `w-full h-screen bg-gray-500 fixed top-0 left-0 bg-opacity-30 grid place-items-center ${connectBox ? "fixed" : "hidden"}`, style: { zIndex: 100 }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "p-6 bg-white rounded-xl shadow-xl w-96", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { onClick: () => {
+          setConnectBox(!1);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(import_react_fontawesome25.FontAwesomeIcon, { icon: import_free_solid_svg_icons24.faRemove, className: "font-bold text-2xl text-center text-primary" }) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("h1", { className: "text-primary text-lg font-bold text-left", children: "Connect" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("textarea", { ref: messageRef, className: "p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none mt-4", placeholder: "message" }),
+      error == "" || error == null || error == null ? null : /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4", children: error }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { onClick: async () => {
+          var _a, _b, _c, _d;
+          if (((_a = messageRef.current) == null ? void 0 : _a.value) == null || ((_b = messageRef.current) == null ? void 0 : _b.value) == null || ((_c = messageRef.current) == null ? void 0 : _c.value) == "")
+            return setError("Message can't be blank");
+          let req = {
+            campaignDraftId: "0",
+            fromUserId: user.id,
+            toUserId: "89",
+            comment: (_d = messageRef.current) == null ? void 0 : _d.value
+          }, data = await (0, import_axios22.default)({
+            method: "post",
+            url: `${BaseUrl}/api/add-chat`,
+            data: req,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Headers": "*",
+              "Access-Control-Allow-Options": "*",
+              "Access-Control-Allow-Methods": "*",
+              "X-Content-Type-Options": "*",
+              "Content-Type": "application/json",
+              Accept: "*"
+            }
+          });
+          return data.data.status ? setConnectBox(!1) : setError(data.data.message);
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(CusButton, { text: "send", background: "bg-primary", textColor: "text-white" }) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: "/images/products/shoe1.jpg", alt: "error", className: "w-full h-60 object-cover rounded-t-xl" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex flex-col lg:flex-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "p-8 flex flex-row gap-x-3 lg:flex-col", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: avatar, alt: "user avatar", className: "w-32 h-32 rounded-md" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("h1", { className: "text-black text-lg font-medium my-2", children: user.userName }),
+            /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("h1", { className: "text-gray-600 text-sm font-medium my-2", children: user.knownAs }),
+            /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-gray-800 text-md font-normal", children: user.email }),
+            /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { onClick: () => {
+              setConnectBox(!0);
+            }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(CusButton, { text: "Message", background: "bg-secondary", fontwidth: "font-bold" }) })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "h-72 w-[2px] bg-gray-300 hidden lg:block mt-8" }),
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "p-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "flex gap-x-4 flex-col md:flex-row gap-y-2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("h1", { className: "text-primary text-lg font-medium mt-4 mb-2", children: "User Bio" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-black text-sm font-normal", children: user.bio })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "w-full mt-4 shadow-xl bg-white rounded-xl", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex mx-4 gap-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { onClick: () => {
+        setUserDetails(0 /* insights */);
+      }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(CusButton, { text: "Insights", background: `${userDetails == 0 /* insights */ ? "bg-[#01FFF4]" : "bg-gray-100"}`, fontwidth: "font-bold", textColor: `${userDetails == 0 /* insights */ ? "text-black" : "text-gray-600"}` }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { onClick: () => {
+        setUserDetails(1 /* payments */);
+      }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(CusButton, { text: "Payments", background: `${userDetails == 1 /* payments */ ? "bg-[#01FFF4]" : "bg-gray-100"}`, fontwidth: "font-bold", textColor: `${userDetails == 1 /* payments */ ? "text-black" : "text-gray-600"}` }) })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { children: [
+      userDetails == 0 /* insights */ ? /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(Insights, { insights: userinsights }) : /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(import_jsx_runtime66.Fragment, {}),
+      userDetails == 1 /* payments */ ? /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(Payments2, {}) : /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(import_jsx_runtime66.Fragment, {})
+    ] })
+  ] });
+}, user_id_default = BrandPage2, Insights = (props) => /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(import_jsx_runtime66.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "my-4 rounded-md p-4 bg-white flex gap-8 flex-wrap justify-center align-middle", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "w-80 shrink-0 bg-white shadow-lg rounded-md px-4 py-6", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-slate-900 text-lg font-semibold", children: "Audience gender" }),
+    props.insights.audience.genders.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: val.code }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: val.weight })
+    ] }, index2))
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "w-80 shrink-0 bg-white shadow-lg rounded-md px-4 py-6", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-slate-900 text-lg font-semibold ", children: "Audience age" }),
+    props.insights.audience.ages.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: val.code }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: val.weight })
+    ] }, index2))
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "w-80 shrink-0 bg-white shadow-lg rounded-md px-4 py-6", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-slate-900 text-lg font-semibold ", children: "Audience country" }),
+    props.insights.audience.geoCountries.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("p", { className: "text-primary text-md font-semibold text-left", children: [
+        "[",
+        val.code,
+        "] - ",
+        val.name
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: val.weight })
+    ] }, index2))
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "w-80 shrink-0 bg-white shadow-lg rounded-md px-4 py-6", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-slate-900 text-lg font-semibold ", children: "Average Result" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: "Posts Count" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: props.insights.postsCount })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: "Followers" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: props.insights.profile.followers })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: "Engagement" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: props.insights.profile.engagements })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: "Engagements Rate" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: props.insights.profile.engagementRate })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: "Average Comments" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: props.insights.avgComments })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex border-b-2 border-gray-300 my-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-left", children: "Average View" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grow" }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-primary text-md font-semibold text-right", children: props.insights.avgViews })
+    ] })
+  ] })
+] }) }), Payments2 = () => /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(import_jsx_runtime66.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "overflow-x-scroll no-scrollbar my-4 rounded-md p-4 block bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("table", { className: "table-auto w-full min-w-[800px]", style: {
+  borderCollapse: "separate",
+  borderSpacing: "0 1em"
+}, children: [
+  /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { style: { padding: "10px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { className: "bg-gray-200 py-4 rounded-l-lg min-w-44 text-primary text-md font-semibold", children: "Influencer" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { className: "bg-gray-200 min-w-44 text-primary text-md font-semibold", children: "Campaign" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { className: "bg-gray-200 min-w-44 text-primary text-md font-semibold", children: "Campaign details" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { className: "bg-gray-200 min-w-44 text-primary text-md font-semibold", children: "Target" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { className: "bg-gray-200 min-w-44 text-primary text-md font-semibold", children: "Amount" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { className: "bg-gray-200 rounded-r-lg min-w-44 text-primary text-md font-semibold", children: "Amount Released" })
+  ] }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("tbody", { children: [
+    {
+      name: "San Joe",
+      camppaign: ["/images/inf/inf1.png"],
+      details: ["puma", "Dec 31, 2021"],
+      target: "3 M",
+      amount: "7500 USD",
+      amountres: "1200 USD"
+    },
+    {
+      name: "San Joe",
+      camppaign: ["/images/inf/inf2.png"],
+      details: ["puma", "Dec 31, 2021"],
+      target: "3 M",
+      amount: "7500 USD",
+      amountres: "1200 USD"
+    },
+    {
+      name: "San Joe",
+      camppaign: ["/images/inf/inf3.png"],
+      details: ["puma", "Dec 31, 2021"],
+      target: "3 M",
+      amount: "7500 USD",
+      amountres: "1200 USD"
+    },
+    {
+      name: "San Joe",
+      camppaign: ["/images/inf/inf4.png"],
+      details: ["puma", "Dec 31, 2021"],
+      target: "3 M",
+      amount: "7500 USD",
+      amountres: "1200 USD"
+    },
+    {
+      name: "San Joe",
+      camppaign: ["/images/inf/inf5.png"],
+      details: ["puma", "Dec 31, 2021"],
+      target: "3 M",
+      amount: "7500 USD",
+      amountres: "1200 USD"
+    },
+    {
+      name: "San Joe",
+      camppaign: ["/images/inf/inf6.png"],
+      details: ["puma", "Dec 31, 2021"],
+      target: "3 M",
+      amount: "7500 USD",
+      amountres: "1200 USD"
+    }
+  ].map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(import_jsx_runtime66.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { style: { border: "2px solid black !important" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: "text-primary text-md font-semibold text-center", children: val.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: "text-center gird place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grid place-content-center", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: val.camppaign[0], alt: "error", className: "w-20 h-20 rounded-lg object-cover" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: " text-center grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-left font-semibold text-md", children: val.details[0] }),
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-left font-normal text-sm", children: val.details[1] })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: " text-center text-primary text-md font-semibold", children: val.target }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: " text-center text-primary text-md font-semibold", children: val.amount }),
+      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: " text-center text-primary text-md font-semibold", children: val.amountres })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { colSpan: 6, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "bg-gray-300 w-full h-[1px]" }) }) })
+  ] })) })
+] }) }) });
+
+// app/routes/home/drafts.tsx
+var drafts_exports = {};
+__export(drafts_exports, {
+  default: () => drafts_default,
+  loader: () => loader24
+});
+var import_node26 = require("@remix-run/node"), import_react61 = require("@remix-run/react"), import_axios23 = __toESM(require("axios")), import_react62 = require("react");
+var import_jsx_runtime67 = require("react/jsx-runtime"), loader24 = async (props) => {
+  let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
+  return (0, import_node26.json)({ user: cookie.user });
+}, UserDrafts2 = () => {
+  let userid = (0, import_react61.useLoaderData)().user.id, [resDarft, setResDarft] = (0, import_react62.useState)([]), init = async () => {
+    let req = {
+      search: {
+        fromUser: userid,
+        influencer: userid
+      }
+    }, responseData = await import_axios23.default.post(`${BaseUrl}/api/search-draft`, req);
+    responseData.data.status == !0 && setResDarft(responseData.data.data);
+  };
+  return (0, import_react62.useEffect)(() => {
+    init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(import_jsx_runtime67.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "p-4 rounded-xl shadow-xl bg-white my-4", children: resDarft.length == 0 ? /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { children: "You haven't created any drafts yet." }) : /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "text-md font-medium", children: "User Created draft" }),
+    /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "w-full bg-gray-400 h-[1px] my-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("div", { className: "grid mt-4 place-items-center lg:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: resDarft.map((val, index2) => {
+      let image = val.brand.length == 0 || val.brand == null || val.brand == null || val.brand == "" || val.brand.logo == "0" || val.brand.logo == null || val.brand.logo == null || val.brand.logo == "" ? "/images/avatar/user.png" : val.brand.logo;
+      return /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "my-2 p-4 bg-white rounded-lg shadow-lg w-60", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "flex", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("img", { src: image, alt: "influencer pic", className: "w-10 h-10 shrink-0 rounded-md" }),
+          /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "ml-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "text-md font-medium", children: val.brand.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "text-sm font-medium", children: val.brand.email })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "mt-2 text-md font-medium", children: "Description" }),
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "text-sm font-medium", children: val.description }),
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "mt-2 text-md font-medium", children: "Attachment" }),
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("a", { target: "_blank", className: "mt-2 text-sm font-normal border-2 border-blue-500 inline-block my-2 py-1 px-4  text-blue-500 hover:text-white hover:bg-blue-500", href: val.attach01, children: "View pdf" }),
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "mt-2 text-md font-medium", children: "Status" }),
+        /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: `mt-2 text-md text-white font-medium text-center rounded-md ${val.status.name == "ACCEPTED" ? "bg-green-500" : val.status.name == "PENDING" ? "bg-yellow-500" : "bg-red-500"}`, children: val.status.name })
+      ] }, index2);
+    }) })
+  ] }) }) });
+}, drafts_default = UserDrafts2;
+
 // app/routes/home/invite.tsx
 var invite_exports = {};
 __export(invite_exports, {
   default: () => invite_default,
-  loader: () => loader23
+  loader: () => loader25
 });
-var import_react59 = require("react"), EmailValidator5 = __toESM(require("email-validator")), import_node25 = require("@remix-run/node");
-var import_react60 = require("@remix-run/react"), import_axios22 = __toESM(require("axios"));
-var import_jsx_runtime66 = require("react/jsx-runtime"), loader23 = async (props) => {
+var import_react63 = require("react"), EmailValidator5 = __toESM(require("email-validator")), import_node27 = require("@remix-run/node");
+var import_react64 = require("@remix-run/react"), import_axios24 = __toESM(require("axios"));
+var import_jsx_runtime68 = require("react/jsx-runtime"), loader25 = async (props) => {
   let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
-  return (0, import_node25.json)({ user: cookie.user });
+  return (0, import_node27.json)({ user: cookie.user });
 }, Invite = () => {
-  let isSubmitting = (0, import_react60.useTransition)().state === "submitting", userId = (0, import_react60.useLoaderData)().user.id, nameRef = (0, import_react59.useRef)(null), emailRef = (0, import_react59.useRef)(null), [contactnumber, setContactnumber] = (0, import_react59.useState)(), [error, setError] = (0, import_react59.useState)(""), [sus, setSus] = (0, import_react59.useState)("");
-  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(import_jsx_runtime66.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "grid place-items-center w-full bg-yellow-500 rounded-xl shadow-xl my-6", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "h-72" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "flex gap-4 grow flex-col lg:flex-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-4 lg:w-96", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("h1", { className: "text-black text-xl font-bold text-left", children: "Refer an influencer or brand" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-black text-left font-normal text-md", children: "Name" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("input", { ref: nameRef, type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-black text-left font-normal text-md mt-4", children: "Email" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("input", { ref: emailRef, type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("p", { className: "text-black text-left font-normal text-md mt-4", children: "Contact Number" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("input", { onChange: (e) => {
-            setContactnumber(e.target.value.replace(/\D/g, ""));
-          }, value: contactnumber, type: "text", maxLength: 10, className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
-          error == "" || error == null || error == null ? null : /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4", children: error }),
-          sus == "" || sus == null || sus == null ? null : /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: "bg-green-500 bg-opacity-10 border-2 text-center border-green-500 rounded-md text-green-500 text-md font-normal text-md my-4", children: sus }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("div", { className: " my-2", onClick: async () => {
+  let isSubmitting = (0, import_react64.useTransition)().state === "submitting", userId = (0, import_react64.useLoaderData)().user.id, nameRef = (0, import_react63.useRef)(null), emailRef = (0, import_react63.useRef)(null), [contactnumber, setContactnumber] = (0, import_react63.useState)(), [error, setError] = (0, import_react63.useState)(""), [refstatus, setRefStatus] = (0, import_react63.useState)([]), [sus, setSus] = (0, import_react63.useState)(""), handelcontent = (e) => {
+    setContactnumber(e.target.value.replace(/\D/g, ""));
+  }, init = async () => {
+    let data = await (0, import_axios24.default)({
+      method: "get",
+      url: `${BaseUrl}/api/user-referrals/${userId}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Options": "*",
+        "Access-Control-Allow-Methods": "*",
+        "X-Content-Type-Options": "*",
+        "Content-Type": "application/json",
+        Accept: "*"
+      }
+    });
+    setRefStatus(data.data.data[0].refferrals);
+  };
+  return (0, import_react63.useEffect)(() => {
+    init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)(import_jsx_runtime68.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "grid place-items-center w-full bg-yellow-500 rounded-xl shadow-xl my-6", children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "h-72" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "flex gap-4 grow flex-col lg:flex-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-4 lg:w-96", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("h1", { className: "text-black text-xl font-bold text-left", children: "Refer an influencer or brand" }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-black text-left font-normal text-md", children: "Name" }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("input", { ref: nameRef, type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-black text-left font-normal text-md mt-4", children: "Email" }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("input", { ref: emailRef, type: "text", className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-black text-left font-normal text-md mt-4", children: "Contact Number" }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("input", { onChange: handelcontent, value: contactnumber, type: "text", maxLength: 10, className: "bg-[#EEEEEE]  outline-none border-none focus:border-gray-300 rounded-md w-full p-2" }),
+          error == "" || error == null || error == null ? null : /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4", children: error }),
+          sus == "" || sus == null || sus == null ? null : /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "bg-green-500 bg-opacity-10 border-2 text-center border-green-500 rounded-md text-green-500 text-md font-normal text-md my-4", children: sus }),
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: " my-2", onClick: async () => {
             var _a, _b, _c, _d, _e, _f, _g, _h, _i;
             if (((_a = nameRef.current) == null ? void 0 : _a.value) == null || ((_b = nameRef.current) == null ? void 0 : _b.value) == null || ((_c = nameRef.current) == null ? void 0 : _c.value) == "")
               setError("Fill user name");
@@ -4945,7 +5432,7 @@ var import_jsx_runtime66 = require("react/jsx-runtime"), loader23 = async (props
                 name: (_h = nameRef.current) == null ? void 0 : _h.value,
                 email: (_i = emailRef.current) == null ? void 0 : _i.value,
                 contact: contactnumber
-              }, data = await (0, import_axios22.default)({
+              }, data = await (0, import_axios24.default)({
                 method: "post",
                 url: `${BaseUrl}/api/send-referral`,
                 data: req,
@@ -4963,48 +5450,28 @@ var import_jsx_runtime66 = require("react/jsx-runtime"), loader23 = async (props
                 return setError(data.data.message);
               setError(""), nameRef.current.value = "", emailRef.current.value = "", setContactnumber(void 0), setSus("Invitation has been send.");
             }
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("button", { className: "w-full text-center text-xl rounded-md my-2 py-1 text-primary font-bold bg-[#01FFF4]", children: "Invite " }) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("button", { className: "w-full text-center text-xl rounded-md my-2 py-1 text-primary font-bold bg-[#01FFF4]", children: "Invite " }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-4 grow w-full overflow-x-auto", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("h1", { className: "text-black text-xl font-bold text-left", children: "Referral status" }),
-          /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("table", { className: "md:w-full md:table-auto border-separate border-spacing-y-3 w-[700px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("thead", { className: "w-full bg-gray-100 rounded-xl p-2", children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left w-20" }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left w-40", children: "Name" }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Email" }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Contact" }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Status" })
+        /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "bg-white rounded-lg shadow-xl p-4 grow w-full overflow-x-auto", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("h1", { className: "text-black text-xl font-bold text-left", children: "Referral status" }),
+          refstatus.length == 0 ? /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_jsx_runtime68.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("h1", { className: "text-black text-md font-semibold text-center", children: "Your referral list is empty " }) }) : /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("table", { className: "md:w-full md:table-auto border-separate border-spacing-y-3 w-[700px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("thead", { className: "w-full bg-gray-100 rounded-xl p-2", children: /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left w-20" }),
+              /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left w-40", children: "Name" }),
+              /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Email" }),
+              /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Contact" }),
+              /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("th", { scope: "col", className: "mt-2 font-normal p-2 text-left", children: "Status" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tbody", { className: "gap-y-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { className: "my-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: "/images/inf/inf6.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjay Thomas" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "+91 89988778" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { className: "my-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: "/images/inf/inf8.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjay Thomas" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "+91 89988778" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { className: "my-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: "/images/inf/inf9.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjay Thomas" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "+91 89988778" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("tr", { className: "my-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("img", { src: "/images/inf/inf14.png", alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjay Thomas" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "Sanjaythomas@gmail.com" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { children: "+91 89988778" }),
-                /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("td", { className: "text-red-500 font-medium", children: "Panding" })
-              ] })
-            ] })
+            /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("tbody", { className: "gap-y-4", children: refstatus.map((val, index2) => {
+              let avatar = val.pic == "0" || val.pic == null || val.pic == null || val.pic == "" ? "/images/avatar/user.png" : val.pic;
+              return /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("tr", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("img", { src: avatar, alt: "error", className: "w-12 h-12 rounded-md object-cover" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("td", { children: val.userName }),
+                /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("td", { children: val.email }),
+                /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("td", { children: val.contact }),
+                /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("td", { className: "font-medium", children: val.status.isVerified })
+              ] }, index2);
+            }) })
           ] })
         ] })
       ] })
@@ -5017,95 +5484,92 @@ var empty_exports = {};
 __export(empty_exports, {
   default: () => empty_default
 });
-var import_free_solid_svg_icons24 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome25 = require("@fortawesome/react-fontawesome"), import_jsx_runtime67 = require("react/jsx-runtime"), Empty = () => /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(import_jsx_runtime67.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime67.jsxs)("div", { className: "p-10 rounded-xl shadow-xl w-72 pt-28 bg-white", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(import_react_fontawesome25.FontAwesomeIcon, { className: "text-black font-bold text-4xl", icon: import_free_solid_svg_icons24.faSearch }),
-  /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("h1", { className: "font-semibold text-lg text-black", children: "To earn more money?" }),
-  /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("p", { className: "font-normal text-sm text-black", children: "Search, apply for public campaigns and create more great content" })
+var import_free_solid_svg_icons25 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome26 = require("@fortawesome/react-fontawesome"), import_jsx_runtime69 = require("react/jsx-runtime"), Empty = () => /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(import_jsx_runtime69.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "p-10 rounded-xl shadow-xl w-72 pt-28 bg-white", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(import_react_fontawesome26.FontAwesomeIcon, { className: "text-black font-bold text-4xl", icon: import_free_solid_svg_icons25.faSearch }),
+  /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("h1", { className: "font-semibold text-lg text-black", children: "To earn more money?" }),
+  /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("p", { className: "font-normal text-sm text-black", children: "Search, apply for public campaigns and create more great content" })
 ] }) }), empty_default = Empty;
 
 // app/routes/home/inbox.tsx
 var inbox_exports = {};
 __export(inbox_exports, {
   default: () => inbox_default,
-  loader: () => loader24
+  loader: () => loader26
 });
-var import_react61 = require("react"), import_node26 = require("@remix-run/node");
-var import_react62 = require("@remix-run/react"), import_axios23 = __toESM(require("axios"));
-var import_react_fontawesome26 = require("@fortawesome/react-fontawesome"), import_free_solid_svg_icons25 = require("@fortawesome/free-solid-svg-icons"), import_jsx_runtime68 = require("react/jsx-runtime"), loader24 = async (props) => {
+var import_react65 = require("react"), import_node28 = require("@remix-run/node");
+var import_react66 = require("@remix-run/react"), import_axios25 = __toESM(require("axios"));
+var import_jsx_runtime70 = require("react/jsx-runtime"), loader26 = async (props) => {
   let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader);
-  return (0, import_node26.json)({ user: cookie.user });
+  return (0, import_node28.json)({ user: cookie.user });
 }, Invite2 = () => {
-  let userdata = (0, import_react62.useLoaderData)(), userId = userdata.user.id, [msgIds, setMsgIds] = (0, import_react61.useState)([]), [messages, setMessages] = (0, import_react61.useState)([]), [user, setUser] = (0, import_react61.useState)(), init = async () => {
+  let userdata = (0, import_react66.useLoaderData)(), userId = userdata.user.id, [msgIds, setMsgIds] = (0, import_react65.useState)([]), [messages, setMessages] = (0, import_react65.useState)([]), [user, setUser] = (0, import_react65.useState)(), init = async () => {
     let req = {
-      search: { fromToUser: import_react61.useId }
-    }, data = await import_axios23.default.post(`${BaseUrl}/api/search-chat`, req);
+      search: { fromToUser: import_react65.useId }
+    }, data = await import_axios25.default.post(`${BaseUrl}/api/search-chat`, req);
     if (data.data.status == !0)
       for (let i = 0; i < data.data.data.length; i++) {
         let fromId = data.data.data[i].fromUser.id, toId = data.data.data[i].toUser.id;
         fromId == userId && (msgIds.includes(toId) || (setMsgIds([...msgIds, toId]), setMessages([...messages, data.data.data[i]]))), toId == userId && (msgIds.includes(fromId) || (setMsgIds([...msgIds, fromId]), setMessages([...messages, data.data.data[i]])));
       }
   };
-  return (0, import_react61.useEffect)(() => {
+  return (0, import_react65.useEffect)(() => {
     init();
-  }), /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_jsx_runtime68.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "my-4", children: /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "flex gap-4 flex-col xl:flex-row", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "w-full flex lg:flex-row flex-col gap-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "w-full bg-white rounded-lg shadow-xl lg:w-80 p-2 max-h-screen overflow-y-scroll no-scrollbar min-h-screen", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "w-full rounded-md bg-gray-200 py-1 px-2 flex items-center", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_react_fontawesome26.FontAwesomeIcon, { icon: import_free_solid_svg_icons25.faSearch }),
-          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("input", { type: "text", placeholder: "Search", className: "outline-none border-none w-full bg-transparent" })
-        ] }),
-        messages.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { onClick: () => {
-          setUser({
-            name: val.fromUser.id == userId ? val.toUser.name : val.fromUser.name,
-            avatar: val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic,
-            userid: val.fromUser.id == userId ? val.toUser.id : val.fromUser.id,
-            index: index2.toString()
-          });
-        }, children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(UserMessage, { active: (user == null ? void 0 : user.index) == index2.toString(), name: val.fromUser.id == userId ? val.toUser.name : val.fromUser.name, message: `${val.fromUser.id == userId ? "you: " : ""} ${val.comment}`, url: val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic }) }, index2))
-      ] }),
-      user != null ? /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(ChatBox, { avatar: user.avatar, id: user.userid, userId, name: user.name, useravatar: userdata.user.pic }) : null
+  }), /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "my-4", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "flex gap-4 flex-col xl:flex-row", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-full flex lg:flex-row flex-col gap-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-full bg-white rounded-lg shadow-xl lg:w-80 p-2 max-h-screen overflow-y-scroll no-scrollbar min-h-screen", children: messages.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { onClick: () => {
+        setUser({
+          name: val.fromUser.id == userId ? val.toUser.name.toString().split("@")[0] : val.fromUser.name.toString().split("@")[0],
+          avatar: val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic,
+          userid: val.fromUser.id == userId ? val.toUser.id : val.fromUser.id,
+          index: index2.toString()
+        });
+      }, children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(UserMessage, { active: (user == null ? void 0 : user.index) == index2.toString(), name: val.fromUser.id == userId ? val.toUser.name.toString().split("@")[0] : val.fromUser.name.toString().split("@")[0], message: `${val.fromUser.id == userId ? "you: " : ""} ${val.comment}`, url: val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic }) }, index2)) }),
+      user != null ? /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(ChatBox, { avatar: user.avatar, id: user.userid, userId, name: user.name, useravatar: userdata.user.pic }) : null
     ] }),
-    user != null ? /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(UserCard, { id: user.userid }) : null
+    user != null ? /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(UserCard, { id: user.userid }) : null
   ] }) }) });
-}, inbox_default = Invite2, UserMessage = (props) => /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_jsx_runtime68.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: `flex w-full py-2 my-1 border-b-2 rounded-md ${props.active ? "bg-gray-200 px-4" : "border-slate-200"}`, children: [
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("img", { src: props.url, alt: "user images", className: "w-10 h-10 object-cover rounded-lg shrink-0" }),
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-2" }),
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-md font-medium  leading-none text-slate-800", children: props.name }),
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-sm font-normal leading-none text-slate-600", children: props.message })
+}, inbox_default = Invite2, UserMessage = (props) => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: `flex w-full py-2 my-1 border-b-2 rounded-md ${props.active ? "bg-gray-200 px-4" : "border-slate-200"}`, children: [
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: props.url, alt: "user images", className: "w-10 h-10 object-cover rounded-lg shrink-0" }),
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-2" }),
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: "text-md font-medium  leading-none text-slate-800", children: props.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: "text-sm font-normal leading-none text-slate-600", children: props.message })
   ] })
-] }) }), Message = (props) => /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_jsx_runtime68.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "w-full flex items-start my-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: `grow ${props.user ? "" : "hidden"}` }),
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("img", { src: props.avatar, alt: "avatar", className: `w-10 h-10 rounded-md ${props.user ? "order-3" : ""}` }),
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: `w-4 ${props.user ? "order-2" : ""}` }),
-  /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "max-w-4/5 bg-gray-200 rounded-md p-2 order-1", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: `text-xs text-gray-700 font-normal ${props.user ? "text-right" : "text-left"}`, children: props.time }),
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: `text-md text-gray-900 font-normal text-left ${props.user ? "text-right" : "text-left"}`, children: props.message })
+] }) }), Message = (props) => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-full flex items-start my-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: `grow ${props.user ? "" : "hidden"}` }),
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: props.avatar, alt: "avatar", className: `w-10 h-10 rounded-md ${props.user ? "order-3" : ""}` }),
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: `w-4 ${props.user ? "order-2" : ""}` }),
+  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "max-w-4/5 bg-gray-200 rounded-md p-2 order-1", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: `text-xs text-gray-700 font-normal ${props.user ? "text-right" : "text-left"}`, children: props.time }),
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: `text-md text-gray-900 font-normal text-left ${props.user ? "text-right" : "text-left"}`, children: props.message })
   ] })
 ] }) }), UserCard = (props) => {
-  let [userdata, setUserdata] = (0, import_react61.useState)(null), init = async () => {
-    let userdata2 = await (0, import_axios23.default)({
+  let [userdata, setUserdata] = (0, import_react65.useState)(null), init = async () => {
+    let userdata2 = await (0, import_axios25.default)({
       method: "post",
       url: `${BaseUrl}/api/getuser`,
       data: { id: props.id }
     });
     userdata2.data.status == !0 && setUserdata(userdata2.data.data[0]);
   };
-  return (0, import_react61.useEffect)(() => {
+  (0, import_react65.useEffect)(() => {
     init();
-  }, []), /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_jsx_runtime68.Fragment, { children: userdata == null ? /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "bg-white rounded-lg shadow-xl", children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("h1", { className: "text-center font-semibold text-rose-500 p-4", children: "No user found" }) }) : /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "bg-white rounded-lg shadow-xl flex w-full xl:w-80 xl:flex-col flex-col sm:flex-row items-start p-4 xl:px-0 xl:pt-0", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-80 h-80 shrink-0 mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("img", { src: userdata.pic, alt: "error", className: "w-full h-80 object-cover rounded-lg" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "px-4 mt-6 sm:mt-0 grow w-full", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-left font-semibold text-lg text-slate-800", children: userdata.userName }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-left font-semibold text-sm text-slate-600 mt-4", children: "Bio" }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-left font-normal text-sm text-slate-600 mt-4", children: userdata.bio }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("button", { className: " mt-2 w-full py-2 text-center text-primary font-semibold text-lg bg-[#01FFF4] rounded-md", children: "View profile" }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "h-[1px] bg-slate-400 my-4 w-full" })
+  }, []);
+  let navigator = (0, import_react66.useNavigate)();
+  return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: userdata == null ? /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "bg-white rounded-lg shadow-xl", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-center font-semibold text-rose-500 p-4", children: "No user found" }) }) : /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "bg-white rounded-lg shadow-xl flex w-full xl:w-80 xl:flex-col flex-col sm:flex-row items-start p-4 xl:px-0 xl:pt-0", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-80 h-80 shrink-0 mx-auto", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: userdata.pic, alt: "error", className: "w-full h-80 object-cover rounded-lg" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "px-4 mt-6 sm:mt-0 grow w-full", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: "text-left font-semibold text-lg text-slate-800", children: userdata.userName.toString().split("@")[0] }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: "text-left font-semibold text-sm text-slate-600 mt-4", children: "Bio" }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: "text-left font-normal text-sm text-slate-600 mt-4", children: userdata.bio }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("button", { onClick: () => {
+        navigator("/home/branduser");
+      }, className: " mt-2 w-full py-2 text-center text-primary font-semibold text-lg bg-[#01FFF4] rounded-md", children: "View profile" }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "h-[1px] bg-slate-400 my-4 w-full" })
     ] })
   ] }) });
 }, ChatBox = (props) => {
-  let chatBoxRef = (0, import_react61.useRef)(null), chatText = (0, import_react61.useRef)(null), [message, setMessage] = (0, import_react61.useState)([]), [changedata, setChangeData] = (0, import_react61.useState)(!1), init = async () => {
+  let chatBoxRef = (0, import_react65.useRef)(null), chatText = (0, import_react65.useRef)(null), [message, setMessage] = (0, import_react65.useState)([]), [changedata, setChangeData] = (0, import_react65.useState)(!1), init = async () => {
     setMessage([]);
     let user1 = {
       search: {
@@ -5117,18 +5581,18 @@ var import_react_fontawesome26 = require("@fortawesome/react-fontawesome"), impo
         fromUser: props.userId,
         toUser: props.id
       }
-    }, user1data = await (0, import_axios23.default)({
+    }, user1data = await (0, import_axios25.default)({
       method: "post",
       url: `${BaseUrl}/api/search-chat`,
       data: user1
-    }), user2data = await (0, import_axios23.default)({
+    }), user2data = await (0, import_axios25.default)({
       method: "post",
       url: `${BaseUrl}/api/search-chat`,
       data: user2
     });
-    setMessage((prevState) => [...prevState, ...user1data.data.data, ...user2data.data.data]);
+    setMessage((prevState) => [...prevState, ...user1data.data.data, ...user2data.data.data]), setMessage((prevState) => prevState.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()));
   };
-  (0, import_react61.useEffect)(() => {
+  (0, import_react65.useEffect)(() => {
     var _a;
     chatBoxRef.current.scrollTop = (_a = chatBoxRef.current) == null ? void 0 : _a.scrollHeight, init();
   }, [changedata]);
@@ -5138,7 +5602,7 @@ var import_react_fontawesome26 = require("@fortawesome/react-fontawesome"), impo
       fromUserId: props.userId,
       toUserId: props.id,
       comment: msg
-    }, data = await (0, import_axios23.default)({
+    }, data = await (0, import_axios25.default)({
       method: "post",
       url: `${BaseUrl}/api/add-chat`,
       data: req,
@@ -5154,18 +5618,18 @@ var import_react_fontawesome26 = require("@fortawesome/react-fontawesome"), impo
     });
     setChangeData(!changedata);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(import_jsx_runtime68.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "bg-white rounded-lg shadow-xl w-full p-4 max-h-screen flex flex-col", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: "flex items-center", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("img", { src: props.avatar, className: "w-10 h-10 rounded-md", alt: "avatar" }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("p", { className: "text-md font-semibold text-slate-900 ", children: props.name })
+  return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "bg-white rounded-lg shadow-xl w-full p-4 max-h-screen flex flex-col", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: props.avatar, className: "w-10 h-10 rounded-md", alt: "avatar" }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("p", { className: "text-md font-semibold text-slate-900 ", children: props.name })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-full h-[2px] my-2 bg-slate-300" }),
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { ref: chatBoxRef, className: "w-full h-full overflow-y-scroll grow no-scrollbar", children: message.reverse().map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(Message, { avatar: val.fromUser.id == props.userId ? props.useravatar : props.avatar, message: val.comment, time: val.updatedAt, user: val.fromUser.id == props.userId }) }, index2)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-full px-4 py-2", children: /* @__PURE__ */ (0, import_jsx_runtime68.jsxs)("div", { className: " bg-gray-200 rounded-md px-2 py-2 flex", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("input", { ref: chatText, type: "text", className: "py-1 w-full px-2 bg-transparent outline-none", placeholder: "type something" }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("div", { className: "w-4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime68.jsx)("button", { className: "bg-primary rounded-md text-white  text-md py-1 px-4 font-semibold", onClick: async () => {
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-full h-[2px] my-2 bg-slate-300" }),
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { ref: chatBoxRef, className: "w-full h-full overflow-y-scroll grow no-scrollbar", children: message.reverse().map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(Message, { avatar: val.fromUser.id == props.userId ? props.useravatar : props.avatar, message: val.comment, time: val.updatedAt, user: val.fromUser.id == props.userId }) }, index2)) }),
+    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-full px-4 py-2", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: " bg-gray-200 rounded-md px-2 py-2 flex", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("input", { ref: chatText, type: "text", className: "py-1 w-full px-2 bg-transparent outline-none", placeholder: "type something" }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "w-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("button", { className: "bg-primary rounded-md text-white  text-md py-1 px-4 font-semibold", onClick: async () => {
         var _a, _b, _c, _d;
         ((_a = chatText.current) == null ? void 0 : _a.value) == null || ((_b = chatText.current) == null ? void 0 : _b.value) == null || ((_c = chatText.current) == null ? void 0 : _c.value) == "" || (await sendMessage((_d = chatText.current) == null ? void 0 : _d.value), chatText.current.value = "");
       }, children: "SEND" })
@@ -5177,9 +5641,9 @@ var import_react_fontawesome26 = require("@fortawesome/react-fontawesome"), impo
 var home_exports2 = {};
 __export(home_exports2, {
   default: () => home_default2,
-  loader: () => loader25
+  loader: () => loader27
 });
-var import_free_solid_svg_icons27 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome28 = require("@fortawesome/react-fontawesome"), import_node27 = require("@remix-run/node"), import_react63 = require("@remix-run/react"), import_axios24 = __toESM(require("axios")), import_react64 = require("react");
+var import_free_solid_svg_icons27 = require("@fortawesome/free-solid-svg-icons"), import_react_fontawesome28 = require("@fortawesome/react-fontawesome"), import_node29 = require("@remix-run/node"), import_react67 = require("@remix-run/react"), import_axios26 = __toESM(require("axios")), import_react68 = require("react");
 
 // app/state/home/profilecompletestat.ts
 var import_zustand8 = require("zustand"), ProfileComleteStore = (0, import_zustand8.create)()((set) => ({
@@ -5188,15 +5652,15 @@ var import_zustand8 = require("zustand"), ProfileComleteStore = (0, import_zusta
 })), profilecompletestat_default = ProfileComleteStore;
 
 // app/components/utils/topinfluencercard.tsx
-var import_react_fontawesome27 = require("@fortawesome/react-fontawesome"), import_free_solid_svg_icons26 = require("@fortawesome/free-solid-svg-icons"), import_jsx_runtime69 = require("react/jsx-runtime"), TopInfluencerCard = (props) => {
+var import_react_fontawesome27 = require("@fortawesome/react-fontawesome"), import_free_solid_svg_icons26 = require("@fortawesome/free-solid-svg-icons"), import_jsx_runtime71 = require("react/jsx-runtime"), TopInfluencerCard = (props) => {
   let Star = () => {
     let fullStars = Math.floor(props.star), fractionalStar = props.star - fullStars, stars = [];
     for (let i = 0; i < fullStars; i++)
       stars.push(
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(import_react_fontawesome27.FontAwesomeIcon, { className: "text-xs text-pink-500", icon: import_free_solid_svg_icons26.faStar }, i)
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_react_fontawesome27.FontAwesomeIcon, { className: "text-xs text-pink-500", icon: import_free_solid_svg_icons26.faStar }, i)
       );
     fractionalStar > 0 && stars.push(
-      /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(
         import_react_fontawesome27.FontAwesomeIcon,
         {
           className: "text-xs text-pink-500",
@@ -5208,7 +5672,7 @@ var import_react_fontawesome27 = require("@fortawesome/react-fontawesome"), impo
     );
     for (let i = 0; i < 5 - fullStars; i++)
       stars.push(
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(
           import_react_fontawesome27.FontAwesomeIcon,
           {
             className: "text-xs text-gray-300",
@@ -5217,41 +5681,39 @@ var import_react_fontawesome27 = require("@fortawesome/react-fontawesome"), impo
           5 + i
         )
       );
-    return /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(import_jsx_runtime69.Fragment, { children: stars });
+    return /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_jsx_runtime71.Fragment, { children: stars });
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(import_jsx_runtime69.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "bg-white rounded-xl shadow-xl w-64 my-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("img", { src: props.image, alt: "error", className: "w-full h-40 object-cover rounded-t-md" }),
-    /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "flex gap-1 -translate-y-5 pl-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("div", { className: "border p-1 bg-white border-blue-500 rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("img", { src: "/images/media/instagram.png", alt: "error", className: "w-6 h-6 rounded-full" }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("div", { className: "border p-1 border-blue-500 bg-white rounded-full", children: /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("img", { src: "/images/media/youtube.png", alt: "error", className: "w-6 h-6 rounded-full" }) })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "px-4 pb-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "flex items-start my-2 justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "grow", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("p", { className: "text-black font-semibold text-sm text-left", children: props.name.split("@")[0] }),
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("div", { className: "flex", children: /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(Star, {}) })
+  return /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_jsx_runtime71.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "bg-white rounded-xl shadow-xl w-64 my-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("img", { src: props.image, alt: "error", className: "w-full h-40 object-cover rounded-t-md" }),
+    /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "px-4 pb-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "flex items-start my-2 justify-between", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "grow", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-black font-semibold text-sm text-left", children: props.name.split("@")[0] }),
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { className: "flex", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(Star, {}) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("p", { className: "text-black font-bold  text-md text-right", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { className: "text-black font-bold  text-md text-right", children: [
           "3500 ",
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("br", {}),
-          "USD / post"
+          props.currency,
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("br", {}),
+          " ",
+          props.dob
         ] }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "my-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { className: "bg-gray-200  rounded-md py-2 flex justify-around", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("p", { className: "text-center text-sm font-semibold", children: "2 00 5887" }),
-            /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("p", { className: "text-center text-xs font-normal", children: "Reach" })
+      /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "my-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "bg-gray-200  rounded-md py-2 flex justify-around", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-center text-sm font-semibold", children: "2 00 5887" }),
+            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-center text-xs font-normal", children: "Reach" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("div", { className: "h-10 w-[1px] bg-slate-900" }),
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("p", { className: "text-center text-sm font-semibold", children: "1 34 9887" }),
-            /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("p", { className: "text-center text-xs font-normal", children: "Impression" })
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { className: "h-10 w-[1px] bg-slate-900" }),
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-center text-sm font-semibold", children: "1 34 9887" }),
+            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-center text-xs font-normal", children: "Impression" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("div", { className: "bg-gray-200 text-center text-sm font-semibold rounded-md py-2 mt-2", children: /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)("p", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { className: "bg-gray-200 text-center text-sm font-semibold rounded-md py-2 mt-2", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { children: [
           "SWRV score :  ",
-          /* @__PURE__ */ (0, import_jsx_runtime69.jsx)("span", { className: "font-normal", children: "2005887" })
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("span", { className: "font-normal", children: "2005887" })
         ] }) })
       ] })
     ] })
@@ -5259,158 +5721,192 @@ var import_react_fontawesome27 = require("@fortawesome/react-fontawesome"), impo
 }, topinfluencercard_default = TopInfluencerCard;
 
 // app/routes/home/index.tsx
-var import_jsx_runtime70 = require("react/jsx-runtime"), loader25 = async (props) => {
-  let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader), platformRes = await import_axios24.default.post(`${BaseUrl}/api/getplatform`), categoryRes = await import_axios24.default.post(`${BaseUrl}/api/getcategory`), countryRes = await import_axios24.default.post(`${BaseUrl}/api/getcountry`);
-  return (0, import_node27.json)({ user: cookie.user, platform: platformRes.data.data, category: categoryRes.data.data, country: countryRes.data.data });
+var import_jsx_runtime72 = require("react/jsx-runtime"), loader27 = async (props) => {
+  let cookieHeader = props.request.headers.get("Cookie"), cookie = await userPrefs.parse(cookieHeader), platformRes = await import_axios26.default.post(`${BaseUrl}/api/getplatform`), categoryRes = await import_axios26.default.post(`${BaseUrl}/api/getcategory`), countryRes = await import_axios26.default.post(`${BaseUrl}/api/getcountry`);
+  return (0, import_node29.json)({ user: cookie.user, platform: platformRes.data.data, category: categoryRes.data.data, country: countryRes.data.data });
 }, HomePage2 = () => {
-  let user = (0, import_react63.useLoaderData)(), profilecomplted = user.user.profileCompleteness, isbrand = user.user.role.code != 10, isOpen = profilecompletestat_default((state) => state.isOpen), isOpenChange = profilecompletestat_default((state) => state.change), navigator = (0, import_react63.useNavigate)();
-  return (0, import_react64.useEffect)(() => {
-    isOpenChange(profilecomplted != "1");
-  }, []), /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(import_jsx_runtime70.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "flex mt-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "grow" }),
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { onClick: async () => {
-        navigator("/logout");
-      }, children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CusButton, { text: "Logout", background: "bg-[#f43f5e]", textColor: "text-white" }) })
-    ] }),
-    isOpen ? /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(ProfileComplete, {}) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(Intro, {}),
-    isbrand ? /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(import_jsx_runtime70.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(InfluencerSearch, { platform: user.platform, country: user.country, category: user.category }),
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(TopInfluencer, {})
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(import_jsx_runtime70.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(EarnSection, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(SponsoredPosts, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(NewCampaign, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(TopBrands, {})
+  let user = (0, import_react67.useLoaderData)(), profilecomplted = user.user.profileCompleteness, isbrand = user.user.role.code != 10, isOpen = profilecompletestat_default((state) => state.isOpen), isOpenChange = profilecompletestat_default((state) => state.change), navigator = (0, import_react67.useNavigate)(), init = async () => {
+  };
+  return (0, import_react68.useEffect)(() => {
+    isOpenChange(profilecomplted != "1"), init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(import_jsx_runtime72.Fragment, { children: [
+    isOpen ? /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(ProfileComplete, {}) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(Intro, {}),
+    isbrand ? /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(import_jsx_runtime72.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(InfluencerSearch, { platform: user.platform, country: user.country, category: user.category }),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(TopInfluencer, {})
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(import_jsx_runtime72.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(EarnSection, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(SponsoredPosts, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(NewCampaign, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(TopBrands, {})
     ] })
   ] });
 }, home_default2 = HomePage2, ProfileComplete = () => {
   let changeState = profilecompletestat_default((state) => state.change);
-  return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-full bg-secondary rounded-xl p-2 my-4 flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "flex grow flex-col md:flex-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "py-10 md:w-[400px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-2xl text-white font-bold", children: "Please Complete Your Profile" }),
-        /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-md text-white font-normal", children: "Your linked social media accounts are under verification. You'll be notified within 24 hours." })
+  return /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "w-full bg-secondary rounded-xl p-2 my-4 flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "flex grow flex-col md:flex-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "py-10 md:w-[400px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("h1", { className: "text-2xl text-white font-bold", children: "Please Complete Your Profile" }),
+        /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("h1", { className: "text-md text-white font-normal", children: "Your linked social media accounts are under verification. You'll be notified within 24 hours." })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "xl:w-96 grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_react63.Link, { to: "/home/profilecomplete", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CusButton, { text: "Click here to complete", textColor: "text-white", background: "bg-primary" }) }) })
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "xl:w-96 grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react67.Link, { to: "/home/profilecomplete", children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(CusButton, { text: "Click here to complete", textColor: "text-white", background: "bg-primary" }) }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { onClick: () => {
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { onClick: () => {
       changeState(!1);
     }, children: [
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_react_fontawesome28.FontAwesomeIcon, { className: "text-white text-2xl font-bold", icon: import_free_solid_svg_icons27.faXmark }),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react_fontawesome28.FontAwesomeIcon, { className: "text-white text-2xl font-bold", icon: import_free_solid_svg_icons27.faXmark }),
       " "
     ] })
   ] }) });
-}, Intro = () => /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(import_jsx_runtime70.Fragment, { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "grid place-items-center w-full mt-10", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-4xl text-primary font-bold text-center", children: "Welcome to SWRV" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-xl text-primary font-normal text-center", children: "Reach the next billion" })
-  ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "flex gap-4 items-center mb-6", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden lg:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf1.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf3.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf4.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden xl:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf5.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf6.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden xl:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf7.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf8.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf9.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "hidden md:block", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf13.png", alt: "error" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/inf/inf14.png", alt: "error" }) })
-  ] })
-] }), EarnSection = () => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-full rounded-xl flex flex-col md:flex-row bg-yellow-500 mt-12", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "md:h-80" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "p-4 md:p-12 bg-[#F7941D] rounded-r-xl grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-2xl text-black font-bold text-left", children: "To earn more money?" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("h1", { className: "text-md text-black font-normal text-left md:w-80", children: "Search, apply for brands campaigns and create more great content." })
+}, Intro = () => {
+  let navigator = (0, import_react67.useNavigate)();
+  return /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(import_jsx_runtime72.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "grid place-items-center w-full mt-10", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("h1", { className: "text-4xl text-primary font-bold text-center", children: "Welcome to SWRV" }),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("h1", { className: "text-xl text-primary font-normal text-center", children: "Reach the next billion" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "flex gap-4 items-center mb-6 overflow-x-scroll no-scrollbar", children: [
+      { image: "74.jfif", id: "74" },
+      { image: "75.jfif", id: "75" },
+      { image: "76.jfif", id: "76" },
+      { image: "77.jfif", id: "77" },
+      { image: "78.jfif", id: "78" },
+      { image: "79.jfif", id: "79" },
+      { image: "80.jfif", id: "80" },
+      { image: "81.jfif", id: "81" },
+      { image: "82.jfif", id: "82" },
+      { image: "83.jfif", id: "83" },
+      { image: "84.jfif", id: "84" },
+      { image: "85.jfif", id: "85" },
+      { image: "86.jfif", id: "86" },
+      { image: "87.jfif", id: "87" },
+      { image: "88.jfif", id: "88" }
+    ].map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "block shrink-0 cursor-pointer", onClick: () => {
+      navigator(`/home/user/${val.id}`);
+    }, children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("img", { src: `/images/inf/${val.image}`, alt: "error", className: "rounded-md w-40 h-40" }) }, index2)) })
+  ] });
+}, EarnSection = () => /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "w-full rounded-xl flex flex-col md:flex-row bg-yellow-500 mt-12", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "grow grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("img", { src: "/images/cashgirl.png", alt: "error", className: "md:h-80" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "p-4 md:p-12 bg-[#F7941D] rounded-r-xl grid place-items-center", children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("h1", { className: "text-2xl text-black font-bold text-left", children: "To earn more money?" }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("h1", { className: "text-md text-black font-normal text-left md:w-80", children: "Search, apply for brands campaigns and create more great content." })
   ] }) })
-] }) }), SponsoredPosts = () => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+] }) }), SponsoredPosts = () => /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4", children: [
     " ",
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faHeart, className: "text-md text-secondary" }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faHeart, className: "text-md text-secondary" }),
     " Sponsored Posts "
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "1500", category: "Consumer Electronics", image: "/images/brand/adidas.jpg", name: "Adidas", currency: "USD" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "2000", category: "Consumer Electronics", image: "/images/brand/furinicom.jpg", name: "Furinicom", currency: "USD" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "3000", category: "Consumer Electronics", image: "/images/brand/hilton.jpg", name: "Hilton", currency: "USD" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "2500", category: "Consumer Electronics", image: "/images/brand/lucent.jpg", name: "Lucent", currency: "USD" })
+  /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "grid place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "1500", category: "Consumer Electronics", image: "/images/brand/adidas.jpg", name: "Adidas", currency: "USD" }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "2000", category: "Consumer Electronics", image: "/images/brand/furinicom.jpg", name: "Furinicom", currency: "USD" }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "3000", category: "Consumer Electronics", image: "/images/brand/hilton.jpg", name: "Hilton", currency: "USD" }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(CampaginCard, { id: "55", weburl: "www.adidas.com", platforms: ["/images/media/instagram.png", "/images/media/youtube.png"], maxval: "2500", category: "Consumer Electronics", image: "/images/brand/lucent.jpg", name: "Lucent", currency: "USD" })
   ] })
 ] }) }), NewCampaign = () => {
-  let [topChampaing, setTopChampaing] = (0, import_react64.useState)([]), [campaignCards, setCampaignCards] = (0, import_react64.useState)([]);
-  return (0, import_react64.useEffect)(() => {
+  let [topChampaing, setTopChampaing] = (0, import_react68.useState)([]), [campaignCards, setCampaignCards] = (0, import_react68.useState)([]);
+  return (0, import_react68.useEffect)(() => {
     (async () => {
-      let apidata = await (0, import_axios24.default)({
+      let apidata = await (0, import_axios26.default)({
         method: "post",
         url: `${BaseUrl}/api/get-top-campaigns`
       });
       setTopChampaing(apidata.data.data.campaigns);
     })();
-  }, []), (0, import_react64.useEffect)(() => {
+  }, []), (0, import_react68.useEffect)(() => {
     (async () => {
       let cards = await Promise.all(topChampaing.map(async (val, index2) => {
         let platforms = [];
         for (let i = 0; i < val.platforms.length; i++)
           platforms.push(val.platforms[i].platformLogoUrl);
         let campaignType = await getCampaignType(val.campaignTypeId), image = val.brand.length == 0 || val.brand == null || val.brand == null || val.brand == "" || val.brand.logo == "0" || val.brand.logo == null || val.brand.logo == null || val.brand.logo == "" ? "/images/avatar/user.png" : val.brand.logo;
-        return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(CampaginCard, { id: val.id, weburl: "www.adidas.com", platforms, maxval: val.costPerPost.split(".")[0], category: campaignType, image, name: val.name, currency: val.currency.code }) }, index2);
+        return /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(CampaginCard, { id: val.id, weburl: "www.adidas.com", platforms, maxval: val.costPerPost.split(".")[0], category: campaignType, image, name: val.name, currency: val.currency.code }) }, index2);
       }));
       setCampaignCards(cards);
     })();
-  }, [topChampaing]), /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+  }, [topChampaing]), /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faIdBadge, className: "text-md text-secondary" }),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faIdBadge, className: "text-md text-secondary" }),
       " New Campaign "
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "grid grid-cols-1  place-items-center lgna khar:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: campaignCards })
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "grid grid-cols-1  place-items-center lgna khar:place-items-start  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: campaignCards })
   ] }) });
 }, TopBrands = () => {
-  let [topBrands, setTopBarnds] = (0, import_react64.useState)([]), init = async () => {
-    let apidata = await (0, import_axios24.default)({
+  let [topBrands, setTopBarnds] = (0, import_react68.useState)([]), init = async () => {
+    let apidata = await (0, import_axios26.default)({
       method: "post",
-      url: `${BaseUrl}/api/get-top-brands`
+      url: `${BaseUrl}/api/get-top-brands`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Options": "*",
+        "Access-Control-Allow-Methods": "*",
+        "X-Content-Type-Options": "*",
+        "Content-Type": "application/json",
+        Accept: "*"
+      }
     });
     setTopBarnds(apidata.data.data);
   };
-  return (0, import_react64.useEffect)(() => {
+  return (0, import_react68.useEffect)(() => {
     init();
-  }, []), /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "w-60 shadow-xl rounded-xl text-xl font-bold text-black p-2 my-4", children: [
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faStar, className: "text-md text-secondary" }),
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faStar, className: "text-md text-secondary" }),
       " Top brands "
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { className: "grid grid-cols-1 place-items-center lg:place-items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: topBrands.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(BrandCard, { id: val.id, email: val.email, image: val.logo, name: val.name }) }, index2)) })
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "grid grid-cols-1 place-items-center lg:place-items-start md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4", children: topBrands.map((val, index2) => /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(BrandCard, { id: val.id, email: val.email, image: val.logo, name: val.name, website: val.webUrl }) }, index2)) })
   ] }) });
-}, TopInfluencer = () => /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_jsx_runtime70.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4", children: [
-    " ",
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faHeart, className: "text-md text-secondary" }),
-    " Top influencer "
-  ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-4 place-items-center ", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(topinfluencercard_default, { star: 3, image: "/images/inf/inf6.png", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(topinfluencercard_default, { star: 5, image: "/images/inf/inf2.png", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(topinfluencercard_default, { star: 3, image: "/images/inf/inf3.png", name: "Adidas" }),
-    /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(topinfluencercard_default, { star: 4, image: "/images/inf/inf14.png", name: "Adidas" })
-  ] })
-] }) });
+}, TopInfluencer = () => {
+  let [topInfluencer, setTopInfluencer] = (0, import_react68.useState)([]), init = async () => {
+    let apidata = await (0, import_axios26.default)({
+      method: "post",
+      url: `${BaseUrl}/api/user-search`,
+      data: { role: 10 },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Options": "*",
+        "Access-Control-Allow-Methods": "*",
+        "X-Content-Type-Options": "*",
+        "Content-Type": "application/json",
+        Accept: "*"
+      }
+    });
+    for (let i = 0; i < 5; i++)
+      setTopInfluencer((prevdata) => [...prevdata, apidata.data.data[i]]);
+  };
+  return (0, import_react68.useEffect)(() => {
+    init();
+  }, []), /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "bg-white rounded-2xl my-3 shadow-xl p-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("div", { className: "w-60 shadow-xl   rounded-xl text-xl font-bold text-black p-2 my-4", children: [
+      " ",
+      /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react_fontawesome28.FontAwesomeIcon, { icon: import_free_solid_svg_icons27.faHeart, className: "text-md text-secondary" }),
+      " Top influencer "
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { className: "grid gap-4 grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-4 place-items-center ", children: topInfluencer.map((val, index2) => {
+      let avatar = val.pic == "0" || val.pic == null || val.pic == null || val.pic == "" ? "/images/avatar/user.png" : val.pic;
+      return /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(topinfluencercard_default, { star: parseInt(val.rating), image: avatar, name: val.userName, currency: val.currency.code, dob: val.dob }) }, index2);
+    }) })
+  ] }) });
+};
 
 // app/routes/home/sorry.tsx
 var sorry_exports = {};
 __export(sorry_exports, {
   default: () => sorry_default
 });
-var import_jsx_runtime71 = require("react/jsx-runtime"), Sorry = () => /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_jsx_runtime71.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("div", { className: "bg-white rounded-lg shadow-lg p-10 mt-6 relative", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { className: " text-center text-[100px] font-black text-stroke text-white  absolute translate-y-40 grid place-items-center top-0 left-0 translate-x-72", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { children: "Sorry !!" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { className: "w-full grid place-content-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("img", { src: "/images/avatar/sorry.png", alt: "error", className: "h-[300px]" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("div", { className: "w-full grid place-items-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { className: "text-sm font-normal text-gray-500 text-left w-96", children: [
+var import_jsx_runtime73 = require("react/jsx-runtime"), Sorry = () => /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(import_jsx_runtime73.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("div", { className: "bg-white rounded-lg shadow-lg p-10 mt-6 relative", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { className: " text-center text-[100px] font-black text-stroke text-white  absolute translate-y-40 grid place-items-center top-0 left-0 translate-x-72", children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { children: "Sorry !!" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { className: "w-full grid place-content-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("img", { src: "/images/avatar/sorry.png", alt: "error", className: "h-[300px]" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { className: "w-full grid place-items-center relative", children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("p", { className: "text-sm font-normal text-gray-500 text-left w-96", children: [
     "Thank you for expressing interest in SWRV. While we were impressed with your profile, unfortunately, your profile dosent meet the minimum criteria which we need in this platform ",
-    /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("br", {}),
     "We sincerely appreciate your interest and hope that you\u2019ll stay in touch. Please don\u2019t hesitate to reach out if you disagree with our decision."
   ] }) })
 ] }) }), sorry_default = Sorry;
@@ -5420,34 +5916,34 @@ var help_exports = {};
 __export(help_exports, {
   default: () => help_default
 });
-var import_react65 = require("@remix-run/react"), import_jsx_runtime72 = require("react/jsx-runtime"), Help = () => /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_jsx_runtime72.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_react65.Outlet, {}) }), help_default = Help;
+var import_react69 = require("@remix-run/react"), import_jsx_runtime74 = require("react/jsx-runtime"), Help = () => /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(import_jsx_runtime74.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(import_react69.Outlet, {}) }), help_default = Help;
 
 // app/routes/home/help/termsandconditions.tsx
 var termsandconditions_exports = {};
 __export(termsandconditions_exports, {
   default: () => termsandconditions_default
 });
-var import_jsx_runtime73 = require("react/jsx-runtime"), TermsAndConditions = () => /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(import_jsx_runtime73.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("div", { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white my-4 p-4 pl-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "Terms and Conditions" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-md text-black font-normal", children: "General Site Usage" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-md text-black font-normal", children: "Last Revised: Decenber 16, 2013" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "Welcome to www.lorem-ipsum.info. This site is provided as a service to our visitors and may be used for informational purposes only. Because the Terms and Conditions contain legal obligations, please read them carefully." }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "1. YOUR AGREEMENT" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site." }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("p", { className: "text-md text-black font-normal mt-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("span", { className: "text-lg font-bold", children: "PLEASE NOTE:" }),
+var import_jsx_runtime75 = require("react/jsx-runtime"), TermsAndConditions = () => /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(import_jsx_runtime75.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white my-4 p-4 pl-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "Terms and Conditions" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-md text-black font-normal", children: "General Site Usage" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-md text-black font-normal", children: "Last Revised: Decenber 16, 2013" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "Welcome to www.lorem-ipsum.info. This site is provided as a service to our visitors and may be used for informational purposes only. Because the Terms and Conditions contain legal obligations, please read them carefully." }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "1. YOUR AGREEMENT" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site." }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("p", { className: "text-md text-black font-normal mt-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("span", { className: "text-lg font-bold", children: "PLEASE NOTE:" }),
       " We reserve the right, at our sole discretion, to change, modify or otherwise alter these Terms and Conditions at any time. Unless otherwise indicated, amendments will become effective immediately. Please review these Terms and Conditions periodically. Your continued use of the Site following the posting of changes and/or modifications will constitute your acceptance of the revised Terms and Conditions and the reasonableness of these standards for notice of changes. For your information, this page was last updated as of the date at the top of these terms and conditions."
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "2. PRIVACY" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices." }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "3. LINKED SITES" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-md text-black font-normal mt-2", children: 'This Site may contain links to other independent third-party Web sites ("Linked Sites\u201D). These Linked Sites are provided solely as a convenience to our visitors. Such Linked Sites are not under our control, and we are not responsible for and does not endorse the content of such Linked Sites, including any information or materials contained on such Linked Sites. You will need to make your own independent judgment regarding your interaction with these Linked Sites.' }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: " 4. FORWARD LOOKING STATEMENTS" }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "All materials reproduced on this site speak as of the original date of publication or filing. The fact that a document is available on this site does not mean that the information contained in such document has not been modified or superseded by events or by a subsequent document or filing. We have no duty or policy to update any information or statements contained on this site and, therefore, such information or statements should not be relied upon as being current as of the date you access this site." }),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "5. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY" })
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "2. PRIVACY" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices." }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "3. LINKED SITES" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-md text-black font-normal mt-2", children: 'This Site may contain links to other independent third-party Web sites ("Linked Sites\u201D). These Linked Sites are provided solely as a convenience to our visitors. Such Linked Sites are not under our control, and we are not responsible for and does not endorse the content of such Linked Sites, including any information or materials contained on such Linked Sites. You will need to make your own independent judgment regarding your interaction with these Linked Sites.' }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: " 4. FORWARD LOOKING STATEMENTS" }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "All materials reproduced on this site speak as of the original date of publication or filing. The fact that a document is available on this site does not mean that the information contained in such document has not been modified or superseded by events or by a subsequent document or filing. We have no duty or policy to update any information or statements contained on this site and, therefore, such information or statements should not be relied upon as being current as of the date you access this site." }),
+    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-lg text-black font-bold mt-4", children: "5. DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY" })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime73.jsx)("div", { className: "h-96" })
+  /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("div", { className: "h-96" })
 ] }) }), termsandconditions_default = TermsAndConditions;
 
 // app/routes/home/help/forgetpassword.tsx
@@ -5455,15 +5951,15 @@ var forgetpassword_exports = {};
 __export(forgetpassword_exports, {
   default: () => forgetpassword_default
 });
-var import_jsx_runtime74 = require("react/jsx-runtime"), ForgetPassword = () => /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(import_jsx_runtime74.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white my-4 p-4", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)("div", { className: "w-full lg:w-3/5 pl-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("h3", { className: "text-md font-medium text-gray-400", children: "Help Center > Login and password > How to reset a lost or forgotten password > SWRV password recovery" }),
-    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("p", { className: "text-2xl text-black font-bold mt-4", children: "How to reset a lost or forgotten password" }),
-    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "To reset your password, you\u2019ll need access to the phone number or email associated with your SWRV account. This verification information helps ensure your account is only accessible to you. If you can\u2019t access your phone or email, you won\u2019t be able to recover your password, and may need to sign up for a new account." }),
-    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("p", { className: "text-lg text-black font-medium mt-2", children: " What you\u2019ll need to change your password on SWRV " }),
-    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("p", { className: "text-md text-black font-normal mt-2", children: " An accurate and up-to-date email address, and/or phone number ensure you never lose access to your SWRV account. There are a few ways to change your password, and keeping this information up to date simplifies resetting your account or password." })
+var import_jsx_runtime76 = require("react/jsx-runtime"), ForgetPassword = () => /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_jsx_runtime76.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white my-4 p-4", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)("div", { className: "w-full lg:w-3/5 pl-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("h3", { className: "text-md font-medium text-gray-400", children: "Help Center > Login and password > How to reset a lost or forgotten password > SWRV password recovery" }),
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("p", { className: "text-2xl text-black font-bold mt-4", children: "How to reset a lost or forgotten password" }),
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("p", { className: "text-md text-black font-normal mt-2", children: "To reset your password, you\u2019ll need access to the phone number or email associated with your SWRV account. This verification information helps ensure your account is only accessible to you. If you can\u2019t access your phone or email, you won\u2019t be able to recover your password, and may need to sign up for a new account." }),
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("p", { className: "text-lg text-black font-medium mt-2", children: " What you\u2019ll need to change your password on SWRV " }),
+    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("p", { className: "text-md text-black font-normal mt-2", children: " An accurate and up-to-date email address, and/or phone number ensure you never lose access to your SWRV account. There are a few ways to change your password, and keeping this information up to date simplifies resetting your account or password." })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("div", { className: "h-96" })
+  /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("div", { className: "h-96" })
 ] }) }) }), forgetpassword_default = ForgetPassword;
 
 // app/routes/home/help/index.tsx
@@ -5471,37 +5967,37 @@ var help_exports2 = {};
 __export(help_exports2, {
   default: () => help_default2
 });
-var import_jsx_runtime75 = require("react/jsx-runtime"), Help2 = () => /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(import_jsx_runtime75.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-[#10BCE2] flex my-4 p-10 md:flex-row flex-col", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { className: "text-5xl text-primary font-bold", children: [
+var import_jsx_runtime77 = require("react/jsx-runtime"), Help2 = () => /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_jsx_runtime77.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-[#10BCE2] flex my-4 p-10 md:flex-row flex-col", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { className: "text-5xl text-primary font-bold", children: [
       "Hi ",
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("span", { className: "text-white", children: " @ivankbfc," }),
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("br", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { className: "text-white", children: " @ivankbfc," }),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("br", {}),
       " How can we help?"
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("div", { className: "grow grid place-items-center md:p-10 my-4", children: /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("input", { type: "text", className: "placeholder:text-black bg-white opacity-30  outline-none border-none focus:border-gray-300 rounded-md w-full p-2", placeholder: "search" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "grow grid place-items-center md:p-10 my-4", children: /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("input", { type: "text", className: "placeholder:text-black bg-white opacity-30  outline-none border-none focus:border-gray-300 rounded-md w-full p-2", placeholder: "search" }) })
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white flex my-4 p-10 md:flex-row flex-col md:gap-x-10 gap-y-6 md:gap-y-0", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-xl text-black font-bold", children: "Using SWRV" }),
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Manage your account" }),
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Campaigns" }),
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Safety and security" }),
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Rules and policies" })
+  /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { className: "w-full rounded-xl shadow-xl bg-white flex my-4 p-10 md:flex-row flex-col md:gap-x-10 gap-y-6 md:gap-y-0", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("p", { className: "text-xl text-black font-bold", children: "Using SWRV" }),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Manage your account" }),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Campaigns" }),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Safety and security" }),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("p", { className: "text-xl text-gray-400 font-bold mt-2", children: "Rules and policies" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("p", { className: "text-xl text-black font-medium", children: "Everything you need to know so you can use SWRV like a pro" }),
-      /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { className: "flex md:gap-x-16 gap-x-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Registration" }),
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Verification" }),
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Social Media accounts" }),
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Analytics" }),
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Brands" })
+    /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("p", { className: "text-xl text-black font-medium", children: "Everything you need to know so you can use SWRV like a pro" }),
+      /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { className: "flex md:gap-x-16 gap-x-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Registration" }),
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Verification" }),
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Social Media accounts" }),
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Analytics" }),
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Brands" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Campaign" }),
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Payments" })
+        /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Campaign" }),
+          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("h2", { className: "text-cyan-500 mt-2", children: "Payments" })
         ] })
       ] })
     ] })
@@ -5509,7 +6005,7 @@ var import_jsx_runtime75 = require("react/jsx-runtime"), Help2 = () => /* @__PUR
 ] }) }), help_default2 = Help2;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "6990796b", entry: { module: "/build/entry.client-73U6U2OJ.js", imports: ["/build/_shared/chunk-WLPYV2BQ.js", "/build/_shared/chunk-7UEYUE33.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-X56ANZ2G.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-PLKOUAT4.js", imports: ["/build/_shared/chunk-TQMINP3Y.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/bloginfo": { id: "routes/blogs/bloginfo", parentId: "root", path: "blogs/bloginfo", index: void 0, caseSensitive: void 0, module: "/build/routes/blogs/bloginfo-VI7W4J27.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-TQMINP3Y.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/index": { id: "routes/blogs/index", parentId: "root", path: "blogs", index: !0, caseSensitive: void 0, module: "/build/routes/blogs/index-UFQXJQIC.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-TQMINP3Y.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/contact": { id: "routes/contact", parentId: "root", path: "contact", index: void 0, caseSensitive: void 0, module: "/build/routes/contact-JEX7377L.js", imports: ["/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-TQMINP3Y.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/createbrand": { id: "routes/createbrand", parentId: "root", path: "createbrand", index: void 0, caseSensitive: void 0, module: "/build/routes/createbrand-7IVYHIKX.js", imports: ["/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/extra/sociallogin.$id": { id: "routes/extra/sociallogin.$id", parentId: "root", path: "extra/sociallogin/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/extra/sociallogin.$id-65NGL7EJ.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/extra/socialregister.$id": { id: "routes/extra/socialregister.$id", parentId: "root", path: "extra/socialregister/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/extra/socialregister.$id-7LFCZ4RC.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home": { id: "routes/home", parentId: "root", path: "home", index: void 0, caseSensitive: void 0, module: "/build/routes/home-7P5NCRHJ.js", imports: ["/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/brand.$id": { id: "routes/home/brand.$id", parentId: "routes/home", path: "brand/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/home/brand.$id-YPPPEEXZ.js", imports: ["/build/_shared/chunk-N5RZEG6Y.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-57PMQZPE.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser": { id: "routes/home/branduser", parentId: "routes/home", path: "branduser", index: void 0, caseSensitive: void 0, module: "/build/routes/home/branduser-DKDXID42.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser/index": { id: "routes/home/branduser/index", parentId: "routes/home/branduser", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/branduser/index-5DTLAJGH.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser/influencers": { id: "routes/home/branduser/influencers", parentId: "routes/home/branduser", path: "influencers", index: void 0, caseSensitive: void 0, module: "/build/routes/home/branduser/influencers-BPV2SSRY.js", imports: ["/build/_shared/chunk-MMSWIR53.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser/payments": { id: "routes/home/branduser/payments", parentId: "routes/home/branduser", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/home/branduser/payments-WEKQPPN6.js", imports: ["/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/campaigns.$id": { id: "routes/home/campaigns.$id", parentId: "routes/home", path: "campaigns/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/home/campaigns.$id-2OZSCSBO.js", imports: ["/build/_shared/chunk-N5RZEG6Y.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-57PMQZPE.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign": { id: "routes/home/createcampaign", parentId: "routes/home", path: "createcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign-JRFQQ2L5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/index": { id: "routes/home/createcampaign/index", parentId: "routes/home/createcampaign", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/index-VFBVBAVU.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step2": { id: "routes/home/createcampaign/step2", parentId: "routes/home/createcampaign", path: "step2", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step2-A3INR3VM.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step3": { id: "routes/home/createcampaign/step3", parentId: "routes/home/createcampaign", path: "step3", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step3-LV2JUKH5.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step4": { id: "routes/home/createcampaign/step4", parentId: "routes/home/createcampaign", path: "step4", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step4-KHA4TVAJ.js", imports: ["/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step5": { id: "routes/home/createcampaign/step5", parentId: "routes/home/createcampaign", path: "step5", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step5-W2E73VOJ.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step6": { id: "routes/home/createcampaign/step6", parentId: "routes/home/createcampaign", path: "step6", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step6-GSCWQCLI.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/empty": { id: "routes/home/empty", parentId: "routes/home", path: "empty", index: void 0, caseSensitive: void 0, module: "/build/routes/home/empty-HVXQSS22.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/favourite": { id: "routes/home/favourite", parentId: "routes/home", path: "favourite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/favourite-7FGP6TSP.js", imports: ["/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/findcampaign": { id: "routes/home/findcampaign", parentId: "routes/home", path: "findcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/findcampaign-R2PMV7UQ.js", imports: ["/build/_shared/chunk-JPO6AEOF.js", "/build/_shared/chunk-MMSWIR53.js", "/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-HETNVBB4.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help": { id: "routes/home/help", parentId: "routes/home", path: "help", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help-NAMXZ7SB.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help/forgetpassword": { id: "routes/home/help/forgetpassword", parentId: "routes/home/help", path: "forgetpassword", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help/forgetpassword-AK2KTIAO.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help/index": { id: "routes/home/help/index", parentId: "routes/home/help", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/help/index-APCREHTX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help/termsandconditions": { id: "routes/home/help/termsandconditions", parentId: "routes/home/help", path: "termsandconditions", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help/termsandconditions-GJN6Y6JE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/inbox": { id: "routes/home/inbox", parentId: "routes/home", path: "inbox", index: void 0, caseSensitive: void 0, module: "/build/routes/home/inbox-IBCTUJNG.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/index": { id: "routes/home/index", parentId: "routes/home", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/index-7YOKZ3D3.js", imports: ["/build/_shared/chunk-JPO6AEOF.js", "/build/_shared/chunk-MMSWIR53.js", "/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-HETNVBB4.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/invite": { id: "routes/home/invite", parentId: "routes/home", path: "invite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/invite-UU2BFYMQ.js", imports: ["/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/mycampaings": { id: "routes/home/mycampaings", parentId: "routes/home", path: "mycampaings", index: void 0, caseSensitive: void 0, module: "/build/routes/home/mycampaings-7PG5UIAS.js", imports: ["/build/_shared/chunk-HETNVBB4.js", "/build/_shared/chunk-57PMQZPE.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete": { id: "routes/home/profilecomplete", parentId: "routes/home", path: "profilecomplete", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete-HLYJWTSK.js", imports: ["/build/_shared/chunk-SABFZQUQ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/fifthpage": { id: "routes/home/profilecomplete/fifthpage", parentId: "routes/home/profilecomplete", path: "fifthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/fifthpage-EMQLJ3P4.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/forthpage": { id: "routes/home/profilecomplete/forthpage", parentId: "routes/home/profilecomplete", path: "forthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/forthpage-35RVQKO6.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/index": { id: "routes/home/profilecomplete/index", parentId: "routes/home/profilecomplete", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/index-DV5RLPOR.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/secondpage": { id: "routes/home/profilecomplete/secondpage", parentId: "routes/home/profilecomplete", path: "secondpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/secondpage-HFL5F43A.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/thirdpage": { id: "routes/home/profilecomplete/thirdpage", parentId: "routes/home/profilecomplete", path: "thirdpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/thirdpage-4XM5QPFR.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/sorry": { id: "routes/home/sorry", parentId: "routes/home", path: "sorry", index: void 0, caseSensitive: void 0, module: "/build/routes/home/sorry-CQLETUE3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-NR3FJM53.js", imports: ["/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-TQMINP3Y.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-2POO2JGN.js", imports: ["/build/_shared/chunk-NIGJXJWR.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-ZJH6AFNS.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/register": { id: "routes/register", parentId: "root", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/register-V52DRACV.js", imports: ["/build/_shared/chunk-NIGJXJWR.js", "/build/_shared/chunk-VEJ72H7V.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-RWDLZR7I.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/updateuser": { id: "routes/updateuser", parentId: "root", path: "updateuser", index: void 0, caseSensitive: void 0, module: "/build/routes/updateuser-M2BVRO2F.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-6990796B.js" };
+var assets_manifest_default = { version: "fea57c9e", entry: { module: "/build/entry.client-73U6U2OJ.js", imports: ["/build/_shared/chunk-WLPYV2BQ.js", "/build/_shared/chunk-7UEYUE33.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-5IVNR6F2.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !0, hasErrorBoundary: !0 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-P7APFFDE.js", imports: ["/build/_shared/chunk-5T3NKC4Z.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/bloginfo": { id: "routes/blogs/bloginfo", parentId: "root", path: "blogs/bloginfo", index: void 0, caseSensitive: void 0, module: "/build/routes/blogs/bloginfo-NU6PV2BZ.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-5T3NKC4Z.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/blogs/index": { id: "routes/blogs/index", parentId: "root", path: "blogs", index: !0, caseSensitive: void 0, module: "/build/routes/blogs/index-SXS5WLVV.js", imports: ["/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-5T3NKC4Z.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/contact": { id: "routes/contact", parentId: "root", path: "contact", index: void 0, caseSensitive: void 0, module: "/build/routes/contact-BAFPH2OA.js", imports: ["/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-5T3NKC4Z.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/createbrand": { id: "routes/createbrand", parentId: "root", path: "createbrand", index: void 0, caseSensitive: void 0, module: "/build/routes/createbrand-ELCRGNYQ.js", imports: ["/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/extra/sociallogin.$id": { id: "routes/extra/sociallogin.$id", parentId: "root", path: "extra/sociallogin/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/extra/sociallogin.$id-65NGL7EJ.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/extra/socialregister.$id": { id: "routes/extra/socialregister.$id", parentId: "root", path: "extra/socialregister/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/extra/socialregister.$id-7LFCZ4RC.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home": { id: "routes/home", parentId: "root", path: "home", index: void 0, caseSensitive: void 0, module: "/build/routes/home-JFMSUDP6.js", imports: ["/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/brand.$id": { id: "routes/home/brand.$id", parentId: "routes/home", path: "brand/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/home/brand.$id-PTDMCJLH.js", imports: ["/build/_shared/chunk-U6BK2NHP.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-57PMQZPE.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser": { id: "routes/home/branduser", parentId: "routes/home", path: "branduser", index: void 0, caseSensitive: void 0, module: "/build/routes/home/branduser-4A7ZJUZS.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser/index": { id: "routes/home/branduser/index", parentId: "routes/home/branduser", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/branduser/index-5DTLAJGH.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser/influencers": { id: "routes/home/branduser/influencers", parentId: "routes/home/branduser", path: "influencers", index: void 0, caseSensitive: void 0, module: "/build/routes/home/branduser/influencers-H6MQFTUD.js", imports: ["/build/_shared/chunk-TB5XP2I2.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/branduser/payments": { id: "routes/home/branduser/payments", parentId: "routes/home/branduser", path: "payments", index: void 0, caseSensitive: void 0, module: "/build/routes/home/branduser/payments-AYX5BW7N.js", imports: ["/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/campaigns.$id": { id: "routes/home/campaigns.$id", parentId: "routes/home", path: "campaigns/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/home/campaigns.$id-LYFO5RX6.js", imports: ["/build/_shared/chunk-U6BK2NHP.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-57PMQZPE.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign": { id: "routes/home/createcampaign", parentId: "routes/home", path: "createcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign-JRFQQ2L5.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/index": { id: "routes/home/createcampaign/index", parentId: "routes/home/createcampaign", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/index-PPGGFWIF.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step2": { id: "routes/home/createcampaign/step2", parentId: "routes/home/createcampaign", path: "step2", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step2-POPW6AFL.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step3": { id: "routes/home/createcampaign/step3", parentId: "routes/home/createcampaign", path: "step3", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step3-KCM7NNYL.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step4": { id: "routes/home/createcampaign/step4", parentId: "routes/home/createcampaign", path: "step4", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step4-KHA4TVAJ.js", imports: ["/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step5": { id: "routes/home/createcampaign/step5", parentId: "routes/home/createcampaign", path: "step5", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step5-JLKVRQXW.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/createcampaign/step6": { id: "routes/home/createcampaign/step6", parentId: "routes/home/createcampaign", path: "step6", index: void 0, caseSensitive: void 0, module: "/build/routes/home/createcampaign/step6-XB4QT5UK.js", imports: ["/build/_shared/chunk-JO7WIGML.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/drafts": { id: "routes/home/drafts", parentId: "routes/home", path: "drafts", index: void 0, caseSensitive: void 0, module: "/build/routes/home/drafts-S7VVEPAY.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/empty": { id: "routes/home/empty", parentId: "routes/home", path: "empty", index: void 0, caseSensitive: void 0, module: "/build/routes/home/empty-VF3LIYZD.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/favourite": { id: "routes/home/favourite", parentId: "routes/home", path: "favourite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/favourite-7FGP6TSP.js", imports: ["/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-6ONMTUBQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/findcampaign": { id: "routes/home/findcampaign", parentId: "routes/home", path: "findcampaign", index: void 0, caseSensitive: void 0, module: "/build/routes/home/findcampaign-6VX3PJ2D.js", imports: ["/build/_shared/chunk-S5KZVIQC.js", "/build/_shared/chunk-TB5XP2I2.js", "/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-HETNVBB4.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help": { id: "routes/home/help", parentId: "routes/home", path: "help", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help-NAMXZ7SB.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help/forgetpassword": { id: "routes/home/help/forgetpassword", parentId: "routes/home/help", path: "forgetpassword", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help/forgetpassword-AK2KTIAO.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help/index": { id: "routes/home/help/index", parentId: "routes/home/help", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/help/index-APCREHTX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/help/termsandconditions": { id: "routes/home/help/termsandconditions", parentId: "routes/home/help", path: "termsandconditions", index: void 0, caseSensitive: void 0, module: "/build/routes/home/help/termsandconditions-GJN6Y6JE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/inbox": { id: "routes/home/inbox", parentId: "routes/home", path: "inbox", index: void 0, caseSensitive: void 0, module: "/build/routes/home/inbox-4UN63Y5Q.js", imports: ["/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/index": { id: "routes/home/index", parentId: "routes/home", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/index-DF24WE7G.js", imports: ["/build/_shared/chunk-S5KZVIQC.js", "/build/_shared/chunk-TB5XP2I2.js", "/build/_shared/chunk-OISB2DV6.js", "/build/_shared/chunk-HETNVBB4.js", "/build/_shared/chunk-6EK5NIKP.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/invite": { id: "routes/home/invite", parentId: "routes/home", path: "invite", index: void 0, caseSensitive: void 0, module: "/build/routes/home/invite-OKPHVEAE.js", imports: ["/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/mycampaings": { id: "routes/home/mycampaings", parentId: "routes/home", path: "mycampaings", index: void 0, caseSensitive: void 0, module: "/build/routes/home/mycampaings-VPQTWIHN.js", imports: ["/build/_shared/chunk-HETNVBB4.js", "/build/_shared/chunk-57PMQZPE.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete": { id: "routes/home/profilecomplete", parentId: "routes/home", path: "profilecomplete", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete-HLYJWTSK.js", imports: ["/build/_shared/chunk-SABFZQUQ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/fifthpage": { id: "routes/home/profilecomplete/fifthpage", parentId: "routes/home/profilecomplete", path: "fifthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/fifthpage-EMQLJ3P4.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/forthpage": { id: "routes/home/profilecomplete/forthpage", parentId: "routes/home/profilecomplete", path: "forthpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/forthpage-U63WWLOX.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/index": { id: "routes/home/profilecomplete/index", parentId: "routes/home/profilecomplete", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/index-DV5RLPOR.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-RPPBX5QT.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/secondpage": { id: "routes/home/profilecomplete/secondpage", parentId: "routes/home/profilecomplete", path: "secondpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/secondpage-P3735KB2.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/profilecomplete/thirdpage": { id: "routes/home/profilecomplete/thirdpage", parentId: "routes/home/profilecomplete", path: "thirdpage", index: void 0, caseSensitive: void 0, module: "/build/routes/home/profilecomplete/thirdpage-4XM5QPFR.js", imports: ["/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/sorry": { id: "routes/home/sorry", parentId: "routes/home", path: "sorry", index: void 0, caseSensitive: void 0, module: "/build/routes/home/sorry-CQLETUE3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/home/user.$id": { id: "routes/home/user.$id", parentId: "routes/home", path: "user/:id", index: void 0, caseSensitive: void 0, module: "/build/routes/home/user.$id-XZTKQF4G.js", imports: ["/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-RG6TLIEA.js", imports: ["/build/_shared/chunk-GNGK433C.js", "/build/_shared/chunk-4SXM5CTR.js", "/build/_shared/chunk-5T3NKC4Z.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-T2BUEB2R.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/login": { id: "routes/login", parentId: "root", path: "login", index: void 0, caseSensitive: void 0, module: "/build/routes/login-KNB2J352.js", imports: ["/build/_shared/chunk-NIGJXJWR.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-J32PS5QO.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/logout": { id: "routes/logout", parentId: "root", path: "logout", index: void 0, caseSensitive: void 0, module: "/build/routes/logout-ZJH6AFNS.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/register": { id: "routes/register", parentId: "root", path: "register", index: void 0, caseSensitive: void 0, module: "/build/routes/register-5QWJTNKV.js", imports: ["/build/_shared/chunk-NIGJXJWR.js", "/build/_shared/chunk-T5W2R3IP.js", "/build/_shared/chunk-PVF54MGG.js", "/build/_shared/chunk-6ONMTUBQ.js", "/build/_shared/chunk-MNPIC26H.js", "/build/_shared/chunk-DJ3N2H5H.js"], hasAction: !0, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/updateuser": { id: "routes/updateuser", parentId: "root", path: "updateuser", index: void 0, caseSensitive: void 0, module: "/build/routes/updateuser-M2BVRO2F.js", imports: void 0, hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-FEA57C9E.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -5800,6 +6296,22 @@ var assetsBuildDirectory = "public\\build", future = { v2_meta: !1 }, publicPath
     index: void 0,
     caseSensitive: void 0,
     module: favourite_exports
+  },
+  "routes/home/user.$id": {
+    id: "routes/home/user.$id",
+    parentId: "routes/home",
+    path: "user/:id",
+    index: void 0,
+    caseSensitive: void 0,
+    module: user_id_exports
+  },
+  "routes/home/drafts": {
+    id: "routes/home/drafts",
+    parentId: "routes/home",
+    path: "drafts",
+    index: void 0,
+    caseSensitive: void 0,
+    module: drafts_exports
   },
   "routes/home/invite": {
     id: "routes/home/invite",

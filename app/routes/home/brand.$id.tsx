@@ -1,22 +1,26 @@
-import { faHandshake, faHeart, faNetworkWired, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faHandshake, faHeart, faNetworkWired, faRemove, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { CusButton } from "~/components/utils/buttont";
 import ExtraBrandCard from "~/components/utils/extrabrandcard";
 import PastBrandCard from "~/components/utils/pastbrandcard";
 import { BaseUrl } from "~/const";
+import { userPrefs } from "~/cookies";
 export const loader: LoaderFunction = async (props: LoaderArgs) => {
     const id = props.params.id;
     const branddata = await axios.post(`${BaseUrl}/api/get-brand`, { "id": id, });
-    return json({ brand: branddata.data.data });
+    const cookieHeader = props.request.headers.get("Cookie");
+    const cookie = await userPrefs.parse(cookieHeader);
+    return json({ brand: branddata.data.data, user: cookie.user });
 }
 
 const BrandPage = () => {
     const brand = useLoaderData().brand;
+    const user = useLoaderData().user;
     const [isPast, setPast] = useState(false);
     const logo = brand.logo == "" || brand.logo == undefined || brand.logo == null || brand.logo == "0" ? "images/avatar.png" : brand.logo;
     const [fav, setFav] = useState<boolean>(false);
@@ -55,8 +59,65 @@ const BrandPage = () => {
         else { setFav(false) }
     }, []);
 
+    const [error, setError] = useState<string | null>(null);
+    const messageRef = useRef<HTMLTextAreaElement>(null);
+
+    const [connectBox, setConnectBox] = useState<boolean>(false);
+
     return (
         <>
+            <div className={`w-full h-screen bg-gray-500 fixed top-0 left-0 bg-opacity-30 grid place-items-center ${connectBox ? "fixed" : "hidden"}`} style={{ zIndex: 100 }}>
+                <div className="p-6 bg-white rounded-xl shadow-xl w-96">
+                    <div className="flex">
+                        <div className="grow"></div>
+                        <div onClick={() => {
+                            setConnectBox(false);
+                        }}>
+                            <FontAwesomeIcon icon={faRemove} className="font-bold text-2xl text-center text-primary"></FontAwesomeIcon>
+                        </div>
+                    </div>
+                    <h1 className="text-primary text-lg font-bold text-left">Connect</h1>
+                    <textarea ref={messageRef} className="p-4 w-full h-40 outline-none border-2 bg-[#EEEEEE] focus:border-gray-300 rounded-md resize-none mt-4" placeholder="message" ></textarea>
+                    {(error == "" || error == null || error == undefined) ? null :
+                        <div className="bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4">{error}</div>
+                    }
+                    <div className="flex">
+                        <div className="grow"></div>
+                        <div onClick={async () => {
+                            if (messageRef.current?.value == null || messageRef.current?.value == undefined || messageRef.current?.value == "") return setError("Message can't be blank");
+
+                            let req = {
+                                "campaignDraftId": "0",
+                                "fromUserId": user.id,
+                                "toUserId": "89",
+                                "comment": messageRef.current?.value
+                            };
+
+                            const data = await axios({
+                                method: 'post',
+                                url: `${BaseUrl}/api/add-chat`,
+                                data: req,
+                                headers: {
+                                    'Access-Control-Allow-Origin': '*',
+                                    'Access-Control-Allow-Headers': '*',
+                                    'Access-Control-Allow-Options': '*',
+                                    'Access-Control-Allow-Methods': '*',
+                                    'X-Content-Type-Options': '*',
+                                    'Content-Type': 'application/json',
+                                    'Accept': '*'
+                                }
+                            });
+
+                            if (!data.data.status) return setError(data.data.message);
+                            return setConnectBox(false);
+
+
+                        }}>
+                            <CusButton text="send" background="bg-primary" textColor={"text-white"} />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="w-full mt-4 shadow-xl bg-white rounded-xl">
                 <div className="w-full relative">
                     <div className="absolute top-5 right-5">
@@ -76,8 +137,12 @@ const BrandPage = () => {
                         <div>
                             <h1 className="text-primary text-lg font-medium my-2">{brand.name}</h1>
                             <p className="text-primary text-md font-normal">Category: Consumer Electronics</p>
-                            <p className="text-primary text-md font-normal">www.adidas.co.in</p>
-                            <CusButton text="Connect" background="bg-secondary" fontwidth="font-bold"></CusButton>
+                            <p className="text-primary text-md font-normal">website: {brand.webUrl}</p>
+                            <div onClick={() => {
+                                setConnectBox(true);
+                            }}>
+                                <CusButton text="Connect" background="bg-secondary" fontwidth="font-bold"></CusButton>
+                            </div>
                         </div>
                     </div>
                     <div className="h-72 w-[2px] bg-gray-300 hidden lg:block mt-8"></div>

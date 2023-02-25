@@ -21,7 +21,17 @@ enum AcceptRequest {
 export const loader: LoaderFunction = async (props: LoaderArgs) => {
     const platform = await axios.post(`${BaseUrl}/api/getplatform`);
     const id = props.params.id;
-    const campaigndata = await axios.post(`${BaseUrl}/api/campaign-search`, { "id": id, });
+    const campaigndata = await axios.post(`${BaseUrl}/api/campaign-search`, { "id": id, }, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Options': '*',
+            'Access-Control-Allow-Methods': '*',
+            'X-Content-Type-Options': '*',
+            'Content-Type': 'application/json',
+            'Accept': '*'
+        }
+    });
     const cookieHeader = props.request.headers.get("Cookie");
     const cookie = await userPrefs.parse(cookieHeader);
     return json({ campaign: campaigndata.data.data[0], user: cookie.user, platform: platform.data.data });
@@ -67,7 +77,9 @@ const Campaigns = () => {
         init();
     }, []);
 
-
+    const [paymentBox, setPaymentBox] = useState<boolean>(false);
+    const [paymentError, setPaymentError] = useState<String>("");
+    const paymentRef = useRef<HTMLInputElement>(null);
 
     return (
         <>
@@ -86,7 +98,6 @@ const Campaigns = () => {
                                     acceptreq == AcceptRequest.None ?
                                         <Apply champaignId={champaign.id} touserId={champaign.brandUserId} userId={userId} influencerId={userId} fromuserId={userId}></Apply> : null
                                 }
-
                                 {
                                     acceptreq == AcceptRequest.Panding ?
                                         <Panding></Panding>
@@ -102,76 +113,100 @@ const Campaigns = () => {
                 </div>
             </div>
 
-
             {
                 acceptreq == AcceptRequest.Accepted ?
-                    <div className="flex gap-4 flex-col lg:flex-row mt-8">
-                        <div className="grow flex-1">
-                            <CreateDraft influencerId={userId} champaingId={champaign.id} platforms={data.platform}></CreateDraft>
-                        </div>
-                        <div className="grow flex-1">
-                            <p className="text-md text-primary font-semibold py-1">Live campaigns</p>
-                            <div className="w-full h-[1px] bg-slate-300"></div>
-                            <div className="bg-white rounded-md p-4 mt-2">
-                                <div className="flex">
-                                    <img src="/images/media/facebook.png" alt="error" className="h-10 w-10 shrink-0" />
-                                    <div className="ml-4">
-                                        <p className="text-primary text-sm font-semibold text-left">Ivankbfc_Blasters</p>
-                                        <p className="text-primary text-sm font-normal text-left">Publish date: Today</p>
-                                    </div>
-                                </div>
-                                <button className="mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1">Link campaign</button>
+                    <>
+                        <div className="flex gap-4 flex-col lg:flex-row mt-8">
+                            <div className="grow flex-1">
+                                <CreateDraft influencerId={userId} champaingId={champaign.id} platforms={data.platform}></CreateDraft>
                             </div>
-                            <div className="bg-white rounded-md p-4 mt-2">
-                                <div className="flex">
-                                    <img src="/images/media/instagram.png" alt="error" className="h-10 w-10 shrink-0" />
-                                    <div className="ml-4">
-                                        <p className="text-primary text-sm font-semibold text-left">Ivankbfc_Blasters</p>
-                                        <p className="text-primary text-sm font-normal text-left">Publish date: 30-01-2022</p>
+                            <div className="grow flex-1">
+                                <p className="text-md text-primary font-semibold py-1">Live campaigns</p>
+                                <div className="w-full h-[1px] bg-slate-300"></div>
+                                <div className="bg-white rounded-md p-4 mt-2">
+                                    <div className="flex">
+                                        <img src="/images/media/facebook.png" alt="error" className="h-10 w-10 shrink-0" />
+                                        <div className="ml-4">
+                                            <p className="text-primary text-sm font-semibold text-left">Ivankbfc_Blasters</p>
+                                            <p className="text-primary text-sm font-normal text-left">Publish date: Today</p>
+                                        </div>
                                     </div>
+                                    <button className="mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1">Link campaign</button>
                                 </div>
-                                <button className="mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1">View insight</button>
+                                <div className="bg-white rounded-md p-4 mt-2">
+                                    <div className="flex">
+                                        <img src="/images/media/instagram.png" alt="error" className="h-10 w-10 shrink-0" />
+                                        <div className="ml-4">
+                                            <p className="text-primary text-sm font-semibold text-left">Ivankbfc_Blasters</p>
+                                            <p className="text-primary text-sm font-normal text-left">Publish date: 30-01-2022</p>
+                                        </div>
+                                    </div>
+                                    <button className="mt-4 text-md w-full text-black font-semibold bg-[#F7941D] rounded-md shadow-lg py-1">View insight</button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="grow flex-1">
-                            <p className="text-md text-primary font-semibold py-1">Payments</p>
-                            <div className="w-full h-[1px] bg-slate-300"></div>
+                            <div className="grow flex-1">
+                                <p className="text-md text-primary font-semibold py-1">Payments</p>
+                                <div className="w-full h-[1px] bg-slate-300"></div>
 
-                            <div className="rounded-xl shadow-xl bg-white p-4 w-full mt-2">
-                                <div className="flex">
-                                    <FontAwesomeIcon icon={faCoins} className="text-xl text-primary"></FontAwesomeIcon>
-                                    <h2 className="text-xl text-primary font-medium px-4">Budget</h2>
-                                    <div className="grow"></div>
-                                    <p className="text-md font-bold text-black">
-                                        6420 USD
-                                    </p>
+                                <div className="rounded-xl shadow-xl bg-white p-4 w-full mt-2">
+                                    <div className="flex">
+                                        <FontAwesomeIcon icon={faCoins} className="text-xl text-primary"></FontAwesomeIcon>
+                                        <h2 className="text-xl text-primary font-medium px-4">Budget</h2>
+                                        <div className="grow"></div>
+                                        <p className="text-md font-bold text-black">
+                                            6420 USD
+                                        </p>
+                                    </div>
+                                    <div className="h-[1px] bg-gray-500 w-full my-2 "></div>
+                                    <div className="flex my-2">
+                                        <p className="text-md text-primary">
+                                            Received
+                                        </p>
+                                        <div className="grow"></div>
+                                        <p className="text-md font-normal text-black">
+                                            2700 USD
+                                        </p>
+                                    </div>
+                                    <div className="flex my-2">
+                                        <p className="text-md text-primary">
+                                            Pending
+                                        </p>
+                                        <div className="grow"></div>
+                                        <p className="text-md font-normal text-black">
+                                            3540 USD
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="h-[1px] bg-gray-500 w-full my-2 "></div>
-                                <div className="flex my-2">
-                                    <p className="text-md text-primary">
-                                        Received
-                                    </p>
-                                    <div className="grow"></div>
-                                    <p className="text-md font-normal text-black">
-                                        2700 USD
-                                    </p>
-                                </div>
-                                <div className="flex my-2">
-                                    <p className="text-md text-primary">
-                                        Pending
-                                    </p>
-                                    <div className="grow"></div>
-                                    <p className="text-md font-normal text-black">
-                                        3540 USD
-                                    </p>
+                                <div className="p-4 bg-white mt-2 rounded-md">
+                                    <p className="text-normal font-semibold py-1 text-primary text-lg">Payment request</p>
+                                    <button onClick={() => {
+                                        setPaymentBox(true);
+                                    }} className={`text-black bg-[#01FFF4] rounded-lg w-full text-center py-2 font-semibold text-md mt-2 ${paymentBox ? "hidden" : ""}`}>Request</button>
+                                    <div className={`${paymentBox ? "" : "hidden"}`}>
+                                        <div className="flex gap-x-4"><p>Enter Amount : </p> <div><input ref={paymentRef} type="number" className="text-black outline-none border-none rounded-md py-1 px-2 bg-gray-300 w-full" /></div></div>
+                                        {(paymentError == "" || paymentError == null || paymentError == undefined) ? null :
+                                            <div className="bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4">{paymentError}</div>
+                                        }
+                                        <button onClick={async () => {
+                                            if (paymentRef.current?.value == null || paymentRef.current?.value == undefined || paymentRef.current?.value == "") {
+                                                setPaymentError("Enter the amount");
+                                            } else {
+                                                let req = {
+                                                    "userId": userId,
+                                                    "campaignId": champaign.id,
+                                                    "amtReq": paymentRef.current?.value,
+                                                }
+                                                const paymentdata = await axios.post(`${BaseUrl}/api/new-pay-request`, req);
+                                                if (!paymentdata.data.status) return setPaymentError(paymentdata.data.message);
+                                                return setPaymentBox(false);
+                                            }
+                                        }} className={`text-black bg-[#01FFF4] rounded-lg w-full text-center py-2 font-semibold text-md mt-2`}>Request Payment</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="p-4 bg-white mt-2 rounded-md">
-                                <p className="text-sm text-normal font-semibold py-1 text-primary">Payment request</p>
-                                <button className="text-black bg-[#01FFF4] rounded-lg w-full text-center py-2 font-semibold text-md mt-2">Request</button>
-                            </div>
-                        </div>
-                    </div>
+                        </div >
+                        <UserCreatedDrafts userId={userId} campaingid={champaign.id}></UserCreatedDrafts>
+                    </>
                     : null
             }
 
@@ -182,6 +217,8 @@ const Campaigns = () => {
                             <ChampaingAcceptRequest userId={userId} campaingid={champaign.id}></ChampaingAcceptRequest>
                             <div className="h-4"></div>
                             <DraftAcceptRequest userId={userId} campaingid={champaign.id}></DraftAcceptRequest>
+                            <div className="h-4"></div>
+                            <ChampaingPaymentRequest campaingid={champaign.id} currency={user.currency.code}></ChampaingPaymentRequest>
                         </>
                         : null
                 }
@@ -766,7 +803,7 @@ const DraftAcceptRequest = (props: DraftAcceptRequestProps) => {
                                             <div className="flex">
                                                 <img src={val.influencer.pic} alt="influencer pic" className="w-10 h-10 shrink-0 rounded-md" />
                                                 <div className="ml-2">
-                                                    <p className="text-md font-medium">{val.influencer.name}</p>
+                                                    <p className="text-md font-medium">{val.influencer.name.split("@")[0]}</p>
                                                     <p className="text-sm font-medium">{val.influencer.email}</p>
                                                 </div>
                                             </div>
@@ -930,7 +967,8 @@ const CreateDraft = (props: CreateDraftProps) => {
                             <button onClick={async () => {
                                 if (platform == null || platform == undefined || platform == 0 || platform == "") {
                                     setError("Select the platform.");
-                                } else if (pdfFile == null || pdfFile == undefined) {
+                                }
+                                else if (pdfFile == null || pdfFile == undefined) {
                                     setError("Select the pdf file.");
                                 } else if (datepicker.current?.value == null || datepicker.current?.value == undefined || datepicker.current?.value == "") {
                                     setError("Select the date.");
@@ -972,9 +1010,140 @@ const CreateDraft = (props: CreateDraftProps) => {
                         </div>
                     </>
             }
-
-
-
         </>
     );
-} 
+}
+
+
+
+type ChampaingPaymentRequestProps = {
+    campaingid: string,
+    currency: string
+}
+
+
+const ChampaingPaymentRequest = (props: ChampaingPaymentRequestProps) => {
+    const [respayment, setRequestPayment] = useState<any[]>([]);
+
+    const init = async () => {
+        let req = {
+            "search": {
+                "campaign": props.campaingid,
+            }
+        };
+        const responseData = await axios.post(`${BaseUrl}/api/get-req-pay`, req);
+        if (responseData.data.status == true) {
+            setRequestPayment(responseData.data.data);
+        }
+    }
+
+    useEffect(() => {
+        init();
+    }, []);
+
+
+    return (
+        <>
+            <div className="p-4 rounded-xl shadow-xl bg-white">
+                {
+                    respayment.length == 0 ?
+                        <div>No Invite request is panding</div> :
+                        <div>
+                            <p className="text-md font-medium">Requested Invites</p>
+                            <div className="w-full bg-gray-400 h-[1px] my-2"></div>
+                            <div className="grid mt-4 place-items-center md:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                {
+                                    respayment.map((val: any, index: number) => {
+                                        return <div key={index} className="p-4 bg-white rounded-lg shadow-lg">
+                                            <p className="mt-2 text-md font-medium">Requested by</p>
+                                            <div className="w-full h-[2px] bg-gray-700"></div>
+                                            <div className="flex mt-4">
+                                                <img src={val.influencer.pic} alt="influencer pic" className="w-10 h-10 shrink-0 rounded-md" />
+                                                <div className="ml-2">
+                                                    <p className="text-md font-medium">{val.influencer.name.split("@")[0]}</p>
+                                                    <p className="text-sm font-medium">{val.influencer.email}</p>
+                                                </div>
+                                            </div>
+                                            <p className="mt-2 text-md font-medium">Ammount</p>
+                                            <p className="text-sm font-medium">{val.amount} {props.currency}</p>
+                                        </div>
+                                    })
+                                }
+                            </div>
+                        </div>
+                }
+            </div>
+        </>
+    );
+}
+
+
+
+type UserCreatedDraftsProps = {
+    campaingid: string,
+    userId: string
+}
+
+
+const UserCreatedDrafts = (props: UserCreatedDraftsProps) => {
+    const [resDarft, setResDarft] = useState<any[]>([]);
+
+    const init = async () => {
+        let req = {
+            "search": {
+                "fromUser": props.userId,
+                "campaign": props.campaingid,
+                "influencer": props.userId,
+            }
+        };
+
+
+        const responseData = await axios.post(`${BaseUrl}/api/search-draft`, req);
+        if (responseData.data.status == true) {
+            setResDarft(responseData.data.data);
+        }
+    }
+
+
+    useEffect(() => {
+        init();
+    }, []);
+
+    return (
+        <>
+            <div className="p-4 rounded-xl shadow-xl bg-white my-4">
+                {
+                    resDarft.length == 0 ?
+                        <div>You haven't created any drafts yet.</div>
+                        :
+                        <div>
+                            <p className="text-md font-medium">User Created draft</p>
+                            <div className="w-full bg-gray-400 h-[1px] my-2"></div>
+                            <div className="grid mt-4 place-items-center lg:place-items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                {
+                                    resDarft.map((val: any, index: number) => {
+                                        return <div key={index} className="my-2 p-4 bg-white rounded-lg shadow-lg">
+                                            <div className="flex">
+                                                <img src={val.influencer.pic} alt="influencer pic" className="w-10 h-10 shrink-0 rounded-md" />
+                                                <div className="ml-2">
+                                                    <p className="text-md font-medium">{val.influencer.name.split("@")[0]}</p>
+                                                    <p className="text-sm font-medium">{val.influencer.email}</p>
+                                                </div>
+                                            </div>
+                                            <p className="mt-2 text-md font-medium">Description</p>
+                                            <p className="text-sm font-medium">{val.description}</p>
+                                            <p className="mt-2 text-md font-medium">Attachment</p>
+                                            <a target="_blank" className="mt-2 text-sm font-normal border-2 border-blue-500 inline-block my-2 py-1 px-4  text-blue-500 hover:text-white hover:bg-blue-500" href={val.attach01}>View pdf</a>
+                                            <p className="mt-2 text-md font-medium">Status</p>
+                                            <p className={`mt-2 text-md text-white font-medium text-center rounded-md ${val.status.name == "ACCEPTED" ? "bg-green-500" : val.status.name == "PENDING" ? "bg-yellow-500" : "bg-red-500"}`}>{val.status.name}</p>
+                                        </div>
+
+                                    })
+                                }
+                            </div>
+                        </div>
+                }
+            </div>
+        </>
+    );
+}

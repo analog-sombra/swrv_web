@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import * as EmailValidator from 'email-validator';
 import { LoaderArgs, LoaderFunction, json } from "@remix-run/node";
 import { userPrefs } from "~/cookies";
-import { useLoaderData, useTransition } from "@remix-run/react";
+import { useLoaderData, useNavigate, useTransition } from "@remix-run/react";
 import axios from "axios";
 import { BaseUrl } from "~/const";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -63,23 +63,27 @@ const Invite = () => {
                 <div className="flex gap-4 flex-col xl:flex-row">
                     <div className="w-full flex lg:flex-row flex-col gap-4">
                         <div className="w-full bg-white rounded-lg shadow-xl lg:w-80 p-2 max-h-screen overflow-y-scroll no-scrollbar min-h-screen">
-                            <div className="w-full rounded-md bg-gray-200 py-1 px-2 flex items-center">
+                            {/* <div className="w-full rounded-md bg-gray-200 py-1 px-2 flex items-center">
                                 <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
                                 <div className="w-4"></div>
                                 <input type="text" placeholder="Search" className="outline-none border-none w-full bg-transparent" />
-                            </div>
+                            </div> */}
                             {
                                 messages.map((val: any, index: number) => {
                                     return (
                                         <div key={index} onClick={() => {
                                             setUser({
-                                                name: val.fromUser.id == userId ? val.toUser.name : val.fromUser.name,
+                                                name: val.fromUser.id == userId ? val.toUser.name.toString()
+                                                    .split("@")[0] : val.fromUser.name.toString()
+                                                        .split("@")[0],
                                                 avatar: val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic,
                                                 userid: val.fromUser.id == userId ? val.toUser.id : val.fromUser.id,
                                                 index: index.toString()
                                             });
                                         }}>
-                                            <UserMessage active={user?.index == index.toString() ? true : false} name={val.fromUser.id == userId ? val.toUser.name : val.fromUser.name} message={`${val.fromUser.id == userId ? "you: " : ""} ${val.comment}`} url={val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic}></UserMessage>
+                                            <UserMessage active={user?.index == index.toString() ? true : false} name={val.fromUser.id == userId ? val.toUser.name.toString()
+                                                .split("@")[0] : val.fromUser.name.toString()
+                                                    .split("@")[0]} message={`${val.fromUser.id == userId ? "you: " : ""} ${val.comment}`} url={val.fromUser.id == userId ? val.toUser.pic : val.fromUser.pic}></UserMessage>
                                         </div>
                                     );
                                 })
@@ -169,6 +173,7 @@ const UserCard = (props: UserCardProps) => {
     useEffect(() => {
         init();
     }, []);
+    const navigator = useNavigate();
     return (
         <>
             {
@@ -182,10 +187,14 @@ const UserCard = (props: UserCardProps) => {
                             <img src={userdata.pic} alt="error" className="w-full h-80 object-cover rounded-lg" />
                         </div>
                         <div className="px-4 mt-6 sm:mt-0 grow w-full">
-                            <p className="text-left font-semibold text-lg text-slate-800">{userdata.userName}</p>
+                            <p className="text-left font-semibold text-lg text-slate-800">{userdata.userName.toString()
+                                .split("@")[0]}</p>
                             <p className="text-left font-semibold text-sm text-slate-600 mt-4">Bio</p>
                             <p className="text-left font-normal text-sm text-slate-600 mt-4">{userdata.bio}</p>
-                            <button className=" mt-2 w-full py-2 text-center text-primary font-semibold text-lg bg-[#01FFF4] rounded-md">View profile</button>
+
+                            <button onClick={() => {
+                                navigator(`/home/branduser`);
+                            }} className=" mt-2 w-full py-2 text-center text-primary font-semibold text-lg bg-[#01FFF4] rounded-md">View profile</button>
                             <div className="h-[1px] bg-slate-400 my-4 w-full"></div>
                             {/* <div className="flex">
                                 <p className="text-left font-semibold text-sm text-slate-600 mt-4">Attachments</p>
@@ -219,7 +228,7 @@ const ChatBox = (props: ChatBoxProps) => {
     const chatText = useRef<HTMLInputElement>(null);
     const [message, setMessage] = useState<any[]>([]);
     const [changedata, setChangeData] = useState<boolean>(false);
-    
+
     const init = async () => {
         setMessage([]);
         let user1 = {
@@ -248,6 +257,8 @@ const ChatBox = (props: ChatBoxProps) => {
             data: user2,
         });
         setMessage(prevState => [...prevState, ...user1data.data.data, ...user2data.data.data]);
+        setMessage(prevState => prevState.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()));
+
         // if (user1data.data.status == true) {
         //     setMessage([...message, ...user1data.data.data]);
         // }

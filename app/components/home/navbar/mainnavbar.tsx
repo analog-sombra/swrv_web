@@ -1,5 +1,5 @@
 import { Link, NavLink } from "@remix-run/react";
-import { faBars, faBell, faCircleQuestion, faEnvelope, faFolder, faHandHoldingDollar, faHeart, faPeopleLine, faRemove, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBell, faCircleQuestion, faEnvelope, faFolder, faHandHoldingDollar, faHeart, faPeopleLine, faRemove, faRightFromBracket, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDraft2digital } from "@fortawesome/free-brands-svg-icons";
 import { NavTab } from "../sidebar/sidebar";
@@ -53,10 +53,10 @@ export const MainNavBar = (props: MainNavBarProps) => {
                             {props.isBrand ?
                                 null :
                                 <>
-                                    <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changMenu(false) }}>
+                                    {/* <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changMenu(false) }}>
                                         <NavTab title="My earnings" isOpen={true} isActive={currentPage == SideBarTabs.MyEarnings} icon={faHandHoldingDollar}></NavTab>
-                                    </Link>
-                                    <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Drafts); changMenu(false) }}>
+                                    </Link> */}
+                                    <Link to={"/home/drafts"} onClick={() => { sidebar(SideBarTabs.Drafts); changMenu(false) }}>
                                         <NavTab title="Drafts" isOpen={true} isActive={currentPage == SideBarTabs.Drafts} icon={faDraft2digital}></NavTab>
                                     </Link>
                                     <Link to={"/home/favourite"} onClick={() => { sidebar(SideBarTabs.Favourite); changMenu(false) }}>
@@ -67,10 +67,12 @@ export const MainNavBar = (props: MainNavBarProps) => {
                             <Link to={"/home/invite"} onClick={() => { sidebar(SideBarTabs.Invite); changMenu(false) }}>
                                 <NavTab title="Invite" isOpen={true} isActive={currentPage == SideBarTabs.Invite} icon={faPeopleLine}></NavTab>
                             </Link>
-                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Help); changMenu(false) }}>
+                            <Link to={"/home/help"} onClick={() => { sidebar(SideBarTabs.Help); changMenu(false) }}>
                                 <NavTab title="Help" isOpen={true} isActive={currentPage == SideBarTabs.Help} icon={faCircleQuestion}></NavTab>
                             </Link>
-
+                            <Link to={"/logout"} >
+                                <NavTab title="Logout" isOpen={true} isActive={currentPage == SideBarTabs.None} icon={faRightFromBracket}></NavTab>
+                            </Link>
                         </div>
                     </div>
 

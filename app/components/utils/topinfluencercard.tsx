@@ -8,6 +8,8 @@ type TopInfluencerCardProps = {
     image: string
     name: string
     star: number
+    dob: string
+    currency: string
 }
 const TopInfluencerCard = (props: TopInfluencerCardProps) => {
     const Star = () => {
@@ -48,14 +50,14 @@ const TopInfluencerCard = (props: TopInfluencerCardProps) => {
         <>
             <div className="bg-white rounded-xl shadow-xl w-64 my-2">
                 <img src={props.image} alt="error" className="w-full h-40 object-cover rounded-t-md" />
-                <div className="flex gap-1 -translate-y-5 pl-4">
+                {/* <div className="flex gap-1 -translate-y-5 pl-4">
                     <div className="border p-1 bg-white border-blue-500 rounded-full">
                         <img src="/images/media/instagram.png" alt="error" className="w-6 h-6 rounded-full" />
                     </div>
                     <div className="border p-1 border-blue-500 bg-white rounded-full">
                         <img src="/images/media/youtube.png" alt="error" className="w-6 h-6 rounded-full" />
                     </div>
-                </div>
+                </div> */}
                 <div className="px-4 pb-2">
                     <div className="flex items-start my-2 justify-between">
                         <div className="grow">
@@ -65,7 +67,7 @@ const TopInfluencerCard = (props: TopInfluencerCardProps) => {
                             </div>
                         </div>
                         <div>
-                            <p className="text-black font-bold  text-md text-right">3500 <br />USD / post</p>
+                            <p className="text-black font-bold  text-md text-right">3500 {props.currency}<br /> {props.dob}</p>
                         </div>
                     </div>
                     <div className="my-4">
@@ -80,7 +82,6 @@ const TopInfluencerCard = (props: TopInfluencerCardProps) => {
                                 <p className="text-center text-xs font-normal">Impression</p>
                             </div>
                         </div>
-                        
                         <div className="bg-gray-200 text-center text-sm font-semibold rounded-md py-2 mt-2">
                             <p>SWRV score :  <span className="font-normal">2005887</span></p>
                         </div>

@@ -1,5 +1,5 @@
 import { faDraft2digital } from "@fortawesome/free-brands-svg-icons";
-import { IconDefinition, faChevronLeft, faChevronRight, faCircleQuestion, faEnvelope, faFolder, faHandHoldingDollar, faHeart, faPeopleLine, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition, faChevronLeft, faChevronRight, faCircleQuestion, faEnvelope, faFolder, faHandHoldingDollar, faHeart, faPeopleLine, faRightFromBracket, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@remix-run/react";
 import SideBarStore from "~/state/home/sidebarstate";
@@ -35,10 +35,10 @@ export const SideBar = (props: SideBarProps) => {
                     {props.isBrand ?
                         null :
                         <>
-                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changeSidebar(false) }}>
+                            {/* <Link to={"/"} onClick={() => { sidebar(SideBarTabs.MyEarnings); changeSidebar(false) }}>
                                 <NavTab title="My earnings" isOpen={isOpen} isActive={currentPage === SideBarTabs.MyEarnings} icon={faHandHoldingDollar}></NavTab>
-                            </Link>
-                            <Link to={"/"} onClick={() => { sidebar(SideBarTabs.Drafts); changeSidebar(false) }}>
+                            </Link> */}
+                            <Link to={"/home/drafts"} onClick={() => { sidebar(SideBarTabs.Drafts); changeSidebar(false) }}>
                                 <NavTab title="Drafts" isOpen={isOpen} isActive={currentPage === SideBarTabs.Drafts} icon={faDraft2digital}></NavTab>
                             </Link>
                             <Link to={"/home/favourite"} onClick={() => { sidebar(SideBarTabs.Favourite); changeSidebar(false) }}>
@@ -53,6 +53,9 @@ export const SideBar = (props: SideBarProps) => {
                     <div className="grow"></div>
                     <Link to={"/home/help"} onClick={() => { sidebar(SideBarTabs.Help); changeSidebar(false) }}>
                         <NavTab title="Help" isOpen={isOpen} isActive={currentPage === SideBarTabs.Help} icon={faCircleQuestion}></NavTab>
+                    </Link>
+                    <Link to={"/logout"}>
+                        <NavTab title="Logout" isOpen={isOpen} isActive={currentPage == SideBarTabs.None} icon={faRightFromBracket}></NavTab>
                     </Link>
                 </div>
             </div>
