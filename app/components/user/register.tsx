@@ -78,7 +78,7 @@ export const RegisterBox = (props: RegisterBoxState) => {
                     <div className="flex">
                         <div className="grow">
                         </div>
-                        <img src="./images/avatar/login.png" alt="err" className="justify-self-end w-[250px] h-[400px]" />
+                        <img src="/images/avatar/login.png" alt="err" className="justify-self-end w-[250px] h-[400px]" />
                     </div>
                 </div>
                 <div className="bg-white rounded-xl shadow-xl py-6 px-10">
@@ -123,7 +123,7 @@ export const RegisterBox = (props: RegisterBoxState) => {
                                         <div className="grid place-items-center">
                                             <p className="text-black text-left font-normal text-lg  allign-center">Login with</p>
                                         </div>
-                                        <img src="./images/icons/apple.png" alt="error" className="w-10 h-10" />
+                                        <img src="/images/icons/apple.png" alt="error" className="w-10 h-10" />
                                         <div onClick={async () => {
                                             const googleProvider = new GoogleAuthProvider();
                                             const res = await signInWithPopup(auth, googleProvider);
@@ -135,7 +135,7 @@ export const RegisterBox = (props: RegisterBoxState) => {
                                                 setError(e.toString());
                                             }
                                         }}>
-                                            <img src="./images/icons/google.png" alt="error" className="w-10 h-10" />
+                                            <img src="/images/icons/google.png" alt="error" className="w-10 h-10" />
                                         </div>
                                     </div>
                                 </div>

@@ -32,8 +32,8 @@ export const NavLinks = () => {
         <>
             <div className="grid place-items-center my-4 md:my-0">
                 <div className={`flex flex-col items-center gap-y-4 md:flex-row text-primary font-semibold text-sm`}>
-                    <NavLink onClick={() => closeMenu} to="/" className={"px-2"}>What you get</NavLink>
-                    <NavLink onClick={() => closeMenu} to="/" className={"px-2"}>How it works</NavLink>
+                    <NavLink onClick={() => closeMenu} to="/whatyouget" className={"px-2"}>What you get</NavLink>
+                    <NavLink onClick={() => closeMenu} to="/howitworks" className={"px-2"}>How it works</NavLink>
                     <NavLink onClick={() => closeMenu} to="/about" className={"px-2"}>About</NavLink>
                     <NavLink onClick={() => closeMenu} to="/contact" className={"px-2"}>Contact</NavLink>
                     <NavLink onClick={() => closeMenu} to="/blogs" className={"px-2"}>Blogs</NavLink>

@@ -9,10 +9,10 @@ export const MainFooter = () => {
                         <Link to={"/about"} className="text-sm text-gray-600 text-center px-4 font-normal">About</Link>
                     </div>
                     <div>
-                        <Link to={"/"} className="text-sm text-gray-600 text-center px-4 font-normal">Terms of use</Link>
+                        <Link to={"/tos"} className="text-sm text-gray-600 text-center px-4 font-normal">Terms of use</Link>
                     </div>
                     <div>
-                        <Link to={"/"} className="text-sm text-gray-600 text-center px-4 font-normal">Privacy policy</Link>
+                        <Link to={"/pp"} className="text-sm text-gray-600 text-center px-4 font-normal">Privacy policy</Link>
                     </div>
                     <div>
                         <Link to={"/"} className="text-sm text-gray-600 text-center px-4 font-normal">Cookie policy</Link>

@@ -13,32 +13,30 @@ const AboutPage = () => {
                         </p>
                     </div>
                 </div>
-
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center justify-center">
                     <div>
-                        <img src="./images/inf/inf8.png" alt="error" />
+                        <img src="/images/inf/inf8.png" alt="error" />
                     </div>
                     <div className="flex gap-2 flex-col">
                         <div>
-                            <img src="./images/inf/inf14.png" alt="error" />
+                            <img src="/images/inf/inf14.png" alt="error" />
                         </div>  <div>
-                            <img src="./images/inf/inf13.png" alt="error" />
+                            <img src="/images/inf/inf13.png" alt="error" />
                         </div>
                     </div>
                     <div>
-                        <img src="./images/inf/inf12.png" alt="error" />
+                        <img src="/images/inf/inf12.png" alt="error" />
 
                     </div>
                     <div className="flex gap-2 flex-col">
                         <div>
-                            <img src="./images/inf/inf11.png" alt="error" />
+                            <img src="/images/inf/inf11.png" alt="error" />
                         </div>  <div>
-                            <img src="./images/inf/inf10.png" alt="error" />
+                            <img src="/images/inf/inf10.png" alt="error" />
                         </div>
                     </div>
                     <div>
-                        <img src="./images/inf/inf9.png" alt="error" />
-
+                        <img src="/images/inf/inf9.png" alt="error" />
                     </div>
                 </div>
 
@@ -68,12 +66,12 @@ const AboutPage = () => {
                     <h3 className="text-primary text-3xl font-bold">The Core Team</h3>
                     <div className="h-[1px] bg-gray-600 w-full my-2"></div>
                     <div className="grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 justify-center place-items-center">
-                        <TeamCard name="Werner Geyser" position="Founder" imageUrl="./images/team/team1.png"></TeamCard>
-                        <TeamCard name="Yaroslav Siryk" position="CTO" imageUrl="./images/team/team2.png"></TeamCard>
-                        <TeamCard name="Anne Vest" position="COO" imageUrl="./images/team/team6.png"></TeamCard>
-                        <TeamCard name="Sasha Bondarenko" position="Growth Marketing" imageUrl="./images/team/team5.png"></TeamCard>
-                        <TeamCard name="Djordje Pajkanovic" position="UX/UI Designer" imageUrl="./images/team/team4.png"></TeamCard>
-                        <TeamCard name="Sasha Bondarenko" position="General Manager" imageUrl="./images/team/team3.png"></TeamCard>
+                        <TeamCard name="Werner Geyser" position="Founder" imageUrl="/images/team/team1.png"></TeamCard>
+                        <TeamCard name="Yaroslav Siryk" position="CTO" imageUrl="/images/team/team2.png"></TeamCard>
+                        <TeamCard name="Anne Vest" position="COO" imageUrl="/images/team/team6.png"></TeamCard>
+                        <TeamCard name="Sasha Bondarenko" position="Growth Marketing" imageUrl="/images/team/team5.png"></TeamCard>
+                        <TeamCard name="Djordje Pajkanovic" position="UX/UI Designer" imageUrl="/images/team/team4.png"></TeamCard>
+                        <TeamCard name="Sasha Bondarenko" position="General Manager" imageUrl="/images/team/team3.png"></TeamCard>
 
 
                     </div>

@@ -16,7 +16,7 @@ export const IntroNavBar = () => {
                     </div>
                     <div className='grid place-items-center'>
                         <NavLink to={"/"}>
-                            <img src="./images/swrvlogo.png" className="w-32 lg:w-38" />
+                            <img src="/images/swrvlogo.png" className="w-32 lg:w-38" />
                         </NavLink>
                     </div>
                     <div className="place-content-center hidden md:grid">

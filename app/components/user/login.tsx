@@ -86,7 +86,7 @@ export const LoginBox = (props: LoginBoxState) => {
                                     <div className="grid place-items-center">
                                         <p className="text-black text-left font-normal text-lg  allign-center">Login with</p>
                                     </div>
-                                    <img src="./images/media/facebook.png" alt="error" className="w-10 h-10" />
+                                    <img src="/images/media/facebook.png" alt="error" className="w-10 h-10" />
                                     <div onClick={async () => {
                                         const googleProvider = new GoogleAuthProvider();
                                         const res = await signInWithPopup(auth, googleProvider);
@@ -97,7 +97,7 @@ export const LoginBox = (props: LoginBoxState) => {
                                             setError(e.toString());
                                         }
                                     }}>
-                                        <img src="./images/icons/google.png" alt="error" className="w-10 h-10" />
+                                        <img src="/images/icons/google.png" alt="error" className="w-10 h-10" />
                                     </div>
                                 </div>
                             </div>

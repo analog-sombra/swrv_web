@@ -81,35 +81,35 @@ const HomeFirst = () => {
                 <div className="w-full relative">
                     <div className="absolute w-full">
                         <div className="px-2 sm:px-20 mx-auto grid place-items-center">
-                            <img src="./images/mast_group.svg" alt="error" className="w-[1200px] mx-auto" />
+                            <img src="/images/mast_group.svg" alt="error" className="w-[1200px] mx-auto" />
                         </div>
                     </div>
                     <div className="w-full md:w-3/5 lg:w-4/6 py-20 relative mx-auto grid place-content-center ">
                         <div className="flex  gap-4 px-6 md:p-0">
                             <div>
-                                <img src="./images/inf/inf4.png" alt="error" />
+                                <img src="/images/inf/inf4.png" alt="error" />
                             </div>
                             <div className="flex flex-col  gap-4">
                                 <div className="flex  gap-4 items-end">
                                     <div>
-                                        <img src="./images/inf/inf2.png" alt="error" />
+                                        <img src="/images/inf/inf2.png" alt="error" />
                                     </div>
                                     <div>
-                                        <img src="./images/inf/inf6.png" alt="error" />
+                                        <img src="/images/inf/inf6.png" alt="error" />
                                     </div>
                                     <div>
-                                        <img src="./images/inf/inf5.png" alt="error" />
+                                        <img src="/images/inf/inf5.png" alt="error" />
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
                                     <div>
-                                        <img src="./images/inf/inf7.png" alt="error" />
+                                        <img src="/images/inf/inf7.png" alt="error" />
                                     </div>
                                     <div>
-                                        <img src="./images/inf/inf3.png" alt="error" />
+                                        <img src="/images/inf/inf3.png" alt="error" />
                                     </div>
                                     <div>
-                                        <img src="./images/inf/inf1.png" alt="error" />
+                                        <img src="/images/inf/inf1.png" alt="error" />
                                     </div>
                                 </div>
                             </div>
@@ -132,11 +132,11 @@ const Market = () => {
                         <p className="text-black text-md font-normal">All of the campaign's steps are smoothly integrated into a single user experience.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 sm:place-items-center my-10 ">
-                        <MarkatingCard imageUrl="./images/icons/icon1.png" title="Make a campaign" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease." leftBorder={true}></MarkatingCard>
-                        <MarkatingCard imageUrl="./images/icons/icon5.png" title="Look for influencers." description="Access a vast influencer database. It's simple to locate influencers thanks to advanced search criteria." leftBorder={true}></MarkatingCard>
-                        <MarkatingCard imageUrl="./images/icons/icon4.png" title="Statistics" description="Real-time campaign performance analysis and sharing" leftBorder={true}></MarkatingCard>
-                        <MarkatingCard imageUrl="./images/icons/icon3.png" title="Communication" description="For quick and easy connection with your influencers, there's an integrated chat option and a notification centre." leftBorder={true}></MarkatingCard>
-                        <MarkatingCard imageUrl="./images/icons/icon2.png" title="Payments" description="Easily and securely manage payments from buyers to influencers." leftBorder={true}></MarkatingCard>
+                        <MarkatingCard imageUrl="/images/icons/icon1.png" title="Make a campaign" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease." leftBorder={true}></MarkatingCard>
+                        <MarkatingCard imageUrl="/images/icons/icon5.png" title="Look for influencers." description="Access a vast influencer database. It's simple to locate influencers thanks to advanced search criteria." leftBorder={true}></MarkatingCard>
+                        <MarkatingCard imageUrl="/images/icons/icon4.png" title="Statistics" description="Real-time campaign performance analysis and sharing" leftBorder={true}></MarkatingCard>
+                        <MarkatingCard imageUrl="/images/icons/icon3.png" title="Communication" description="For quick and easy connection with your influencers, there's an integrated chat option and a notification centre." leftBorder={true}></MarkatingCard>
+                        <MarkatingCard imageUrl="/images/icons/icon2.png" title="Payments" description="Easily and securely manage payments from buyers to influencers." leftBorder={true}></MarkatingCard>
                     </div>
                 </div>
             </div>
@@ -186,15 +186,15 @@ const ExploreCategory = () => {
                 <h3 className="text-primary text-3xl font-bold">Explore by category</h3>
             </div>
 
-            <div className="grid place-items-center grid-cols-2 sm:grid-col-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 my-6 ">
-                <CategoryCard imageUrl="./images/icons/education.png" title="Education" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/food.png" title="Food" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/photography.png" title="Photography" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/travel.png" title="Travel" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/motivation.png" title="Motivation" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/beauty.png" title="Beauty" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/automotive.png" title="Automotive" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
-                <CategoryCard imageUrl="./images/icons/health.png" title="Health" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+            <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-8 my-6 ">
+                <CategoryCard imageUrl="/images/icons/education.png" title="Education" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/food.png" title="Food" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/photography.png" title="Photography" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/travel.png" title="Travel" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/motivation.png" title="Motivation" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/beauty.png" title="Beauty" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/automotive.png" title="Automotive" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
+                <CategoryCard imageUrl="/images/icons/health.png" title="Health" description="Make briefs, invite influencers, negotiate, and manage your campaigns with ease."></CategoryCard>
             </div>
         </>
     );
@@ -207,14 +207,20 @@ const JoinSwrv = () => {
                 <h3 className="text-primary text-3xl font-bold">Join SWRV</h3>
                 <h3 className="text-gray-600 text-md font-normal">There are no commissions or membership costs for brands or buyer agencies.</h3>
                 <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center my-6">
-                    <div className="w-60 h-40 m-4">
-                        <img src="./images/inf/inf2.png" className="w-full h-full" />
+                    <div className="w-40 xl:w-60 h-40 m-4">
+                        <Link to={"/users"}>
+                            <img src="/images/inf/inf2.png" className="cursor-pointer w-full h-full object-cover bg-top rounded-2xl object-top" />
+                        </Link>
                     </div>
-                    <div className="w-60 h-40  m-4">
-                        <img src="./images/inf/inf3.png" className="w-full h-full" />
+                    <div className="w-40 xl:w-60 h-40  m-4">
+                        <Link to={"/users/youtubers"}>
+                            <img src="/images/inf/inf3.png" className="cursor-pointer w-full h-full object-cover bg-top rounded-2xl object-top" />
+                        </Link>
                     </div>
-                    <div className="w-60 h-40 hidden lg:block  m-4">
-                        <img src="./images/inf/inf4.png" className="w-full h-full" />
+                    <div className="w-40 xl:w-60 h-40 hidden lg:block  m-4">
+                        <Link to={"/users/instagrams"}>
+                            <img src="/images/inf/inf4.png" className="cursor-pointer w-full h-full object-cover bg-top rounded-2xl object-top" />
+                        </Link>
                     </div>
                 </div>
                 <h3 className="text-gray-600 text-lg font-semibold">SWRV market</h3>
@@ -239,11 +245,11 @@ const Blogs = () => {
             </div>
 
             <div className="grid place-items-center gird-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-6 items-start">
-                <BlogsCard title="App Store stopped nearly $1.5 billion in fraudulent transactions in 2021" time="June 1, 2022" imageUrl="./images/blogs/blog5.png"></BlogsCard>
-                <BlogsCard title="Swupnil Sahai and his co‑founder serve an ace with AI‑powered SwingVision" time="June 1, 2022" imageUrl="./images/blogs/blog4.png"></BlogsCard>
-                <BlogsCard title="New report highlights global success of small businesses and entrepreneurs on the App Store" time="June 1, 2022" imageUrl="./images/blogs/blog3.png"></BlogsCard>
-                <BlogsCard title="Three AAPI founders building apps on the App Store that cultivate community" time="June 1, 2022" imageUrl="./images/blogs/blog2.png"></BlogsCard>
-                <BlogsCard title="From farm to sea: Conserving mangroves to protect local livelihoods and the planet" time="June 1, 2022" imageUrl="./images/blogs/blog1.png"></BlogsCard>
+                <BlogsCard title="App Store stopped nearly $1.5 billion in fraudulent transactions in 2021" time="June 1, 2022" imageUrl="/images/blogs/blog5.png"></BlogsCard>
+                <BlogsCard title="Swupnil Sahai and his co‑founder serve an ace with AI‑powered SwingVision" time="June 1, 2022" imageUrl="/images/blogs/blog4.png"></BlogsCard>
+                <BlogsCard title="New report highlights global success of small businesses and entrepreneurs on the App Store" time="June 1, 2022" imageUrl="/images/blogs/blog3.png"></BlogsCard>
+                <BlogsCard title="Three AAPI founders building apps on the App Store that cultivate community" time="June 1, 2022" imageUrl="/images/blogs/blog2.png"></BlogsCard>
+                <BlogsCard title="From farm to sea: Conserving mangroves to protect local livelihoods and the planet" time="June 1, 2022" imageUrl="/images/blogs/blog1.png"></BlogsCard>
             </div>
         </>
     );
