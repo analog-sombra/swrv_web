@@ -14,7 +14,7 @@ export const BlogsCard = (props: BlogsCardProps) => {
                     <p>{props.time}</p>
                 </div>
                 <div className={`w-64 text-left shadow-xl rounded-xl h-72`}>
-                    <img src={props.imageUrl} alt="err" className="w-full" />
+                    <img src={props.imageUrl} alt="err" className="w-full h-48 object-cover object-top rounded-md" />
                     <h1 className="text-md font-bold my-2 text-black p-4">{props.title}</h1>
                 </div>
             </div>

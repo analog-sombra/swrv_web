@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/routes/logout.tsx"],
+  "sourcesContent": ["import { LoaderArgs, redirect } from \"@remix-run/node\";\r\nimport { userPrefs } from \"~/cookies\";\r\n\r\nexport async function loader({ request }: LoaderArgs) {\r\n    return redirect(\"/login\", {\r\n        headers: {\r\n            \"Set-Cookie\": await userPrefs.serialize({ isLogin: false }),\r\n        },\r\n    });\r\n}\r\n\r\nconst Logout = () => {\r\n    return (\r\n        <>\r\n            <h1>This is logout page</h1>\r\n        </>\r\n    );\r\n}\r\nexport default Logout;"],
+  "mappings": ";;;;;;AAaQ;AAFR,IAAM,SAAS,MAAM;AACjB,SACI,sFACI,6DAAC,QAAG,mCAAJ;AAAA;AAAA;AAAA;AAAA,SAAuB,KAD3B;AAAA;AAAA;AAAA;AAAA,SAEA;AAER;AACA,IAAO,iBAAQ;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/home/createcampaign.tsx"],
+  "sourcesContent": ["\r\nimport { Outlet } from \"@remix-run/react\";\r\n\r\n\r\n\r\nconst createCampaing = () => {\r\n    return (\r\n        <>\r\n            <Outlet></Outlet>\r\n        </>\r\n    );\r\n}\r\n\r\nexport default createCampaing;"],
+  "mappings": ";;;;;;;;;AAOQ;AAFR,IAAM,iBAAiB,MAAM;AACzB,SACI,sFACI,6DAAC,YAAD;AAAA;AAAA;AAAA;AAAA,SAAQ,KADZ;AAAA;AAAA;AAAA;AAAA,SAEA;AAER;AAEA,IAAO,yBAAQ;",
+  "names": []
+}

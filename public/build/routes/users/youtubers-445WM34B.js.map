@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../app/routes/users/youtubers.tsx"],
+  "sourcesContent": ["import { Footer } from \"~/components/home/footer/footer\";\r\nimport AboutPage from \"~/components/about/about\";\r\nimport { IntroNavBar } from \"~/components/home/navbar/intronavbar\";\r\nimport UsersPage from \"~/components/users/users\";\r\nconst youtubers = () => {\r\n    return (\r\n        <>\r\n            <IntroNavBar></IntroNavBar>\r\n            <UsersPage></UsersPage>\r\n            <Footer></Footer>\r\n        </>\r\n    );\r\n}\r\nexport default youtubers;"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;AAMQ;AAFR,IAAM,YAAY,MAAM;AACpB,SACI,sFACI;AAAA,uDAAC,iBAAD;AAAA;AAAA;AAAA;AAAA,WAAa;AAAA,IACb,mDAAC,mBAAD;AAAA;AAAA;AAAA;AAAA,WAAW;AAAA,IACX,mDAAC,YAAD;AAAA;AAAA;AAAA;AAAA,WAAQ;AAAA,OAHZ;AAAA;AAAA;AAAA;AAAA,SAIA;AAER;AACA,IAAO,oBAAQ;",
+  "names": []
+}

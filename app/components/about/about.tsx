@@ -1,7 +1,12 @@
 import { BigBlogCard, BlogsCard } from "../utils/blogscard";
 import { TeamCard } from "../utils/teamcard";
 
-const AboutPage = () => {
+
+
+type AboutPageProps = {
+    teamdata: any[]
+}
+const AboutPage = (props: AboutPageProps) => {
     return (
         <>
             <div className="w-full px-6 sm:px-16">
@@ -66,12 +71,16 @@ const AboutPage = () => {
                     <h3 className="text-primary text-3xl font-bold">The Core Team</h3>
                     <div className="h-[1px] bg-gray-600 w-full my-2"></div>
                     <div className="grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 justify-center place-items-center">
-                        <TeamCard name="Werner Geyser" position="Founder" imageUrl="/images/team/team1.png"></TeamCard>
-                        <TeamCard name="Yaroslav Siryk" position="CTO" imageUrl="/images/team/team2.png"></TeamCard>
-                        <TeamCard name="Anne Vest" position="COO" imageUrl="/images/team/team6.png"></TeamCard>
-                        <TeamCard name="Sasha Bondarenko" position="Growth Marketing" imageUrl="/images/team/team5.png"></TeamCard>
-                        <TeamCard name="Djordje Pajkanovic" position="UX/UI Designer" imageUrl="/images/team/team4.png"></TeamCard>
-                        <TeamCard name="Sasha Bondarenko" position="General Manager" imageUrl="/images/team/team3.png"></TeamCard>
+                        {
+                            props.teamdata.map((val: any, index: number) => {
+                                return (
+                                    <div key={index}>
+                                        <TeamCard name={val.name} position={val.positon} imageUrl={val.imageUrl}></TeamCard>
+                                    </div>
+                                );
+                            })
+                        }
+
 
 
                     </div>

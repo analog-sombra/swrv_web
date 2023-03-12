@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/routes/updateuser.tsx"],
+  "sourcesContent": ["import { LoaderArgs, redirect } from \"@remix-run/node\";\r\nimport { userPrefs } from \"~/cookies\";\r\n\r\nexport async function loader({ request }: LoaderArgs) {\r\n    return redirect(\"./\", {\r\n        headers: {\r\n            \"Set-Cookie\": await userPrefs.serialize({ isLogin: false }),\r\n        },\r\n    });\r\n}\r\n\r\n\r\n\r\nconst UpdateUser = () => {\r\n    return (\r\n        <>\r\n        </>\r\n    );\r\n}\r\n\r\nexport default UpdateUser;\r\n\r\n"],
+  "mappings": ";;;;;;AAeQ;AAFR,IAAM,aAAa,MAAM;AACrB,SACI;AAAA;AAAA;AAAA;AAAA,SACA;AAER;AAEA,IAAO,qBAAQ;",
+  "names": []
+}

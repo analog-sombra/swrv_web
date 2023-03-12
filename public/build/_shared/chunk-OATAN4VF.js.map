@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../app/state/user/firstinput.ts"],
+  "sourcesContent": ["import { create } from \"zustand\";\r\n\r\ninterface userInputState {\r\n    index: number\r\n    setIndex: (value: number) => void\r\n}\r\n\r\nconst UserInputStore = create<userInputState>()((set) => ({\r\n    index: 1,\r\n    setIndex: (value) => set((state) => ({ index: value })),\r\n}));\r\n\r\n\r\nexport default UserInputStore;\r\n\r\n"],
+  "mappings": ";;;;;AAOA,IAAM,iBAAiB,OAAuB,EAAE,CAAC,SAAS;AAAA,EACtD,OAAO;AAAA,EACP,UAAU,CAAC,UAAU,IAAI,CAAC,WAAW,EAAE,OAAO,MAAM,EAAE;AAC1D,EAAE;AAGF,IAAO,qBAAQ;",
+  "names": []
+}
