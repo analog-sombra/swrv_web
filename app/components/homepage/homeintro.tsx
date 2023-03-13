@@ -152,9 +152,13 @@ const PowerfullInf = () => {
                     <h3 className="text-white text-4xl font-bold">ARE YOU A POWERFUL<br /> INFLUENCER?</h3>
                     <h3 className="text-white text-md font-normal mt-4">Stop looking for the ideal marketplace to join and simply join all of them.</h3>
                     <div className="flex">
-                        <CusButton text="Join Now" background={"bg-secondary"} ></CusButton>
+                        <Link to={"/register"}>
+                            <CusButton text="Join Now" background={"bg-secondary"} ></CusButton>
+                        </Link>
                         <div className="w-10"></div>
-                        <CusButton text="Read More" borderColor={"border-white"}></CusButton>
+                        <Link to={"/whatyouget"}>
+                            <CusButton text="Read More" borderColor={"border-primary"}></CusButton>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -239,7 +243,9 @@ const Blogs = () => {
                 <div className="flex">
                     <h3 className="text-primary text-3xl font-bold grid place-items-center">Blogs</h3>
                     <div className="grow"></div>
-                    <CusButton text={"Read More"} textColor="text-primary" borderColor={"border-secondary"}></CusButton>
+                    <Link to={"/blogs"}>
+                        <CusButton text={"Read More"} textColor="text-white"></CusButton>
+                    </Link>
                 </div>
                 <div className="h-[1px] bg-black w-full my-2"></div>
             </div>
@@ -247,7 +253,7 @@ const Blogs = () => {
             <div className="grid place-items-center gird-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-6 items-start">
                 <BlogsCard title="App Store stopped nearly $1.5 billion in fraudulent transactions in 2021" time="June 1, 2022" imageUrl="/images/blogs/blog5.png"></BlogsCard>
                 <BlogsCard title="Swupnil Sahai and his co‑founder serve an ace with AI‑powered SwingVision" time="June 1, 2022" imageUrl="/images/blogs/blog4.png"></BlogsCard>
-                <BlogsCard title="New report highlights global success of small businesses and entrepreneurs on the App Store" time="June 1, 2022" imageUrl="/images/blogs/blog3.png"></BlogsCard>
+                <BlogsCard title="New report highlights global success of small businesses and entrepreneurs on the" time="June 1, 2022" imageUrl="/images/blogs/blog3.png"></BlogsCard>
                 <BlogsCard title="Three AAPI founders building apps on the App Store that cultivate community" time="June 1, 2022" imageUrl="/images/blogs/blog2.png"></BlogsCard>
                 <BlogsCard title="From farm to sea: Conserving mangroves to protect local livelihoods and the planet" time="June 1, 2022" imageUrl="/images/blogs/blog1.png"></BlogsCard>
             </div>
