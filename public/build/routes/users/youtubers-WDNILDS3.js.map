@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../app/routes/users/youtubers.tsx"],
-  "sourcesContent": ["import { Footer } from \"~/components/home/footer/footer\";\r\nimport AboutPage from \"~/components/about/about\";\r\nimport { IntroNavBar } from \"~/components/home/navbar/intronavbar\";\r\nimport UsersPage from \"~/components/users/users\";\r\nimport { LoaderArgs, LoaderFunction, json } from \"@remix-run/node\";\r\nimport { BaseUrl } from \"~/const\";\r\nimport axios from \"axios\";\r\nimport { useLoaderData } from \"@remix-run/react\";\r\nexport const loader: LoaderFunction = async (props: LoaderArgs) => {\r\n    const user = await axios.post(`${BaseUrl}/api/user-search`, { \"role\": 10 });\r\n    return json({ user: user.data.data });\r\n}\r\nconst youtubers = () => {\r\n    let userdata = useLoaderData().user;\r\n    return (\r\n        <>\r\n            <IntroNavBar></IntroNavBar>\r\n            <UsersPage userdata={userdata}></UsersPage>\r\n            <Footer></Footer>\r\n        </>\r\n    );\r\n}\r\nexport default youtubers;"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAeQ;AAHR,IAAM,YAAY,MAAM;AACpB,MAAI,WAAW,cAAc,EAAE;AAC/B,SACI,sFACI;AAAA,uDAAC,iBAAD;AAAA;AAAA;AAAA;AAAA,WAAa;AAAA,IACb,mDAAC,iBAAU,YAAX;AAAA;AAAA;AAAA;AAAA,WAA+B;AAAA,IAC/B,mDAAC,YAAD;AAAA;AAAA;AAAA;AAAA,WAAQ;AAAA,OAHZ;AAAA;AAAA;AAAA;AAAA,SAIA;AAER;AACA,IAAO,oBAAQ;",
-  "names": []
-}

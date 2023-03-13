@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../app/routes/users/index.tsx"],
-  "sourcesContent": ["import { Footer } from \"~/components/home/footer/footer\";\r\nimport AboutPage from \"~/components/about/about\";\r\nimport { IntroNavBar } from \"~/components/home/navbar/intronavbar\";\r\nimport UsersPage from \"~/components/users/users\";\r\nimport { LoaderArgs, LoaderFunction, json } from \"@remix-run/node\";\r\nimport { BaseUrl } from \"~/const\";\r\nimport axios from \"axios\";\r\nimport { useLoaderData } from \"@remix-run/react\";\r\nexport const loader: LoaderFunction = async (props: LoaderArgs) => {\r\n    const user = await axios.post(`${BaseUrl}/api/user-search`, { \"role\": 10 });\r\n    return json({ user: user.data.data });\r\n}\r\nconst users = () => {\r\n    let userdata = useLoaderData().user;\r\n    console.log(userdata);\r\n    return (\r\n        <>\r\n            <IntroNavBar></IntroNavBar>\r\n            <UsersPage ></UsersPage>\r\n            <Footer></Footer>\r\n        </>\r\n    );\r\n}\r\nexport default users;"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAgBQ;AAJR,IAAM,QAAQ,MAAM;AAChB,MAAI,WAAW,cAAc,EAAE;AAC/B,UAAQ,IAAI,QAAQ;AACpB,SACI,sFACI;AAAA,uDAAC,iBAAD;AAAA;AAAA;AAAA;AAAA,WAAa;AAAA,IACb,mDAAC,mBAAD;AAAA;AAAA;AAAA;AAAA,WAAY;AAAA,IACZ,mDAAC,YAAD;AAAA;AAAA;AAAA;AAAA,WAAQ;AAAA,OAHZ;AAAA;AAAA;AAAA;AAAA,SAIA;AAER;AACA,IAAOA,iBAAQ;",
-  "names": ["users_default"]
-}

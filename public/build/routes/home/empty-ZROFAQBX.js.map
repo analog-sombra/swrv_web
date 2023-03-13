@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../app/routes/home/empty.tsx"],
-  "sourcesContent": ["import { faSearch } from \"@fortawesome/free-solid-svg-icons\";\r\nimport { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n\r\nconst Empty = () => {\r\n    return (\r\n        <>\r\n            <div className=\"p-10 rounded-xl shadow-xl w-72 pt-28 bg-white\">\r\n                <FontAwesomeIcon className=\"text-black font-bold text-4xl\" icon={faSearch}></FontAwesomeIcon>\r\n                <h1 className=\"font-semibold text-lg text-black\">To earn more money?</h1>\r\n                <p className=\"font-normal text-sm text-black\">Search, apply for public campaigns and create more great content</p>\r\n            </div>\r\n        </>\r\n    );\r\n}\r\nexport default Empty;"],
-  "mappings": ";;;;;;;;;;;AAKQ;AAFR,IAAM,QAAQ,MAAM;AAChB,SACI,sFACI,6DAAC,SAAI,WAAU,iDACX;AAAA,uDAAC,mBAAgB,WAAU,iCAAgC,MAAM,YAAjE;AAAA;AAAA;AAAA;AAAA,WAA2E;AAAA,IAC3E,mDAAC,QAAG,WAAU,oCAAmC,mCAAjD;AAAA;AAAA;AAAA;AAAA,WAAoE;AAAA,IACpE,mDAAC,OAAE,WAAU,kCAAiC,gFAA9C;AAAA;AAAA;AAAA;AAAA,WAA8G;AAAA,OAHlH;AAAA;AAAA;AAAA;AAAA,SAIA,KALJ;AAAA;AAAA;AAAA;AAAA,SAMA;AAER;AACA,IAAO,gBAAQ;",
-  "names": []
-}

@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BigBlogCard, BlogsCard } from "../utils/blogscard";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 
 type BlogsIntroProps = {
     blogdata: any[]
@@ -33,8 +32,6 @@ const BlogsIntro = (props: BlogsIntroProps) => {
 
                     <BigBlogCard title="Swupnil Sahai and his co‑founder serve an ace with AI‑powered SwingVision" background="bg-[#ADADAD]" time="May 26, 2022" imageUrl="./images/blogs/blog6.png" textColor="text-white"></BigBlogCard>
                     <BigBlogCard title="App Store stopped nearly $1.5 billion in fraudulent transactions in 2021" background="bg-[#ADADAD]" time="May 26, 2022" imageUrl="./images/blogs/blog7.png" textColor="text-white"></BigBlogCard>
-
-
                     <div className="grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 justify-center my-10">
                         {
                             props.blogdata.map((val: any, index: number) => {

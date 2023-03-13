@@ -99,12 +99,12 @@ export const action = async ({ request }: ActionArgs) => {
         });
 
         if (apidata.data.status == false) {
+            console.log("grest");
             return { message: apidata.data.message };
         } else {
 
 
             //getting data and storing in cookies
-
             const userdata = await axios({
                 method: 'post',
                 url: `${BaseUrl}/api/getuser`,

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../app/routes/extra/sociallogin.$id.tsx"],
-  "sourcesContent": ["import { LoaderArgs, LoaderFunction, redirect } from \"@remix-run/node\";\r\nimport axios from \"axios\";\r\nimport { BaseUrl } from \"~/const\";\r\nimport { userPrefs } from \"~/cookies\";\r\n\r\nexport const loader: LoaderFunction = async (props: LoaderArgs) => {\r\n    const id = props.params.id;\r\n    const userdata = await axios({\r\n        method: 'post',\r\n        url: `${BaseUrl}/api/getuser`,\r\n        data: { \"id\": id },\r\n        headers: {\r\n            'Access-Control-Allow-Origin': '*',\r\n            'Access-Control-Allow-Headers': '*',\r\n            'Access-Control-Allow-Options': '*',\r\n            'Access-Control-Allow-Methods': '*',\r\n            'X-Content-Type-Options': '*',\r\n            'Content-Type': 'application/json',\r\n            'Accept': '*'\r\n        }\r\n    });\r\n    if (userdata.data.status == false) {\r\n        return { message: userdata.data.message };\r\n    }\r\n    else {\r\n        return redirect(\"/home\", {\r\n            headers: {\r\n                \"Set-Cookie\": await userPrefs.serialize({ user: userdata.data.data[0], isLogin: true }),\r\n            },\r\n        });\r\n    }\r\n}\r\nconst SocialLogin = () => {\r\n    return (\r\n        <>\r\n        </>\r\n    );\r\n}\r\nexport default SocialLogin;"],
-  "mappings": ";;;;;;;AAkCQ;AAFR,IAAM,cAAc,MAAM;AACtB,SACI;AAAA;AAAA;AAAA;AAAA,SACA;AAER;AACA,IAAO,yBAAQ;",
-  "names": []
-}

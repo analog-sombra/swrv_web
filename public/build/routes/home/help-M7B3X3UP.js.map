@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../app/routes/home/help.tsx"],
-  "sourcesContent": ["import { Outlet } from \"@remix-run/react\";\r\n\r\nconst Help = () => {\r\n    return (\r\n        <>\r\n            <Outlet></Outlet>\r\n        </>\r\n    );\r\n}\r\n\r\nexport default Help;"],
-  "mappings": ";;;;;;;;;AAIQ;AAFR,IAAM,OAAO,MAAM;AACf,SACI,sFACI,6DAAC,YAAD;AAAA;AAAA;AAAA;AAAA,SAAQ,KADZ;AAAA;AAAA;AAAA;AAAA,SAEA;AAER;AAEA,IAAO,eAAQ;",
-  "names": []
-}

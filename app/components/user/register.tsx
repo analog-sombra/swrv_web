@@ -139,12 +139,13 @@ export const RegisterBox = (props: RegisterBoxState) => {
                                         </div>
                                     </div>
                                 </div>
-                                {(error == "" || error == null || error == undefined) ? null :
-                                    <div className="bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4">{error}</div>
-                                }
-                                {props.message && <p className="w-full border-2 border-red-500 bg-red-500 bg-opacity-5  text-center my-2 rounded-md p-2 text-sm font-semibold text-red-500">{props.message}</p>}
+
                             </>
                             : null}
+                        {(error == "" || error == null || error == undefined) ? null :
+                            <div className="bg-red-500 bg-opacity-10 border-2 text-center border-red-500 rounded-md text-red-500 text-md font-normal text-md my-4">{error}</div>
+                        }
+                        {props.message && <p className="w-full border-2 border-red-500 bg-red-500 bg-opacity-5  text-center my-2 rounded-md p-2 text-sm font-semibold text-red-500">{props.message}</p>}
                         <div className="h-4"></div>
                         <button className="w-full inline black rounded-lg bg-primary shadow-lg text-center font-bold text-white text-md py-2 ">create account</button>
                         <div className="flex gap-4 content-start mt-4">
